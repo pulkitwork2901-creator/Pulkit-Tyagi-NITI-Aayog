@@ -1,0 +1,198 @@
+/* E&F-II Economic Situation Board
+   Palette: ink navy on cool paper, one indigo data colour, green/brick for direction.
+   Override any --eb-* variable from your app to match its theme. */
+
+.eb {
+  --eb-paper: #f4f6f9;
+  --eb-surface: #ffffff;
+  --eb-ink: #16233a;
+  --eb-muted: #5b6577;
+  --eb-rule: #dce1e8;
+  --eb-data: #2f4ba8;
+  --eb-good: #18794e;
+  --eb-bad: #b33a2b;
+  --eb-stale: #a86a00;
+  --eb-hover: #eef1f6;
+  --eb-font: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --eb-font-num: "IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", var(--eb-font);
+  --eb-radius: 10px;
+
+  color-scheme: light;
+  background: var(--eb-paper);
+  color: var(--eb-ink);
+  font-family: var(--eb-font);
+  font-size: 15px;
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: max(24px, env(safe-area-inset-top)) clamp(16px, 4vw, 48px) max(40px, env(safe-area-inset-bottom));
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  .eb:not([data-theme="light"]) {
+    --eb-paper: #0e1520;
+    --eb-surface: #151f2e;
+    --eb-ink: #e5e9f0;
+    --eb-muted: #97a1b2;
+    --eb-rule: #263246;
+    --eb-data: #8aa2f2;
+    --eb-good: #4cc38a;
+    --eb-bad: #f07a6a;
+    --eb-stale: #e6a23c;
+    --eb-hover: #1b2738;
+    color-scheme: dark;
+  }
+}
+.eb[data-theme="dark"] {
+  --eb-paper: #0e1520; --eb-surface: #151f2e; --eb-ink: #e5e9f0; --eb-muted: #97a1b2; --eb-rule: #263246;
+  --eb-data: #8aa2f2; --eb-good: #4cc38a; --eb-bad: #f07a6a; --eb-stale: #e6a23c; --eb-hover: #1b2738;
+  color-scheme: dark;
+}
+
+.eb *, .eb *::before, .eb *::after { box-sizing: border-box; }
+.eb > * { max-width: 78rem; margin-inline: auto; }
+.eb h1, .eb h2, .eb h3, .eb p { margin: 0; }
+.eb a { color: inherit; text-decoration-color: var(--eb-rule); text-underline-offset: 3px; }
+.eb a:hover { text-decoration-color: currentColor; }
+.eb :focus-visible { outline: 2px solid var(--eb-data); outline-offset: 2px; border-radius: 4px; }
+.eb-muted { color: var(--eb-muted); }
+
+/* Header */
+.eb-header {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end;
+  gap: 20px 32px; padding-bottom: 24px; margin-bottom: 28px; border-bottom: 2px solid var(--eb-ink);
+}
+.eb .eb-org { color: var(--eb-muted); font-size: 13px; margin-bottom: 6px; }
+.eb-header h1 {
+  font-family: var(--eb-font-num); font-weight: 600; font-size: clamp(28px, 4.2vw, 44px);
+  line-height: 1.05; letter-spacing: -0.01em;
+}
+.eb .eb-summary { margin-top: 12px; max-width: 44rem; color: var(--eb-muted); font-size: 16px; }
+.eb-summary strong { color: var(--eb-ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.eb-status { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; max-width: 24rem; }
+.eb-status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--eb-good); margin-top: 6px; flex: none; }
+.eb-status-dot.eb-status-stale { background: var(--eb-stale); }
+.eb-btn {
+  font: inherit; font-size: 13px; color: var(--eb-ink); background: var(--eb-surface);
+  border: 1px solid var(--eb-rule); border-radius: 6px; padding: 4px 12px; cursor: pointer; margin-left: 4px;
+}
+.eb-btn:hover { border-color: var(--eb-muted); }
+
+/* Headline strip: one panel split by rules, not four floating cards */
+.eb-kpis {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px;
+  background: var(--eb-rule); border: 1px solid var(--eb-rule); border-radius: var(--eb-radius); overflow: hidden;
+}
+@media (max-width: 1000px) { .eb-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .eb-kpis { grid-template-columns: 1fr; } }
+.eb-kpi { background: var(--eb-surface); padding: 20px 22px 16px; display: flex; flex-direction: column; min-width: 0; }
+.eb-kpi-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.eb-kpi-head h3 { font-size: 14px; font-weight: 500; }
+.eb-tag { font-size: 12px; color: var(--eb-muted); white-space: nowrap; }
+.eb-tag-live { color: var(--eb-good); }
+.eb-tag-live::before {
+  content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: currentColor; margin-right: 6px; vertical-align: 1px;
+}
+.eb-tag-stale { color: var(--eb-stale); }
+.eb .eb-kpi-value {
+  font-family: var(--eb-font-num); font-weight: 500; font-size: clamp(40px, 4.4vw, 54px);
+  line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; margin: 14px 0 10px;
+}
+.eb-kpi-unit { font-family: var(--eb-font); font-size: 14px; font-weight: 400; color: var(--eb-muted); margin-left: 6px; letter-spacing: 0; }
+.eb-kpi-change { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--eb-muted); }
+.eb .eb-kpi-foot {
+  display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-top: 12px;
+  padding-top: 10px; border-top: 1px solid var(--eb-rule); font-size: 12px; color: var(--eb-muted);
+}
+.eb-kpi-foot span:first-child { color: var(--eb-ink); font-weight: 500; }
+
+.eb-chip {
+  display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 13px; font-weight: 500;
+  font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--eb-muted);
+  background: color-mix(in srgb, currentColor 11%, transparent);
+}
+.eb-good { color: var(--eb-good); }
+.eb-bad { color: var(--eb-bad); }
+.eb-neutral { color: var(--eb-muted); }
+
+/* Sparkline */
+.eb-spark { position: relative; height: 44px; margin-top: 14px; }
+.eb-spark svg { display: block; overflow: visible; }
+.eb-spark-empty { font-size: 12px; color: var(--eb-muted); display: flex; align-items: center; }
+
+/* Shared chart marks */
+.eb-line { fill: none; stroke: var(--eb-data); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.eb-grad { stop-color: var(--eb-data); }
+.eb-mark { fill: var(--eb-data); }
+.eb-mark-quiet { opacity: 0.4; }
+.eb-dot-mark { fill: var(--eb-data); stroke: var(--eb-surface); stroke-width: 1.5; }
+.eb-grid { stroke: var(--eb-rule); stroke-width: 1; }
+.eb-axis { stroke: var(--eb-muted); stroke-width: 1; }
+.eb-tick { fill: var(--eb-muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.eb-endlabel { fill: var(--eb-ink); font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.eb-tip {
+  position: absolute; z-index: 3; pointer-events: none; min-width: 120px; white-space: nowrap;
+  background: var(--eb-surface); border: 1px solid var(--eb-rule); border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(15, 25, 45, 0.14); padding: 6px 10px; font-size: 13px; font-weight: 500;
+}
+.eb-tip span { display: block; font-weight: 400; font-size: 12px; color: var(--eb-muted); }
+
+/* Sections */
+.eb-section { margin-top: 40px; }
+.eb-section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 20px; margin-bottom: 12px; }
+.eb-section-head h2 { font-family: var(--eb-font-num); font-weight: 600; font-size: 22px; }
+.eb-section-head p { font-size: 13px; color: var(--eb-muted); }
+
+/* Monitor table */
+.eb-tablewrap { overflow-x: auto; background: var(--eb-surface); border: 1px solid var(--eb-rule); border-radius: var(--eb-radius); }
+.eb-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.eb-table thead th {
+  text-align: left; font-size: 12px; font-weight: 500; color: var(--eb-muted);
+  padding: 12px 16px; border-bottom: 1px solid var(--eb-rule); white-space: nowrap;
+}
+.eb-table td, .eb-table tbody th { padding: 11px 16px; border-bottom: 1px solid var(--eb-rule); text-align: left; vertical-align: baseline; }
+.eb-table tbody th { font-weight: 500; white-space: nowrap; }
+.eb-table tbody tr:not(.eb-group):hover { background: var(--eb-hover); }
+.eb-table tbody:last-child tr:last-child > * { border-bottom: 0; }
+.eb-table .eb-group th {
+  font-family: var(--eb-font-num); font-size: 14px; font-weight: 600; color: var(--eb-ink);
+  padding-top: 16px; background: color-mix(in srgb, var(--eb-paper) 60%, var(--eb-surface));
+}
+.eb-table .eb-num { text-align: right; white-space: nowrap; }
+.eb-cell-value { font-family: var(--eb-font-num); font-size: 18px; font-weight: 500; }
+.eb-cell-unit { font-size: 12px; color: var(--eb-muted); margin-left: 6px; }
+.eb-table td { font-size: 14px; }
+.eb-table td.eb-nowrap { white-space: nowrap; }
+@media (max-width: 560px) {
+  .eb-table tbody th { white-space: normal; min-width: 8.5rem; }
+  .eb-table td, .eb-table tbody th, .eb-table thead th { padding-inline: 10px; }
+  .eb-cell-unit { display: block; margin-left: 0; }
+}
+.eb-table td.eb-source { min-width: 14rem; font-size: 13px; }
+.eb-live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--eb-good); margin-left: 8px; vertical-align: 2px; }
+@media (max-width: 1100px) { .eb-hide-md { display: none; } }
+@media (max-width: 720px) { .eb-hide-sm { display: none; } }
+
+/* Charts */
+.eb-charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: 16px; }
+.eb-chartcard { background: var(--eb-surface); border: 1px solid var(--eb-rule); border-radius: var(--eb-radius); padding: 18px 20px 12px; min-width: 0; }
+.eb-chartcard h3 { font-size: 15px; font-weight: 500; }
+.eb .eb-chartnote { font-size: 13px; color: var(--eb-muted); margin: 2px 0 10px; }
+.eb-chart { position: relative; min-height: 240px; }
+.eb-chart svg { display: block; }
+.eb-empty { font-size: 13px; color: var(--eb-muted); padding: 90px 0; text-align: center; }
+
+/* Notes and states */
+.eb-notes { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--eb-rule); font-size: 13px; color: var(--eb-muted); }
+.eb .eb-notes h2 { font-size: 14px; font-weight: 500; color: var(--eb-ink); margin-bottom: 6px; }
+.eb .eb-notes p { max-width: 62rem; margin-bottom: 8px; }
+.eb-loading { padding: 80px 0; text-align: center; color: var(--eb-muted); }
+.eb-error { padding: 60px 0; max-width: 36rem; }
+.eb .eb-error h1 { font-family: var(--eb-font-num); font-size: 26px; margin-bottom: 8px; }
+.eb .eb-error p { color: var(--eb-muted); margin-bottom: 14px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .eb-kpis { animation: eb-rise 420ms cubic-bezier(.2, .7, .2, 1) both; }
+  @keyframes eb-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+}

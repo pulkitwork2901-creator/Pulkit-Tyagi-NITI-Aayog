@@ -1,0 +1,503 @@
+{
+ "generated_at": "2026-11-04T16:25:17+00:00",
+ "sources": {
+  "mospi": {
+   "status": "ok",
+   "fetched_at": "2026-11-04T16:25:17+00:00",
+   "message": null
+  }
+ },
+ "indicators": [
+  {
+   "label": "Real GDP growth",
+   "group": "Growth and prices",
+   "decimals": 1,
+   "up_is_good": true,
+   "change_unit": "pts",
+   "id": "gdp",
+   "mode": "live",
+   "value": 7.8,
+   "unit": "% YoY",
+   "period": "Q1 2026-27",
+   "compare_value": 8.6,
+   "compare_period": "Q4 2025-26",
+   "change": -0.8,
+   "source": "MoSPI National Accounts, base 2022-23 (constant prices)",
+   "source_url": "https://esankhyiki.mospi.gov.in",
+   "released": null,
+   "history": [
+    {
+     "label": "Q1 2023-24",
+     "short": "Q1 23-24",
+     "value": 6.6
+    },
+    {
+     "label": "Q2 2023-24",
+     "short": "Q2 23-24",
+     "value": 7.5
+    },
+    {
+     "label": "Q3 2023-24",
+     "short": "Q3 23-24",
+     "value": 7.7
+    },
+    {
+     "label": "Q4 2023-24",
+     "short": "Q4 23-24",
+     "value": 7.4
+    },
+    {
+     "label": "Q1 2024-25",
+     "short": "Q1 24-25",
+     "value": 7.5
+    },
+    {
+     "label": "Q2 2024-25",
+     "short": "Q2 24-25",
+     "value": 7.3
+    },
+    {
+     "label": "Q3 2024-25",
+     "short": "Q3 24-25",
+     "value": 7.4
+    },
+    {
+     "label": "Q4 2024-25",
+     "short": "Q4 24-25",
+     "value": 6.6
+    },
+    {
+     "label": "Q1 2025-26",
+     "short": "Q1 25-26",
+     "value": 6.9
+    },
+    {
+     "label": "Q2 2025-26",
+     "short": "Q2 25-26",
+     "value": 8.1
+    },
+    {
+     "label": "Q3 2025-26",
+     "short": "Q3 25-26",
+     "value": 7.7
+    },
+    {
+     "label": "Q4 2025-26",
+     "short": "Q4 25-26",
+     "value": 8.6
+    },
+    {
+     "label": "Q1 2026-27",
+     "short": "Q1 26-27",
+     "value": 7.8
+    }
+   ]
+  },
+  {
+   "label": "CPI inflation",
+   "group": "Growth and prices",
+   "decimals": 2,
+   "up_is_good": false,
+   "change_unit": "pts",
+   "id": "cpi",
+   "mode": "live",
+   "value": 5.54,
+   "unit": "% YoY",
+   "period": "Sep 2026",
+   "compare_value": 4.83,
+   "compare_period": "Aug 2026",
+   "change": 0.71,
+   "source": "MoSPI CPI, base 2024, All India combined",
+   "source_url": "https://esankhyiki.mospi.gov.in",
+   "released": null,
+   "history": [
+    {
+     "label": "January 2026",
+     "short": "Jan 26",
+     "value": 2.74
+    },
+    {
+     "label": "February 2026",
+     "short": "Feb 26",
+     "value": 3.21
+    },
+    {
+     "label": "March 2026",
+     "short": "Mar 26",
+     "value": 3.4
+    },
+    {
+     "label": "April 2026",
+     "short": "Apr 26",
+     "value": 3.48
+    },
+    {
+     "label": "May 2026",
+     "short": "May 26",
+     "value": 3.93
+    },
+    {
+     "label": "June 2026",
+     "short": "Jun 26",
+     "value": 4.38
+    },
+    {
+     "label": "July 2026",
+     "short": "Jul 26",
+     "value": 4.45
+    },
+    {
+     "label": "August 2026",
+     "short": "Aug 26",
+     "value": 4.83
+    },
+    {
+     "label": "September 2026",
+     "short": "Sep 26",
+     "value": 5.54
+    }
+   ]
+  },
+  {
+   "label": "IIP growth",
+   "group": "Growth and prices",
+   "decimals": 1,
+   "up_is_good": true,
+   "change_unit": "pts",
+   "id": "iip",
+   "mode": "manual",
+   "value": 6.7,
+   "unit": "% YoY",
+   "period": "Sep 2026",
+   "compare_value": 7.8,
+   "compare_period": "Aug 2026 (revised)",
+   "change": -1.1,
+   "source": "MoSPI IIP quick estimate, base 2022-23",
+   "source_url": "https://www.mospi.gov.in",
+   "released": "2026-10-28",
+   "entered_by": "Claude (from official release)",
+   "history": [
+    {
+     "label": "Aug 2026",
+     "short": "31 Aug",
+     "value": 7.8
+    },
+    {
+     "label": "Sep 2026",
+     "short": "30 Sep",
+     "value": 6.7
+    }
+   ]
+  },
+  {
+   "label": "Merchandise exports",
+   "group": "External sector",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "bn",
+   "id": "exports",
+   "mode": "manual",
+   "value": 44.4,
+   "unit": "US$ bn",
+   "period": "Sep 2026",
+   "compare_value": 36.08,
+   "compare_period": "Sep 2025",
+   "change": 8.32,
+   "source": "Ministry of Commerce & Industry",
+   "source_url": "https://commerce.gov.in",
+   "released": "2026-10-15",
+   "entered_by": "Claude (from official release)",
+   "history": [
+    {
+     "label": "Aug 2026",
+     "short": "31 Aug",
+     "value": 43.81
+    },
+    {
+     "label": "Sep 2026",
+     "short": "30 Sep",
+     "value": 44.4
+    }
+   ]
+  },
+  {
+   "label": "Merchandise imports",
+   "group": "External sector",
+   "decimals": 2,
+   "up_is_good": null,
+   "change_unit": "bn",
+   "id": "imports",
+   "mode": "manual",
+   "value": 74.61,
+   "unit": "US$ bn",
+   "period": "Sep 2026",
+   "compare_value": 69.08,
+   "compare_period": "Sep 2025",
+   "change": 5.53,
+   "source": "Ministry of Commerce & Industry",
+   "source_url": "https://commerce.gov.in",
+   "released": "2026-10-15",
+   "entered_by": "Claude (from official release)",
+   "history": [
+    {
+     "label": "Aug 2026",
+     "short": "31 Aug",
+     "value": 70.67
+    },
+    {
+     "label": "Sep 2026",
+     "short": "30 Sep",
+     "value": 74.61
+    }
+   ]
+  },
+  {
+   "label": "Merchandise trade balance",
+   "group": "External sector",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "bn",
+   "id": "trade_balance",
+   "mode": "manual",
+   "value": -30.21,
+   "unit": "US$ bn",
+   "period": "Sep 2026",
+   "compare_value": -33.0,
+   "compare_period": "Sep 2025",
+   "change": 2.79,
+   "source": "Ministry of Commerce & Industry",
+   "source_url": "https://commerce.gov.in",
+   "released": "2026-10-15",
+   "entered_by": "Claude (from official release)",
+   "history": [
+    {
+     "label": "Aug 2026",
+     "short": "31 Aug",
+     "value": -26.86
+    },
+    {
+     "label": "Sep 2026",
+     "short": "30 Sep",
+     "value": -30.21
+    }
+   ]
+  },
+  {
+   "label": "Current account balance",
+   "group": "External sector",
+   "decimals": 1,
+   "up_is_good": true,
+   "change_unit": "pts",
+   "id": "cad",
+   "mode": "manual",
+   "value": -0.5,
+   "unit": "% of GDP",
+   "period": "Q1 2026-27",
+   "compare_value": -0.4,
+   "compare_period": "Q1 2025-26",
+   "change": -0.1,
+   "source": "RBI, developments in India's BoP (US$ -4.2 bn)",
+   "source_url": "https://www.rbi.org.in",
+   "released": "2026-09-01",
+   "entered_by": "Claude (from official release)",
+   "history": [
+    {
+     "label": "Q1 2026-27",
+     "short": "30 Jun",
+     "value": -0.5
+    }
+   ]
+  },
+  {
+   "label": "Forex reserves",
+   "group": "External sector",
+   "decimals": 1,
+   "up_is_good": true,
+   "change_unit": "bn",
+   "id": "fx_reserves",
+   "mode": "manual",
+   "value": 719.8,
+   "unit": "US$ bn",
+   "period": "Week to 23 Oct 2026",
+   "compare_value": 721.02,
+   "compare_period": "Week to 16 Oct 2026",
+   "change": -1.22,
+   "source": "RBI Weekly Statistical Supplement",
+   "source_url": "https://www.rbi.org.in",
+   "released": "2026-10-30",
+   "entered_by": "Claude (from official release)",
+   "history": [
+    {
+     "label": "Week to 4 Sep 2026 (record high)",
+     "short": "4 Sep",
+     "value": 785.71
+    },
+    {
+     "label": "Week to 2 Oct 2026",
+     "short": "2 Oct",
+     "value": 734.61
+    },
+    {
+     "label": "Week to 9 Oct 2026",
+     "short": "9 Oct",
+     "value": 726.03
+    },
+    {
+     "label": "Week to 16 Oct 2026",
+     "short": "16 Oct",
+     "value": 721.02
+    },
+    {
+     "label": "Week to 23 Oct 2026",
+     "short": "23 Oct",
+     "value": 719.8
+    }
+   ]
+  },
+  {
+   "label": "Rupee per US dollar",
+   "group": "External sector",
+   "decimals": 2,
+   "up_is_good": false,
+   "change_unit": "",
+   "id": "inr_usd",
+   "mode": "manual",
+   "value": 94.9,
+   "unit": "₹ per US$",
+   "period": "2 Nov 2026",
+   "compare_value": 94.96,
+   "compare_period": "30 Oct 2026",
+   "change": -0.06,
+   "source": "Market close as reported by Business Standard (not the FBIL reference rate)",
+   "source_url": "https://www.business-standard.com",
+   "released": "2026-11-02",
+   "entered_by": "Claude (from news report)",
+   "history": [
+    {
+     "label": "1 Oct 2026",
+     "short": "1 Oct",
+     "value": 96.31
+    },
+    {
+     "label": "7 Oct 2026",
+     "short": "7 Oct",
+     "value": 96.78
+    },
+    {
+     "label": "2 Nov 2026",
+     "short": "2 Nov",
+     "value": 94.9
+    }
+   ]
+  },
+  {
+   "label": "Centre's fiscal deficit",
+   "group": "Fiscal and monetary",
+   "decimals": 1,
+   "up_is_good": false,
+   "change_unit": "pts",
+   "id": "fiscal_deficit",
+   "mode": "manual",
+   "value": 42.1,
+   "unit": "% of BE",
+   "period": "Apr-Sep 2026",
+   "compare_value": 36.5,
+   "compare_period": "Apr-Sep 2025",
+   "change": 5.6,
+   "source": "CGA, Union Government Accounts (Rs 7.14 lakh crore)",
+   "source_url": "https://cga.nic.in",
+   "released": "2026-10-30",
+   "entered_by": "Claude (from official release)",
+   "history": [
+    {
+     "label": "Apr-Sep 2026",
+     "short": "30 Sep",
+     "value": 42.1
+    }
+   ]
+  },
+  {
+   "label": "Gross GST collections",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "lakh cr",
+   "id": "gst_gross",
+   "mode": "manual",
+   "value": 2.31,
+   "unit": "₹ lakh crore",
+   "period": "Oct 2026",
+   "compare_value": 1.88,
+   "compare_period": "Oct 2025",
+   "change": 0.43,
+   "source": "Ministry of Finance (provisional)",
+   "source_url": "https://www.gst.gov.in",
+   "released": "2026-11-01",
+   "entered_by": "Claude (from official release)",
+   "history": [
+    {
+     "label": "Sep 2026",
+     "short": "30 Sep",
+     "value": 2.03
+    },
+    {
+     "label": "Oct 2026",
+     "short": "31 Oct",
+     "value": 2.31
+    }
+   ]
+  },
+  {
+   "label": "Policy repo rate",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": null,
+   "change_unit": "pts",
+   "id": "repo",
+   "mode": "manual",
+   "value": 5.5,
+   "unit": "%",
+   "period": "From 7 Oct 2026",
+   "compare_value": 5.25,
+   "compare_period": "Before 7 Oct 2026",
+   "change": 0.25,
+   "source": "RBI Monetary Policy Committee resolution",
+   "source_url": "https://www.rbi.org.in",
+   "released": "2026-10-07",
+   "entered_by": "Claude (from official release)",
+   "history": [
+    {
+     "label": "From 7 Oct 2026",
+     "short": "7 Oct",
+     "value": 5.5
+    }
+   ]
+  },
+  {
+   "label": "10-year G-sec yield",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": null,
+   "change_unit": "pts",
+   "id": "gsec10",
+   "mode": "manual",
+   "value": 7.32,
+   "unit": "%",
+   "period": "2 Nov 2026",
+   "compare_value": 7.48,
+   "compare_period": "26 Oct 2026 (four-year high)",
+   "change": -0.16,
+   "source": "Market close as reported by Business Standard",
+   "source_url": "https://www.business-standard.com",
+   "released": "2026-11-02",
+   "entered_by": "Claude (from news report)",
+   "history": [
+    {
+     "label": "2 Nov 2026",
+     "short": "2 Nov",
+     "value": 7.32
+    }
+   ]
+  }
+ ]
+}

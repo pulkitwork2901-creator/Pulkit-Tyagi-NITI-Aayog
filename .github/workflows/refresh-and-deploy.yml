@@ -1,0 +1,66 @@
+# Rebuilds the board's data every day from MoSPI and the manual sheet,
+# then publishes the site to GitHub Pages. Also runs when you push a change
+# to data/manual-indicators.csv, or on demand from the Actions tab.
+name: Refresh data and deploy board
+
+on:
+  schedule:
+    - cron: "30 12 * * *"   # 18:00 IST daily, after most releases
+  push:
+    branches: [main]
+    paths: ["data/**", "src/**", "scripts/**", "index.html", "package.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: board
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      - name: Pull MoSPI data and merge the manual sheet
+        run: python scripts/build_indicators.py
+        continue-on-error: true   # keeps last good GDP/CPI if MoSPI is down
+
+      - name: Save refreshed data back to the repo
+        run: |
+          git config user.name "board-bot"
+          git config user.email "board-bot@users.noreply.github.com"
+          git add public/data/indicators.json
+          git diff --cached --quiet || git commit -m "Refresh indicators $(date -u +%F)"
+          git push
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
