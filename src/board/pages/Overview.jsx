@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Chip from '../Chip.jsx';
 import Lead from '../Lead.jsx';
 import Ledger from '../Ledger.jsx';
@@ -23,11 +24,21 @@ function Figure({ item }) {
 }
 
 export default function Overview({ data, title, byId, groups }) {
+  const [query, setQuery] = useState('');
+  const [selectedGroup, setSelectedGroup] = useState('all');
   const indicators = data.indicators || [];
   const headline = HEADLINE.map((id) => byId[id]).filter(Boolean);
+  const visibleItems = (group) => indicators.filter((item) => {
+    if (item.group !== group) return false;
+    const searchText = `${item.label} ${item.source} ${item.period} ${item.group}`.toLocaleLowerCase();
+    return searchText.includes(query.trim().toLocaleLowerCase());
+  });
+  const visibleGroups = groups.filter((group) => (selectedGroup === 'all' || selectedGroup === group) && visibleItems(group).length > 0);
+  const visibleCount = visibleGroups.reduce((count, group) => count + visibleItems(group).length, 0);
   return (
     <>
       <header className="eb-pagehead">
+        <p className="eb-kicker">ECONOMIC INTELLIGENCE · INDIA</p>
         <h1>{title}</h1>
         <p className="eb-asof">Position as on {formatDateTime(data.generated_at)}</p>
       </header>
@@ -60,13 +71,34 @@ export default function Overview({ data, title, byId, groups }) {
         </div>
       </section>
 
-      {groups.map((g) => (
+      <section className="eb-section eb-monitor" aria-labelledby="eb-monitor-title">
+        <div className="eb-monitor-head">
+          <div><p className="eb-kicker">LATEST RELEASES</p><h2 id="eb-monitor-title">Indicator monitor</h2></div>
+          <p className="eb-monitor-count" aria-live="polite">{visibleCount} of {indicators.length} indicators</p>
+        </div>
+        <div className="eb-monitor-tools">
+          <label className="eb-search">
+            <span className="eb-sr">Search indicators, periods, or sources</span>
+            <svg aria-hidden="true" viewBox="0 0 20 20"><circle cx="8.8" cy="8.8" r="5.6"/><path d="m13 13 4 4"/></svg>
+            <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search indicators, periods, or sources" />
+          </label>
+          <label className="eb-monitor-filter"><span>Theme</span>
+            <select value={selectedGroup} onChange={(event) => setSelectedGroup(event.target.value)} aria-label="Filter indicators by theme">
+              <option value="all">All themes</option>
+              {groups.map((group) => <option key={group} value={group}>{group}</option>)}
+            </select>
+          </label>
+        </div>
+        {visibleCount === 0 && <p className="eb-filter-empty" role="status">No indicators match these filters. Try another search or theme.</p>}
+      </section>
+
+      {visibleGroups.map((g) => (
         <section key={g} className="eb-section" aria-labelledby={`eb-g-${slug(g)}`}>
           <div className="eb-sectionbar">
             <h2 id={`eb-g-${slug(g)}`}>{g}</h2>
             <a className="eb-more" href={`#/theme/${slug(g)}`}>Open theme page</a>
           </div>
-          <Ledger caption={g} items={indicators.filter((i) => i.group === g)} />
+          {visibleItems(g).length ? <Ledger caption={g} items={visibleItems(g)} /> : <p className="eb-filter-empty">No indicators in this theme match your search.</p>}
         </section>
       ))}
     </>
