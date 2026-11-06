@@ -431,5 +431,5 @@
 }
 .eb .eb-prose { width: 100%; }
 .eb .eb-prose h2 { width: 100%; }
-.eb .eb-prose p { max-width: none; width: 100%; font-size: 15.5px; line-height: 1.7; letter-spacing: .002em; }
+.eb .eb-prose p { max-width: none; width: 100%; font-size: 16px; line-height: 1.72; letter-spacing: .002em; }
 .eb-facts dd { max-width: none; }
