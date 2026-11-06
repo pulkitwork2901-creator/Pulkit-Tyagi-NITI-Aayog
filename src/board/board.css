@@ -19,8 +19,8 @@
   --eb-stale: #8a5200;
   --eb-rail-ink: #e6ecf8;
   --eb-rail-muted: #a9b6d3;
-  --eb-serif: "Source Serif 4", "Noto Serif", Georgia, "Times New Roman", serif;
-  --eb-font: "Source Sans 3", "Noto Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --eb-serif: "IBM Plex Serif", "Noto Serif", Georgia, "Times New Roman", serif;
+  --eb-font: "IBM Plex Sans", "Noto Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
   --eb-rail-w: 272px;
 
   display: grid;
@@ -129,7 +129,7 @@
 /* The brief */
 .eb-lead { font-family: var(--eb-serif); font-size: clamp(19px, 2.2vw, 23px); line-height: 1.6; max-width: 66ch; margin: 0; color: var(--eb-ink); }
 .eb-lead strong { color: var(--eb-navy); font-weight: 700; }
-.eb-prose p { max-width: 70ch; margin: 0 0 14px; }
+.eb-prose p { max-width: none; width: 100%; margin: 0 0 14px; line-height: 1.68; }
 
 /* Headline figures: separated by rules, not boxed */
 .eb-figures { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); border-top: 1px solid var(--eb-rule); }
@@ -264,7 +264,7 @@
 .eb-railmuted { font-size: 10px; }
 .eb-btn { border-radius: 5px; transition: background-color .15s ease, border-color .15s ease; }
 .eb-btn-rail { font-size: 11px; }
-.eb-main { max-width: 1440px; padding: 38px clamp(24px, 4vw, 64px) 72px; }
+.eb-main { max-width: none; padding: 38px clamp(24px, 4vw, 64px) 72px; }
 .eb-pagehead { margin-bottom: 30px; }
 .eb-pagehead h1 { font-size: clamp(32px, 3.4vw, 44px); letter-spacing: -.025em; }
 .eb-asof { margin-top: 7px; font-size: 12px; }
@@ -429,3 +429,7 @@
   .eb-figure:nth-child(4), .eb-theme-grid li:nth-child(4) { animation-delay: 135ms; }
   @keyframes eb-enter { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
 }
+.eb .eb-prose { width: 100%; }
+.eb .eb-prose h2 { width: 100%; }
+.eb .eb-prose p { max-width: none; width: 100%; font-size: 15.5px; line-height: 1.7; letter-spacing: .002em; }
+.eb-facts dd { max-width: none; }
