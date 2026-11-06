@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-05T13:44:10+00:00",
+ "generated_at": "2026-11-06T08:52:42+00:00",
  "sources": {
   "mospi": {
    "status": "ok",
-   "fetched_at": "2026-11-05T13:44:10+00:00",
+   "fetched_at": "2026-11-06T08:52:42+00:00",
    "message": null
   }
  },
@@ -496,6 +496,198 @@
      "label": "2 Nov 2026",
      "short": "2 Nov",
      "value": 7.32
+    }
+   ]
+  },
+  {
+   "label": "Non-food bank credit growth",
+   "group": "Money, credit and capital flows",
+   "decimals": 2,
+   "up_is_good": null,
+   "change_unit": "pts",
+   "id": "credit_nonfood",
+   "mode": "manual",
+   "value": 19.15,
+   "unit": "% YoY",
+   "period": "Sep 2026",
+   "compare_value": 11.22,
+   "compare_period": "Growth a year earlier (Oct 2025)",
+   "change": 7.93,
+   "source": "RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)",
+   "source_url": "https://rbi.org.in/scripts/Data_Sectoral_Deployment.aspx",
+   "released": "2026-10-30",
+   "entered_by": "Claude (from RBI release)",
+   "history": [
+    {
+     "label": "Sep 2026",
+     "short": "30 Sep",
+     "value": 19.15
+    }
+   ]
+  },
+  {
+   "label": "Credit to agriculture and allied activities",
+   "group": "Money, credit and capital flows",
+   "decimals": 2,
+   "up_is_good": null,
+   "change_unit": "pts",
+   "id": "credit_agri",
+   "mode": "manual",
+   "value": 19.52,
+   "unit": "% YoY",
+   "period": "Sep 2026",
+   "compare_value": 8.85,
+   "compare_period": "Growth a year earlier (Sep 2025)",
+   "change": 10.67,
+   "source": "RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)",
+   "source_url": "https://rbi.org.in/scripts/Data_Sectoral_Deployment.aspx",
+   "released": "2026-10-30",
+   "entered_by": "Claude (from RBI release)",
+   "history": [
+    {
+     "label": "Sep 2026",
+     "short": "30 Sep",
+     "value": 19.52
+    }
+   ]
+  },
+  {
+   "label": "Credit to industry",
+   "group": "Money, credit and capital flows",
+   "decimals": 2,
+   "up_is_good": null,
+   "change_unit": "pts",
+   "id": "credit_industry",
+   "mode": "manual",
+   "value": 19.46,
+   "unit": "% YoY",
+   "period": "Sep 2026",
+   "compare_value": 7.71,
+   "compare_period": "Growth a year earlier (Sep 2025)",
+   "change": 11.75,
+   "source": "RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)",
+   "source_url": "https://rbi.org.in/scripts/Data_Sectoral_Deployment.aspx",
+   "released": "2026-10-30",
+   "entered_by": "Claude (from RBI release)",
+   "history": [
+    {
+     "label": "Sep 2026",
+     "short": "30 Sep",
+     "value": 19.46
+    }
+   ]
+  },
+  {
+   "label": "Credit to services",
+   "group": "Money, credit and capital flows",
+   "decimals": 2,
+   "up_is_good": null,
+   "change_unit": "pts",
+   "id": "credit_services",
+   "mode": "manual",
+   "value": 28.32,
+   "unit": "% YoY",
+   "period": "Sep 2026",
+   "compare_value": 9.94,
+   "compare_period": "Growth a year earlier (Sep 2025)",
+   "change": 18.38,
+   "source": "RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)",
+   "source_url": "https://rbi.org.in/scripts/Data_Sectoral_Deployment.aspx",
+   "released": "2026-10-30",
+   "entered_by": "Claude (from RBI release)",
+   "history": [
+    {
+     "label": "Sep 2026",
+     "short": "30 Sep",
+     "value": 28.32
+    }
+   ]
+  },
+  {
+   "label": "Personal loans",
+   "group": "Money, credit and capital flows",
+   "decimals": 2,
+   "up_is_good": null,
+   "change_unit": "pts",
+   "id": "credit_personal",
+   "mode": "manual",
+   "value": 17.25,
+   "unit": "% YoY",
+   "period": "Sep 2026",
+   "compare_value": 11.5,
+   "compare_period": "Growth a year earlier (Sep 2025)",
+   "change": 5.75,
+   "source": "RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)",
+   "source_url": "https://rbi.org.in/scripts/Data_Sectoral_Deployment.aspx",
+   "released": "2026-10-30",
+   "entered_by": "Claude (from RBI release)",
+   "history": [
+    {
+     "label": "Sep 2026",
+     "short": "30 Sep",
+     "value": 17.25
+    }
+   ]
+  },
+  {
+   "label": "Net FDI",
+   "group": "Money, credit and capital flows",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "bn",
+   "id": "fdi_net",
+   "mode": "manual",
+   "value": 3.32,
+   "unit": "US$ bn",
+   "period": "Aug 2026",
+   "compare_value": -0.1,
+   "compare_period": "Aug 2025",
+   "change": 3.42,
+   "source": "RBI Bulletin October 2026, Table 35 Foreign Investment Inflows (provisional)",
+   "source_url": "https://www.rbi.org.in",
+   "released": "2026-10-25",
+   "entered_by": "Claude (from RBI release)",
+   "history": [
+    {
+     "label": "Jul 2026",
+     "short": "31 Jul",
+     "value": 7.34
+    },
+    {
+     "label": "Aug 2026",
+     "short": "31 Aug",
+     "value": 3.32
+    }
+   ]
+  },
+  {
+   "label": "Net FPI inflows",
+   "group": "Money, credit and capital flows",
+   "decimals": 2,
+   "up_is_good": null,
+   "change_unit": "bn",
+   "id": "fpi_net",
+   "mode": "manual",
+   "value": 1.87,
+   "unit": "US$ bn",
+   "period": "Aug 2026",
+   "compare_value": -2.5,
+   "compare_period": "Aug 2025",
+   "change": 4.37,
+   "source": "RBI Bulletin October 2026, Table 35 Foreign Investment Inflows (provisional)",
+   "source_url": "https://www.rbi.org.in",
+   "released": "2026-10-25",
+   "entered_by": "Claude (from RBI release)",
+   "history": [
+    {
+     "label": "Jul 2026",
+     "short": "31 Jul",
+     "value": 4.37
+    },
+    {
+     "label": "Aug 2026",
+     "short": "31 Aug",
+     "value": 1.87
     }
    ]
   }

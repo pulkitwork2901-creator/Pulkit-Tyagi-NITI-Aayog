@@ -41,3 +41,31 @@ export function niceScale(lo, hi, count = 4) {
   const step = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((s) => s >= raw) ?? 10 * mag;
   return [Math.floor(lo / step) * step, Math.ceil(hi / step) * step, step];
 }
+
+// Minus sign that lines up with figures (U+2212) instead of a hyphen.
+export function signed(text) {
+  return String(text).replace(/^-/, '−');
+}
+
+// 'growth-and-prices' from 'Growth and prices', used in page addresses.
+export function slug(text) {
+  return String(text).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+// Arrow that backs up the colour, so direction never depends on colour alone.
+export function arrow(change) {
+  if (change == null || Number(change) === 0) return '▬';
+  return Number(change) > 0 ? '▲' : '▼';
+}
+
+// Plain-language reading of an indicator's direction.
+export function reading(upIsGood) {
+  if (upIsGood === true) return 'A rise is favourable.';
+  if (upIsGood === false) return 'A fall is favourable.';
+  return 'Neither a rise nor a fall is favourable by itself.';
+}
+
+// Chart wording that works for any indicator.
+export function tipFor(item) {
+  return (v) => `${signed(formatValue(v, item.decimals))} ${item.unit}`.trim();
+}

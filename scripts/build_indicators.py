@@ -50,6 +50,13 @@ META = {
     "gst_gross":      {"label": "Gross GST collections", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
     "repo":           {"label": "Policy repo rate", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
     "gsec10":         {"label": "10-year G-sec yield", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
+    "credit_nonfood": {"label": "Non-food bank credit growth", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None, "change_unit": "pts"},
+    "credit_agri":    {"label": "Credit to agriculture and allied activities", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None, "change_unit": "pts"},
+    "credit_industry": {"label": "Credit to industry", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None, "change_unit": "pts"},
+    "credit_services": {"label": "Credit to services", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None, "change_unit": "pts"},
+    "credit_personal": {"label": "Personal loans", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None, "change_unit": "pts"},
+    "fdi_net":        {"label": "Net FDI", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": True,  "change_unit": "bn"},
+    "fpi_net":        {"label": "Net FPI inflows", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None,  "change_unit": "bn"},
 }
 
 

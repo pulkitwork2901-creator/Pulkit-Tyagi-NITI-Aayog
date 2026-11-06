@@ -2,18 +2,19 @@ import { useId, useState } from 'react';
 import useWidth from './useWidth.js';
 import { niceScale } from './format.js';
 
-const H = 240;
-const M = { top: 22, right: 26, bottom: 30, left: 44 };
+const H = 260;
+const M = { top: 26, right: 28, bottom: 32, left: 48 };
 const INSET = 14; // keeps line end points and labels inside the frame
 
-export default function TrendChart({ title, note, points, kind = 'line', formatAxis, formatTip, formatEnd }) {
+export default function TrendChart({ title, note, points, kind = 'line', formatAxis, formatTip, formatEnd, headingLevel = 3 }) {
   const [ref, W] = useWidth(480);
   const [hover, setHover] = useState(null);
   const gradId = useId();
   const pts = (points || []).filter((p) => p.value != null);
+  const Heading = `h${headingLevel}`;
 
   const body = () => {
-    if (pts.length < 2) return <p className="eb-empty">Not enough data to draw this trend yet.</p>;
+    if (pts.length < 2) return <p className="eb-empty">A trend line appears once two releases are entered.</p>;
     const vals = pts.map((p) => p.value);
     let lo = Math.min(...vals);
     let hi = Math.max(...vals);
@@ -54,11 +55,11 @@ export default function TrendChart({ title, note, points, kind = 'line', formatA
             </g>
           ))}
           {pts.map((p, i) => ((last - i) % labelEvery === 0 ? (
-            <text key={`x-${p.label}`} x={Math.min(x(i), W - 2)} y={H - 8} textAnchor={anchor(x(i))} className="eb-tick">{p.short}</text>
+            <text key={`x-${p.label}`} x={Math.min(x(i), W - 2)} y={H - 9} textAnchor={anchor(x(i))} className="eb-tick">{p.short ?? p.label}</text>
           ) : null))}
           {kind === 'bar' ? (
             pts.map((p, i) => (
-              <rect key={p.label} x={x(i) - barW / 2} width={barW} rx="3"
+              <rect key={p.label} x={x(i) - barW / 2} width={barW}
                 y={Math.min(y(p.value), y(0))} height={Math.max(1, Math.abs(y(p.value) - y(0)))}
                 className={i === last || i === active ? 'eb-mark' : 'eb-mark eb-mark-quiet'} />
             ))
@@ -66,21 +67,25 @@ export default function TrendChart({ title, note, points, kind = 'line', formatA
             <>
               <defs>
                 <linearGradient id={gradId} x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0" className="eb-grad" stopOpacity="0.2" />
+                  <stop offset="0" className="eb-grad" stopOpacity="0.14" />
                   <stop offset="1" className="eb-grad" stopOpacity="0" />
                 </linearGradient>
               </defs>
               <path d={area} fill={`url(#${gradId})`} />
               <path d={line} className="eb-line" />
-              {pts.map((p, i) => <circle key={p.label} cx={x(i)} cy={y(p.value)} r={i === active ? 5 : 2.5} className="eb-dot-mark" />)}
+              {pts.map((p, i) => (
+                <circle key={p.label} cx={x(i)} cy={y(p.value)} r={i === active || i === last ? 5 : 2.5}
+                  className={i === last ? 'eb-dot-mark eb-dot-latest' : 'eb-dot-mark'} />
+              ))}
             </>
           )}
           {active == null && (
-            <text x={x(last)} y={y(pts[last].value) - 10} textAnchor={anchor(x(last))} className="eb-endlabel">{formatEnd(pts[last].value)}</text>
+            <text x={x(last)} y={y(pts[last].value) + (kind === 'line' && pts[last].value < pts[last - 1].value ? 22 : -11)}
+              textAnchor={anchor(x(last))} className="eb-endlabel">{formatEnd(pts[last].value)}</text>
           )}
         </svg>
         {active != null && (
-          <div className="eb-tip" style={{ left: Math.min(Math.max(x(active) - 75, 0), W - 150), top: Math.max(0, y(pts[active].value) - 58) }}>
+          <div className="eb-tip" style={{ left: Math.min(Math.max(x(active) - 75, 0), Math.max(0, W - 150)), top: Math.max(0, y(pts[active].value) - 58) }}>
             <span>{pts[active].label}</span>
             {formatTip(pts[active].value)}
           </div>
@@ -90,10 +95,12 @@ export default function TrendChart({ title, note, points, kind = 'line', formatA
   };
 
   return (
-    <section className="eb-chartcard">
-      <h3>{title}</h3>
-      <p className="eb-chartnote">{note}</p>
+    <figure className="eb-chartcard">
+      <figcaption>
+        <Heading className="eb-chart-title">{title}</Heading>
+        {note && <p className="eb-chartnote">{note}</p>}
+      </figcaption>
       <div ref={ref} className="eb-chart">{body()}</div>
-    </section>
+    </figure>
   );
 }
