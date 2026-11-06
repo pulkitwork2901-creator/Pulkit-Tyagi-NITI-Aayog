@@ -347,3 +347,85 @@
 @media (prefers-reduced-motion: reduce) {
   .eb *, .eb *::before, .eb *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Dashboard pass: put current figures first and make theme navigation scannable. */
+.eb-pagehead {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--eb-rule);
+}
+.eb-pagehead h1 { font-size: clamp(30px, 3.4vw, 42px); }
+.eb-asof { padding: 7px 10px; border: 1px solid var(--eb-rule); border-radius: 4px; background: #fff; white-space: nowrap; }
+.eb-kicker { margin-bottom: 5px; font-size: 9px; letter-spacing: .13em; }
+.eb-section { margin-bottom: 30px; }
+.eb-section h2, .eb-sectionbar h2 { font-size: 20px; }
+.eb-figures { margin-top: 5px; }
+.eb-figure { position: relative; overflow: hidden; min-height: 194px; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.eb-figure::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: #456d8e; opacity: .88; }
+.eb-figure:nth-child(2)::before { background: #4d8b78; }
+.eb-figure:nth-child(3)::before { background: #c18a4c; }
+.eb-figure:nth-child(4)::before { background: #8273ab; }
+.eb-figure:hover { transform: translateY(-3px); border-color: #bdc9d6 !important; box-shadow: 0 9px 22px #1b2b4312; }
+.eb-figure-link { flex: 1; }
+.eb-figure-value { font-size: clamp(31px, 3vw, 40px); }
+.eb-figure-change { align-items: center; }
+.eb-figure .eb-spark { margin-block: 2px 0; }
+.eb-sectionbar { align-items: center; }
+.eb-section-meta { color: var(--eb-muted); font-size: 10px; white-space: nowrap; }
+.eb-theme-grid { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; padding: 0; margin: 0; }
+.eb-theme-card {
+  position: relative;
+  display: flex;
+  min-height: 104px;
+  flex-direction: column;
+  gap: 7px;
+  padding: 13px 14px;
+  overflow: hidden;
+  color: var(--eb-ink) !important;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid var(--eb-rule);
+  border-top: 3px solid #456d8e;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px #1b2b4307;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.eb-theme-grid li:nth-child(4n + 2) .eb-theme-card { border-top-color: #4d8b78; }
+.eb-theme-grid li:nth-child(4n + 3) .eb-theme-card { border-top-color: #c18a4c; }
+.eb-theme-grid li:nth-child(4n + 4) .eb-theme-card { border-top-color: #8273ab; }
+.eb-theme-card:hover { transform: translateY(-2px); border-color: #c6d1dc; box-shadow: 0 8px 18px #1b2b4310; }
+.eb-theme-index { color: #8793a2; font-size: 9px; font-weight: 700; letter-spacing: .09em; }
+.eb-theme-card strong { max-width: 24ch; font-size: 12px; line-height: 1.3; font-weight: 600; }
+.eb-theme-count { color: var(--eb-muted); font-size: 10px; }
+.eb-theme-arrow { position: absolute; right: 13px; bottom: 11px; color: #728197; font-size: 14px; }
+.eb-themes { margin-bottom: 34px; }
+.eb-section.eb-monitor { margin-top: 38px; }
+.eb-charts { align-items: start; }
+.eb-chartcard { min-width: 0; }
+.eb-chart-title { color: #22354d; }
+.eb-table tbody th a { text-decoration: none; }
+.eb-table tbody th a:hover { text-decoration: underline; }
+.eb .eb-notfound, .eb .eb-error { padding: 26px; border: 1px solid var(--eb-rule); border-radius: 7px; background: #fff; }
+@media (max-width: 1050px) {
+  .eb-theme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .eb-pagehead { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .eb-asof { margin: 0; }
+  .eb-theme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .eb-theme-card { min-height: 108px; padding: 11px; }
+  .eb-section-meta { white-space: normal; text-align: right; }
+  .eb-figure { min-height: 184px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .eb-pagehead, .eb-figures, .eb-themes, .eb-charts, .eb-monitor, .eb-sectionbar + .eb-tablewrap {
+    animation: eb-enter .38s cubic-bezier(.2, .7, .2, 1) both;
+  }
+  .eb-figure:nth-child(2), .eb-theme-grid li:nth-child(2) { animation-delay: 45ms; }
+  .eb-figure:nth-child(3), .eb-theme-grid li:nth-child(3) { animation-delay: 90ms; }
+  .eb-figure:nth-child(4), .eb-theme-grid li:nth-child(4) { animation-delay: 135ms; }
+  @keyframes eb-enter { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+}

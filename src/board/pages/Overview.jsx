@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Chip from '../Chip.jsx';
-import Lead from '../Lead.jsx';
 import Ledger from '../Ledger.jsx';
 import Sparkline from '../Sparkline.jsx';
 import TrendChart from '../TrendChart.jsx';
@@ -38,15 +37,10 @@ export default function Overview({ data, title, byId, groups }) {
   return (
     <>
       <header className="eb-pagehead">
-        <p className="eb-kicker">ECONOMIC INTELLIGENCE · INDIA</p>
+        <p className="eb-kicker">INDIA · ECONOMICS &amp; FINANCE II</p>
         <h1>{title}</h1>
-        <p className="eb-asof">Position as on {formatDateTime(data.generated_at)}</p>
+        <p className="eb-asof">Latest data · {formatDateTime(data.generated_at)}</p>
       </header>
-
-      <section className="eb-section" aria-labelledby="eb-brief">
-        <h2 id="eb-brief">Position in brief</h2>
-        <Lead byId={byId} />
-      </section>
 
       {headline.length > 0 && (
         <section className="eb-section" aria-labelledby="eb-headline">
@@ -55,16 +49,40 @@ export default function Overview({ data, title, byId, groups }) {
         </section>
       )}
 
+      <section className="eb-section eb-themes" aria-labelledby="eb-themes-title">
+        <div className="eb-sectionbar">
+          <h2 id="eb-themes-title">Browse by theme</h2>
+          <span className="eb-section-meta">{groups.length} themes · {indicators.length} indicators</span>
+        </div>
+        <nav aria-label="Economic themes">
+          <ul className="eb-theme-grid">
+            {groups.map((group, index) => {
+              const count = indicators.filter((item) => item.group === group).length;
+              return (
+                <li key={group}>
+                  <a className="eb-theme-card" href={`#/theme/${slug(group)}`}>
+                    <span className="eb-theme-index">{String(index + 1).padStart(2, '0')}</span>
+                    <strong>{group}</strong>
+                    <span className="eb-theme-count">{count} indicators</span>
+                    <span className="eb-theme-arrow" aria-hidden="true">↗</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </section>
+
       <section className="eb-section" aria-labelledby="eb-trends">
-        <h2 id="eb-trends">Growth and inflation</h2>
+        <h2 id="eb-trends">Key trends</h2>
         <div className="eb-charts">
           {byId.gdp && (
-            <TrendChart title="Real GDP growth by quarter" note="Per cent, year on year, constant prices, 2022-23 base. Source: MoSPI."
+            <TrendChart title="Real GDP growth" note="YoY · constant prices, 2022-23 base · MoSPI"
               points={byId.gdp.history} kind="bar" formatAxis={(v) => `${v}%`}
               formatTip={(v) => `${v.toFixed(1)}% real growth`} formatEnd={(v) => `${v.toFixed(1)}%`} />
           )}
           {byId.cpi && (
-            <TrendChart title="CPI inflation by month" note="Per cent, year on year, All India combined, 2024 base. Source: MoSPI."
+            <TrendChart title="CPI inflation" note="YoY · All India combined, 2024 base · MoSPI"
               points={byId.cpi.history} kind="line" formatAxis={(v) => `${v}%`}
               formatTip={(v) => `${v.toFixed(2)}% inflation`} formatEnd={(v) => `${v.toFixed(2)}%`} />
           )}
