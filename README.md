@@ -6,7 +6,7 @@ A React 19 dashboard of India's top economic indicators for the Economics and Fi
 
 | Path | What it does |
 |---|---|
-| `src/board/` | The board as React components: `EconomicBoard`, `KpiStrip`, `MonitorTable`, `TrendChart`, `Sparkline`, plus `board.css` |
+| `src/board/` | The board as React components: `EconomicBoard` (page shell and routes), `Rail`, `Ledger`, `Lead`, `Chip`, `TrendChart`, `Sparkline`, the pages in `pages/` (overview, theme, indicator, sources), plus `board.css` |
 | `scripts/build_indicators.py` | Pulls GDP and CPI from MoSPI, merges the manual sheet, writes `public/data/indicators.json` |
 | `data/manual-indicators.csv` | The team's sheet, one row per release |
 | `backend/indicators_router.py` | Optional FastAPI route serving the same JSON at `/api/indicators` |
@@ -45,7 +45,8 @@ Then rerun `python3 scripts/build_indicators.py` (or push the change if you use 
 ## Option A: add it to your existing FastAPI and React app
 
 1. Copy `src/board/` into your frontend and render `<EconomicBoard source="/api/indicators" />` on whichever route you want.
-2. Copy `scripts/`, `data/` and `backend/indicators_router.py` into your backend, then add `app.include_router(indicators_router)`.
+2. The board uses address fragments (`#/indicator/gdp`) for its pages, so it will not clash with your app's router unless that router also uses `#` addresses.
+3. Copy `scripts/`, `data/` and `backend/indicators_router.py` into your backend, then add `app.include_router(indicators_router)`.
 3. The route caches results for six hours. `POST /api/indicators/refresh` forces a fresh pull after someone edits the sheet.
 
 The board reads the theme from `--eb-*` CSS variables, so you can match your app's colours by overriding them on `.eb`.
