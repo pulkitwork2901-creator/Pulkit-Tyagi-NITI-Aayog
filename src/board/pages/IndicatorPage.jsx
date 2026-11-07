@@ -70,7 +70,12 @@ export default function IndicatorPage({ item }) {
         <dl className="eb-facts">
           <div><dt>Source</dt><dd>{item.source_url ? <a href={item.source_url} target="_blank" rel="noreferrer">{item.source}</a> : item.source}</dd></div>
           <div><dt>Released</dt><dd>{item.released ? formatDate(item.released) : 'Updated whenever the data is rebuilt'}</dd></div>
-          <div><dt>How it gets here</dt><dd>{item.mode === 'live' ? (item.stale ? 'Pulled from MoSPI. The last attempt failed, so this is the last good copy.' : 'Pulled live from MoSPI each time the data is rebuilt.') : 'Entered by the team from the official release, in data/manual-indicators.csv.'}</dd></div>
+          <div><dt>How it gets here</dt><dd>{item.mode === 'live'
+            ? (item.stale ? 'Pulled from MoSPI. The last attempt failed, so this is the last good copy.' : 'Pulled live from MoSPI each time the data is rebuilt.')
+            : item.mode === 'rbi'
+              ? "Read from RBI's DBIE Macro-economic Indicators download in data/rbi/macro-indicators.xlsx. Replace that file with a fresh download to update it."
+              : 'Entered by the team from the official release, in data/manual-indicators.csv. Earlier points may come from the RBI DBIE download.'}</dd></div>
+          {item.note && <div><dt>Note</dt><dd>{item.note}</dd></div>}
           <div><dt>Unit</dt><dd>{item.unit}</dd></div>
         </dl>
       </section>

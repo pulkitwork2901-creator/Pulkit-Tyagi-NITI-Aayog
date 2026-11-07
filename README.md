@@ -42,6 +42,16 @@ Add a new row to `data/manual-indicators.csv` for each new release. Keep the old
 
 Then rerun `python3 scripts/build_indicators.py` (or push the change if you use the GitHub workflow, which rebuilds automatically).
 
+## Updating the RBI figures (one file)
+
+Most money, rates and external-sector indicators come from RBI's Database on Indian Economy (DBIE), "Macro-economic Indicators" download, saved as `data/rbi/macro-indicators.xlsx`. To update them, download a fresh copy from https://data.rbi.org.in, replace that file on GitHub (Add file, Upload files, same name), and commit. The site rebuilds in about two minutes.
+
+`scripts/rbi_dbie.py` finds each column by its header text, never by position. If RBI renames a column, that series is skipped and listed in the build log rather than filled with the wrong numbers.
+
+Deliberately not used from that file: the IIP column (it splices the 2011-12 and 2022-23 bases without a marker), "Gross External Debt Position" (no unit, and it halves between Sep and Dec 2025), WPI and CPI on old bases, and the ready-made deposit ratios that stop in 2025.
+
+Where the team sheet has a newer figure from the same release (for example Commerce's trade data a month ahead of RBI's table, or RBI's published credit growth), the sheet's figure is used for that month and the RBI file supplies the history.
+
 ## Option A: add it to your existing FastAPI and React app
 
 1. Copy `src/board/` into your frontend and render `<EconomicBoard source="/api/indicators" />` on whichever route you want.

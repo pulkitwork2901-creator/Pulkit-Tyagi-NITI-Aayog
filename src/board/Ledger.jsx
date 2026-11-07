@@ -25,6 +25,7 @@ export default function Ledger({ items, caption }) {
                 <span className="eb-rowmeta">
                   {r.period}
                   {r.mode === 'live' && <span className={r.stale ? 'eb-tag eb-tag-stale' : 'eb-tag eb-tag-live'}>{r.stale ? 'MoSPI, last good copy' : 'Live from MoSPI'}</span>}
+                  {r.mode === 'rbi' && <span className="eb-tag eb-tag-rbi">RBI DBIE</span>}
                 </span>
               </th>
               <td className="eb-num">

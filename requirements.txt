@@ -1,3 +1,5 @@
 requests>=2.32
 # 2026.10.18 briefly dropped emSign Root CA - G1, which MoSPI's certificate needs
 certifi>=2026.10.19
+# reads the RBI DBIE workbook in data/rbi/
+openpyxl>=3.1

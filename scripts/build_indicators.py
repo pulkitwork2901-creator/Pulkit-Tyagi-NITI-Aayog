@@ -30,6 +30,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_OUT = ROOT / "public" / "data" / "indicators.json"
 DEFAULT_MANUAL = ROOT / "data" / "manual-indicators.csv"
+DEFAULT_RBI = ROOT / "data" / "rbi" / "macro-indicators.xlsx"
 MOSPI_BASE = "https://api.mospi.gov.in"
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July",
@@ -37,26 +38,44 @@ MONTHS = ["January", "February", "March", "April", "May", "June", "July",
 
 # Display settings per indicator. Order inside each group is the display order.
 META = {
+    # Growth and prices
     "gdp":            {"label": "Real GDP growth", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "cpi":            {"label": "CPI inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
     "iip":            {"label": "IIP growth", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
+    # External sector
     "exports":        {"label": "Merchandise exports", "group": "External sector", "decimals": 2, "up_is_good": True,  "change_unit": "bn"},
     "imports":        {"label": "Merchandise imports", "group": "External sector", "decimals": 2, "up_is_good": None,  "change_unit": "bn"},
     "trade_balance":  {"label": "Merchandise trade balance", "group": "External sector", "decimals": 2, "up_is_good": True,  "change_unit": "bn"},
     "cad":            {"label": "Current account balance", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "fx_reserves":    {"label": "Forex reserves", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "bn"},
     "inr_usd":        {"label": "Rupee per US dollar", "group": "External sector", "decimals": 2, "up_is_good": False, "change_unit": ""},
+    "fwd_premia_3m":  {"label": "3-month forward premium on US$", "group": "External sector", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
+    "ext_debt":       {"label": "External debt, gross", "group": "External sector", "decimals": 1, "up_is_good": None,  "change_unit": "bn"},
+    "niip":           {"label": "Net international investment position", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "bn"},
+    # Fiscal and monetary
     "fiscal_deficit": {"label": "Centre's fiscal deficit", "group": "Fiscal and monetary", "decimals": 1, "up_is_good": False, "change_unit": "pts"},
     "gst_gross":      {"label": "Gross GST collections", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
+    "sdl_borrowing":  {"label": "State government market borrowing", "group": "Fiscal and monetary", "decimals": 1, "up_is_good": None,  "change_unit": "'000 cr"},
     "repo":           {"label": "Policy repo rate", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
+    "sdf_rate":       {"label": "Standing deposit facility rate", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
+    "msf_rate":       {"label": "Marginal standing facility rate", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
+    "crr":            {"label": "Cash reserve ratio", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
+    "tbill_91":       {"label": "91-day T-bill yield", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
     "gsec10":         {"label": "10-year G-sec yield", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
+    # Money, credit and capital flows
     "credit_nonfood": {"label": "Non-food bank credit growth", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None, "change_unit": "pts"},
     "credit_agri":    {"label": "Credit to agriculture and allied activities", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None, "change_unit": "pts"},
     "credit_industry": {"label": "Credit to industry", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None, "change_unit": "pts"},
     "credit_services": {"label": "Credit to services", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None, "change_unit": "pts"},
     "credit_personal": {"label": "Personal loans", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None, "change_unit": "pts"},
+    "deposit_growth": {"label": "Bank deposit growth", "group": "Money, credit and capital flows", "decimals": 1, "up_is_good": None, "change_unit": "pts"},
+    "cd_ratio":       {"label": "Credit-deposit ratio", "group": "Money, credit and capital flows", "decimals": 1, "up_is_good": None, "change_unit": "pts"},
+    "m3_growth":      {"label": "Broad money (M3) growth", "group": "Money, credit and capital flows", "decimals": 1, "up_is_good": None, "change_unit": "pts"},
     "fdi_net":        {"label": "Net FDI", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": True,  "change_unit": "bn"},
-    "fpi_net":        {"label": "Net FPI inflows", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None,  "change_unit": "bn"},
+    "fdi_gross":      {"label": "Gross FDI into India", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": True,  "change_unit": "bn"},
+    "fpi_net":        {"label": "Net portfolio investment", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None,  "change_unit": "bn"},
+    "ecb_reg":        {"label": "External commercial borrowing registrations", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None,  "change_unit": "bn"},
+    "digital_payments": {"label": "Digital payments, value", "group": "Money, credit and capital flows", "decimals": 1, "up_is_good": True,  "change_unit": "lakh cr"},
 }
 
 
@@ -199,6 +218,31 @@ def shape_cpi(rows: list[dict]) -> dict | None:
     }
 
 
+def _short_label(iso: str) -> str:
+    """Axis label: 'Sep 26' for month-end and quarter-end figures, '23 Oct' otherwise."""
+    d = datetime.strptime(iso, "%Y-%m-%d")
+    nxt = d.replace(day=28) + __import__("datetime").timedelta(days=4)
+    is_month_end = (nxt - __import__("datetime").timedelta(days=nxt.day)).day == d.day
+    return d.strftime("%b %y") if is_month_end else d.strftime("%-d %b")
+
+
+def manual_rows_by_id(path: Path) -> dict[str, list[dict]]:
+    """Sheet rows as typed values, for merging into RBI series."""
+    with open(path, newline="", encoding="utf-8") as f:
+        rows = [r for r in csv.DictReader(f) if r.get("id")]
+    out: dict[str, list[dict]] = {}
+    for r in rows:
+        v, c = _num(r["value"]), _num(r.get("compare_value"))
+        if v is None:
+            continue
+        out.setdefault(r["id"], []).append({
+            "date": r["date"], "period": r["period"], "value": v, "unit": r["unit"],
+            "compare_value": c, "compare_period": r.get("compare_period") or None, "change": _change(v, c),
+            "source": r["source"], "source_url": r.get("source_url") or None,
+            "released": r.get("released") or None, "entered_by": r.get("entered_by") or None})
+    return out
+
+
 def shape_manual(path: Path) -> list[dict]:
     with open(path, newline="", encoding="utf-8") as f:
         rows = [r for r in csv.DictReader(f) if r.get("id")]
@@ -214,7 +258,7 @@ def shape_manual(path: Path) -> list[dict]:
             "source": last["source"], "source_url": last.get("source_url") or None,
             "released": last.get("released") or None, "entered_by": last.get("entered_by") or None,
             "history": [{"label": r["period"],
-                         "short": datetime.strptime(r["date"], "%Y-%m-%d").strftime("%-d %b"),
+                         "short": _short_label(r["date"]),
                          "value": _num(r["value"])} for r in series],
         })
     return out
@@ -224,7 +268,7 @@ def shape_manual(path: Path) -> list[dict]:
 # Main
 # --------------------------------------------------------------------------
 
-def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None) -> dict:
+def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rbi_path: Path = DEFAULT_RBI) -> dict:
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     previous = {}
     if out_path.exists():
@@ -254,13 +298,18 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None) ->
                 live[k] = {**previous[k], "stale": True}
 
     manual = shape_manual(manual_path)
-    by_id = {**{i["id"]: i for i in manual}, **live}
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import rbi_dbie
+    rbi, rbi_status = rbi_dbie.load(rbi_path, manual_rows_by_id(manual_path))
+    # Precedence: MoSPI live > RBI workbook (already merged with the sheet where
+    # the sheet carries newer figures from the same release) > sheet alone.
+    by_id = {**{i["id"]: i for i in manual}, **rbi, **live}
     indicators = []
     for ind_id, meta in META.items():
         if ind_id in by_id:
             indicators.append({**meta, **by_id[ind_id]})
 
-    payload = {"generated_at": now, "sources": {"mospi": status}, "indicators": indicators}
+    payload = {"generated_at": now, "sources": {"mospi": status, "rbi": rbi_status}, "indicators": indicators}
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
     return payload
@@ -273,7 +322,10 @@ def main(argv=None):
     ap.add_argument("--offline", type=Path, default=None, help="folder with mospi_gdp.json and mospi_cpi.json")
     a = ap.parse_args(argv)
     p = build(a.manual, a.out, a.offline)
-    print(f'Wrote {len(p["indicators"])} indicators to {a.out} (MoSPI: {p["sources"]["mospi"]["status"]})')
+    r = p["sources"]["rbi"]
+    print(f'Wrote {len(p["indicators"])} indicators to {a.out} (MoSPI: {p["sources"]["mospi"]["status"]}, RBI workbook: {r["status"]})')
+    for msg in r.get("skipped", []):
+        print(f"  RBI series skipped: {msg}")
     return 0 if p["sources"]["mospi"]["status"] == "ok" else 1
 
 

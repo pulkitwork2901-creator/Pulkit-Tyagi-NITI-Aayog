@@ -22,7 +22,7 @@ export default function SourcesPage({ indicators }) {
                   <th scope="row"><a href={`#/indicator/${i.id}`}>{i.label}</a></th>
                   <td>{i.source_url ? <a href={i.source_url} target="_blank" rel="noreferrer">{i.source}</a> : i.source}</td>
                   <td className="eb-hide-sm eb-muted eb-nowrap">{i.released ? formatDate(i.released) : 'On rebuild'}</td>
-                  <td className="eb-hide-sm">{i.mode === 'live' ? 'Live from MoSPI' : 'Team sheet'}</td>
+                  <td className="eb-hide-sm">{i.mode === 'live' ? 'Live from MoSPI' : i.mode === 'rbi' ? 'RBI DBIE download' : 'Team sheet'}</td>
                 </tr>
               ))}
             </tbody>

@@ -73,10 +73,10 @@ export default function TrendChart({ title, note, points, kind = 'line', formatA
               </defs>
               <path d={area} fill={`url(#${gradId})`} />
               <path d={line} className="eb-line" />
-              {pts.map((p, i) => (
+              {pts.map((p, i) => ((pts.length > 36 && i !== active && i !== last) ? null : (
                 <circle key={p.label} cx={x(i)} cy={y(p.value)} r={i === active || i === last ? 5 : 2.5}
                   className={i === last ? 'eb-dot-mark eb-dot-latest' : 'eb-dot-mark'} />
-              ))}
+              )))}
             </>
           )}
           {active == null && (
