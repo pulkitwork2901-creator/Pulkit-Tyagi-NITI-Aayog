@@ -42,6 +42,14 @@ Add a new row to `data/manual-indicators.csv` for each new release. Keep the old
 
 Then rerun `python3 scripts/build_indicators.py` (or push the change if you use the GitHub workflow, which rebuilds automatically).
 
+## Live MoSPI series
+
+Pulled on every build from MoSPI's API (api.mospi.gov.in): real GDP growth (National Accounts, 2022-23 base), CPI inflation (2024 base; months before January 2026 use the published 2012-base figures from the RBI file), WPI inflation and WPI food inflation (2022-23 base, computed year on year from the index), and the PLFS monthly unemployment rate (age 15+, rural and urban, current weekly status). Each series falls back to its last good copy on its own if MoSPI fails.
+
+## Downloading the data
+
+Every build also writes `public/data/indicators.csv`: every reading behind the board, one row per indicator and period. The dashboard links to it as "Download all data (CSV)".
+
 ## Updating the RBI figures (one file)
 
 Most money, rates and external-sector indicators come from RBI's Database on Indian Economy (DBIE), "Macro-economic Indicators" download, saved as `data/rbi/macro-indicators.xlsx`. To update them, download a fresh copy from https://data.rbi.org.in, replace that file on GitHub (Add file, Upload files, same name), and commit. The site rebuilds in about two minutes.

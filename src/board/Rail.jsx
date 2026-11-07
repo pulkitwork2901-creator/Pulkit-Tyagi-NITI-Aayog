@@ -30,6 +30,9 @@ export default function Rail({ route, groups, data, error, onReload, skins = [],
       <div className="eb-railstatus" role="status">
         <p><span className={`eb-status-dot ${stale ? 'eb-status-stale' : ''}`} aria-hidden="true" />{stale ? 'MoSPI not reachable. Showing the last good figures.' : 'MoSPI figures are up to date.'}</p>
         <p className="eb-railmuted">Data as on {formatDateTime(data.generated_at)}</p>
+        {data?.sources?.rbi?.age_days > 14 && (
+          <p className="eb-railwarn"><span className="eb-status-dot eb-status-stale" aria-hidden="true" />RBI figures are {data.sources.rbi.age_days} days old. Upload a fresh DBIE download to data/rbi/.</p>
+        )}
         {error && <p className="eb-railmuted">Latest reload failed: {error}</p>}
         <button type="button" className="eb-btn eb-btn-rail" onClick={onReload}>Reload data</button>
         {skins.length > 0 && (

@@ -98,7 +98,6 @@ export default function MultiChart({ title, note, series, kind = 'line', band, s
           {band && (
             <g>
               <rect x={M.left} width={plotW} y={y(band.hi)} height={y(band.lo) - y(band.hi)} className="eb-mc-band" />
-              <text x={M.left + 6} y={y(band.lo) - 5} className="eb-mc-bandlabel">{band.label}</text>
             </g>
           )}
           {ticks.map((v) => (

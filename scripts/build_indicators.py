@@ -42,6 +42,9 @@ META = {
     "gdp":            {"label": "Real GDP growth", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "cpi":            {"label": "CPI inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
     "iip":            {"label": "IIP growth", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
+    "wpi":            {"label": "WPI inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
+    "wpi_food":       {"label": "WPI food inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
+    "unemployment":   {"label": "Unemployment rate", "group": "Growth and prices", "decimals": 1, "up_is_good": False, "change_unit": "pts"},
     # External sector
     "exports":        {"label": "Merchandise exports", "group": "External sector", "decimals": 2, "up_is_good": True,  "change_unit": "bn"},
     "imports":        {"label": "Merchandise imports", "group": "External sector", "decimals": 2, "up_is_good": None,  "change_unit": "bn"},
@@ -165,6 +168,25 @@ def fetch_cpi(session) -> list[dict]:
     })
 
 
+def fetch_wpi(session) -> list[dict]:
+    """WPI 2022-23 base: headline and food index, from the start of the series."""
+    this_year = date.today().year
+    return _get_all(session, "/api/wpi/getWpiRecords", {
+        "base_year": "2022-23", "year": ",".join(str(y) for y in range(2023, this_year + 1)),
+        "major_group_code": "1000000000,1400000000", "limit": "200", "Format": "JSON",
+    })
+
+
+def fetch_unemployment(session) -> list[dict]:
+    """PLFS monthly unemployment rate, All India, age 15+, rural + urban, CWS."""
+    return _get_all(session, "/api/plfs/getData", {
+        # the raw API does not accept year=all; monthly estimates begin in 2025
+        "frequency_code": "3", "indicator_code": "3",
+        "year": ",".join(str(y) for y in range(2025, date.today().year + 1)), "state_code": "99",
+        "gender_code": "3", "age_code": "1", "sector_code": "3", "limit": "100", "Format": "JSON",
+    })
+
+
 # --------------------------------------------------------------------------
 # Shaping
 # --------------------------------------------------------------------------
@@ -257,6 +279,47 @@ def manual_rows_by_id(path: Path) -> dict[str, list[dict]]:
     return out
 
 
+def _monthly_item(ind_id, points, unit, source, note=None):
+    """points: sorted [(year, month, value)] -> board indicator, compare = previous month."""
+    if not points:
+        return None
+    hist = [{"date": _month_end(y, m), "label": f"{MONTHS[m - 1][:3]} {y}", "short": f"{MONTHS[m - 1][:3]} {str(y)[2:]}",
+             "value": round(v, 2)} for y, m, v in points]
+    last, prev = hist[-1], (hist[-2] if len(hist) > 1 else None)
+    item = {
+        "id": ind_id, "mode": "live", "value": last["value"], "unit": unit, "period": last["label"],
+        "compare_value": prev["value"] if prev else None, "compare_period": prev["label"] if prev else None,
+        "change": _change(last["value"], prev["value"] if prev else None),
+        "source": source, "source_url": "https://esankhyiki.mospi.gov.in", "released": None, "history": hist,
+    }
+    if note:
+        item["note"] = note
+    return item
+
+
+def shape_wpi(rows: list[dict]) -> list[dict]:
+    """Year-on-year inflation from WPI index levels (headline and food)."""
+    out = []
+    for group, ind_id, label in (("Wholesale Price Index", "wpi", "headline"), ("Food Index", "wpi_food", "food")):
+        idx = {}
+        for r in rows:
+            if r.get("major_group") == group and r.get("month") in MONTHS and _num(r.get("index_value")) is not None:
+                idx[(int(r["year"]), MONTHS.index(r["month"]) + 1)] = _num(r["index_value"])
+        pts = [(y, m, (v / idx[(y - 1, m)] - 1) * 100) for (y, m), v in sorted(idx.items()) if idx.get((y - 1, m))]
+        item = _monthly_item(ind_id, pts, "% YoY", "MoSPI (Office of the Economic Adviser data), WPI base 2022-23",
+                             f"Year-on-year change in the WPI {label} index, 2022-23 base; the series starts in 2023, so inflation is available from 2024.")
+        if item:
+            out.append(item)
+    return out
+
+
+def shape_unemployment(rows: list[dict]) -> dict | None:
+    pts = sorted((int(r["year"]), MONTHS.index(r["month"]) + 1, _num(r["value"])) for r in rows
+                 if r.get("month") in MONTHS and _num(r.get("value")) is not None)
+    return _monthly_item("unemployment", pts, "%", "MoSPI Periodic Labour Force Survey, monthly",
+                         "Current weekly status, persons aged 15 and above, rural and urban combined. Monthly estimates start in April 2025; March 2026 was not published.")
+
+
 def shape_manual(path: Path) -> list[dict]:
     with open(path, newline="", encoding="utf-8") as f:
         rows = [r for r in csv.DictReader(f) if r.get("id")]
@@ -311,6 +374,31 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
             if k not in live and k in previous:
                 live[k] = {**previous[k], "stale": True}
 
+    # Further MoSPI series. Each one falls back to its own last good copy, so a
+    # failure in one never blanks the others or GDP and CPI.
+    extra_failed = []
+    if not offline_dir:
+        try:
+            s = _session()
+        except Exception as exc:
+            s, extra_failed = None, [f"session: {exc}"]
+        for name, fetch, shape in (("WPI", fetch_wpi, shape_wpi), ("PLFS", fetch_unemployment, lambda r: [shape_unemployment(r)])):
+            try:
+                if s is None:
+                    raise RuntimeError("no connection")
+                items = [i for i in shape(fetch(s)) if i]
+                if not items:
+                    raise RuntimeError("no usable rows")
+                for i in items:
+                    live[i["id"]] = i
+            except Exception as exc:
+                extra_failed.append(f"{name}: {exc}")
+    for k in ("wpi", "wpi_food", "unemployment"):
+        if k not in live and k in previous:
+            live[k] = {**previous[k], "stale": bool(extra_failed)}
+    if extra_failed:
+        status["message"] = "; ".join(filter(None, [status.get("message"), "Some MoSPI series kept their last good copy: " + "; ".join(extra_failed)]))
+
     manual = shape_manual(manual_path)
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import rbi_dbie
@@ -318,15 +406,54 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
     # Precedence: MoSPI live > RBI workbook (already merged with the sheet where
     # the sheet carries newer figures from the same release) > sheet alone.
     by_id = {**{i["id"]: i for i in manual}, **rbi, **live}
+    # CPI before the 2024 base: published 2012-base inflation from the RBI file,
+    # only for months before MoSPI's 2024-base series starts.
+    if "cpi" in by_id and by_id["cpi"].get("history"):
+        first = by_id["cpi"]["history"][0]["date"]
+        back = [h for h in rbi_dbie.cpi_back_history(rbi_path) if h["date"] < first][-(rbi_dbie.HISTORY_MONTHS - len(by_id["cpi"]["history"])):]
+        if back:
+            by_id["cpi"] = {**by_id["cpi"], "history": back + by_id["cpi"]["history"],
+                            "note": "From January 2026: MoSPI's CPI on the 2024 base. Earlier months: CPI inflation as published on the 2012 base (RBI DBIE). The two series agree within about 0.1 point where they overlap."}
     indicators = []
     for ind_id, meta in META.items():
         if ind_id in by_id:
             indicators.append({**meta, **by_id[ind_id]})
 
+    # When did each indicator's latest reading first appear on the board? Kept
+    # across builds, so the dashboard can list what is new. A reading that was
+    # already there before this feature existed gets no date (not "new").
+    for item in indicators:
+        prev = previous.get(item["id"])
+        if prev is None:
+            item["updated_at"] = now
+        elif prev.get("period") != item.get("period") or prev.get("value") != item.get("value"):
+            item["updated_at"] = now
+        else:
+            item["updated_at"] = prev.get("updated_at")
+
+    # How old is the RBI workbook's newest reading? The board warns when the
+    # file has not been replaced with a fresh download for two weeks.
+    rbi_latest = max((h["date"] for i in rbi.values() for h in i.get("history", [])
+                      if i.get("mode") == "rbi" or i["id"] in ("fx_reserves", "repo")), default=None)
+    if rbi_latest:
+        rbi_status["latest_reading"] = rbi_latest
+        rbi_status["age_days"] = (datetime.now(timezone.utc).date() - date.fromisoformat(rbi_latest)).days
+
     payload = {"generated_at": now, "sources": {"mospi": status, "rbi": rbi_status}, "indicators": indicators}
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
+    write_csv(payload, out_path.with_suffix(".csv"))
     return payload
+
+
+def write_csv(payload: dict, path: Path) -> None:
+    """Every reading behind the board, one row per indicator and period."""
+    with open(path, "w", newline="", encoding="utf-8-sig") as f:  # BOM so Excel shows ₹ correctly
+        w = csv.writer(f)
+        w.writerow(["indicator_id", "indicator", "theme", "period", "date", "value", "unit", "source"])
+        for i in payload["indicators"]:
+            for h in i.get("history", []):
+                w.writerow([i["id"], i["label"], i["group"], h.get("label"), h.get("date"), h.get("value"), i["unit"], i["source"]])
 
 
 def main(argv=None):

@@ -293,6 +293,27 @@ def merge_manual(item: dict, manual_rows: list[dict]) -> dict:
     return out
 
 
+def cpi_back_history(path: Path) -> list[dict]:
+    """Published CPI inflation before the 2024 base: YoY from CPI (2012=100).
+
+    Checked against RBI's linked 2024-base index over 85 overlapping months
+    (mean gap 0.06 points). These are the figures as published at the time.
+    """
+    try:
+        book = read_workbook(path)
+        idx = {(d.year, d.month): v for d, v in _column(book["Monthly"], "Consumer Price Index (2012=100)")}
+    except Exception:
+        return []
+    out = []
+    for (y, m), v in sorted(idx.items()):
+        base = idx.get((y - 1, m))
+        if base:
+            d = date(y + (m == 12), 1 if m == 12 else m + 1, 1) - timedelta(days=1)
+            out.append({"date": d.isoformat(), "label": f"{MONTHS[m - 1]} {y}", "short": f"{MONTHS[m - 1]} {str(y)[2:]}",
+                        "value": round((v / base - 1) * 100, 2)})
+    return out
+
+
 def load(path: Path, manual_by_id: dict[str, list[dict]]) -> tuple[dict, dict]:
     """Return ({id: indicator}, status)."""
     status = {"status": "ok", "file": path.name, "message": None, "skipped": []}

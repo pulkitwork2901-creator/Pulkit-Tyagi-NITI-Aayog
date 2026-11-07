@@ -4,7 +4,7 @@ const mv = (from, to) => (to > from ? 'up from' : to < from ? 'down from' : 'unc
 
 // The position in brief: a short note written from the latest figures, the way a briefing opens.
 export default function Lead({ byId }) {
-  const { gdp, cpi, repo, fx_reserves: fx, inr_usd: inr, trade_balance: tb } = byId;
+  const { gdp, cpi, repo, fx_reserves: fx, inr_usd: inr, trade_balance: tb, wpi, unemployment: ur } = byId;
   const parts = [];
 
   if (gdp) {
@@ -21,6 +21,15 @@ export default function Lead({ byId }) {
         CPI inflation was <strong>{formatValue(cpi.value, 2)}%</strong> in {cpi.period}
         {cpi.compare_period ? `, ${mv(cpi.compare_value, cpi.value)} ${formatValue(cpi.compare_value, 2)}% in ${cpi.compare_period}` : ''}
         {repo ? <>, against a policy repo rate of <strong>{formatValue(repo.value, 2)}%</strong></> : null}.
+      </span>,
+    );
+  }
+  if (wpi || ur) {
+    parts.push(
+      <span key="wpi">
+        {wpi ? <>Wholesale (WPI) inflation was <strong>{formatValue(wpi.value, 2)}%</strong> in {wpi.period}</> : null}
+        {wpi && ur ? ' and ' : null}
+        {ur ? <>{wpi ? 'the' : 'The'} unemployment rate was <strong>{formatValue(ur.value, 1)}%</strong> in {ur.period}</> : null}.
       </span>,
     );
   }

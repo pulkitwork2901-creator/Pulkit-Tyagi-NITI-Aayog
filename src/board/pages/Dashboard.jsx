@@ -11,13 +11,42 @@ import { formatDateTime, formatValue, signed, tipFor } from '../format.js';
 // pages remain for detail.
 
 const RANGES = [['1Y', 1], ['3Y', 3], ['5Y', 5]];
-const TILES = ['gdp', 'cpi', 'repo', 'credit_nonfood', 'fx_reserves', 'inr_usd'];
-const SHORT = { gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI' };
+const TILES = ['gdp', 'cpi', 'wpi', 'repo', 'unemployment', 'credit_nonfood'];
+const SHORT = { gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI', unemployment: 'Unemployment', fx_reserves: 'Reserves', inr_usd: '₹ per US$' };
 const S1 = 'var(--eb-s1)';
 const S2 = 'var(--eb-s2)';
 const S3 = 'var(--eb-s3)';
 const pct = (d) => (v) => `${signed(formatValue(v, d))}%`;
 const bn = (v) => `${signed(formatValue(v, 1))} bn`;
+
+const NEW_DAYS = 10;
+
+// Indicators whose latest reading reached the board in the last NEW_DAYS days.
+function WhatsNew({ indicators, now }) {
+  const fresh = indicators
+    .filter((i) => i.updated_at && now - Date.parse(i.updated_at) < NEW_DAYS * 86400000)
+    .sort((a, b) => Date.parse(b.updated_at) - Date.parse(a.updated_at));
+  return (
+    <section className="eb-new" aria-labelledby="eb-new-h">
+      <h2 className="eb-new-h" id="eb-new-h">New on the board <span>last {NEW_DAYS} days</span></h2>
+      {fresh.length === 0 ? (
+        <p className="eb-new-none">No new releases in the last {NEW_DAYS} days. Figures refresh daily at 6 pm IST.</p>
+      ) : (
+        <ul>
+          {fresh.slice(0, 8).map((i) => (
+            <li key={i.id}>
+              <a href={`#/indicator/${i.id}`}>{i.label}</a>
+              <b>{signed(formatValue(i.value, i.decimals))}{i.unit.startsWith('%') ? '%' : ` ${i.unit}`}</b>
+              <span className="eb-new-period">{i.period}</span>
+              <Chip item={i} />
+            </li>
+          ))}
+          {fresh.length > 8 && <li className="eb-new-more">and {fresh.length - 8} more in the table below</li>}
+        </ul>
+      )}
+    </section>
+  );
+}
 
 function readRange() {
   try { return Number(localStorage.getItem('eb-range')) || 3; } catch { return 3; }
@@ -41,7 +70,7 @@ function Tile({ item, start }) {
   );
 }
 
-export default function Dashboard({ data, title, byId, groups }) {
+export default function Dashboard({ data, title, byId, groups, csvUrl }) {
   const [years, setYears] = useState(readRange);
   const choose = (n) => {
     setYears(n);
@@ -51,7 +80,7 @@ export default function Dashboard({ data, title, byId, groups }) {
   const start = latest - years * 365.25 * 86400000;
   const h = (id) => byId[id]?.history || [];
   const has = (...ids) => ids.some((id) => byId[id]);
-  const head = (id) => byId[id] && { value: (byId[id].unit.startsWith('%') ? `${signed(formatValue(byId[id].value, byId[id].decimals))}%` : byId[id].unit === 'US$ bn' ? `US$ ${signed(formatValue(byId[id].value, 1))} bn` : `${signed(formatValue(byId[id].value, byId[id].decimals))} ${byId[id].unit}`), sub: `${SHORT[id] || byId[id].label} · ${byId[id].period.replace(/^(Week|Fortnight) to /, '')}` };
+  const head = (id) => byId[id] && { value: (byId[id].unit.startsWith('%') ? `${signed(formatValue(byId[id].value, byId[id].decimals))}%` : byId[id].unit === 'US$ bn' ? `US$ ${signed(formatValue(byId[id].value, 1))} bn` : byId[id].unit.startsWith('₹ per US$') ? `₹${formatValue(byId[id].value, 2)}` : `${signed(formatValue(byId[id].value, byId[id].decimals))} ${byId[id].unit}`), sub: `${SHORT[id] || byId[id].label} · ${byId[id].period.replace(/^(Week|Fortnight) to /, '')}` };
 
   return (
     <div className="eb-dash">
@@ -76,6 +105,8 @@ export default function Dashboard({ data, title, byId, groups }) {
         {TILES.map((id) => byId[id] && <Tile key={id} item={byId[id]} start={start} />)}
       </ul>
 
+      <WhatsNew indicators={data.indicators || []} now={Date.parse(data.generated_at)} />
+
       <h2 className="eb-eyebrow" id="eb-panels-h">Trends</h2>
       <section className="eb-panels" aria-labelledby="eb-panels-h">
         {has('gdp') && (
@@ -83,11 +114,12 @@ export default function Dashboard({ data, title, byId, groups }) {
             series={[{ key: 'gdp', label: 'Real GDP growth', color: S1, points: h('gdp') }]} />
         )}
         {has('cpi', 'repo') && (
-          <MultiChart title="Inflation and policy rate" headline={head('cpi')} note="%. Shaded: RBI's 2 to 6% inflation tolerance band. MoSPI, RBI." start={start} fmt={pct(2)}
+          <MultiChart title="Inflation and policy rate" headline={head('cpi')} note="% year on year. Shaded: RBI's 2 to 6% CPI tolerance band. CPI before 2026 on the 2012 base. MoSPI, RBI." start={start} fmt={pct(2)}
             band={{ lo: 2, hi: 6, label: '2–6% band' }}
             series={[
               { key: 'cpi', label: 'CPI inflation', color: S1, points: h('cpi') },
               { key: 'repo', label: 'Repo rate', color: S2, points: h('repo') },
+              { key: 'wpi', label: 'WPI inflation', color: S3, points: h('wpi') },
             ]} />
         )}
         {has('tbill_91', 'gsec10') && (
@@ -121,12 +153,27 @@ export default function Dashboard({ data, title, byId, groups }) {
               { key: 'fpi_net', label: 'Net portfolio', color: S2, points: h('fpi_net') },
             ]} />
         )}
+        {has('unemployment') && (
+          <MultiChart title="Jobs" headline={head('unemployment')} note="Unemployment rate, % of labour force, age 15+, monthly. MoSPI PLFS." start={start} fmt={pct(1)}
+            series={[{ key: 'unemployment', label: 'Unemployment rate', color: S1, points: h('unemployment') }]} />
+        )}
+        {has('fx_reserves') && (
+          <MultiChart title="Forex reserves" headline={head('fx_reserves')} note="US$ bn, last week of each month; latest week shown. RBI DBIE." start={start} fmt={bn}
+            series={[{ key: 'fx_reserves', label: 'Forex reserves', color: S1, points: h('fx_reserves') }]} />
+        )}
+        {has('inr_usd') && (
+          <MultiChart title="Rupee per US dollar" headline={head('inr_usd')} note="RBI reference rate, month end. A higher number means a weaker rupee. RBI DBIE." start={start} fmt={(v) => `₹${formatValue(v, 2)}`}
+            series={[{ key: 'inr_usd', label: 'Rupee per US$', color: S1, points: h('inr_usd') }]} />
+        )}
       </section>
 
       <section aria-labelledby="eb-signal-h">
         <div className="eb-eyebar">
           <h2 className="eb-eyebrow" id="eb-signal-h">All indicators</h2>
-          <a className="eb-more" href="#/sources">Sources and notes</a>
+          <span className="eb-eyelinks">
+            <a className="eb-more" href={csvUrl} download="ef2-dashboard-data.csv">Download all data (CSV)</a>
+            <a className="eb-more" href="#/sources">Sources and notes</a>
+          </span>
         </div>
         <SignalTable indicators={data.indicators || []} groups={groups} />
       </section>
