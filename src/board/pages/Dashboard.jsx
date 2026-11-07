@@ -12,6 +12,7 @@ import { formatDateTime, formatValue, signed, tipFor } from '../format.js';
 
 const RANGES = [['1Y', 1], ['3Y', 3], ['5Y', 5]];
 const TILES = ['gdp', 'cpi', 'repo', 'credit_nonfood', 'fx_reserves', 'inr_usd'];
+const SHORT = { gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI' };
 const S1 = 'var(--eb-s1)';
 const S2 = 'var(--eb-s2)';
 const S3 = 'var(--eb-s3)';
@@ -50,34 +51,39 @@ export default function Dashboard({ data, title, byId, groups }) {
   const start = latest - years * 365.25 * 86400000;
   const h = (id) => byId[id]?.history || [];
   const has = (...ids) => ids.some((id) => byId[id]);
+  const head = (id) => byId[id] && { value: (byId[id].unit.startsWith('%') ? `${signed(formatValue(byId[id].value, byId[id].decimals))}%` : byId[id].unit === 'US$ bn' ? `US$ ${signed(formatValue(byId[id].value, 1))} bn` : `${signed(formatValue(byId[id].value, byId[id].decimals))} ${byId[id].unit}`), sub: `${SHORT[id] || byId[id].label} · ${byId[id].period.replace(/^(Week|Fortnight) to /, '')}` };
 
   return (
     <div className="eb-dash">
-      <header className="eb-dashhead">
-        <div>
-          <h1>{title}</h1>
-          <p className="eb-asof">Position as on {formatDateTime(data.generated_at)}</p>
+      <header className="eb-hero">
+        <div className="eb-hero-top">
+          <div>
+            <p className="eb-hero-kicker">NITI Aayog · Economics and Finance II Division</p>
+            <h1>{title}</h1>
+            <p className="eb-hero-asof">Position as on {formatDateTime(data.generated_at)}</p>
+          </div>
+          <div className="eb-range" role="group" aria-label="Time range for all charts">
+            {RANGES.map(([label, n]) => (
+              <button key={label} type="button" aria-pressed={years === n} onClick={() => choose(n)}>{label}</button>
+            ))}
+          </div>
         </div>
-        <div className="eb-range" role="group" aria-label="Time range for all charts">
-          {RANGES.map(([label, n]) => (
-            <button key={label} type="button" aria-pressed={years === n} onClick={() => choose(n)}>{label}</button>
-          ))}
-        </div>
+        <Lead byId={byId} />
       </header>
 
-      <Lead byId={byId} />
-
-      <ul className="eb-tiles" aria-label="Headline indicators">
+      <h2 className="eb-eyebrow" id="eb-tiles-h">Headline indicators</h2>
+      <ul className="eb-tiles" aria-labelledby="eb-tiles-h">
         {TILES.map((id) => byId[id] && <Tile key={id} item={byId[id]} start={start} />)}
       </ul>
 
-      <section className="eb-panels" aria-label="Charts">
+      <h2 className="eb-eyebrow" id="eb-panels-h">Trends</h2>
+      <section className="eb-panels" aria-labelledby="eb-panels-h">
         {has('gdp') && (
-          <MultiChart title="Growth" note="Real GDP, % year on year, by quarter. MoSPI." kind="bar" start={start} fmt={pct(1)}
+          <MultiChart title="Growth" headline={head('gdp')} note="Real GDP, % year on year, by quarter. MoSPI." kind="bar" start={start} fmt={pct(1)}
             series={[{ key: 'gdp', label: 'Real GDP growth', color: S1, points: h('gdp') }]} />
         )}
         {has('cpi', 'repo') && (
-          <MultiChart title="Inflation and policy rate" note="%. Shaded: RBI's 2 to 6% inflation tolerance band. MoSPI, RBI." start={start} fmt={pct(2)}
+          <MultiChart title="Inflation and policy rate" headline={head('cpi')} note="%. Shaded: RBI's 2 to 6% inflation tolerance band. MoSPI, RBI." start={start} fmt={pct(2)}
             band={{ lo: 2, hi: 6, label: '2–6% band' }}
             series={[
               { key: 'cpi', label: 'CPI inflation', color: S1, points: h('cpi') },
@@ -85,7 +91,7 @@ export default function Dashboard({ data, title, byId, groups }) {
             ]} />
         )}
         {has('tbill_91', 'gsec10') && (
-          <MultiChart title="Interest rates" note="%, month end. RBI DBIE (G-sec: FBIL)." start={start} fmt={pct(2)}
+          <MultiChart title="Interest rates" headline={head('gsec10')} note="%, month end. RBI DBIE (G-sec: FBIL)." start={start} fmt={pct(2)}
             series={[
               { key: 'tbill_91', label: '91-day T-bill', color: S1, points: h('tbill_91') },
               { key: 'repo', label: 'Repo rate', color: S2, points: h('repo') },
@@ -93,7 +99,7 @@ export default function Dashboard({ data, title, byId, groups }) {
             ]} />
         )}
         {has('credit_nonfood', 'deposit_growth', 'm3_growth') && (
-          <MultiChart title="Money and credit" note="% year on year. RBI DBIE." start={start} fmt={pct(1)}
+          <MultiChart title="Money and credit" headline={head('credit_nonfood')} note="% year on year. RBI DBIE." start={start} fmt={pct(1)}
             series={[
               { key: 'credit_nonfood', label: 'Non-food credit', color: S1, points: h('credit_nonfood') },
               { key: 'deposit_growth', label: 'Deposits', color: S2, points: h('deposit_growth') },
@@ -101,7 +107,7 @@ export default function Dashboard({ data, title, byId, groups }) {
             ]} />
         )}
         {has('exports', 'imports') && (
-          <MultiChart title="Merchandise trade" note="US$ bn a month. RBI DBIE, latest month from Commerce." start={start} fmt={bn}
+          <MultiChart title="Merchandise trade" headline={head('trade_balance')} note="US$ bn a month. RBI DBIE, latest month from Commerce." start={start} fmt={bn}
             series={[
               { key: 'exports', label: 'Exports', color: S1, points: h('exports') },
               { key: 'imports', label: 'Imports', color: S2, points: h('imports') },
@@ -109,7 +115,7 @@ export default function Dashboard({ data, title, byId, groups }) {
             ]} />
         )}
         {has('fdi_net', 'fpi_net') && (
-          <MultiChart title="Capital flows" note="US$ bn a month, net. RBI DBIE." kind="bar" start={start} fmt={bn}
+          <MultiChart title="Capital flows" headline={head('fdi_net')} note="US$ bn a month, net. RBI DBIE." kind="bar" start={start} fmt={bn}
             series={[
               { key: 'fdi_net', label: 'Net FDI', color: S1, points: h('fdi_net') },
               { key: 'fpi_net', label: 'Net portfolio', color: S2, points: h('fpi_net') },
@@ -117,9 +123,9 @@ export default function Dashboard({ data, title, byId, groups }) {
         )}
       </section>
 
-      <section className="eb-section" aria-labelledby="eb-signal-h">
-        <div className="eb-sectionbar">
-          <h2 id="eb-signal-h">All indicators</h2>
+      <section aria-labelledby="eb-signal-h">
+        <div className="eb-eyebar">
+          <h2 className="eb-eyebrow" id="eb-signal-h">All indicators</h2>
           <a className="eb-more" href="#/sources">Sources and notes</a>
         </div>
         <SignalTable indicators={data.indicators || []} groups={groups} />

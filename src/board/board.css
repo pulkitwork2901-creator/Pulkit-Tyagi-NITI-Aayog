@@ -329,3 +329,91 @@
   .eb-panels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .eb-mc, .eb-tile { break-inside: avoid; }
 }
+
+/* ===== Dashboard visual layer: canvas, cards, hero, pills ===== */
+.eb:has(.eb-dash) { background: #f2f4f8; }
+.eb:has(.eb-dash) .eb-main { background: transparent; }
+.eb-dash { gap: 12px; }
+.eb-dash .eb-card, .eb-tile, .eb-mc, .eb-dash .eb-tablewrap {
+  background: #fff;
+  border: 1px solid #e2e7ef;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgb(15 33 71 / 0.05), 0 6px 16px -8px rgb(15 33 71 / 0.10);
+}
+
+/* Hero band */
+.eb-hero {
+  position: relative; overflow: hidden;
+  background: linear-gradient(125deg, #0f2147 0%, #19357a 60%, #23479b 100%);
+  color: #fff; border-radius: 16px; padding: 22px 26px 20px;
+  box-shadow: 0 10px 28px -14px rgb(15 33 71 / 0.55);
+}
+.eb-hero::after { /* thin tricolour accent along the bottom edge */
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px;
+  background: linear-gradient(90deg, var(--eb-saffron) 0 33.3%, #fff 33.3% 66.6%, var(--eb-flag-green) 66.6%);
+  opacity: 0.9;
+}
+.eb-hero-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.eb-hero-kicker { margin: 0 0 4px; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: #aebde0; font-weight: 600; }
+.eb-hero h1 { font-family: var(--eb-serif); font-size: clamp(26px, 3vw, 34px); line-height: 1.15; margin: 0; color: #fff; }
+.eb-hero-asof { margin: 6px 0 0; font-size: 13.5px; color: #c4d0ea; }
+.eb-hero .eb-lead { margin-top: 14px; font-size: 15.5px; line-height: 1.6; color: #d7e0f3; max-width: 110ch; }
+.eb-hero .eb-lead strong { color: #fff; }
+.eb-hero .eb-range { border-color: rgb(255 255 255 / 0.35); background: rgb(255 255 255 / 0.06); border-radius: 999px; padding: 3px; gap: 2px; }
+.eb-hero .eb-range button { background: transparent; color: #e6ecf8; border: 0; border-radius: 999px; min-height: 32px; }
+.eb-hero .eb-range button + button { border-left: 0; }
+.eb-hero .eb-range button:hover:not([aria-pressed="true"]) { background: rgb(255 255 255 / 0.12); }
+.eb-hero .eb-range button[aria-pressed="true"] { background: #fff; color: var(--eb-navy); }
+.eb-hero .eb-range button:focus-visible { outline-color: #fff; }
+
+/* Section labels */
+.eb-eyebrow { margin: 8px 2px -2px; font: 700 12.5px var(--eb-font); letter-spacing: 0.08em; text-transform: uppercase; color: #5b6784; border: 0; padding: 0; }
+.eb-eyebar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.eb-eyebar .eb-eyebrow { margin: 8px 2px 0; }
+
+/* Tiles */
+.eb-tile { padding: 14px 16px 12px; transition: box-shadow 0.15s ease, transform 0.15s ease; }
+.eb-tile:hover { transform: translateY(-1px); box-shadow: 0 2px 4px rgb(15 33 71 / 0.06), 0 12px 24px -12px rgb(15 33 71 / 0.25); }
+.eb-tile-label { font-size: 13px; letter-spacing: 0.01em; }
+.eb-tile-value { font-size: 30px; }
+.eb-tile-period { margin-top: 2px; }
+
+/* Change pills (dashboard only): tint backs the arrow and sign, never colour alone */
+.eb-dash .eb-chip { display: inline-flex; align-items: center; gap: 3px; padding: 2px 9px; border-radius: 999px; font-size: 13px; line-height: 1.5; }
+.eb-dash .eb-chip.eb-good { background: #e3f3ea; color: #0b5e32; }
+.eb-dash .eb-chip.eb-bad { background: #fbe7e4; color: #9a2116; }
+.eb-dash .eb-chip.eb-neutral { background: #edf0f6; color: #4a5672; }
+
+/* Chart cards */
+.eb-mc { padding: 14px 16px 8px; }
+.eb-mc figcaption { position: relative; padding-right: 0; }
+.eb-mc-title { font-size: 16.5px; }
+.eb-mc-head { order: 2; margin: 0 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; line-height: 1.15; text-align: right; }
+.eb-mc-head b { font-family: var(--eb-serif); font-size: 21px; color: var(--eb-ink); font-variant-numeric: tabular-nums; }
+.eb-mc-head span { font-size: 11.5px; color: var(--eb-muted); white-space: nowrap; }
+.eb-mc-legend { order: 4; flex-basis: 100%; margin-top: 4px; }
+.eb-mc-note { order: 3; }
+.eb-mc .eb-grid { stroke: #e3e8f0; stroke-dasharray: none; }
+.eb-mc .eb-axis { stroke: #9aa6bf; stroke-width: 1; }
+.eb-mc-band { fill: #eef2f9; }
+
+/* Signal table as a card */
+.eb-dash .eb-tablewrap { overflow: hidden; }
+.eb-signal thead th { background: #f6f8fb; border-bottom: 1px solid #e2e7ef; text-transform: uppercase; letter-spacing: 0.05em; font-size: 11.5px; }
+.eb-signal th, .eb-signal td { border-bottom: 1px solid #eef1f6; }
+.eb-signal tbody tr:not(.eb-signal-group):hover { background: #f7f9fd; }
+.eb-signal-group th { background: #fbfcfe; border-bottom: 1px solid #e2e7ef; font-size: 15px; padding: 12px 10px 8px; }
+.eb-signal tbody th a { color: var(--eb-ink); text-decoration: none; font-weight: 600; }
+.eb-signal tbody th a:hover { color: var(--eb-data); text-decoration: underline; }
+.eb-strip i { width: 13px; height: 15px; border-radius: 3px; }
+
+@media (max-width: 640px) {
+  .eb-hero { padding: 18px 16px 16px; border-radius: 12px; }
+  .eb-hero .eb-lead { font-size: 14.5px; }
+  .eb-mc-head b { font-size: 18px; }
+}
+@media print {
+  .eb:has(.eb-dash) { background: #fff; }
+  .eb-hero { background: #fff; color: var(--eb-ink); box-shadow: none; border: 1px solid var(--eb-rule); }
+  .eb-hero h1, .eb-hero .eb-lead, .eb-hero .eb-lead strong { color: var(--eb-ink); }
+}

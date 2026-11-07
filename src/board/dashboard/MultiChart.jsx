@@ -17,7 +17,7 @@ export function sinceRange(points, start) {
   return (points || []).filter((p) => p.value != null && p.date && t(p.date) >= start);
 }
 
-export default function MultiChart({ title, note, series, kind = 'line', band, start, fmt, height = 156 }) {
+export default function MultiChart({ title, note, series, kind = 'line', band, start, fmt, headline, height = 156 }) {
   const [ref, W] = useWidth(360, 220);
   const [hover, setHover] = useState(null);
   const live = series.map((s) => ({ ...s, pts: sinceRange(s.points, start) })).filter((s) => s.pts.length);
@@ -127,6 +127,10 @@ export default function MultiChart({ title, note, series, kind = 'line', band, s
             <path key={s.key} d={s.pts.map((p, i) => `${i ? 'L' : 'M'}${xLine(p.date).toFixed(1)},${y(p.value).toFixed(1)}`).join('')}
               fill="none" stroke={s.color} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
           ))}
+          {kind === 'line' && live.length === 1 && (
+            <path d={`${live[0].pts.map((p, i) => `${i ? 'L' : 'M'}${xLine(p.date).toFixed(1)},${y(p.value).toFixed(1)}`).join('')}L${xLine(live[0].pts[live[0].pts.length - 1].date)},${y(yMin)}L${xLine(live[0].pts[0].date)},${y(yMin)}Z`}
+              fill={live[0].color} opacity="0.08" />
+          )}
           {ends.map(({ s, p, x, y: ly }) => (
             <g key={`end-${s.key}`}>
               <circle cx={x} cy={y(p.value)} r="4" fill={s.color} className="eb-mc-ring" />
@@ -164,6 +168,9 @@ export default function MultiChart({ title, note, series, kind = 'line', band, s
     <figure className="eb-mc">
       <figcaption>
         <h3 className="eb-mc-title">{title}</h3>
+        {headline && (
+          <p className="eb-mc-head"><b>{headline.value}</b><span>{headline.sub}</span></p>
+        )}
         {note && <p className="eb-mc-note">{note}</p>}
         {live.length > 1 && (
           <ul className="eb-mc-legend">
