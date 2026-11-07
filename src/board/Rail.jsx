@@ -7,7 +7,7 @@ function NavLink({ href, current, children }) {
 }
 
 // Left navigation: the overview, one page per theme, and the sources page.
-export default function Rail({ route, groups, data, error, onReload }) {
+export default function Rail({ route, groups, data, error, onReload, skins = [], skin, onSkin }) {
   const mospi = data?.sources?.mospi;
   const stale = mospi && mospi.status !== 'ok';
   const active = route.name === 'indicator' ? route.group : null;
@@ -32,6 +32,17 @@ export default function Rail({ route, groups, data, error, onReload }) {
         <p className="eb-railmuted">Data as on {formatDateTime(data.generated_at)}</p>
         {error && <p className="eb-railmuted">Latest reload failed: {error}</p>}
         <button type="button" className="eb-btn eb-btn-rail" onClick={onReload}>Reload data</button>
+        {skins.length > 0 && (
+          <div className="eb-skins" role="group" aria-label="Colour scheme">
+            <span className="eb-railmuted eb-skins-label">Colours</span>
+            {skins.map((k) => (
+              <button key={k.id} type="button" className={`eb-skin eb-skin-${k.id}`} aria-pressed={skin === k.id}
+                onClick={() => onSkin(k.id)} title={`${k.label} colour scheme`}>
+                <i aria-hidden="true" />{k.label}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </aside>
   );
