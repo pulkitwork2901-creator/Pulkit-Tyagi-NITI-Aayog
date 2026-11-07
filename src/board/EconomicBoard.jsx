@@ -24,7 +24,7 @@ function readSkin() {
   }
 }
 
-export default function EconomicBoard({ source = '/data/indicators.json', title = 'Economic Situation Board' }) {
+export default function EconomicBoard({ source = '/data/indicators.json', title = 'E&F-II Dashboard' }) {
   const { status, data, error, reload } = useIndicators(source);
   const route = useHashRoute();
   const [skin, setSkin] = useState(readSkin);
@@ -34,7 +34,7 @@ export default function EconomicBoard({ source = '/data/indicators.json', title 
   };
 
   useEffect(() => {
-    document.title = `${title} | NITI Aayog, E&F-II`;
+    document.title = `${title} | NITI Aayog`;
   }, [title]);
 
   if (status === 'loading') {

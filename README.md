@@ -1,4 +1,4 @@
-# E&F-II Economic Situation Board (React)
+# E&F-II Dashboard (React)
 
 A React 19 dashboard of India's top economic indicators for the Economics and Finance II Division. GDP growth and CPI inflation are pulled from MoSPI's official API; the other indicators come from a sheet the team updates after each official release.
 
