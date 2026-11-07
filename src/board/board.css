@@ -208,8 +208,8 @@
 @media (max-width: 860px) {
   .eb { grid-template-columns: minmax(0, 1fr); }
   .eb-rail { grid-row: 2; position: static; height: auto; padding: 16px 16px 12px; gap: 12px; overflow: visible; }
-  .eb-rail nav { flex-direction: row; overflow-x: auto; gap: 4px; padding-bottom: 4px; align-items: stretch; }
-  .eb-rail nav > div { display: flex; gap: 4px; }
+  .eb-rail nav { flex-direction: row; flex-wrap: wrap; gap: 4px; padding-bottom: 4px; align-items: stretch; }
+  .eb-rail nav > div { display: contents; }
   .eb-navhead { display: none; }
   .eb-navlink { white-space: nowrap; border-left: 0; border-bottom: 3px solid transparent; }
   .eb-navlink[aria-current="page"] { border-bottom-color: var(--eb-saffron); }
@@ -639,3 +639,20 @@ a.eb-bar-row:hover .eb-bar-label { text-decoration: underline; }
 .eb-tr-warn { margin: 0; padding: 10px 14px; border-radius: 10px; background: var(--eb-neutral-bg); color: var(--eb-neutral-ink); font-size: 13.5px; }
 .eb-tr-value { white-space: normal !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: 21px !important; line-height: 1.15 !important; }
 .eb-mv > .eb-tr-note { font-size: 12.5px; margin: 0 !important; }
+
+/* Exports entry card on the dashboard */
+.eb-xcard { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 16px; padding: 16px 20px; border-radius: 14px; text-decoration: none; color: #fff; background: var(--eb-hero-bg); box-shadow: 0 6px 18px -10px rgb(15 33 71 / 0.45); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.eb-xcard:hover { transform: translateY(-1px); box-shadow: 0 10px 24px -10px rgb(15 33 71 / 0.55); }
+.eb-xcard:focus-visible { outline: 3px solid var(--eb-saffron); outline-offset: 2px; }
+.eb-xcard-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: rgb(255 255 255 / 0.14); }
+.eb-xcard-kicker { display: block; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: var(--eb-hero-muted); }
+.eb-xcard-title { display: block; font-family: var(--eb-serif); font-size: 20px; font-weight: 700; margin: 2px 0; }
+.eb-xcard-text { display: block; font-size: 14px; color: var(--eb-hero-soft); }
+.eb-xcard-go { font-weight: 700; font-size: 14px; white-space: nowrap; padding: 8px 16px; border-radius: 999px; background: #fff; color: var(--eb-hero-pressed); }
+@media (max-width: 640px) {
+  .eb-xcard { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .eb-xcard-icon { display: none; }
+  .eb-xcard-go { justify-self: start; }
+}
+.eb a.eb-xcard, .eb a.eb-xcard:visited, .eb a.eb-xcard .eb-xcard-title, .eb-xcard-icon { color: #fff; }
+.eb a.eb-xcard:hover .eb-xcard-title { text-decoration: underline; }

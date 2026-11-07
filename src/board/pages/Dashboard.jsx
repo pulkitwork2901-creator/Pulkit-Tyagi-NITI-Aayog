@@ -6,6 +6,7 @@ import MultiChart, { sinceRange } from '../dashboard/MultiChart.jsx';
 import SignalTable from '../dashboard/SignalTable.jsx';
 import Icon from '../dashboard/Icon.jsx';
 import { useCountUp } from '../dashboard/motion.js';
+import { money, useTradeFile } from '../trade/tradeKit.jsx';
 import { formatDateTime, formatValue, signed, tipFor } from '../format.js';
 
 // The one-screen dashboard: headline tiles, six themed panels on a shared time
@@ -41,6 +42,27 @@ function HeroArt() {
       <path d={d} className="eb-hero-line" />
       {pts.slice(-1).map(([x, y]) => <circle key={x} cx={x - 8} cy={y + 2} r="5" />)}
     </svg>
+  );
+}
+
+// Entry card to the Exports section, with the latest full-year headline.
+function ExportsCard({ base }) {
+  const { data: d } = useTradeFile(`${base}exports.json`);
+  const i = d ? d.periods.indexOf(d.latest_full) : -1;
+  const top = d && [...d.countries].sort((a, b) => (b.v[i] || 0) - (a.v[i] || 0))[0];
+  return (
+    <a className="eb-xcard" href="#/exports">
+      <span className="eb-xcard-icon" aria-hidden="true"><Icon name="trade" size={24} /></span>
+      <span>
+        <span className="eb-xcard-kicker">Trade detail · DGCI&amp;S, HS 8-digit</span>
+        <span className="eb-xcard-title">Exports by partner and product</span>
+        <span className="eb-xcard-text">
+          {d ? `${d.latest_full}: ${money(d.total[i])} to ${d.partners[i]} destinations; largest market ${top.name}. Explore every country and the top ${d.products.length} products.`
+            : 'Every destination country and the top 300 products, 2021 to 2026.'}
+        </span>
+      </span>
+      <span className="eb-xcard-go">Open exports →</span>
+    </a>
   );
 }
 
@@ -93,7 +115,7 @@ function Tile({ item, start }) {
   );
 }
 
-export default function Dashboard({ data, title, byId, groups, csvUrl }) {
+export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase }) {
   const [years, setYears] = useState(readRange);
   const choose = (n) => {
     setYears(n);
@@ -131,10 +153,9 @@ export default function Dashboard({ data, title, byId, groups, csvUrl }) {
 
       <WhatsNew indicators={data.indicators || []} now={Date.parse(data.generated_at)} />
 
-      <div className="eb-eyebar">
-        <h2 className="eb-eyebrow" id="eb-panels-h">Trends</h2>
-        <span className="eb-eyelinks"><a className="eb-more" href="#/exports">Exports by partner and product</a></span>
-      </div>
+      <ExportsCard base={tradeBase} />
+
+      <h2 className="eb-eyebrow" id="eb-panels-h">Trends</h2>
       <section className="eb-panels" aria-labelledby="eb-panels-h">
         {has('gdp') && (
           <MultiChart title="Growth" icon="growth" headline={head('gdp')} note="Real GDP, % year on year, by quarter. MoSPI." kind="bar" start={start} fmt={pct(1)}
