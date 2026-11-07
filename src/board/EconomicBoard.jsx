@@ -5,7 +5,7 @@ import useHashRoute from './useHashRoute.js';
 import useIndicators from './useIndicators.js';
 import { slug } from './format.js';
 import IndicatorPage from './pages/IndicatorPage.jsx';
-import Overview from './pages/Overview.jsx';
+import Dashboard from './pages/Dashboard.jsx';
 import SourcesPage from './pages/SourcesPage.jsx';
 import ThemePage from './pages/ThemePage.jsx';
 
@@ -43,7 +43,7 @@ export default function EconomicBoard({ source = '/data/indicators.json', title 
   if (route.name === 'indicator') page = <IndicatorPage item={item} />;
   else if (route.name === 'theme') page = <ThemePage group={group} items={indicators.filter((i) => i.group === group)} />;
   else if (route.name === 'sources') page = <SourcesPage indicators={indicators} />;
-  else page = <Overview data={data} title={title} byId={byId} groups={groups} />;
+  else page = <Dashboard data={data} title={title} byId={byId} groups={groups} />;
 
   return (
     <div className="eb">

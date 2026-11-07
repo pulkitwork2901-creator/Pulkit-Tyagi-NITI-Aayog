@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-07T16:12:38+00:00",
+ "generated_at": "2026-11-07T16:29:52+00:00",
  "sources": {
   "mospi": {
    "status": "ok",
-   "fetched_at": "2026-11-07T16:12:38+00:00",
+   "fetched_at": "2026-11-07T16:29:52+00:00",
    "message": null
   },
   "rbi": {
@@ -33,66 +33,79 @@
    "released": null,
    "history": [
     {
+     "date": "2023-06-30",
      "label": "Q1 2023-24",
      "short": "Q1 23-24",
      "value": 6.6
     },
     {
+     "date": "2023-09-30",
      "label": "Q2 2023-24",
      "short": "Q2 23-24",
      "value": 7.5
     },
     {
+     "date": "2023-12-31",
      "label": "Q3 2023-24",
      "short": "Q3 23-24",
      "value": 7.7
     },
     {
+     "date": "2024-03-31",
      "label": "Q4 2023-24",
      "short": "Q4 23-24",
      "value": 7.4
     },
     {
+     "date": "2024-06-30",
      "label": "Q1 2024-25",
      "short": "Q1 24-25",
      "value": 7.5
     },
     {
+     "date": "2024-09-30",
      "label": "Q2 2024-25",
      "short": "Q2 24-25",
      "value": 7.3
     },
     {
+     "date": "2024-12-31",
      "label": "Q3 2024-25",
      "short": "Q3 24-25",
      "value": 7.4
     },
     {
+     "date": "2025-03-31",
      "label": "Q4 2024-25",
      "short": "Q4 24-25",
      "value": 6.6
     },
     {
+     "date": "2025-06-30",
      "label": "Q1 2025-26",
      "short": "Q1 25-26",
      "value": 6.9
     },
     {
+     "date": "2025-09-30",
      "label": "Q2 2025-26",
      "short": "Q2 25-26",
      "value": 8.1
     },
     {
+     "date": "2025-12-31",
      "label": "Q3 2025-26",
      "short": "Q3 25-26",
      "value": 7.7
     },
     {
+     "date": "2026-03-31",
      "label": "Q4 2025-26",
      "short": "Q4 25-26",
      "value": 8.6
     },
     {
+     "date": "2026-06-30",
      "label": "Q1 2026-27",
      "short": "Q1 26-27",
      "value": 7.8
@@ -118,47 +131,56 @@
    "released": null,
    "history": [
     {
-     "label": "January 2026",
+     "date": "2026-01-31",
+     "label": "Jan 2026",
      "short": "Jan 26",
      "value": 2.74
     },
     {
-     "label": "February 2026",
+     "date": "2026-02-28",
+     "label": "Feb 2026",
      "short": "Feb 26",
      "value": 3.21
     },
     {
-     "label": "March 2026",
+     "date": "2026-03-31",
+     "label": "Mar 2026",
      "short": "Mar 26",
      "value": 3.4
     },
     {
-     "label": "April 2026",
+     "date": "2026-04-30",
+     "label": "Apr 2026",
      "short": "Apr 26",
      "value": 3.48
     },
     {
+     "date": "2026-05-31",
      "label": "May 2026",
      "short": "May 26",
      "value": 3.93
     },
     {
-     "label": "June 2026",
+     "date": "2026-06-30",
+     "label": "Jun 2026",
      "short": "Jun 26",
      "value": 4.38
     },
     {
-     "label": "July 2026",
+     "date": "2026-07-31",
+     "label": "Jul 2026",
      "short": "Jul 26",
      "value": 4.45
     },
     {
-     "label": "August 2026",
+     "date": "2026-08-31",
+     "label": "Aug 2026",
      "short": "Aug 26",
      "value": 4.83
     },
     {
-     "label": "September 2026",
+     "date": "2026-09-30",
+     "label": "Sep 2026",
      "short": "Sep 26",
      "value": 5.54
     }
@@ -184,11 +206,13 @@
    "entered_by": "Claude (from official release)",
    "history": [
     {
+     "date": "2026-08-31",
      "label": "Aug 2026",
      "short": "Aug 26",
      "value": 7.8
     },
     {
+     "date": "2026-09-30",
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 6.7
@@ -1358,6 +1382,7 @@
    "entered_by": "Claude (from official release)",
    "history": [
     {
+     "date": "2026-06-30",
      "label": "Q1 2026-27",
      "short": "Jun 26",
      "value": -0.5
@@ -1753,7 +1778,7 @@
    "id": "inr_usd",
    "mode": "rbi",
    "value": 95.2492,
-   "unit": "₹ per US$ (month end)",
+   "unit": "₹ per US$",
    "period": "Oct 2026",
    "compare_value": 95.9832,
    "compare_period": "Sep 2026",
@@ -2835,6 +2860,7 @@
    "entered_by": "Claude (from official release)",
    "history": [
     {
+     "date": "2026-09-30",
      "label": "Apr-Sep 2026",
      "short": "Sep 26",
      "value": 42.1
@@ -2861,11 +2887,13 @@
    "entered_by": "Claude (from official release)",
    "history": [
     {
+     "date": "2026-09-30",
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 2.03
     },
     {
+     "date": "2026-10-31",
      "label": "Oct 2026",
      "short": "Oct 26",
      "value": 2.31
@@ -5904,6 +5932,7 @@
    "entered_by": "Claude (from RBI release)",
    "history": [
     {
+     "date": "2026-09-30",
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 19.52
@@ -5930,6 +5959,7 @@
    "entered_by": "Claude (from RBI release)",
    "history": [
     {
+     "date": "2026-09-30",
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 19.46
@@ -5956,6 +5986,7 @@
    "entered_by": "Claude (from RBI release)",
    "history": [
     {
+     "date": "2026-09-30",
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 28.32
@@ -5982,6 +6013,7 @@
    "entered_by": "Claude (from RBI release)",
    "history": [
     {
+     "date": "2026-09-30",
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 17.25

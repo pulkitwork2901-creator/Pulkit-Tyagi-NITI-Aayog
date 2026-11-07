@@ -18,7 +18,7 @@ export default function Rail({ route, groups, data, error, onReload }) {
         <p className="eb-brand-unit">Economics and Finance II Division</p>
       </div>
       <nav aria-label="Board sections">
-        <NavLink href="#/" current={route.name === 'overview'}>Overview</NavLink>
+        <NavLink href="#/" current={route.name === 'overview'}>Dashboard</NavLink>
         <p className="eb-navhead" id="eb-themes">Themes</p>
         <div role="group" aria-labelledby="eb-themes">
           {groups.map((g) => (

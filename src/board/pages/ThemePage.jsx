@@ -7,14 +7,14 @@ export default function ThemePage({ group, items }) {
     return (
       <div className="eb-notfound">
         <h1>Theme not found</h1>
-        <p>This theme is not in the current data. Choose one from the list on the left, or <a href="#/">return to the overview</a>.</p>
+        <p>This theme is not in the current data. Choose one from the list on the left, or <a href="#/">return to the dashboard</a>.</p>
       </div>
     );
   }
   const charted = items.filter((i) => (i.history || []).filter((p) => p.value != null).length >= 2);
   return (
     <>
-      <nav className="eb-crumbs" aria-label="Breadcrumb"><a href="#/">Overview</a><span aria-hidden="true">/</span><span>{group}</span></nav>
+      <nav className="eb-crumbs" aria-label="Breadcrumb"><a href="#/">Dashboard</a><span aria-hidden="true">/</span><span>{group}</span></nav>
       <header className="eb-pagehead">
         <h1>{group}</h1>
         <p className="eb-asof">{items.length} indicators. Select an indicator to see its full history and source.</p>

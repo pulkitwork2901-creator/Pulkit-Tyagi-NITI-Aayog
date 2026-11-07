@@ -54,7 +54,7 @@ SPECS = {
     "imports":        dict(sheet="Monthly", header="Foreign Trade Imports Total", calc="level", scale=1e-3, unit="US$ bn", compare="yoy", manual="merge"),
     "trade_balance":  dict(sheet="Monthly", header="Foreign Trade Balance Total", calc="level", scale=1e-3, unit="US$ bn", compare="yoy", manual="merge"),
     "fx_reserves":    dict(sheet="Weekly", header="Foreign Exchange Reserves", calc="level", scale=1e-3, unit="US$ bn", compare="prev_week", manual="merge"),
-    "inr_usd":        dict(sheet="Monthly", header="Exchange Rate of Indian Rupee vis-à-vis US Dollar", calc="level", scale=1, unit="₹ per US$ (month end)", compare="prev", manual="ignore"),
+    "inr_usd":        dict(sheet="Monthly", header="Exchange Rate of Indian Rupee vis-à-vis US Dollar", calc="level", scale=1, unit="₹ per US$", compare="prev", manual="ignore"),
     "fwd_premia_3m":  dict(sheet="Weekly", header="Forward Premia of US$ 3-month", calc="level", scale=1, unit="% a year", compare="prev_week", manual="ignore"),
     "ext_debt":       dict(sheet="Quarterly", header="India's External Debt - Gross Total", calc="level", scale=1e-3, unit="US$ bn", compare="prev", manual="ignore"),
     "niip":           dict(sheet="Quarterly", header="International Investment Position Net", calc="level", scale=1e-3, unit="US$ bn", compare="prev", manual="ignore"),

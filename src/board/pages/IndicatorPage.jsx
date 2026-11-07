@@ -18,7 +18,7 @@ export default function IndicatorPage({ item }) {
   return (
     <>
       <nav className="eb-crumbs" aria-label="Breadcrumb">
-        <a href="#/">Overview</a><span aria-hidden="true">/</span>
+        <a href="#/">Dashboard</a><span aria-hidden="true">/</span>
         <a href={`#/theme/${slug(item.group)}`}>{item.group}</a><span aria-hidden="true">/</span>
         <span>{item.label}</span>
       </nav>

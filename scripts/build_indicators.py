@@ -180,6 +180,18 @@ def _change(v, p):
     return None if v is None or p is None else round(v - p, 2)
 
 
+def _month_end(year: int, month: int) -> str:
+    nxt = date(year + (month == 12), 1 if month == 12 else month + 1, 1)
+    return date.fromordinal(nxt.toordinal() - 1).isoformat()
+
+
+def _fy_quarter_end(fy: str, quarter: str) -> str:
+    """'2026-27', 'Q1' -> '2026-06-30' (Indian fiscal year starts in April)."""
+    start, q = int(str(fy)[:4]), int(str(quarter).lstrip("Q"))
+    month = {1: 6, 2: 9, 3: 12, 4: 3}[q]
+    return _month_end(start + (q == 4), month)
+
+
 def shape_gdp(rows: list[dict]) -> dict | None:
     key = lambda r: (int(str(r["year"])[:4]), int(str(r["quarter"]).lstrip("Q")))
     pts = sorted((r for r in rows if _num(r.get("constant_price")) is not None), key=key)
@@ -194,7 +206,8 @@ def shape_gdp(rows: list[dict]) -> dict | None:
         "change": _change(v, p),
         "source": "MoSPI National Accounts, base 2022-23 (constant prices)",
         "source_url": "https://esankhyiki.mospi.gov.in", "released": None,
-        "history": [{"label": f'{r["quarter"]} {r["year"]}', "short": f'{r["quarter"]} {str(r["year"])[2:]}',
+        "history": [{"date": _fy_quarter_end(r["year"], r["quarter"]),
+                     "label": f'{r["quarter"]} {r["year"]}', "short": f'{r["quarter"]} {str(r["year"])[2:]}',
                      "value": _num(r["constant_price"])} for r in pts],
     }
 
@@ -213,7 +226,8 @@ def shape_cpi(rows: list[dict]) -> dict | None:
         "change": _change(v, p),
         "source": "MoSPI CPI, base 2024, All India combined",
         "source_url": "https://esankhyiki.mospi.gov.in", "released": None,
-        "history": [{"label": f'{r["month"]} {r["year"]}', "short": f'{r["month"][:3]} {str(r["year"])[2:]}',
+        "history": [{"date": _month_end(int(r["year"]), MONTHS.index(r["month"]) + 1),
+                     "label": f'{r["month"][:3]} {r["year"]}', "short": f'{r["month"][:3]} {str(r["year"])[2:]}',
                      "value": _num(r["inflation"])} for r in pts],
     }
 
@@ -257,7 +271,7 @@ def shape_manual(path: Path) -> list[dict]:
             "compare_period": last.get("compare_period") or None, "change": _change(v, c),
             "source": last["source"], "source_url": last.get("source_url") or None,
             "released": last.get("released") or None, "entered_by": last.get("entered_by") or None,
-            "history": [{"label": r["period"],
+            "history": [{"date": r["date"], "label": r["period"],
                          "short": _short_label(r["date"]),
                          "value": _num(r["value"])} for r in series],
         })
