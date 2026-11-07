@@ -8,7 +8,7 @@ on:
     - cron: "30 12 * * *"   # 18:00 IST daily, after most releases
   push:
     branches: [main]
-    paths: ["data/**", "src/**", "scripts/**", "index.html", "package.json"]
+    paths: ["data/**", "src/**", "scripts/**", "index.html", "package.json", "vite.config.js", ".github/workflows/**"]
   workflow_dispatch:
 
 permissions:
@@ -49,7 +49,9 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          BASE_PATH: /${{ github.event.repository.name }}/
+          # Relative paths: the site works at any address, so renaming the
+          # repository (which changes the Pages URL) cannot break it.
+          BASE_PATH: ./
 
       - uses: actions/upload-pages-artifact@v3
         with:
