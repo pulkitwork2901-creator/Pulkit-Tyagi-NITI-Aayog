@@ -131,7 +131,10 @@ export default function Dashboard({ data, title, byId, groups, csvUrl }) {
 
       <WhatsNew indicators={data.indicators || []} now={Date.parse(data.generated_at)} />
 
-      <h2 className="eb-eyebrow" id="eb-panels-h">Trends</h2>
+      <div className="eb-eyebar">
+        <h2 className="eb-eyebrow" id="eb-panels-h">Trends</h2>
+        <span className="eb-eyelinks"><a className="eb-more" href="#/exports">Exports by partner and product</a></span>
+      </div>
       <section className="eb-panels" aria-labelledby="eb-panels-h">
         {has('gdp') && (
           <MultiChart title="Growth" icon="growth" headline={head('gdp')} note="Real GDP, % year on year, by quarter. MoSPI." kind="bar" start={start} fmt={pct(1)}

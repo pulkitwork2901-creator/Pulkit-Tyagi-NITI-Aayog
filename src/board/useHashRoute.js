@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react';
 
-// Tiny router: #/ overview, #/theme/<slug>, #/indicator/<id>, #/sources.
+// Tiny router: #/ dashboard, #/theme/<slug>, #/indicator/<id>, #/sources,
+// #/exports, #/exports/country/<id>, #/exports/product/<hs8>.
 // Hash addresses work on GitHub Pages without any server setup.
 function parse() {
   const raw = window.location.hash.replace(/^#\/?/, '');
-  const [name, arg] = raw.split('/');
-  return { name: name || 'overview', arg: arg ? decodeURIComponent(arg) : null };
+  const [name, arg, arg2] = raw.split('/');
+  return {
+    name: name || 'overview',
+    arg: arg ? decodeURIComponent(arg) : null,
+    arg2: arg2 ? decodeURIComponent(arg2) : null,
+  };
 }
 
 export default function useHashRoute() {

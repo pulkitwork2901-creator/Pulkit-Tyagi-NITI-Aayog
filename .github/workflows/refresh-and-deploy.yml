@@ -8,7 +8,7 @@ on:
     - cron: "30 12 * * *"   # 18:00 IST daily, after most releases
   push:
     branches: [main]
-    paths: ["data/**", "src/**", "scripts/**", "index.html", "package.json", "vite.config.js", ".github/workflows/**"]
+    paths: ["data/**", "public/data/trade/**", "src/**", "scripts/**", "index.html", "package.json", "vite.config.js", ".github/workflows/**"]
   workflow_dispatch:
 
 permissions:

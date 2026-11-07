@@ -25,6 +25,10 @@ export default function Rail({ route, groups, data, error, onReload, skins = [],
             <NavLink key={g} href={`#/theme/${slug(g)}`} current={(route.name === 'theme' && route.arg === slug(g)) || active === g}>{g}</NavLink>
           ))}
         </div>
+        <p className="eb-navhead" id="eb-trade">Trade detail</p>
+        <div role="group" aria-labelledby="eb-trade">
+          <NavLink href="#/exports" current={route.name === 'exports'}>Exports: partners and products</NavLink>
+        </div>
         <NavLink href="#/sources" current={route.name === 'sources'}>Sources and notes</NavLink>
       </nav>
       <div className="eb-railstatus" role="status">

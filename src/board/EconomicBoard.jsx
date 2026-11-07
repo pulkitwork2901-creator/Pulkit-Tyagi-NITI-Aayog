@@ -8,6 +8,7 @@ import IndicatorPage from './pages/IndicatorPage.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import SourcesPage from './pages/SourcesPage.jsx';
 import ThemePage from './pages/ThemePage.jsx';
+import ExportsPage from './pages/ExportsPage.jsx';
 
 // Colour schemes a viewer can pick; the choice is remembered in their browser.
 export const SKINS = [
@@ -71,6 +72,7 @@ export default function EconomicBoard({ source = '/data/indicators.json', title 
   if (route.name === 'indicator') page = <IndicatorPage item={item} />;
   else if (route.name === 'theme') page = <ThemePage group={group} items={indicators.filter((i) => i.group === group)} />;
   else if (route.name === 'sources') page = <SourcesPage indicators={indicators} />;
+  else if (route.name === 'exports') page = <ExportsPage base={source.replace(/[^/]*$/, 'trade/')} view={route.arg} arg={route.arg2} />;
   else page = <Dashboard data={data} title={title} byId={byId} groups={groups} csvUrl={source.replace(/\.json$/, '.csv')} />;
 
   return (
