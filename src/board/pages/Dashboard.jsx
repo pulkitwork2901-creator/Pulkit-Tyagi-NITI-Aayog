@@ -4,6 +4,8 @@ import Lead from '../Lead.jsx';
 import Sparkline from '../Sparkline.jsx';
 import MultiChart, { sinceRange } from '../dashboard/MultiChart.jsx';
 import SignalTable from '../dashboard/SignalTable.jsx';
+import Icon from '../dashboard/Icon.jsx';
+import { useCountUp } from '../dashboard/motion.js';
 import { formatDateTime, formatValue, signed, tipFor } from '../format.js';
 
 // The one-screen dashboard: headline tiles, six themed panels on a shared time
@@ -20,6 +22,27 @@ const pct = (d) => (v) => `${signed(formatValue(v, d))}%`;
 const bn = (v) => `${signed(formatValue(v, 1))} bn`;
 
 const NEW_DAYS = 10;
+const TILE_LABEL = { gdp: 'Real GDP growth', cpi: 'CPI inflation', wpi: 'WPI inflation', repo: 'Repo rate', unemployment: 'Unemployment', credit_nonfood: 'Bank credit growth' };
+const TILE_ICON = { gdp: 'growth', cpi: 'prices', wpi: 'wholesale', repo: 'rates', unemployment: 'jobs', credit_nonfood: 'credit' };
+
+function CountUp({ value, decimals }) {
+  const v = useCountUp(value);
+  return <>{signed(formatValue(v, decimals))}</>;
+}
+
+// Faint rising chart drawn behind the header text: decoration only.
+function HeroArt() {
+  const pts = [[0, 150], [60, 128], [120, 136], [180, 104], [240, 112], [300, 78], [360, 86], [420, 52], [472, 40]];
+  const d = pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x},${y}`).join('');
+  return (
+    <svg className="eb-hero-art" viewBox="0 0 480 180" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      {[30, 70, 110, 150].map((y) => <line key={y} x1="0" x2="480" y1={y} y2={y} />)}
+      <path d={`${d}L480,180L0,180Z`} className="eb-hero-area" />
+      <path d={d} className="eb-hero-line" />
+      {pts.slice(-1).map(([x, y]) => <circle key={x} cx={x - 8} cy={y + 2} r="5" />)}
+    </svg>
+  );
+}
 
 // Indicators whose latest reading reached the board in the last NEW_DAYS days.
 function WhatsNew({ indicators, now }) {
@@ -57,8 +80,8 @@ function Tile({ item, start }) {
   return (
     <li className="eb-tile">
       <a className="eb-tile-link" href={`#/indicator/${item.id}`}>
-        <span className="eb-tile-label">{item.label}</span>
-        <span className="eb-tile-value">{signed(formatValue(item.value, item.decimals))}<span className="eb-tile-unit">{item.unit}</span></span>
+        <span className="eb-tile-label">{TILE_ICON[item.id] && <span className="eb-tile-icon"><Icon name={TILE_ICON[item.id]} size={15} /></span>}{TILE_LABEL[item.id] || item.label}</span>
+        <span className="eb-tile-value"><CountUp value={item.value} decimals={item.decimals} /><span className="eb-tile-unit">{item.unit}</span></span>
       </a>
       <span className="eb-tile-change"><Chip item={item} /></span>
       {pts.length > 1 && (
@@ -85,6 +108,7 @@ export default function Dashboard({ data, title, byId, groups, csvUrl }) {
   return (
     <div className="eb-dash">
       <header className="eb-hero">
+        <HeroArt />
         <div className="eb-hero-top">
           <div>
             <p className="eb-hero-kicker">NITI Aayog · Economics and Finance II Division</p>
@@ -110,11 +134,11 @@ export default function Dashboard({ data, title, byId, groups, csvUrl }) {
       <h2 className="eb-eyebrow" id="eb-panels-h">Trends</h2>
       <section className="eb-panels" aria-labelledby="eb-panels-h">
         {has('gdp') && (
-          <MultiChart title="Growth" headline={head('gdp')} note="Real GDP, % year on year, by quarter. MoSPI." kind="bar" start={start} fmt={pct(1)}
+          <MultiChart title="Growth" icon="growth" headline={head('gdp')} note="Real GDP, % year on year, by quarter. MoSPI." kind="bar" start={start} fmt={pct(1)}
             series={[{ key: 'gdp', label: 'Real GDP growth', color: S1, points: h('gdp') }]} />
         )}
         {has('cpi', 'repo') && (
-          <MultiChart title="Inflation and policy rate" headline={head('cpi')} note="% year on year. Shaded: RBI's 2 to 6% CPI tolerance band. CPI before 2026 on the 2012 base. MoSPI, RBI." start={start} fmt={pct(2)}
+          <MultiChart title="Inflation and policy rate" icon="prices" headline={head('cpi')} note="% year on year. Shaded: RBI's 2 to 6% CPI tolerance band. CPI before 2026 on the 2012 base. MoSPI, RBI." start={start} fmt={pct(2)}
             band={{ lo: 2, hi: 6, label: '2–6% band' }}
             series={[
               { key: 'cpi', label: 'CPI inflation', color: S1, points: h('cpi') },
@@ -123,7 +147,7 @@ export default function Dashboard({ data, title, byId, groups, csvUrl }) {
             ]} />
         )}
         {has('tbill_91', 'gsec10') && (
-          <MultiChart title="Interest rates" headline={head('gsec10')} note="%, month end. RBI DBIE (G-sec: FBIL)." start={start} fmt={pct(2)}
+          <MultiChart title="Interest rates" icon="rates" headline={head('gsec10')} note="%, month end. RBI DBIE (G-sec: FBIL)." start={start} fmt={pct(2)}
             series={[
               { key: 'tbill_91', label: '91-day T-bill', color: S1, points: h('tbill_91') },
               { key: 'repo', label: 'Repo rate', color: S2, points: h('repo') },
@@ -131,7 +155,7 @@ export default function Dashboard({ data, title, byId, groups, csvUrl }) {
             ]} />
         )}
         {has('credit_nonfood', 'deposit_growth', 'm3_growth') && (
-          <MultiChart title="Money and credit" headline={head('credit_nonfood')} note="% year on year. RBI DBIE." start={start} fmt={pct(1)}
+          <MultiChart title="Money and credit" icon="money" headline={head('credit_nonfood')} note="% year on year. RBI DBIE." start={start} fmt={pct(1)}
             series={[
               { key: 'credit_nonfood', label: 'Non-food credit', color: S1, points: h('credit_nonfood') },
               { key: 'deposit_growth', label: 'Deposits', color: S2, points: h('deposit_growth') },
@@ -139,7 +163,7 @@ export default function Dashboard({ data, title, byId, groups, csvUrl }) {
             ]} />
         )}
         {has('exports', 'imports') && (
-          <MultiChart title="Merchandise trade" headline={head('trade_balance')} note="US$ bn a month. RBI DBIE, latest month from Commerce." start={start} fmt={bn}
+          <MultiChart title="Merchandise trade" icon="trade" headline={head('trade_balance')} note="US$ bn a month. RBI DBIE, latest month from Commerce." start={start} fmt={bn}
             series={[
               { key: 'exports', label: 'Exports', color: S1, points: h('exports') },
               { key: 'imports', label: 'Imports', color: S2, points: h('imports') },
@@ -147,22 +171,22 @@ export default function Dashboard({ data, title, byId, groups, csvUrl }) {
             ]} />
         )}
         {has('fdi_net', 'fpi_net') && (
-          <MultiChart title="Capital flows" headline={head('fdi_net')} note="US$ bn a month, net. RBI DBIE." kind="bar" start={start} fmt={bn}
+          <MultiChart title="Capital flows" icon="flows" headline={head('fdi_net')} note="US$ bn a month, net. RBI DBIE." kind="bar" start={start} fmt={bn}
             series={[
               { key: 'fdi_net', label: 'Net FDI', color: S1, points: h('fdi_net') },
               { key: 'fpi_net', label: 'Net portfolio', color: S2, points: h('fpi_net') },
             ]} />
         )}
         {has('unemployment') && (
-          <MultiChart title="Jobs" headline={head('unemployment')} note="Unemployment rate, % of labour force, age 15+, monthly. MoSPI PLFS." start={start} fmt={pct(1)}
+          <MultiChart title="Jobs" icon="jobs" headline={head('unemployment')} note="Unemployment rate, % of labour force, age 15+, monthly. MoSPI PLFS." start={start} fmt={pct(1)}
             series={[{ key: 'unemployment', label: 'Unemployment rate', color: S1, points: h('unemployment') }]} />
         )}
         {has('fx_reserves') && (
-          <MultiChart title="Forex reserves" headline={head('fx_reserves')} note="US$ bn, last week of each month; latest week shown. RBI DBIE." start={start} fmt={bn}
+          <MultiChart title="Forex reserves" icon="reserves" headline={head('fx_reserves')} note="US$ bn, last week of each month; latest week shown. RBI DBIE." start={start} fmt={bn}
             series={[{ key: 'fx_reserves', label: 'Forex reserves', color: S1, points: h('fx_reserves') }]} />
         )}
         {has('inr_usd') && (
-          <MultiChart title="Rupee per US dollar" headline={head('inr_usd')} note="RBI reference rate, month end. A higher number means a weaker rupee. RBI DBIE." start={start} fmt={(v) => `₹${formatValue(v, 2)}`}
+          <MultiChart title="Rupee per US dollar" icon="rupee" headline={head('inr_usd')} note="RBI reference rate, month end. A higher number means a weaker rupee. RBI DBIE." start={start} fmt={(v) => `₹${formatValue(v, 2)}`}
             series={[{ key: 'inr_usd', label: 'Rupee per US$', color: S1, points: h('inr_usd') }]} />
         )}
       </section>

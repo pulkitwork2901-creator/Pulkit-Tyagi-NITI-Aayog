@@ -1,5 +1,6 @@
 import { useId, useState } from 'react';
 import useWidth from './useWidth.js';
+import { smoothPath } from './dashboard/motion.js';
 
 const PAD = 3;
 
@@ -33,7 +34,7 @@ export default function Sparkline({ points, kind = 'line', formatTip, label, hei
     setHover(best);
   };
 
-  const line = pts.map((p, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(p.value).toFixed(1)}`).join('');
+  const line = smoothPath(pts.map((p, i) => [x(i), y(p.value)]));
   const area = `${line}L${x(last).toFixed(1)},${H}L${x(0).toFixed(1)},${H}Z`;
   const tipLeft = Math.min(Math.max(x(active) - 70, 0), Math.max(0, W - 140));
 
@@ -55,8 +56,8 @@ export default function Sparkline({ points, kind = 'line', formatTip, label, hei
                 <stop offset="1" className="eb-grad" stopOpacity="0" />
               </linearGradient>
             </defs>
-            <path d={area} fill={`url(#${gradId})`} />
-            <path d={line} className="eb-line" />
+            <path d={area} fill={`url(#${gradId})`} className="eb-fadein" />
+            <path d={line} className="eb-line eb-draw" pathLength="1" />
             <circle cx={x(active)} cy={y(pts[active].value)} r="3.5" className="eb-dot-mark eb-dot-latest" />
           </>
         )}

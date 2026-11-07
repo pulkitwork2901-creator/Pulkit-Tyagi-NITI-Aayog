@@ -38,7 +38,15 @@ export default function EconomicBoard({ source = '/data/indicators.json', title 
   }, [title]);
 
   if (status === 'loading') {
-    return <div className="eb eb-solo" data-skin={skin}><p className="eb-loading" role="status">Loading the latest indicators…</p></div>;
+    // Placeholder in the shape of the dashboard, so the page does not jump when data arrives.
+    return (
+      <div className="eb eb-solo eb-skel" data-skin={skin}>
+        <p className="eb-sr" role="status">Loading the latest indicators…</p>
+        <div className="eb-skel-hero" />
+        <div className="eb-skel-row">{[0, 1, 2, 3, 4, 5].map((i) => <div key={i} className="eb-skel-tile" />)}</div>
+        <div className="eb-skel-grid">{[0, 1, 2, 3, 4, 5].map((i) => <div key={i} className="eb-skel-panel" />)}</div>
+      </div>
+    );
   }
   if (status === 'error' || !data) {
     return (

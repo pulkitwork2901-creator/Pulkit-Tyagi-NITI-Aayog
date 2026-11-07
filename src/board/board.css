@@ -494,3 +494,65 @@
 .eb-new-more, .eb-new-none { color: var(--eb-muted); font-size: 13.5px; margin: 0; }
 .eb-eyelinks { display: inline-flex; gap: 18px; flex-wrap: wrap; }
 .eb-railwarn { color: #f6c46b; font-size: 13px; }
+
+/* ===== Finishing layer: icons, motion, header art, loading placeholder ===== */
+.eb-badge { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; margin-right: 9px; vertical-align: -6px;
+  color: var(--eb-s1); background: color-mix(in srgb, var(--eb-s1) 13%, transparent); }
+.eb-tile-icon { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 7px; margin-right: 7px; vertical-align: -6px;
+  color: var(--eb-s1); background: color-mix(in srgb, var(--eb-s1) 12%, transparent); }
+.eb-icon { display: block; }
+
+/* lift on hover for chart cards too */
+.eb-mc { transition: box-shadow 0.18s ease, transform 0.18s ease; }
+.eb-mc:hover { box-shadow: 0 2px 4px rgb(15 33 71 / 0.06), 0 14px 28px -14px rgb(15 33 71 / 0.28); }
+
+/* header art */
+.eb-hero > *:not(.eb-hero-art) { position: relative; z-index: 1; }
+.eb-hero-art { position: absolute; right: 0; bottom: 4px; width: min(48%, 560px); height: 82%; z-index: 0; pointer-events: none; opacity: 0.5;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 40%); mask-image: linear-gradient(90deg, transparent, #000 40%); }
+.eb-hero-art line { stroke: rgb(255 255 255 / 0.10); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.eb-hero-area { fill: rgb(255 255 255 / 0.07); }
+.eb-hero-line { fill: none; stroke: rgb(255 255 255 / 0.45); stroke-width: 2.5; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.eb-hero-art circle { fill: var(--eb-saffron); }
+
+/* motion: lines draw in, bars grow, labels fade in; replays on range change */
+@keyframes eb-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes eb-grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes eb-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes eb-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.eb-draw { stroke-dasharray: 1; stroke-dashoffset: 0; animation: eb-draw 0.9s cubic-bezier(.3,.7,.2,1) both; }
+.eb-grow { transform-box: view-box; animation: eb-grow 0.55s cubic-bezier(.3,.7,.2,1) both; }
+.eb-fadein { animation: eb-fade 0.6s ease both; }
+.eb-late { animation-delay: 0.6s; }
+.eb-tile, .eb-mc, .eb-new, .eb-hero { animation: eb-rise 0.5s ease both; }
+.eb-tiles .eb-tile:nth-child(2) { animation-delay: 40ms; } .eb-tiles .eb-tile:nth-child(3) { animation-delay: 80ms; }
+.eb-tiles .eb-tile:nth-child(4) { animation-delay: 120ms; } .eb-tiles .eb-tile:nth-child(5) { animation-delay: 160ms; }
+.eb-tiles .eb-tile:nth-child(6) { animation-delay: 200ms; }
+.eb-panels .eb-mc:nth-child(3n+2) { animation-delay: 60ms; } .eb-panels .eb-mc:nth-child(3n) { animation-delay: 120ms; }
+
+/* loading placeholder */
+.eb-skel { padding: 24px clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 14px; background: var(--eb-canvas); min-height: 100vh; }
+.eb-skel-hero, .eb-skel-tile, .eb-skel-panel { border-radius: 12px; background: linear-gradient(90deg, var(--eb-card-line) 25%, var(--eb-panel-soft) 50%, var(--eb-card-line) 75%);
+  background-size: 300% 100%; animation: eb-shimmer 1.3s ease-in-out infinite; }
+.eb-skel-hero { height: 170px; border-radius: 16px; }
+.eb-skel-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+.eb-skel-tile { height: 140px; }
+.eb-skel-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 860px) { .eb-skel-grid { grid-template-columns: minmax(0, 1fr); } .eb-skel-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.eb-skel-panel { height: 250px; }
+@keyframes eb-shimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .eb-draw, .eb-grow, .eb-fadein, .eb-tile, .eb-mc, .eb-new, .eb-hero, .eb-skel-hero, .eb-skel-tile, .eb-skel-panel { animation: none !important; }
+  .eb-tile:hover, .eb-mc:hover { transform: none; }
+}
+@media print {
+  .eb-hero-art { display: none; }
+  .eb-draw, .eb-grow, .eb-fadein, .eb-tile, .eb-mc, .eb-new, .eb-hero { animation: none !important; }
+}
+
+
+/* keep the header decoration in the free space beside the briefing */
+.eb-hero .eb-lead { max-width: min(66%, 78ch); }
+.eb-hero-art { width: 32%; height: 70%; bottom: 10px; }
+@media (max-width: 1100px) { .eb-hero .eb-lead { max-width: none; } .eb-hero-art { display: none; } }

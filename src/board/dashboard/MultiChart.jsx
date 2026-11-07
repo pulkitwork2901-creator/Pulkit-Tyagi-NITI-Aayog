@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import Icon from './Icon.jsx';
+import { smoothPath } from './motion.js';
 import useWidth from '../useWidth.js';
 import { niceScale, signed } from '../format.js';
 
@@ -17,9 +19,10 @@ export function sinceRange(points, start) {
   return (points || []).filter((p) => p.value != null && p.date && t(p.date) >= start);
 }
 
-export default function MultiChart({ title, note, series, kind = 'line', band, start, fmt, headline, height = 156 }) {
+export default function MultiChart({ title, icon, note, series, kind = 'line', band, start, fmt, headline, height = 156 }) {
   const [ref, W] = useWidth(360, 220);
   const [hover, setHover] = useState(null);
+  const gid = useId().replace(/:/g, '');
   const live = series.map((s) => ({ ...s, pts: sinceRange(s.points, start) })).filter((s) => s.pts.length);
 
   const body = () => {
@@ -114,28 +117,45 @@ export default function MultiChart({ title, note, series, kind = 'line', band, s
             const px = kind === 'bar' ? xBar(key) : xLine(k.iso);
             return <text key={k.iso} x={px} y={H - 6} textAnchor="middle" className="eb-tick">{k.text}</text>;
           })}
-          {kind === 'bar' ? live.map((s, si) => s.pts.map((p) => {
+          <g key={start} className="eb-marks">
+          {kind === 'bar' ? live.map((s, si) => s.pts.map((p, pi) => {
             const cx = xBar(monthKey(p.date)) - ((nBars - 1) * (barW + 2)) / 2 + si * (barW + 2);
             const top = Math.min(y(p.value), y(0));
             return (
               <rect key={`${s.key}-${p.date}`} x={cx - barW / 2} width={barW} y={top}
                 height={Math.max(1, Math.abs(y(p.value) - y(0)))} rx={Math.min(2, barW / 3)}
-                fill={s.color} opacity={hover && hover !== monthKey(p.date) ? 0.45 : 1} />
+                fill={s.color} opacity={hover && hover !== monthKey(p.date) ? 0.45 : 1}
+                className="eb-grow" style={{ transformOrigin: `0 ${y(0)}px`, animationDelay: `${Math.min(pi * 12, 360)}ms` }} />
             );
-          })) : live.map((s) => (
-            <path key={s.key} d={s.pts.map((p, i) => `${i ? 'L' : 'M'}${xLine(p.date).toFixed(1)},${y(p.value).toFixed(1)}`).join('')}
-              fill="none" stroke={s.color} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
-          ))}
-          {kind === 'line' && live.length === 1 && (
-            <path d={`${live[0].pts.map((p, i) => `${i ? 'L' : 'M'}${xLine(p.date).toFixed(1)},${y(p.value).toFixed(1)}`).join('')}L${xLine(live[0].pts[live[0].pts.length - 1].date)},${y(yMin)}L${xLine(live[0].pts[0].date)},${y(yMin)}Z`}
-              fill={live[0].color} opacity="0.08" />
-          )}
+          })) : live.map((s, si) => {
+            const line = smoothPath(s.pts.map((p) => [xLine(p.date), y(p.value)]));
+            const x0 = xLine(s.pts[0].date);
+            const x1 = xLine(s.pts[s.pts.length - 1].date);
+            return (
+              <g key={s.key}>
+                {live.length === 1 && (
+                  <>
+                    <defs>
+                      <linearGradient id={`${gid}-${si}`} x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0" stopColor={s.color} stopOpacity="0.22" />
+                        <stop offset="1" stopColor={s.color} stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <path d={`${line}L${x1.toFixed(1)},${y(yMin)}L${x0.toFixed(1)},${y(yMin)}Z`} fill={`url(#${gid}-${si})`} className="eb-fadein" />
+                  </>
+                )}
+                <path d={line} pathLength="1" className="eb-draw" fill="none" stroke={s.color} strokeWidth="2.25"
+                  strokeLinejoin="round" strokeLinecap="round" style={{ animationDelay: `${si * 120}ms` }} />
+              </g>
+            );
+          })}
           {ends.map(({ s, p, x, y: ly }) => (
-            <g key={`end-${s.key}`}>
+            <g key={`end-${s.key}`} className="eb-fadein eb-late">
               <circle cx={x} cy={y(p.value)} r="4" fill={s.color} className="eb-mc-ring" />
               <text x={labelX} y={ly} dy="0.32em" className="eb-mc-endlabel">{fmt(p.value)}</text>
             </g>
           ))}
+          </g>
           {hover && (
             <g>
               <line x1={hx} x2={hx} y1={M.top} y2={M.top + plotH} className="eb-mc-cross" />
@@ -166,7 +186,7 @@ export default function MultiChart({ title, note, series, kind = 'line', band, s
   return (
     <figure className="eb-mc">
       <figcaption>
-        <h3 className="eb-mc-title">{title}</h3>
+        <h3 className="eb-mc-title">{icon && <span className="eb-badge"><Icon name={icon} size={16} /></span>}{title}</h3>
         {headline && (
           <p className="eb-mc-head"><b>{headline.value}</b><span>{headline.sub}</span></p>
         )}
