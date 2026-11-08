@@ -1,0 +1,97 @@
+/* Reform Evidence Board. Builds on board.css: same tokens, skins, hero, tiles
+   and chart cards. Only the single-column page frame and the pieces this board
+   adds (tabs, interval band, peer dots, age bar, court cards, timeline) live here. */
+
+.eb.rb { display: block; min-height: 100vh; background: var(--eb-canvas); }
+.rb-main {
+  max-width: 1320px; margin: 0 auto;
+  padding-block: 24px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.rb .eb-tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.rb .eb-tile-label, .rb .eb-tile-period { white-space: normal; }
+.rb .eb-chip { white-space: normal; text-align: left; }
+.rb .eb-tile-link { text-decoration: none; }
+.rb-section { display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 16px; }
+.rb-section h2 { scroll-margin-top: 16px; }
+.rb-when { font-size: 12.5px; color: var(--eb-muted); }
+.rb-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: start; }
+.rb-grid-3 { display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: 12px; align-items: start; }
+.rb-caveat { margin: 0 2px; max-width: 110ch; font-size: 13px; line-height: 1.55; color: var(--eb-muted); }
+.rb-sub { margin: 14px 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--eb-muted); }
+
+/* Dimension switch */
+.rb-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.rb-tabs button {
+  font: 600 13.5px var(--eb-font); padding: 7px 14px; min-height: 36px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--eb-card-line); background: var(--eb-paper); color: var(--eb-ink);
+}
+.rb-tabs button:hover:not([aria-pressed="true"]) { background: var(--eb-panel-soft); }
+.rb-tabs button[aria-pressed="true"] { background: var(--eb-navy); border-color: var(--eb-navy); color: var(--eb-paper); }
+
+/* Interval band and peer dots */
+.rb-ci { fill: var(--eb-s1); opacity: 0.16; }
+.rb-peer-label { font: 13px var(--eb-font); fill: var(--eb-ink); }
+.rb-peer-label-me { font-weight: 700; }
+
+/* Court cards */
+.rb-court { padding-bottom: 14px; }
+.rb-court-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.rb-big { margin: 8px 0 2px; font-size: 15px; color: var(--eb-muted); }
+.rb-big b { font-family: var(--eb-serif); font-size: 32px; color: var(--eb-navy); font-variant-numeric: tabular-nums; margin-right: 2px; }
+.rb-big-2 { margin-top: 14px; }
+.rb-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 10px 0 0; }
+.rb-facts div { padding: 8px 10px; border-radius: 8px; background: var(--eb-panel-soft); min-width: 0; }
+.rb-facts dt { font-size: 12px; color: var(--eb-muted); }
+.rb-facts dd { margin: 2px 0 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+.rb-facts small { font-weight: 500; color: var(--eb-muted); }
+.rb-age-bar { display: flex; gap: 2px; height: 18px; border-radius: 4px; overflow: hidden; }
+.rb-age-bar i { display: block; min-width: 2px; box-shadow: inset 0 0 0 1px var(--eb-card-line); }
+.rb-age-key { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; }
+.rb-age-key i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; outline: 1px solid var(--eb-card-line); }
+.rb-age-key b { font-variant-numeric: tabular-nums; }
+.rb-flow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--eb-row-line); font-size: 13.5px; }
+.rb-flow b { font-variant-numeric: tabular-nums; }
+
+/* IBC */
+.rb-bars { margin-top: 8px; }
+.rb .rb-bar-row { grid-template-columns: minmax(0, 1fr) 76px; padding: 8px 2px; }
+.rb .rb-bar-row .eb-bar-label { white-space: normal; }
+
+/* Timeline */
+.rb-timeline { list-style: none; margin: 0; padding: 6px 18px; }
+.rb-timeline li { display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-top: 1px solid var(--eb-row-line); }
+.rb-timeline li:first-child { border-top: 0; }
+.rb-timeline time { font-weight: 700; font-size: 13.5px; color: var(--eb-data); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.rb-timeline h3 { margin: 0; font-family: var(--eb-serif); font-size: 16.5px; color: var(--eb-navy); text-wrap: balance; }
+.rb-timeline p { margin: 4px 0 6px; max-width: 80ch; font-size: 14px; }
+.rb-timeline a { font-size: 13px; }
+
+/* Sources */
+.rb-sources { padding: 14px 18px; font-size: 14px; }
+.rb-sources p { margin: 10px 0 0; max-width: 110ch; color: var(--eb-muted); }
+.rb-status { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.rb-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 8px; background: var(--eb-muted); }
+.rb-dot-ok { background: var(--eb-good-ink); }
+.rb-dot-stale { background: #c98a12; }
+
+@media (max-width: 1280px) {
+  .rb .eb-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .rb-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rb-ibc-out { grid-column: 1 / -1; }
+}
+@media (max-width: 860px) {
+  .rb-grid-2, .rb-grid-3 { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .rb .eb-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rb-facts { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .rb-timeline { padding: 4px 14px; }
+  .rb-timeline li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .rb-big b { font-size: 27px; }
+}
+@media print {
+  .eb.rb { background: #fff; }
+  .rb-tabs, .eb-range { display: none; }
+}

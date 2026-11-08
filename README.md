@@ -108,3 +108,29 @@ Note that a GitHub Pages site on a free account is public. Keep internal or pre-
 - If MoSPI is unreachable, the script keeps the last good GDP and CPI figures, marks them stale, and the board shows an amber status.
 - IIP is manual because MoSPI's API still serves the old 2011-12 base while the official series moved to 2022-23 in June 2026.
 - The rupee rate and 10-year G-sec yield in the sheet are market closes reported by Business Standard, not the FBIL reference rate.
+
+## Reform Evidence Board (`reform.html`)
+
+A second, separate board for the Governance and Reforms Division: outcome evidence for regulatory and governance reform. Once deployed it is at `<site>/reform.html`; the E&F-II Dashboard is unchanged. It complements the Samiksha portal (which tracks reform implementation) and does not duplicate it.
+
+| Section | Source | How it updates |
+|---|---|---|
+| Governance scores | World Bank Worldwide Governance Indicators, API source 3 (`GOV_WGI_*.SC`, 0 to 100 scale from the 2025 methodology revision, with 90% intervals) | Automatic, daily check; the World Bank updates once a year |
+| Courts | National Judicial Data Grid: district courts (`njdg_v3`) and High Courts (`hcnjdg_v2`) | Automatic, daily; each run adds a dated row to `data/reform/njdg-snapshots.csv`, so a pendency trend builds up |
+| Insolvency | IBBI quarterly newsletter data annex (the `.xlsx` on ibbi.gov.in/publication), Tables 1, 2, 6 and 8 | Automatic; picks up each new quarter's file on its own |
+| Jan Vishwas milestones | `data/reform/milestones.csv`, hand-kept, one official link per row (PRS, Gazette) | Add a row and push |
+
+```bash
+python3 scripts/build_reform.py              # all sources
+python3 scripts/build_reform.py --only ibbi  # one source
+npm run dev                                  # then open http://localhost:5173/reform.html
+```
+
+Things to know:
+
+- **Text matching, not positions.** IBBI tables and NJDG figures are found by their labels. If a publisher changes a label, that source is marked stale on the page (with the last good figures kept) and the build log says what it could not find.
+- **Checks built in.** NJDG civil plus criminal must equal the total; IBBI's printed recovery percentage must agree with its own amounts. A mismatch fails that source rather than showing a wrong figure.
+- **IBBI percentages are IBBI's.** Recovery as a share of fair value is computed by IBBI over the cases where fair value was estimated (1,359 of them as on 30 June 2026), so the board shows IBBI's printed figures rather than dividing totals.
+- **World Bank scores are perception-based.** The page says so, and marks a change as significant only when the 90% intervals do not overlap, as the World Bank recommends.
+- **Not yet included:** Supreme Court pendency (its data grid is on a different host), the WJP Rule of Law Index (its site blocks automated reading; would need manual entry), and the Jan Vishwas decriminalisation register.
+- **Network.** If you run the build in a restricted environment, it needs `api.worldbank.org`, `ibbi.gov.in` and `njdg.ecourts.gov.in`. GitHub's runners are outside India; if NJDG ever refuses them, the board keeps the last good reading and shows it as stale.

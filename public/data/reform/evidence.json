@@ -1,0 +1,1921 @@
+{
+ "generated_at": "2026-11-08T09:47:20+00:00",
+ "status": {
+  "wgi": {
+   "state": "ok",
+   "checked_at": "2026-11-08T09:46:42+00:00"
+  },
+  "ibbi": {
+   "state": "ok",
+   "checked_at": "2026-11-08T09:47:20+00:00"
+  },
+  "njdg": {
+   "state": "ok",
+   "checked_at": "2026-11-08T09:46:42+00:00"
+  }
+ },
+ "wgi": {
+  "source": "World Bank, Worldwide Governance Indicators",
+  "source_url": "https://www.worldbank.org/en/publication/worldwide-governance-indicators",
+  "api": "https://api.worldbank.org/v2/sources/3",
+  "updated": "2026-09-25",
+  "dimensions": [
+   {
+    "code": "RQ",
+    "label": "Regulatory quality",
+    "definition": "Perceptions of the government's ability to design and implement policies and regulations that promote private sector development.",
+    "latest_year": 2025,
+    "value": 52.58,
+    "lo": 47.19,
+    "hi": 57.96,
+    "rank": 109,
+    "of": 205,
+    "world_median": 53.89,
+    "base_year": 2015,
+    "base_value": 49.43,
+    "ten_year_change": "none",
+    "series": [
+     {
+      "year": 1996,
+      "value": 45.62,
+      "lo": 38.9,
+      "hi": 52.33
+     },
+     {
+      "year": 1998,
+      "value": 45.5,
+      "lo": 38.79,
+      "hi": 52.21
+     },
+     {
+      "year": 2000,
+      "value": 49.1,
+      "lo": 42.39,
+      "hi": 55.81
+     },
+     {
+      "year": 2002,
+      "value": 48.2,
+      "lo": 42.23,
+      "hi": 54.16
+     },
+     {
+      "year": 2003,
+      "value": 47.21,
+      "lo": 41.24,
+      "hi": 53.17
+     },
+     {
+      "year": 2004,
+      "value": 50.72,
+      "lo": 44.97,
+      "hi": 56.47
+     },
+     {
+      "year": 2005,
+      "value": 51.56,
+      "lo": 46.26,
+      "hi": 56.87
+     },
+     {
+      "year": 2006,
+      "value": 51.15,
+      "lo": 45.85,
+      "hi": 56.46
+     },
+     {
+      "year": 2007,
+      "value": 50.85,
+      "lo": 45.55,
+      "hi": 56.16
+     },
+     {
+      "year": 2008,
+      "value": 49.81,
+      "lo": 44.51,
+      "hi": 55.12
+     },
+     {
+      "year": 2009,
+      "value": 50.44,
+      "lo": 45.13,
+      "hi": 55.74
+     },
+     {
+      "year": 2010,
+      "value": 49.86,
+      "lo": 44.56,
+      "hi": 55.17
+     },
+     {
+      "year": 2011,
+      "value": 48.91,
+      "lo": 43.89,
+      "hi": 53.93
+     },
+     {
+      "year": 2012,
+      "value": 48.53,
+      "lo": 43.51,
+      "hi": 53.55
+     },
+     {
+      "year": 2013,
+      "value": 48.75,
+      "lo": 43.74,
+      "hi": 53.77
+     },
+     {
+      "year": 2014,
+      "value": 48.64,
+      "lo": 43.62,
+      "hi": 53.66
+     },
+     {
+      "year": 2015,
+      "value": 49.43,
+      "lo": 44.41,
+      "hi": 54.45
+     },
+     {
+      "year": 2016,
+      "value": 50.79,
+      "lo": 45.77,
+      "hi": 55.81
+     },
+     {
+      "year": 2017,
+      "value": 51.5,
+      "lo": 46.49,
+      "hi": 56.52
+     },
+     {
+      "year": 2018,
+      "value": 52.26,
+      "lo": 46.87,
+      "hi": 57.65
+     },
+     {
+      "year": 2019,
+      "value": 53.22,
+      "lo": 47.82,
+      "hi": 58.61
+     },
+     {
+      "year": 2020,
+      "value": 52.65,
+      "lo": 47.26,
+      "hi": 58.05
+     },
+     {
+      "year": 2021,
+      "value": 52.26,
+      "lo": 46.87,
+      "hi": 57.65
+     },
+     {
+      "year": 2022,
+      "value": 53.9,
+      "lo": 48.52,
+      "hi": 59.29
+     },
+     {
+      "year": 2023,
+      "value": 53.25,
+      "lo": 47.87,
+      "hi": 58.64
+     },
+     {
+      "year": 2024,
+      "value": 53.95,
+      "lo": 48.56,
+      "hi": 59.34
+     },
+     {
+      "year": 2025,
+      "value": 52.58,
+      "lo": 47.19,
+      "hi": 57.96
+     }
+    ],
+    "peers": [
+     {
+      "iso": "MYS",
+      "name": "Malaysia",
+      "value": 67.28,
+      "lo": 61.71,
+      "hi": 72.84
+     },
+     {
+      "iso": "PHL",
+      "name": "Philippines",
+      "value": 58.46,
+      "lo": 53.07,
+      "hi": 63.84
+     },
+     {
+      "iso": "THA",
+      "name": "Thailand",
+      "value": 57.64,
+      "lo": 52.08,
+      "hi": 63.2
+     },
+     {
+      "iso": "IDN",
+      "name": "Indonesia",
+      "value": 57.33,
+      "lo": 51.94,
+      "hi": 62.71
+     },
+     {
+      "iso": "ZAF",
+      "name": "South Africa",
+      "value": 54.32,
+      "lo": 48.9,
+      "hi": 59.75
+     },
+     {
+      "iso": "CHN",
+      "name": "China",
+      "value": 53.59,
+      "lo": 48.03,
+      "hi": 59.15
+     },
+     {
+      "iso": "VNM",
+      "name": "Vietnam",
+      "value": 53.08,
+      "lo": 47.7,
+      "hi": 58.47
+     },
+     {
+      "iso": "IND",
+      "name": "India",
+      "value": 52.58,
+      "lo": 47.19,
+      "hi": 57.96
+     },
+     {
+      "iso": "TUR",
+      "name": "Türkiye",
+      "value": 52.54,
+      "lo": 46.98,
+      "hi": 58.1
+     },
+     {
+      "iso": "MEX",
+      "name": "Mexico",
+      "value": 51.47,
+      "lo": 45.91,
+      "hi": 57.03
+     },
+     {
+      "iso": "BRA",
+      "name": "Brazil",
+      "value": 47.89,
+      "lo": 42.33,
+      "hi": 53.45
+     },
+     {
+      "iso": "BGD",
+      "name": "Bangladesh",
+      "value": 39.35,
+      "lo": 34.18,
+      "hi": 44.52
+     }
+    ]
+   },
+   {
+    "code": "RL",
+    "label": "Rule of law",
+    "definition": "Perceptions of the extent to which agents respect and follow the rules of society, including contract enforcement, property rights, the police, courts, and the likelihood of crime and violence.",
+    "latest_year": 2025,
+    "value": 56.51,
+    "lo": 52.4,
+    "hi": 60.62,
+    "rank": 106,
+    "of": 207,
+    "world_median": 56.62,
+    "base_year": 2015,
+    "base_value": 56.37,
+    "ten_year_change": "none",
+    "series": [
+     {
+      "year": 1996,
+      "value": 61.33,
+      "lo": 56.19,
+      "hi": 66.46
+     },
+     {
+      "year": 1998,
+      "value": 61.2,
+      "lo": 56.07,
+      "hi": 66.34
+     },
+     {
+      "year": 2000,
+      "value": 62.47,
+      "lo": 57.34,
+      "hi": 67.61
+     },
+     {
+      "year": 2002,
+      "value": 57.41,
+      "lo": 52.47,
+      "hi": 62.36
+     },
+     {
+      "year": 2003,
+      "value": 58.72,
+      "lo": 53.78,
+      "hi": 63.67
+     },
+     {
+      "year": 2004,
+      "value": 59.09,
+      "lo": 54.18,
+      "hi": 64.0
+     },
+     {
+      "year": 2005,
+      "value": 61.18,
+      "lo": 56.67,
+      "hi": 65.69
+     },
+     {
+      "year": 2006,
+      "value": 62.05,
+      "lo": 57.65,
+      "hi": 66.46
+     },
+     {
+      "year": 2007,
+      "value": 61.71,
+      "lo": 57.31,
+      "hi": 66.12
+     },
+     {
+      "year": 2008,
+      "value": 61.16,
+      "lo": 56.75,
+      "hi": 65.56
+     },
+     {
+      "year": 2009,
+      "value": 60.96,
+      "lo": 56.56,
+      "hi": 65.36
+     },
+     {
+      "year": 2010,
+      "value": 59.61,
+      "lo": 55.21,
+      "hi": 64.01
+     },
+     {
+      "year": 2011,
+      "value": 58.62,
+      "lo": 54.79,
+      "hi": 62.45
+     },
+     {
+      "year": 2012,
+      "value": 56.7,
+      "lo": 52.87,
+      "hi": 60.53
+     },
+     {
+      "year": 2013,
+      "value": 56.91,
+      "lo": 53.02,
+      "hi": 60.8
+     },
+     {
+      "year": 2014,
+      "value": 55.7,
+      "lo": 51.81,
+      "hi": 59.59
+     },
+     {
+      "year": 2015,
+      "value": 56.37,
+      "lo": 52.47,
+      "hi": 60.26
+     },
+     {
+      "year": 2016,
+      "value": 57.29,
+      "lo": 53.39,
+      "hi": 61.18
+     },
+     {
+      "year": 2017,
+      "value": 58.11,
+      "lo": 54.21,
+      "hi": 62.0
+     },
+     {
+      "year": 2018,
+      "value": 58.97,
+      "lo": 54.85,
+      "hi": 63.09
+     },
+     {
+      "year": 2019,
+      "value": 58.37,
+      "lo": 54.25,
+      "hi": 62.49
+     },
+     {
+      "year": 2020,
+      "value": 57.35,
+      "lo": 53.14,
+      "hi": 61.56
+     },
+     {
+      "year": 2021,
+      "value": 55.98,
+      "lo": 51.77,
+      "hi": 60.19
+     },
+     {
+      "year": 2022,
+      "value": 57.61,
+      "lo": 53.5,
+      "hi": 61.72
+     },
+     {
+      "year": 2023,
+      "value": 57.53,
+      "lo": 53.42,
+      "hi": 61.64
+     },
+     {
+      "year": 2024,
+      "value": 58.43,
+      "lo": 54.32,
+      "hi": 62.53
+     },
+     {
+      "year": 2025,
+      "value": 56.51,
+      "lo": 52.4,
+      "hi": 60.62
+     }
+    ],
+    "peers": [
+     {
+      "iso": "MYS",
+      "name": "Malaysia",
+      "value": 65.36,
+      "lo": 61.23,
+      "hi": 69.49
+     },
+     {
+      "iso": "ZAF",
+      "name": "South Africa",
+      "value": 59.3,
+      "lo": 55.18,
+      "hi": 63.42
+     },
+     {
+      "iso": "THA",
+      "name": "Thailand",
+      "value": 56.62,
+      "lo": 52.49,
+      "hi": 60.75
+     },
+     {
+      "iso": "IND",
+      "name": "India",
+      "value": 56.51,
+      "lo": 52.4,
+      "hi": 60.62
+     },
+     {
+      "iso": "VNM",
+      "name": "Vietnam",
+      "value": 55.75,
+      "lo": 51.64,
+      "hi": 59.86
+     },
+     {
+      "iso": "IDN",
+      "name": "Indonesia",
+      "value": 54.44,
+      "lo": 50.33,
+      "hi": 58.55
+     },
+     {
+      "iso": "CHN",
+      "name": "China",
+      "value": 51.56,
+      "lo": 47.43,
+      "hi": 55.69
+     },
+     {
+      "iso": "PHL",
+      "name": "Philippines",
+      "value": 50.87,
+      "lo": 46.76,
+      "hi": 54.98
+     },
+     {
+      "iso": "BRA",
+      "name": "Brazil",
+      "value": 50.63,
+      "lo": 46.54,
+      "hi": 54.72
+     },
+     {
+      "iso": "TUR",
+      "name": "Türkiye",
+      "value": 45.25,
+      "lo": 41.16,
+      "hi": 49.34
+     },
+     {
+      "iso": "BGD",
+      "name": "Bangladesh",
+      "value": 43.64,
+      "lo": 39.58,
+      "hi": 47.7
+     },
+     {
+      "iso": "MEX",
+      "name": "Mexico",
+      "value": 39.38,
+      "lo": 35.29,
+      "hi": 43.47
+     }
+    ]
+   },
+   {
+    "code": "GE",
+    "label": "Government effectiveness",
+    "definition": "Perceptions of the quality of public services, the civil service, policy formulation and implementation, and the credibility of a government's commitment to such policies.",
+    "latest_year": 2025,
+    "value": 62.62,
+    "lo": 55.45,
+    "hi": 69.79,
+    "rank": 64,
+    "of": 205,
+    "world_median": 53.97,
+    "base_year": 2015,
+    "base_value": 62.18,
+    "ten_year_change": "none",
+    "series": [
+     {
+      "year": 1996,
+      "value": 46.31,
+      "lo": 37.82,
+      "hi": 54.81
+     },
+     {
+      "year": 1998,
+      "value": 42.66,
+      "lo": 34.16,
+      "hi": 51.15
+     },
+     {
+      "year": 2000,
+      "value": 40.86,
+      "lo": 32.36,
+      "hi": 49.35
+     },
+     {
+      "year": 2002,
+      "value": 42.5,
+      "lo": 34.6,
+      "hi": 50.4
+     },
+     {
+      "year": 2003,
+      "value": 43.49,
+      "lo": 35.59,
+      "hi": 51.39
+     },
+     {
+      "year": 2004,
+      "value": 48.08,
+      "lo": 40.51,
+      "hi": 55.64
+     },
+     {
+      "year": 2005,
+      "value": 48.66,
+      "lo": 41.42,
+      "hi": 55.9
+     },
+     {
+      "year": 2006,
+      "value": 49.65,
+      "lo": 42.47,
+      "hi": 56.82
+     },
+     {
+      "year": 2007,
+      "value": 51.64,
+      "lo": 44.47,
+      "hi": 58.82
+     },
+     {
+      "year": 2008,
+      "value": 53.63,
+      "lo": 46.46,
+      "hi": 60.81
+     },
+     {
+      "year": 2009,
+      "value": 54.84,
+      "lo": 47.66,
+      "hi": 62.01
+     },
+     {
+      "year": 2010,
+      "value": 54.66,
+      "lo": 47.48,
+      "hi": 61.83
+     },
+     {
+      "year": 2011,
+      "value": 54.54,
+      "lo": 47.37,
+      "hi": 61.72
+     },
+     {
+      "year": 2012,
+      "value": 54.25,
+      "lo": 47.08,
+      "hi": 61.43
+     },
+     {
+      "year": 2013,
+      "value": 54.54,
+      "lo": 47.36,
+      "hi": 61.72
+     },
+     {
+      "year": 2014,
+      "value": 55.46,
+      "lo": 48.28,
+      "hi": 62.64
+     },
+     {
+      "year": 2015,
+      "value": 62.18,
+      "lo": 55.0,
+      "hi": 69.35
+     },
+     {
+      "year": 2016,
+      "value": 62.01,
+      "lo": 54.83,
+      "hi": 69.19
+     },
+     {
+      "year": 2017,
+      "value": 61.03,
+      "lo": 53.85,
+      "hi": 68.21
+     },
+     {
+      "year": 2018,
+      "value": 63.64,
+      "lo": 56.15,
+      "hi": 71.14
+     },
+     {
+      "year": 2019,
+      "value": 63.71,
+      "lo": 56.21,
+      "hi": 71.2
+     },
+     {
+      "year": 2020,
+      "value": 61.65,
+      "lo": 54.16,
+      "hi": 69.14
+     },
+     {
+      "year": 2021,
+      "value": 59.69,
+      "lo": 52.19,
+      "hi": 67.18
+     },
+     {
+      "year": 2022,
+      "value": 61.33,
+      "lo": 54.16,
+      "hi": 68.5
+     },
+     {
+      "year": 2023,
+      "value": 62.75,
+      "lo": 55.58,
+      "hi": 69.92
+     },
+     {
+      "year": 2024,
+      "value": 62.74,
+      "lo": 55.57,
+      "hi": 69.91
+     },
+     {
+      "year": 2025,
+      "value": 62.62,
+      "lo": 55.45,
+      "hi": 69.79
+     }
+    ],
+    "peers": [
+     {
+      "iso": "MYS",
+      "name": "Malaysia",
+      "value": 71.93,
+      "lo": 64.48,
+      "hi": 79.37
+     },
+     {
+      "iso": "CHN",
+      "name": "China",
+      "value": 65.11,
+      "lo": 57.67,
+      "hi": 72.56
+     },
+     {
+      "iso": "IND",
+      "name": "India",
+      "value": 62.62,
+      "lo": 55.45,
+      "hi": 69.79
+     },
+     {
+      "iso": "THA",
+      "name": "Thailand",
+      "value": 57.71,
+      "lo": 50.27,
+      "hi": 65.16
+     },
+     {
+      "iso": "IDN",
+      "name": "Indonesia",
+      "value": 57.56,
+      "lo": 50.4,
+      "hi": 64.73
+     },
+     {
+      "iso": "PHL",
+      "name": "Philippines",
+      "value": 56.33,
+      "lo": 49.16,
+      "hi": 63.5
+     },
+     {
+      "iso": "VNM",
+      "name": "Vietnam",
+      "value": 55.95,
+      "lo": 48.78,
+      "hi": 63.12
+     },
+     {
+      "iso": "TUR",
+      "name": "Türkiye",
+      "value": 52.94,
+      "lo": 45.61,
+      "hi": 60.27
+     },
+     {
+      "iso": "ZAF",
+      "name": "South Africa",
+      "value": 51.87,
+      "lo": 45.0,
+      "hi": 58.74
+     },
+     {
+      "iso": "BRA",
+      "name": "Brazil",
+      "value": 51.61,
+      "lo": 44.18,
+      "hi": 59.04
+     },
+     {
+      "iso": "MEX",
+      "name": "Mexico",
+      "value": 48.65,
+      "lo": 41.22,
+      "hi": 56.08
+     },
+     {
+      "iso": "BGD",
+      "name": "Bangladesh",
+      "value": 43.24,
+      "lo": 36.12,
+      "hi": 50.36
+     }
+    ]
+   },
+   {
+    "code": "CC",
+    "label": "Control of corruption",
+    "definition": "Perceptions of the extent to which public power is used for private gain, including both petty and grand corruption, as well as capture of the state by elites and private interests.",
+    "latest_year": 2025,
+    "value": 42.41,
+    "lo": 37.14,
+    "hi": 47.68,
+    "rank": 112,
+    "of": 207,
+    "world_median": 43.93,
+    "base_year": 2015,
+    "base_value": 41.07,
+    "ten_year_change": "none",
+    "series": [
+     {
+      "year": 1996,
+      "value": 42.68,
+      "lo": 36.04,
+      "hi": 49.33
+     },
+     {
+      "year": 1998,
+      "value": 44.87,
+      "lo": 38.22,
+      "hi": 51.51
+     },
+     {
+      "year": 2000,
+      "value": 43.75,
+      "lo": 37.1,
+      "hi": 50.39
+     },
+     {
+      "year": 2002,
+      "value": 36.71,
+      "lo": 30.06,
+      "hi": 43.35
+     },
+     {
+      "year": 2003,
+      "value": 36.89,
+      "lo": 30.24,
+      "hi": 43.53
+     },
+     {
+      "year": 2004,
+      "value": 40.17,
+      "lo": 34.23,
+      "hi": 46.11
+     },
+     {
+      "year": 2005,
+      "value": 39.76,
+      "lo": 34.03,
+      "hi": 45.49
+     },
+     {
+      "year": 2006,
+      "value": 43.38,
+      "lo": 37.72,
+      "hi": 49.03
+     },
+     {
+      "year": 2007,
+      "value": 41.44,
+      "lo": 35.79,
+      "hi": 47.09
+     },
+     {
+      "year": 2008,
+      "value": 42.08,
+      "lo": 36.43,
+      "hi": 47.74
+     },
+     {
+      "year": 2009,
+      "value": 41.07,
+      "lo": 35.42,
+      "hi": 46.73
+     },
+     {
+      "year": 2010,
+      "value": 40.74,
+      "lo": 35.09,
+      "hi": 46.4
+     },
+     {
+      "year": 2011,
+      "value": 38.16,
+      "lo": 33.04,
+      "hi": 43.29
+     },
+     {
+      "year": 2012,
+      "value": 37.89,
+      "lo": 32.77,
+      "hi": 43.01
+     },
+     {
+      "year": 2013,
+      "value": 38.55,
+      "lo": 33.4,
+      "hi": 43.71
+     },
+     {
+      "year": 2014,
+      "value": 39.69,
+      "lo": 34.53,
+      "hi": 44.84
+     },
+     {
+      "year": 2015,
+      "value": 41.07,
+      "lo": 35.91,
+      "hi": 46.22
+     },
+     {
+      "year": 2016,
+      "value": 42.26,
+      "lo": 37.1,
+      "hi": 47.41
+     },
+     {
+      "year": 2017,
+      "value": 43.5,
+      "lo": 38.34,
+      "hi": 48.65
+     },
+     {
+      "year": 2018,
+      "value": 43.79,
+      "lo": 38.49,
+      "hi": 49.09
+     },
+     {
+      "year": 2019,
+      "value": 43.58,
+      "lo": 38.31,
+      "hi": 48.86
+     },
+     {
+      "year": 2020,
+      "value": 42.86,
+      "lo": 37.59,
+      "hi": 48.13
+     },
+     {
+      "year": 2021,
+      "value": 41.93,
+      "lo": 36.66,
+      "hi": 47.2
+     },
+     {
+      "year": 2022,
+      "value": 41.45,
+      "lo": 36.22,
+      "hi": 46.68
+     },
+     {
+      "year": 2023,
+      "value": 41.28,
+      "lo": 36.05,
+      "hi": 46.5
+     },
+     {
+      "year": 2024,
+      "value": 42.03,
+      "lo": 36.77,
+      "hi": 47.29
+     },
+     {
+      "year": 2025,
+      "value": 42.41,
+      "lo": 37.14,
+      "hi": 47.68
+     }
+    ],
+    "peers": [
+     {
+      "iso": "MYS",
+      "name": "Malaysia",
+      "value": 59.42,
+      "lo": 54.07,
+      "hi": 64.77
+     },
+     {
+      "iso": "CHN",
+      "name": "China",
+      "value": 49.47,
+      "lo": 44.07,
+      "hi": 54.88
+     },
+     {
+      "iso": "VNM",
+      "name": "Vietnam",
+      "value": 45.9,
+      "lo": 40.63,
+      "hi": 51.17
+     },
+     {
+      "iso": "ZAF",
+      "name": "South Africa",
+      "value": 45.35,
+      "lo": 40.02,
+      "hi": 50.68
+     },
+     {
+      "iso": "IND",
+      "name": "India",
+      "value": 42.41,
+      "lo": 37.14,
+      "hi": 47.68
+     },
+     {
+      "iso": "BRA",
+      "name": "Brazil",
+      "value": 40.36,
+      "lo": 35.0,
+      "hi": 45.72
+     },
+     {
+      "iso": "THA",
+      "name": "Thailand",
+      "value": 38.05,
+      "lo": 32.7,
+      "hi": 43.4
+     },
+     {
+      "iso": "IDN",
+      "name": "Indonesia",
+      "value": 37.68,
+      "lo": 32.44,
+      "hi": 42.92
+     },
+     {
+      "iso": "TUR",
+      "name": "Türkiye",
+      "value": 37.39,
+      "lo": 32.01,
+      "hi": 42.77
+     },
+     {
+      "iso": "PHL",
+      "name": "Philippines",
+      "value": 36.47,
+      "lo": 31.23,
+      "hi": 41.71
+     },
+     {
+      "iso": "MEX",
+      "name": "Mexico",
+      "value": 29.03,
+      "lo": 23.67,
+      "hi": 34.39
+     },
+     {
+      "iso": "BGD",
+      "name": "Bangladesh",
+      "value": 28.2,
+      "lo": 22.84,
+      "hi": 33.56
+     }
+    ]
+   },
+   {
+    "code": "VA",
+    "label": "Voice and accountability",
+    "definition": "Perceptions of the extent to which citizens can participate in selecting their government, and of accountability mechanisms such as access to information, oversight bodies and the media.",
+    "latest_year": 2025,
+    "value": 54.93,
+    "lo": 50.42,
+    "hi": 59.43,
+    "rank": 108,
+    "of": 203,
+    "world_median": 57.07,
+    "base_year": 2015,
+    "base_value": 65.85,
+    "ten_year_change": "down",
+    "series": [
+     {
+      "year": 1996,
+      "value": 58.81,
+      "lo": 53.19,
+      "hi": 64.43
+     },
+     {
+      "year": 1998,
+      "value": 58.84,
+      "lo": 53.23,
+      "hi": 64.46
+     },
+     {
+      "year": 2000,
+      "value": 57.82,
+      "lo": 52.2,
+      "hi": 63.44
+     },
+     {
+      "year": 2002,
+      "value": 65.51,
+      "lo": 60.66,
+      "hi": 70.35
+     },
+     {
+      "year": 2003,
+      "value": 65.95,
+      "lo": 61.11,
+      "hi": 70.79
+     },
+     {
+      "year": 2004,
+      "value": 65.96,
+      "lo": 61.13,
+      "hi": 70.78
+     },
+     {
+      "year": 2005,
+      "value": 67.42,
+      "lo": 62.73,
+      "hi": 72.11
+     },
+     {
+      "year": 2006,
+      "value": 68.5,
+      "lo": 64.03,
+      "hi": 72.98
+     },
+     {
+      "year": 2007,
+      "value": 68.36,
+      "lo": 63.88,
+      "hi": 72.83
+     },
+     {
+      "year": 2008,
+      "value": 68.87,
+      "lo": 64.4,
+      "hi": 73.34
+     },
+     {
+      "year": 2009,
+      "value": 68.31,
+      "lo": 63.84,
+      "hi": 72.79
+     },
+     {
+      "year": 2010,
+      "value": 67.11,
+      "lo": 62.64,
+      "hi": 71.59
+     },
+     {
+      "year": 2011,
+      "value": 66.67,
+      "lo": 62.54,
+      "hi": 70.79
+     },
+     {
+      "year": 2012,
+      "value": 65.5,
+      "lo": 61.37,
+      "hi": 69.63
+     },
+     {
+      "year": 2013,
+      "value": 66.31,
+      "lo": 62.02,
+      "hi": 70.61
+     },
+     {
+      "year": 2014,
+      "value": 65.65,
+      "lo": 61.36,
+      "hi": 69.94
+     },
+     {
+      "year": 2015,
+      "value": 65.85,
+      "lo": 61.56,
+      "hi": 70.15
+     },
+     {
+      "year": 2016,
+      "value": 65.59,
+      "lo": 61.3,
+      "hi": 69.88
+     },
+     {
+      "year": 2017,
+      "value": 64.55,
+      "lo": 60.26,
+      "hi": 68.84
+     },
+     {
+      "year": 2018,
+      "value": 64.15,
+      "lo": 59.55,
+      "hi": 68.75
+     },
+     {
+      "year": 2019,
+      "value": 62.02,
+      "lo": 57.42,
+      "hi": 66.61
+     },
+     {
+      "year": 2020,
+      "value": 60.23,
+      "lo": 55.76,
+      "hi": 64.7
+     },
+     {
+      "year": 2021,
+      "value": 56.94,
+      "lo": 52.47,
+      "hi": 61.41
+     },
+     {
+      "year": 2022,
+      "value": 56.61,
+      "lo": 52.14,
+      "hi": 61.08
+     },
+     {
+      "year": 2023,
+      "value": 55.98,
+      "lo": 51.48,
+      "hi": 60.48
+     },
+     {
+      "year": 2024,
+      "value": 56.67,
+      "lo": 52.17,
+      "hi": 61.18
+     },
+     {
+      "year": 2025,
+      "value": 54.93,
+      "lo": 50.42,
+      "hi": 59.43
+     }
+    ],
+    "peers": [
+     {
+      "iso": "ZAF",
+      "name": "South Africa",
+      "value": 70.22,
+      "lo": 65.89,
+      "hi": 74.54
+     },
+     {
+      "iso": "BRA",
+      "name": "Brazil",
+      "value": 65.47,
+      "lo": 60.97,
+      "hi": 69.97
+     },
+     {
+      "iso": "MYS",
+      "name": "Malaysia",
+      "value": 55.78,
+      "lo": 51.29,
+      "hi": 60.28
+     },
+     {
+      "iso": "IND",
+      "name": "India",
+      "value": 54.93,
+      "lo": 50.42,
+      "hi": 59.43
+     },
+     {
+      "iso": "IDN",
+      "name": "Indonesia",
+      "value": 54.67,
+      "lo": 50.17,
+      "hi": 59.17
+     },
+     {
+      "iso": "PHL",
+      "name": "Philippines",
+      "value": 53.03,
+      "lo": 48.53,
+      "hi": 57.53
+     },
+     {
+      "iso": "MEX",
+      "name": "Mexico",
+      "value": 52.55,
+      "lo": 48.04,
+      "hi": 57.05
+     },
+     {
+      "iso": "THA",
+      "name": "Thailand",
+      "value": 48.23,
+      "lo": 43.73,
+      "hi": 52.73
+     },
+     {
+      "iso": "BGD",
+      "name": "Bangladesh",
+      "value": 44.49,
+      "lo": 40.05,
+      "hi": 48.93
+     },
+     {
+      "iso": "TUR",
+      "name": "Türkiye",
+      "value": 37.28,
+      "lo": 32.67,
+      "hi": 41.89
+     },
+     {
+      "iso": "VNM",
+      "name": "Vietnam",
+      "value": 34.48,
+      "lo": 29.97,
+      "hi": 38.98
+     },
+     {
+      "iso": "CHN",
+      "name": "China",
+      "value": 26.14,
+      "lo": 21.63,
+      "hi": 30.65
+     }
+    ]
+   },
+   {
+    "code": "PV",
+    "label": "Political stability",
+    "definition": "Perceptions of the likelihood of political instability and of challenges to or changes in political authority through violent, coercive, or unconstitutional means.",
+    "latest_year": 2025,
+    "value": 54.96,
+    "lo": 48.35,
+    "hi": 61.56,
+    "rank": 162,
+    "of": 207,
+    "world_median": 68.04,
+    "base_year": 2015,
+    "base_value": 52.39,
+    "ten_year_change": "none",
+    "series": [
+     {
+      "year": 1996,
+      "value": 49.15,
+      "lo": 40.67,
+      "hi": 57.64
+     },
+     {
+      "year": 1998,
+      "value": 47.55,
+      "lo": 39.06,
+      "hi": 56.03
+     },
+     {
+      "year": 2000,
+      "value": 48.95,
+      "lo": 40.76,
+      "hi": 57.14
+     },
+     {
+      "year": 2002,
+      "value": 43.3,
+      "lo": 35.39,
+      "hi": 51.21
+     },
+     {
+      "year": 2003,
+      "value": 40.99,
+      "lo": 33.09,
+      "hi": 48.9
+     },
+     {
+      "year": 2004,
+      "value": 47.89,
+      "lo": 40.91,
+      "hi": 54.87
+     },
+     {
+      "year": 2005,
+      "value": 50.97,
+      "lo": 43.99,
+      "hi": 57.95
+     },
+     {
+      "year": 2006,
+      "value": 51.64,
+      "lo": 44.66,
+      "hi": 58.63
+     },
+     {
+      "year": 2007,
+      "value": 51.76,
+      "lo": 44.78,
+      "hi": 58.74
+     },
+     {
+      "year": 2008,
+      "value": 52.66,
+      "lo": 45.67,
+      "hi": 59.64
+     },
+     {
+      "year": 2009,
+      "value": 50.04,
+      "lo": 43.06,
+      "hi": 57.02
+     },
+     {
+      "year": 2010,
+      "value": 49.62,
+      "lo": 42.63,
+      "hi": 56.6
+     },
+     {
+      "year": 2011,
+      "value": 45.85,
+      "lo": 39.0,
+      "hi": 52.7
+     },
+     {
+      "year": 2012,
+      "value": 46.09,
+      "lo": 39.24,
+      "hi": 52.95
+     },
+     {
+      "year": 2013,
+      "value": 45.65,
+      "lo": 38.8,
+      "hi": 52.5
+     },
+     {
+      "year": 2014,
+      "value": 51.36,
+      "lo": 44.51,
+      "hi": 58.21
+     },
+     {
+      "year": 2015,
+      "value": 52.39,
+      "lo": 45.53,
+      "hi": 59.24
+     },
+     {
+      "year": 2016,
+      "value": 52.92,
+      "lo": 46.07,
+      "hi": 59.77
+     },
+     {
+      "year": 2017,
+      "value": 55.74,
+      "lo": 48.89,
+      "hi": 62.59
+     },
+     {
+      "year": 2018,
+      "value": 53.95,
+      "lo": 47.1,
+      "hi": 60.8
+     },
+     {
+      "year": 2019,
+      "value": 55.31,
+      "lo": 48.46,
+      "hi": 62.16
+     },
+     {
+      "year": 2020,
+      "value": 52.92,
+      "lo": 46.44,
+      "hi": 59.41
+     },
+     {
+      "year": 2021,
+      "value": 54.81,
+      "lo": 48.33,
+      "hi": 61.3
+     },
+     {
+      "year": 2022,
+      "value": 52.19,
+      "lo": 45.74,
+      "hi": 58.64
+     },
+     {
+      "year": 2023,
+      "value": 51.22,
+      "lo": 44.62,
+      "hi": 57.83
+     },
+     {
+      "year": 2024,
+      "value": 53.24,
+      "lo": 46.64,
+      "hi": 59.84
+     },
+     {
+      "year": 2025,
+      "value": 54.96,
+      "lo": 48.35,
+      "hi": 61.56
+     }
+    ],
+    "peers": [
+     {
+      "iso": "MYS",
+      "name": "Malaysia",
+      "value": 71.56,
+      "lo": 64.96,
+      "hi": 78.16
+     },
+     {
+      "iso": "VNM",
+      "name": "Vietnam",
+      "value": 67.66,
+      "lo": 61.06,
+      "hi": 74.26
+     },
+     {
+      "iso": "CHN",
+      "name": "China",
+      "value": 66.0,
+      "lo": 59.23,
+      "hi": 72.78
+     },
+     {
+      "iso": "ZAF",
+      "name": "South Africa",
+      "value": 58.92,
+      "lo": 52.17,
+      "hi": 65.67
+     },
+     {
+      "iso": "BRA",
+      "name": "Brazil",
+      "value": 58.87,
+      "lo": 52.27,
+      "hi": 65.47
+     },
+     {
+      "iso": "THA",
+      "name": "Thailand",
+      "value": 55.8,
+      "lo": 49.2,
+      "hi": 62.4
+     },
+     {
+      "iso": "IND",
+      "name": "India",
+      "value": 54.96,
+      "lo": 48.35,
+      "hi": 61.56
+     },
+     {
+      "iso": "MEX",
+      "name": "Mexico",
+      "value": 54.95,
+      "lo": 48.35,
+      "hi": 61.55
+     },
+     {
+      "iso": "IDN",
+      "name": "Indonesia",
+      "value": 52.66,
+      "lo": 46.06,
+      "hi": 59.26
+     },
+     {
+      "iso": "PHL",
+      "name": "Philippines",
+      "value": 50.97,
+      "lo": 44.37,
+      "hi": 57.58
+     },
+     {
+      "iso": "TUR",
+      "name": "Türkiye",
+      "value": 50.17,
+      "lo": 43.17,
+      "hi": 57.16
+     },
+     {
+      "iso": "BGD",
+      "name": "Bangladesh",
+      "value": 49.11,
+      "lo": 42.36,
+      "hi": 55.87
+     }
+    ]
+   }
+  ]
+ },
+ "ibbi": {
+  "as_on": "2026-06-30",
+  "status": {
+   "admitted": 9166,
+   "withdrawn": 1333,
+   "appeal": 1410,
+   "resolved": 1484,
+   "liquidated": 3074,
+   "ongoing": 1865
+  },
+  "flow": [
+   {
+    "period": "2016-17",
+    "admitted": 37,
+    "appeal": 1,
+    "withdrawn": 0,
+    "resolved": 0,
+    "liquidated": 0,
+    "ongoing_end": 36
+   },
+   {
+    "period": "2017-18",
+    "admitted": 707,
+    "appeal": 96,
+    "withdrawn": 0,
+    "resolved": 18,
+    "liquidated": 91,
+    "ongoing_end": 538
+   },
+   {
+    "period": "2018-19",
+    "admitted": 1157,
+    "appeal": 162,
+    "withdrawn": 97,
+    "resolved": 73,
+    "liquidated": 305,
+    "ongoing_end": 1058
+   },
+   {
+    "period": "2019-20",
+    "admitted": 1992,
+    "appeal": 349,
+    "withdrawn": 221,
+    "resolved": 130,
+    "liquidated": 537,
+    "ongoing_end": 1813
+   },
+   {
+    "period": "2020-21",
+    "admitted": 538,
+    "appeal": 92,
+    "withdrawn": 168,
+    "resolved": 119,
+    "liquidated": 348,
+    "ongoing_end": 1624
+   },
+   {
+    "period": "2021-22",
+    "admitted": 892,
+    "appeal": 131,
+    "withdrawn": 204,
+    "resolved": 141,
+    "liquidated": 339,
+    "ongoing_end": 1701
+   },
+   {
+    "period": "2022-23",
+    "admitted": 1262,
+    "appeal": 196,
+    "withdrawn": 231,
+    "resolved": 186,
+    "liquidated": 405,
+    "ongoing_end": 1945
+   },
+   {
+    "period": "2023-24",
+    "admitted": 1002,
+    "appeal": 165,
+    "withdrawn": 168,
+    "resolved": 257,
+    "liquidated": 441,
+    "ongoing_end": 1916
+   },
+   {
+    "period": "2024-25",
+    "admitted": 734,
+    "appeal": 126,
+    "withdrawn": 89,
+    "resolved": 257,
+    "liquidated": 293,
+    "ongoing_end": 1885
+   },
+   {
+    "period": "2025-26",
+    "admitted": 668,
+    "appeal": 82,
+    "withdrawn": 132,
+    "resolved": 234,
+    "liquidated": 261,
+    "ongoing_end": 1844
+   },
+   {
+    "period": "Apr-Jun, 2026",
+    "admitted": 177,
+    "appeal": 10,
+    "withdrawn": 23,
+    "resolved": 69,
+    "liquidated": 54,
+    "ongoing_end": 1865
+   }
+  ],
+  "days_to_resolution": [
+   {
+    "period": "To end-March, 2025",
+    "processes": 1181,
+    "days": 717,
+    "days_excl": 596
+   },
+   {
+    "period": "To end-March, 2026",
+    "processes": 1415,
+    "days": 744,
+    "days_excl": 619
+   },
+   {
+    "period": "Apr-June, 2026",
+    "processes": 69,
+    "days": 1026,
+    "days_excl": 931
+   }
+  ],
+  "realisation": {
+   "claims_cr": 1426665.38,
+   "liquidation_value_cr": 261422.74,
+   "fair_value_cr": 391608.19,
+   "realised_cr": 435469.89,
+   "pct_of_claims": 30.52,
+   "pct_of_liquidation_value": 166.58,
+   "pct_of_fair_value": 94.72,
+   "fair_value_cases": 1359
+  },
+  "source": "Insolvency and Bankruptcy Board of India, quarterly newsletter data annex",
+  "newsletter": "Quarterly newsletter for April-June, 2026",
+  "file_url": "https://ibbi.gov.in/uploads/publication/18054eb85bc0e7388537b05326192072.xlsx",
+  "source_url": "https://ibbi.gov.in/publication"
+ },
+ "njdg": {
+  "source": "National Judicial Data Grid (eCommittee, Supreme Court of India)",
+  "read_at": "2026-11-08T09:46:56+00:00",
+  "levels": {
+   "district": {
+    "civil": 11259619,
+    "criminal": 40915273,
+    "total": 52174892,
+    "ages": [
+     {
+      "band": "Under 1 year",
+      "civil": 4784861,
+      "criminal": 16875694,
+      "total": 21660555
+     },
+     {
+      "band": "1 to 3 years",
+      "civil": 2663741,
+      "criminal": 8496844,
+      "total": 11160585
+     },
+     {
+      "band": "3 to 5 years",
+      "civil": 1461023,
+      "criminal": 5098908,
+      "total": 6559931
+     },
+     {
+      "band": "5 to 10 years",
+      "civil": 1546230,
+      "criminal": 6568761,
+      "total": 8114991
+     },
+     {
+      "band": "Over 10 years",
+      "civil": 804140,
+      "criminal": 3877948,
+      "total": 4682088
+     }
+    ],
+    "instituted_last_month": 2085933,
+    "disposed_last_month": 1580786,
+    "source_url": "https://njdg.ecourts.gov.in/njdg_v3/"
+   },
+   "high_courts": {
+    "civil": 4540047,
+    "criminal": 2022374,
+    "total": 6562421,
+    "ages": [
+     {
+      "band": "Under 1 year",
+      "civil": 1326825,
+      "criminal": 649662,
+      "total": 1976487
+     },
+     {
+      "band": "1 to 3 years",
+      "civil": 800398,
+      "criminal": 348283,
+      "total": 1148681
+     },
+     {
+      "band": "3 to 5 years",
+      "civil": 502103,
+      "criminal": 181224,
+      "total": 683327
+     },
+     {
+      "band": "5 to 10 years",
+      "civil": 931606,
+      "criminal": 351656,
+      "total": 1283262
+     },
+     {
+      "band": "Over 10 years",
+      "civil": 979115,
+      "criminal": 491549,
+      "total": 1470664
+     }
+    ],
+    "instituted_last_month": 204827,
+    "disposed_last_month": 171653,
+    "source_url": "https://njdg.ecourts.gov.in/hcnjdg_v2/"
+   }
+  },
+  "history": {
+   "district": [
+    {
+     "date": "2026-11-08",
+     "total": 52174892,
+     "over_10_years": 4682088
+    }
+   ],
+   "high_courts": [
+    {
+     "date": "2026-11-08",
+     "total": 6562421,
+     "over_10_years": 1470664
+    }
+   ]
+  }
+ },
+ "milestones": [
+  {
+   "date": "2026-04-07",
+   "title": "Jan Vishwas (Amendment of Provisions) Act, 2026 (No. 8 of 2026)",
+   "detail": "Presidential assent on 7 April 2026, published in the Gazette of India on 8 April. Comes into force on dates the Centre notifies, which may differ for each Act in the Schedule: watch for commencement notifications.",
+   "source": "Gazette of India (Extraordinary) Part II Section 1",
+   "url": "https://prsindia.org/files/bills_acts/bills_parliament/2026/Jan_Vishwas_Act_2026.pdf"
+  },
+  {
+   "date": "2026-03-27",
+   "title": "Jan Vishwas Bill 2026 introduced",
+   "detail": "Introduced in Lok Sabha to amend 80 central Acts, decriminalising or rationalising offences and penalties. Passed by Lok Sabha on 1 April and Rajya Sabha on 2 April 2026.",
+   "source": "PRS Legislative Research",
+   "url": "https://prsindia.org/billtrack/the-jan-vishwas-amendment-of-provisions-bill-2026"
+  },
+  {
+   "date": "2026-03-17",
+   "title": "Jan Vishwas Bill 2025 withdrawn",
+   "detail": "Withdrawn to make way for a wider Bill reflecting the Select Committee's recommendations.",
+   "source": "PRS Legislative Research",
+   "url": "https://prsindia.org/billtrack/the-jan-vishwas-amendment-of-provisions-bill-2026"
+  },
+  {
+   "date": "2026-03-13",
+   "title": "Select Committee reports on Jan Vishwas Bill 2025",
+   "detail": "Recommended further changes to the 17 Acts and amendments to 65 other Acts.",
+   "source": "PRS Legislative Research",
+   "url": "https://prsindia.org/billtrack/the-jan-vishwas-amendment-of-provisions-bill-2026"
+  },
+  {
+   "date": "2025-08-18",
+   "title": "Jan Vishwas Bill 2025 introduced",
+   "detail": "Sought to amend 17 central Acts; referred to a Select Committee of Lok Sabha (Chair: Tejasvi Surya).",
+   "source": "PRS Legislative Research",
+   "url": "https://prsindia.org/billtrack/the-jan-vishwas-amendment-of-provisions-bill-2026"
+  },
+  {
+   "date": "2023-08-02",
+   "title": "Jan Vishwas Bill 2022 passed by Parliament",
+   "detail": "Passed by Lok Sabha on 27 July 2023 and Rajya Sabha on 2 August 2023. 42 central Acts amended.",
+   "source": "PRS Legislative Research",
+   "url": "https://prsindia.org/billtrack/the-jan-vishwas-amendment-of-provisions-bill-2022"
+  },
+  {
+   "date": "2023-03-17",
+   "title": "Joint Parliamentary Committee reports on Jan Vishwas Bill 2022",
+   "detail": "Committee report presented before the Bill was taken up for passing.",
+   "source": "PRS Legislative Research",
+   "url": "https://prsindia.org/billtrack/the-jan-vishwas-amendment-of-provisions-bill-2022"
+  },
+  {
+   "date": "2022-12-22",
+   "title": "Jan Vishwas Bill 2022 introduced",
+   "detail": "Introduced in Lok Sabha and referred to a Joint Parliamentary Committee the same day. Amends 42 laws, converting several fines into penalties that do not need court prosecution and removing imprisonment for many offences.",
+   "source": "PRS Legislative Research",
+   "url": "https://prsindia.org/billtrack/the-jan-vishwas-amendment-of-provisions-bill-2022"
+  }
+ ]
+}
