@@ -656,3 +656,58 @@ a.eb-bar-row:hover .eb-bar-label { text-decoration: underline; }
 }
 .eb a.eb-xcard, .eb a.eb-xcard:visited, .eb a.eb-xcard .eb-xcard-title, .eb-xcard-icon { color: #fff; }
 .eb a.eb-xcard:hover .eb-xcard-title { text-decoration: underline; }
+
+/* ---------- Imports and trade balance ---------- */
+.eb-xcard { color: var(--eb-hero-soft); }
+.eb-xcard-links { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.eb .eb-xcard a.eb-xcard-go { color: var(--eb-hero-pressed); text-decoration: none; }
+.eb .eb-xcard a.eb-xcard-go:hover { text-decoration: underline; }
+.eb .eb-xcard .eb-xcard-title { color: #fff; }
+.eb-xcard:hover { transform: none; }
+@media (max-width: 640px) { .eb-xcard-links { justify-content: flex-start; } }
+
+.eb-range button:disabled { opacity: 0.45; cursor: not-allowed; text-decoration: line-through; }
+.eb-hero .eb-range button:disabled:hover { background: transparent; }
+
+.eb-col-missing i { background: none !important; border: 1.5px dashed var(--eb-muted); box-sizing: border-box; animation: none; }
+.eb-col-missing .eb-col-val { color: var(--eb-muted); font-weight: 500; font-style: italic; }
+
+.eb-mv-n1 { background: var(--eb-s1); }
+.eb-mv-n2 { background: var(--eb-s2); }
+
+.eb-pairs { gap: 14px; }
+.eb-pair-bars { display: flex; align-items: flex-end; gap: 3px; width: 100%; max-width: 70px; height: 100%; }
+.eb-pair-bars i { flex: 1; display: block; border-radius: 5px 5px 2px 2px; transform-origin: bottom; animation: eb-colin 0.7s cubic-bezier(.2,.7,.2,1) both; }
+.eb-pair-x { background: var(--eb-s1); }
+.eb-pair-m { background: var(--eb-s2); }
+.eb-col-partial .eb-pair-x { background: repeating-linear-gradient(135deg, var(--eb-s1) 0 6px, color-mix(in srgb, var(--eb-s1) 45%, transparent) 6px 12px); }
+.eb-col-partial .eb-pair-m { background: repeating-linear-gradient(135deg, var(--eb-s2) 0 6px, color-mix(in srgb, var(--eb-s2) 45%, transparent) 6px 12px); }
+.eb-col-missing .eb-pair-m { background: none; border: 1.5px dashed var(--eb-muted); box-sizing: border-box; }
+.eb-pair .eb-col-val { font-size: 12px; }
+.eb-pair-legend { display: flex; gap: 16px; font-size: 12.5px; margin: -4px 0 4px; }
+.eb-pair-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+
+.eb-bal-row { grid-template-columns: 22px minmax(0, 1fr) 110px; }
+.eb-bal-plus { background: var(--eb-good-ink) !important; }
+.eb-bal-minus { background: var(--eb-bad-ink) !important; }
+
+.eb-twoway { padding: 14px 16px; }
+.eb-twoway .eb-mc-title { font-size: 15.5px; margin-bottom: 8px; }
+.eb-twoway-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.eb-twoway-row span { display: flex; flex-direction: column; gap: 2px; padding: 8px 12px; border-radius: 10px; background: var(--eb-panel-soft); }
+.eb-twoway-row small { font-size: 12px; color: var(--eb-muted); font-weight: 600; }
+.eb-twoway-row b { font-family: var(--eb-serif); font-size: 20px; }
+.eb-twoway-row a { font-size: 12.5px; }
+@media (max-width: 640px) {
+  .eb-twoway-row { grid-template-columns: minmax(0, 1fr); }
+  .eb-bal-row { grid-template-columns: 18px minmax(0, 1fr) 96px; }
+  .eb-pairs { gap: 6px; }
+}
+@media (prefers-reduced-motion: reduce) { .eb-pair-bars i { animation: none !important; } }
+.eb-pair .eb-pair-bars i.eb-pair-x { background: var(--eb-s1); }
+.eb-pair .eb-pair-bars i.eb-pair-m { background: var(--eb-s2); }
+.eb-pair.eb-col-partial .eb-pair-bars i.eb-pair-x { background: repeating-linear-gradient(135deg, var(--eb-s1) 0 6px, color-mix(in srgb, var(--eb-s1) 45%, transparent) 6px 12px); }
+.eb-pair.eb-col-partial .eb-pair-bars i.eb-pair-m { background: repeating-linear-gradient(135deg, var(--eb-s2) 0 6px, color-mix(in srgb, var(--eb-s2) 45%, transparent) 6px 12px); }
+.eb-pair.eb-col-missing .eb-pair-bars i.eb-pair-x { display: none; }
+.eb-pair.eb-col-missing .eb-pair-bars i.eb-pair-m { background: none; border: 1.5px dashed var(--eb-muted); }
+.eb-tile-value.eb-bad { color: var(--eb-bad-ink); } .eb-tile-value.eb-good { color: var(--eb-good-ink); }

@@ -28,6 +28,8 @@ export default function Rail({ route, groups, data, error, onReload, skins = [],
         <p className="eb-navhead" id="eb-trade">Trade detail</p>
         <div role="group" aria-labelledby="eb-trade">
           <NavLink href="#/exports" current={route.name === 'exports'}>Exports: partners and products</NavLink>
+          <NavLink href="#/imports" current={route.name === 'imports'}>Imports: partners and products</NavLink>
+          <NavLink href="#/balance" current={route.name === 'balance'}>Trade balance by partner</NavLink>
         </div>
         <NavLink href="#/sources" current={route.name === 'sources'}>Sources and notes</NavLink>
       </nav>

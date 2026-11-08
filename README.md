@@ -60,27 +60,34 @@ Deliberately not used from that file: the IIP column (it splices the 2011-12 and
 
 Where the team sheet has a newer figure from the same release (for example Commerce's trade data a month ahead of RBI's table, or RBI's published credit growth), the sheet's figure is used for that month and the RBI file supplies the history.
 
-## Updating the export data (DGCI&S, HS 8-digit by country)
+## Updating the trade data (DGCI&S, HS 8-digit by country)
 
-The Exports page (`#/exports`) is built from DGCI&S export data bank downloads: commodity (HS 8-digit) by country, US$. The raw .xls files are large and stay in Google Drive ("Export Data"); only the summarised JSON in `public/data/trade/` is committed.
+Three pages are built from DGCI&S data bank downloads (commodity at HS 8-digit by country, US$): Exports (`#/exports`), Imports (`#/imports`) and Trade balance by partner (`#/balance`). The raw .xls files are large and stay in Google Drive ("Export Data" and "Import Data"); only the summarised JSON in `public/data/trade/` is committed.
 
-1. Download the slices from DGCI&S (each query is capped at 10,000 rows, so a year comes in about 50 files) into one folder.
-2. Combine them into one long file. The last argument names the part year, so it is never mistaken for a full year:
+1. Download the slices from DGCI&S (each query is capped at 10,000 rows, so a year comes in many files) into one folder per flow.
+2. Combine each flow into one long file. The last argument names the part year, so it is never mistaken for a full year:
 
    ```bash
    pip install xlrd
-   python3 scripts/trade_combine.py path/to/xls_folder exports.csv.gz "2026 Jan-Aug"
+   python3 scripts/trade_combine.py path/to/export_xls exports.csv.gz "2026 Jan-Aug"
+   python3 scripts/trade_combine.py path/to/import_xls imports.csv.gz "2026 Jan-Aug"
    ```
-3. Build the page data (summary, one file per country, the top 300 products):
+3. Build the page data (summary, one file per country, the top 300 products), once per flow:
 
    ```bash
-   python3 scripts/build_trade.py exports.csv.gz
+   python3 scripts/build_trade.py exports.csv.gz exports
+   python3 scripts/build_trade.py imports.csv.gz imports
    ```
 4. Commit `public/data/trade/` and push. The site redeploys on its own.
 
-Check the printed totals against RBI's monthly exports before committing: 2021 to 2025 match RBI to the decimal.
+Check the printed totals against RBI's monthly exports and imports before committing: they match RBI to the decimal for every full year.
 
-Two things to know when reading the page. Part years are shown but never compared with full years. And India revises 8-digit tariff lines from time to time (smartphones got their own code in 2022, gold jewellery was recoded in 2023, rice in 2025). The build flags those lines, and the page shows "code revised" instead of a growth rate that would not be like for like.
+Things to know when reading the pages:
+
+- Part years are shown but never compared with full years.
+- A calendar year with no files (currently 2024 imports) is shown as "awaiting", never as zero, and the year after it shows no change on the year before. Upload the year's files and rerun steps 2 to 4 to fill it.
+- India revises 8-digit tariff lines from time to time (smartphones got their own code in 2022, gold jewellery was recoded in 2023, rice in 2025). The build flags those lines and the page shows "code revised" instead of a growth rate that would not be like for like.
+- Imports are by country of consignment, so goods shipped through hubs such as the UAE, Singapore or Hong Kong are credited to the hub.
 
 ## Option A: add it to your existing FastAPI and React app
 

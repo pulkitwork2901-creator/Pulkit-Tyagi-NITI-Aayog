@@ -45,24 +45,30 @@ function HeroArt() {
   );
 }
 
-// Entry card to the Exports section, with the latest full-year headline.
-function ExportsCard({ base }) {
-  const { data: d } = useTradeFile(`${base}exports.json`);
-  const i = d ? d.periods.indexOf(d.latest_full) : -1;
-  const top = d && [...d.countries].sort((a, b) => (b.v[i] || 0) - (a.v[i] || 0))[0];
+// Entry card to the trade section, with the latest full-year headline.
+function TradeCard({ base }) {
+  const { data: x } = useTradeFile(`${base}exports.json`);
+  const { data: m } = useTradeFile(`${base}imports.json`);
+  const yr = x && m ? [...x.periods].reverse().find((p) => p.length === 4 && !(x.missing || []).includes(p) && !(m.missing || []).includes(p)) : null;
+  const X = yr ? x.total[x.periods.indexOf(yr)] : null;
+  const M = yr ? m.total[m.periods.indexOf(yr)] : null;
   return (
-    <a className="eb-xcard" href="#/exports">
+    <section className="eb-xcard" aria-labelledby="eb-xcard-t">
       <span className="eb-xcard-icon" aria-hidden="true"><Icon name="trade" size={24} /></span>
       <span>
-        <span className="eb-xcard-kicker">Trade detail · DGCI&amp;S, HS 8-digit</span>
-        <span className="eb-xcard-title">Exports by partner and product</span>
+        <span className="eb-xcard-kicker">Trade detail · DGCI&amp;S, HS 8-digit by country</span>
+        <span className="eb-xcard-title" id="eb-xcard-t">Exports, imports and balance by partner</span>
         <span className="eb-xcard-text">
-          {d ? `${d.latest_full}: ${money(d.total[i])} to ${d.partners[i]} destinations; largest market ${top.name}. Explore every country and the top ${d.products.length} products.`
-            : 'Every destination country and the top 300 products, 2021 to 2026.'}
+          {yr ? `${yr}: exports ${money(X)}, imports ${money(M)}, deficit ${money(M - X)}. Every partner country and the top 300 products each way.`
+            : 'Every partner country and the top 300 products each way, 2021 to 2026.'}
         </span>
       </span>
-      <span className="eb-xcard-go">Open exports →</span>
-    </a>
+      <span className="eb-xcard-links">
+        <a className="eb-xcard-go" href="#/exports">Exports →</a>
+        <a className="eb-xcard-go" href="#/imports">Imports →</a>
+        <a className="eb-xcard-go" href="#/balance">Balance →</a>
+      </span>
+    </section>
   );
 }
 
@@ -153,7 +159,7 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
 
       <WhatsNew indicators={data.indicators || []} now={Date.parse(data.generated_at)} />
 
-      <ExportsCard base={tradeBase} />
+      <TradeCard base={tradeBase} />
 
       <h2 className="eb-eyebrow" id="eb-panels-h">Trends</h2>
       <section className="eb-panels" aria-labelledby="eb-panels-h">

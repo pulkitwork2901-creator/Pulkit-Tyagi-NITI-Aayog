@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 // Tiny router: #/ dashboard, #/theme/<slug>, #/indicator/<id>, #/sources,
-// #/exports, #/exports/country/<id>, #/exports/product/<hs8>.
+// #/exports | #/imports (+ /country/<id>, /product/<hs8>), #/balance.
 // Hash addresses work on GitHub Pages without any server setup.
 function parse() {
   const raw = window.location.hash.replace(/^#\/?/, '');

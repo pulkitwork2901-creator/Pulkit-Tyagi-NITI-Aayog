@@ -8,7 +8,8 @@ import IndicatorPage from './pages/IndicatorPage.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import SourcesPage from './pages/SourcesPage.jsx';
 import ThemePage from './pages/ThemePage.jsx';
-import ExportsPage from './pages/ExportsPage.jsx';
+import TradePage from './pages/TradePage.jsx';
+import BalancePage from './pages/BalancePage.jsx';
 
 // Colour schemes a viewer can pick; the choice is remembered in their browser.
 export const SKINS = [
@@ -67,13 +68,15 @@ export default function EconomicBoard({ source = '/data/indicators.json', title 
   const item = route.name === 'indicator' ? byId[route.arg] : null;
   const group = route.name === 'theme' ? groups.find((g) => slug(g) === route.arg) : null;
   const railRoute = { ...route, group: item?.group };
+  const tradeBase = source.replace(/[^/]*$/, 'trade/');
 
   let page;
   if (route.name === 'indicator') page = <IndicatorPage item={item} />;
   else if (route.name === 'theme') page = <ThemePage group={group} items={indicators.filter((i) => i.group === group)} />;
   else if (route.name === 'sources') page = <SourcesPage indicators={indicators} />;
-  else if (route.name === 'exports') page = <ExportsPage base={source.replace(/[^/]*$/, 'trade/')} view={route.arg} arg={route.arg2} />;
-  else page = <Dashboard data={data} title={title} byId={byId} groups={groups} csvUrl={source.replace(/\.json$/, '.csv')} tradeBase={source.replace(/[^/]*$/, 'trade/')} />;
+  else if (route.name === 'exports' || route.name === 'imports') page = <TradePage base={tradeBase} flow={route.name} view={route.arg} arg={route.arg2} />;
+  else if (route.name === 'balance') page = <BalancePage base={tradeBase} />;
+  else page = <Dashboard data={data} title={title} byId={byId} groups={groups} csvUrl={source.replace(/\.json$/, '.csv')} tradeBase={tradeBase} />;
 
   return (
     <div className="eb" data-skin={skin}>

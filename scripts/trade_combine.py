@@ -7,6 +7,9 @@ Columns: period, country, hs8, description, unit, quantity, value_usd
   Commerce's monthly figures (the 2026 download of 7 Nov 2026 matched
   January-August to within 0.05%).
 
+Works for both export (country of destination) and import (country of consignment)
+downloads; keep each flow in its own folder.
+
 Usage: python3 scripts/trade_combine.py <raw dir> <out csv.gz> "2026 Jan-Aug"
 """
 import csv
@@ -35,7 +38,7 @@ with gzip.open(out, "wt", newline="", encoding="utf-8") as f:
     for p in sorted(raw.glob("*.xls")):
         sh = xlrd.open_workbook(p).sheet_by_index(0)
         cells = [[str(c.value).strip() for c in sh.row(r)] for r in range(sh.nrows)]
-        hi = next(i for i, r in enumerate(cells) if any(x.upper() in ("HS CODE", "COUNTRY OF DESTINATION") for x in r))
+        hi = next(i for i, r in enumerate(cells) if any(x.upper() in ("HS CODE", "COUNTRY OF DESTINATION", "COUNTRY OF CONSIGNMENT") for x in r))
         hdr = cells[hi]
         if "yearlytimeseries" in p.name:
             if not ytd_label:

@@ -1,22 +1,27 @@
 """
-Build the board's export-partners data from DGCI&S HS 8-digit x country files.
+Build the board's trade-partner data from DGCI&S HS 8-digit x country files.
 
 Input : the combined CSV written by scripts/trade_combine.py from the DGCI&S
         "data query" (calendar year, cumulative) and "yearly time series"
         downloads. Columns: period, country, hs8, description, unit,
         quantity, value_usd.
-Output: public/data/trade/exports.json          summary for the trade page
-        public/data/trade/country/<id>.json     one file per destination
-        public/data/trade/product/<hs8>.json    one file per major product
-        public/data/trade/exports_summary.csv   country x year, for download
+Output (FLOW is exports or imports):
+        public/data/trade/FLOW.json                 summary for the trade pages
+        public/data/trade/FLOW/country/<id>.json    one file per partner
+        public/data/trade/FLOW/product/<hs8>.json   one file per major product
+        public/data/trade/FLOW_summary.csv          country x year, for download
 
-The raw DGCI&S files are not kept in the repository (about 470 MB); keep them
-in the team's Drive and rerun:
-    python3 scripts/trade_combine.py <folder of .xls> exports.csv.gz
-    python3 scripts/build_trade.py exports.csv.gz
+The raw DGCI&S files are not kept in the repository (several hundred MB); keep
+them in the team's Drive and rerun:
+    python3 scripts/trade_combine.py <folder of export .xls> exports.csv.gz "2026 Jan-Aug"
+    python3 scripts/build_trade.py exports.csv.gz exports
+    python3 scripts/trade_combine.py <folder of import .xls> imports.csv.gz "2026 Jan-Aug"
+    python3 scripts/build_trade.py imports.csv.gz imports
 
 Values are US$ million. A period that does not cover a full year (for example
-"2026 Jan-Aug") is marked partial and never compared with a full year.
+"2026 Jan-Aug") is marked partial and never compared with a full year. A
+calendar year with no files at all (between the first and last year present)
+is listed as missing and shown as a gap, never as zero.
 """
 
 from __future__ import annotations
@@ -35,7 +40,10 @@ TOP_PRODUCTS = 300          # products listed and given their own file
 COUNTRY_PRODUCTS = 40       # products listed on each country page
 PRODUCT_COUNTRIES = 25      # destinations listed on each product page
 
-SOURCE = "DGCI&S, Ministry of Commerce and Industry: export data bank, HS 8-digit by country (including re-exports)"
+SOURCES = {
+    "exports": "DGCI&S, Ministry of Commerce and Industry: export data bank, HS 8-digit by country of destination (including re-exports)",
+    "imports": "DGCI&S, Ministry of Commerce and Industry: import data bank, HS 8-digit by country of consignment (including re-imports)",
+}
 
 # DGCI&S abbreviations -> names people use. Anything not listed is title-cased.
 NAMES = {
@@ -172,8 +180,13 @@ HEADINGS = {
     "8536": "electrical switches and connectors", "8537": "electrical control panels", "8807": "aircraft parts",
     "8905": "special vessels and floating platforms", "8906": "other vessels", "9404": "mattresses and bedding",
     "2601": "iron ore", "1701": "cane and beet sugar",
+    "2701": "coal", "2709": "crude petroleum", "2902": "cyclic hydrocarbons", "3102": "nitrogen fertilisers",
+    "3105": "mixed fertilisers", "3901": "polyethylene", "3902": "polypropylene", "7106": "silver",
+    "7108": "gold", "7110": "platinum", "8471": "computers", "8473": "computer parts",
+    "8507": "batteries", "8529": "TV and radio parts", "8541": "semiconductors and solar cells",
+    "8542": "integrated circuits", "8708": "motor vehicle parts", "8803": "aircraft parts",
 }
-GENERIC = re.compile(r"^(others?( under heading \d+)?( n\.?e\.?s)?$|of\b|grade\b|\d)", re.I)
+GENERIC = re.compile(r"^(others?( under heading \d+)?( n\.?e\.?s)?$|of\b|grade\b|containing\b|\d)", re.I)
 
 
 def label(h: str, d: str) -> str:
@@ -185,7 +198,7 @@ def label(h: str, d: str) -> str:
     return f"{d} ({head}, heading {h[:4]})" if head else f"{d} (heading {h[:4]})"
 
 
-def code_breaks(by_prod: dict, order: list) -> dict:
+def code_breaks(by_prod: dict, order: list, missing: list) -> dict:
     """Years in which an HS 8-digit line's change on the year before is not like for like.
 
     India revises its 8-digit tariff lines (HS 2022 created a smartphone code; gold
@@ -199,6 +212,8 @@ def code_breaks(by_prod: dict, order: list) -> dict:
         heads[h[:4]].append(h)
     out = defaultdict(list)
     for a, b in zip(full, full[1:]):
+        if a in missing or b in missing:
+            continue
         for hs4, codes in heads.items():
             moved = {h: by_prod[h].get(a, 0) + by_prod[h].get(b, 0) for h in codes
                      if (by_prod[h].get(a, 0) > 0) != (by_prod[h].get(b, 0) > 0)}
@@ -215,7 +230,10 @@ def mn(x: float) -> float:
     return round(x / 1e6, 3)
 
 
-def main(src: str) -> None:
+def main(src: str, flow: str) -> None:
+    if flow not in SOURCES:
+        sys.exit(f"flow must be one of {sorted(SOURCES)}")
+    out = OUT / flow
     by_cty = defaultdict(lambda: defaultdict(float))       # country -> period -> US$
     by_ch = defaultdict(lambda: defaultdict(float))        # hs2 -> period
     by_prod = defaultdict(lambda: defaultdict(float))      # hs8 -> period
@@ -241,23 +259,26 @@ def main(src: str) -> None:
                 desc[h] = r["description"].strip()
     desc = {h: label(h, clean(d)) for h, d in desc.items()}
 
+    years = sorted(p for p in periods if len(p) == 4)
+    missing = [str(y) for y in range(int(years[0]), int(years[-1]) + 1) if str(y) not in periods]
+    periods |= set(missing)
     order = sorted(periods, key=lambda p: (p[:4], len(p)))      # "2026 Jan-Aug" after "2025"
-    full = [p for p in order if len(p) == 4]
+    full = [p for p in order if len(p) == 4 and p not in missing]
     latest_full = full[-1]
-    vec = lambda d: [mn(d.get(p, 0)) for p in order]
-    breaks = code_breaks(by_prod, order)
+    vec = lambda d: [None if p in missing else mn(d.get(p, 0)) for p in order]
+    breaks = code_breaks(by_prod, order, missing)
 
     def share_top(dct, k=10):
-        out = []
+        res = []
         for p in order:
             vals = sorted((d.get(p, 0) for d in dct.values()), reverse=True)
             tot = sum(vals)
-            out.append(round(sum(vals[:k]) / tot * 100, 2) if tot else None)
-        return out
+            res.append(round(sum(vals[:k]) / tot * 100, 2) if tot and p not in missing else None)
+        return res
 
     countries = sorted(by_cty, key=lambda c: -by_cty[c].get(latest_full, 0))
     cid = {c: slug(pretty(c)) for c in countries}
-    products = sorted(by_prod, key=lambda h: -max(by_prod[h].values()))[:TOP_PRODUCTS]
+    products = sorted(by_prod, key=lambda h: -max(by_prod[h].values(), default=0))[:TOP_PRODUCTS]
     pset = set(products)
     total = defaultdict(float)
     for d in by_cty.values():
@@ -265,10 +286,10 @@ def main(src: str) -> None:
             total[p] += v
 
     summary = {
-        "flow": "exports", "unit": "US$ million", "source": SOURCE,
-        "periods": order, "partial": [p for p in order if len(p) > 4], "latest_full": latest_full,
+        "flow": flow, "unit": "US$ million", "source": SOURCES[flow],
+        "periods": order, "partial": [p for p in order if len(p) > 4], "missing": missing, "latest_full": latest_full,
         "total": vec(total),
-        "partners": [sum(1 for c in by_cty if by_cty[c].get(p, 0) > 0) for p in order],
+        "partners": [None if p in missing else sum(1 for c in by_cty if by_cty[c].get(p, 0) > 0) for p in order],
         "top10_partner_share": share_top(by_cty), "top10_product_share": share_top(by_prod),
         "countries": [{"id": cid[c], "name": pretty(c), "v": vec(by_cty[c])} for c in countries],
         "chapters": sorted(({"hs2": h, "name": CHAPTERS.get(h, f"Chapter {h}"), "v": vec(by_ch[h])} for h in by_ch),
@@ -276,23 +297,23 @@ def main(src: str) -> None:
         "products": [{"hs8": h, "desc": desc.get(h, ""), "hs2": h[:2], "chapter": CHAPTERS.get(h[:2], ""),
                       "v": vec(by_prod[h]), **({"breaks": breaks[h]} if breaks.get(h) else {})} for h in products],
     }
-    (OUT / "country").mkdir(parents=True, exist_ok=True)
-    (OUT / "product").mkdir(parents=True, exist_ok=True)
-    for old in list((OUT / "country").glob("*.json")) + list((OUT / "product").glob("*.json")):
+    (out / "country").mkdir(parents=True, exist_ok=True)
+    (out / "product").mkdir(parents=True, exist_ok=True)
+    for old in list((out / "country").glob("*.json")) + list((out / "product").glob("*.json")):
         old.unlink()
-    (OUT / "exports.json").write_text(json.dumps(summary, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    (OUT / f"{flow}.json").write_text(json.dumps(summary, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
     for c in countries:
         prods = sorted(cty_prod[c], key=lambda h: -sum(cty_prod[c][h].values()))[:COUNTRY_PRODUCTS]
         doc = {
-            "id": cid[c], "name": pretty(c), "dgcis_name": c, "periods": order, "v": vec(by_cty[c]),
+            "id": cid[c], "name": pretty(c), "dgcis_name": c, "flow": flow, "periods": order, "missing": missing, "v": vec(by_cty[c]),
             "chapters": sorted(({"hs2": h, "name": CHAPTERS.get(h, h), "v": vec(cty_ch[c][h])} for h in cty_ch[c]),
-                               key=lambda x: -max(x["v"]))[:25],
+                               key=lambda x: -max((y for y in x["v"] if y is not None), default=0))[:25],
             "products": [{"hs8": h, "desc": desc.get(h, ""), "chapter": CHAPTERS.get(h[:2], ""),
                           "linked": h in pset, "v": vec(cty_prod[c][h]),
                           **({"breaks": breaks[h]} if breaks.get(h) else {})} for h in prods],
         }
-        (OUT / "country" / f"{cid[c]}.json").write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        (out / "country" / f"{cid[c]}.json").write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
     for h in products:
         dest = sorted(prod_cty[h], key=lambda c: -prod_cty[h][c].get(latest_full, 0))
@@ -302,21 +323,21 @@ def main(src: str) -> None:
             for p, v in prod_cty[h][c].items():
                 others[p] += v
         doc = {
-            "hs8": h, "desc": desc.get(h, ""), "chapter": CHAPTERS.get(h[:2], ""), "periods": order,
+            "hs8": h, "desc": desc.get(h, ""), "chapter": CHAPTERS.get(h[:2], ""), "flow": flow, "periods": order, "missing": missing,
             "v": vec(by_prod[h]), "breaks": breaks.get(h, []),
             "countries": [{"id": cid[c], "name": pretty(c), "v": vec(prod_cty[h][c])} for c in top]
                          + ([{"id": None, "name": f"All other ({len(rest)})", "v": vec(others)}] if rest else []),
         }
-        (OUT / "product" / f"{h}.json").write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        (out / "product" / f"{h}.json").write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
-    with open(OUT / "exports_summary.csv", "w", newline="", encoding="utf-8-sig") as f:
+    with open(OUT / f"{flow}_summary.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
         w.writerow(["country", "dgcis_name", *[f"{p} (US$ mn)" for p in order]])
         for c in countries:
             w.writerow([pretty(c), c, *vec(by_cty[c])])
     print(f"periods {order}; {len(countries)} countries, {len(by_ch)} chapters, {len(products)} product files")
-    print("totals US$ bn:", {p: round(total[p] / 1e9, 2) for p in order})
+    print(f"{flow} totals US$ bn:", {p: round(total[p] / 1e9, 2) if p not in missing else "missing" for p in order})
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else "exports")
