@@ -85,7 +85,7 @@ Check the printed totals against RBI's monthly exports and imports before commit
 Things to know when reading the pages:
 
 - Part years are shown but never compared with full years.
-- A calendar year with no files (currently 2024 imports) is shown as "awaiting", never as zero, and the year after it shows no change on the year before. Upload the year's files and rerun steps 2 to 4 to fill it.
+- A calendar year with no files is shown as "awaiting", never as zero, and the year after it shows no change on the year before. Upload the year's files and rerun steps 2 to 4 to fill it.
 - India revises 8-digit tariff lines from time to time (smartphones got their own code in 2022, gold jewellery was recoded in 2023, rice in 2025). The build flags those lines and the page shows "code revised" instead of a growth rate that would not be like for like.
 - Imports are by country of consignment, so goods shipped through hubs such as the UAE, Singapore or Hong Kong are credited to the hub.
 
