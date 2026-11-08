@@ -1,17 +1,17 @@
 {
- "generated_at": "2026-11-08T09:47:20+00:00",
+ "generated_at": "2026-11-08T09:54:11+00:00",
  "status": {
   "wgi": {
    "state": "ok",
-   "checked_at": "2026-11-08T09:46:42+00:00"
+   "checked_at": "2026-11-08T09:54:11+00:00"
   },
   "ibbi": {
    "state": "ok",
-   "checked_at": "2026-11-08T09:47:20+00:00"
+   "checked_at": "2026-11-08T09:54:11+00:00"
   },
   "njdg": {
    "state": "ok",
-   "checked_at": "2026-11-08T09:46:42+00:00"
+   "checked_at": "2026-11-08T09:54:11+00:00"
   }
  },
  "wgi": {
@@ -1760,7 +1760,7 @@
  },
  "njdg": {
   "source": "National Judicial Data Grid (eCommittee, Supreme Court of India)",
-  "read_at": "2026-11-08T09:46:56+00:00",
+  "read_at": "2026-11-08T09:54:21+00:00",
   "levels": {
    "district": {
     "civil": 11259619,
