@@ -1,17 +1,29 @@
 {
- "generated_at": "2026-11-08T09:54:11+00:00",
+ "generated_at": "2026-11-08T12:41:25+00:00",
  "status": {
   "wgi": {
    "state": "ok",
-   "checked_at": "2026-11-08T09:54:11+00:00"
+   "checked_at": "2026-11-08T12:41:25+00:00"
   },
   "ibbi": {
    "state": "ok",
-   "checked_at": "2026-11-08T09:54:11+00:00"
+   "checked_at": "2026-11-08T12:41:25+00:00"
   },
   "njdg": {
    "state": "ok",
-   "checked_at": "2026-11-08T09:54:11+00:00"
+   "checked_at": "2026-11-08T12:41:25+00:00"
+  },
+  "grievances": {
+   "state": "ok",
+   "checked_at": "2026-11-08T12:41:25+00:00"
+  },
+  "msme": {
+   "state": "ok",
+   "checked_at": "2026-11-08T12:41:25+00:00"
+  },
+  "consultations": {
+   "state": "ok",
+   "checked_at": "2026-11-08T12:41:25+00:00"
   }
  },
  "wgi": {
@@ -1760,7 +1772,7 @@
  },
  "njdg": {
   "source": "National Judicial Data Grid (eCommittee, Supreme Court of India)",
-  "read_at": "2026-11-08T09:54:21+00:00",
+  "read_at": "2026-11-08T12:41:34+00:00",
   "levels": {
    "district": {
     "civil": 11259619,
@@ -1859,6 +1871,2318 @@
     }
    ]
   }
+ },
+ "grievances": {
+  "from": "2026-01-01",
+  "to": "2026-11-07",
+  "pending_bands": [
+   "0 to 60 days",
+   "60 to 180 days",
+   "180 to 365 days",
+   "Over 1 year"
+  ],
+  "central": {
+   "total": {
+    "received": 2050281,
+    "disposed": 1970159,
+    "pct_disposed": 96.09,
+    "pending": [
+     69979,
+     9378,
+     765,
+     0
+    ]
+   },
+   "orgs": [
+    {
+     "name": "Administrative Reforms and Public Grievances - PG Division",
+     "received": 9610,
+     "disposed": 9504,
+     "pct_disposed": 98.9,
+     "pending": [
+      102,
+      4,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Ayush",
+     "received": 3311,
+     "disposed": 3273,
+     "pct_disposed": 98.85,
+     "pending": [
+      38,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "O/o the Comptroller & Auditor General of India",
+     "received": 2066,
+     "disposed": 1975,
+     "pct_disposed": 95.6,
+     "pending": [
+      73,
+      17,
+      1,
+      0
+     ]
+    },
+    {
+     "name": "Central Board of Direct Taxes (Income Tax)",
+     "received": 64252,
+     "disposed": 60422,
+     "pct_disposed": 94.04,
+     "pending": [
+      2994,
+      669,
+      167,
+      0
+     ]
+    },
+    {
+     "name": "Central Board of Excise and Customs",
+     "received": 14412,
+     "disposed": 14164,
+     "pct_disposed": 98.28,
+     "pending": [
+      247,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "name": "Atomic Energy",
+     "received": 1719,
+     "disposed": 1655,
+     "pct_disposed": 96.28,
+     "pending": [
+      64,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Bio Technology",
+     "received": 314,
+     "disposed": 296,
+     "pct_disposed": 94.27,
+     "pending": [
+      18,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Culture",
+     "received": 4187,
+     "disposed": 4038,
+     "pct_disposed": 96.44,
+     "pending": [
+      148,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Corporate Affairs",
+     "received": 14341,
+     "disposed": 13987,
+     "pct_disposed": 97.53,
+     "pending": [
+      351,
+      3,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Ex Servicemen Welfare",
+     "received": 15889,
+     "disposed": 14750,
+     "pct_disposed": 92.83,
+     "pending": [
+      1018,
+      121,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Defence Production",
+     "received": 2386,
+     "disposed": 2210,
+     "pct_disposed": 92.62,
+     "pending": [
+      171,
+      5,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Defence Research and Development",
+     "received": 975,
+     "disposed": 902,
+     "pct_disposed": 92.51,
+     "pending": [
+      68,
+      5,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Financial Services (Banking Division)",
+     "received": 279878,
+     "disposed": 274198,
+     "pct_disposed": 97.97,
+     "pending": [
+      5670,
+      8,
+      2,
+      0
+     ]
+    },
+    {
+     "name": "Financial Services (Insurance Division)",
+     "received": 34784,
+     "disposed": 34261,
+     "pct_disposed": 98.5,
+     "pending": [
+      522,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "name": "Financial Services (Pension Reforms)",
+     "received": 4349,
+     "disposed": 4292,
+     "pct_disposed": 98.69,
+     "pending": [
+      57,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Justice",
+     "received": 12182,
+     "disposed": 11907,
+     "pct_disposed": 97.74,
+     "pending": [
+      261,
+      8,
+      6,
+      0
+     ]
+    },
+    {
+     "name": "Fisheries",
+     "received": 628,
+     "disposed": 611,
+     "pct_disposed": 97.29,
+     "pending": [
+      17,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Heavy Industry",
+     "received": 2068,
+     "disposed": 2038,
+     "pct_disposed": 98.55,
+     "pending": [
+      30,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Health & Family Welfare",
+     "received": 64143,
+     "disposed": 62641,
+     "pct_disposed": 97.66,
+     "pending": [
+      1438,
+      51,
+      13,
+      0
+     ]
+    },
+    {
+     "name": "Health Research",
+     "received": 1376,
+     "disposed": 1345,
+     "pct_disposed": 97.75,
+     "pending": [
+      31,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Legal Affairs",
+     "received": 5036,
+     "disposed": 4881,
+     "pct_disposed": 96.92,
+     "pending": [
+      146,
+      7,
+      2,
+      0
+     ]
+    },
+    {
+     "name": "Military Affairs",
+     "received": 26832,
+     "disposed": 25265,
+     "pct_disposed": 94.16,
+     "pending": [
+      1499,
+      68,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Agriculture and Farmers Welfare",
+     "received": 35312,
+     "disposed": 34700,
+     "pct_disposed": 98.27,
+     "pending": [
+      612,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Animal Husbandry, Dairying",
+     "received": 3155,
+     "disposed": 2934,
+     "pct_disposed": 93.0,
+     "pending": [
+      213,
+      8,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Agriculture Research and Education",
+     "received": 1656,
+     "disposed": 1575,
+     "pct_disposed": 95.11,
+     "pending": [
+      78,
+      3,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Capital Development",
+     "received": 241,
+     "disposed": 92,
+     "pct_disposed": 38.17,
+     "pending": [
+      149,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Consumer Affairs",
+     "received": 33765,
+     "disposed": 33328,
+     "pct_disposed": 98.71,
+     "pending": [
+      434,
+      3,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Earth Sciences",
+     "received": 337,
+     "disposed": 324,
+     "pct_disposed": 96.14,
+     "pending": [
+      13,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Commerce",
+     "received": 4348,
+     "disposed": 4221,
+     "pct_disposed": 97.08,
+     "pending": [
+      121,
+      6,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Chemicals and Petrochemicals",
+     "received": 1022,
+     "disposed": 1010,
+     "pct_disposed": 98.83,
+     "pending": [
+      12,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Empowerment of Persons with Disabilities",
+     "received": 5691,
+     "disposed": 5578,
+     "pct_disposed": 98.01,
+     "pending": [
+      112,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Investment & Public Asset Management",
+     "received": 757,
+     "disposed": 750,
+     "pct_disposed": 99.08,
+     "pending": [
+      7,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Drinking Water and Sanitation",
+     "received": 12309,
+     "disposed": 11849,
+     "pct_disposed": 96.26,
+     "pending": [
+      418,
+      30,
+      12,
+      0
+     ]
+    },
+    {
+     "name": "Economic Affairs",
+     "received": 3451,
+     "disposed": 3220,
+     "pct_disposed": 93.31,
+     "pending": [
+      206,
+      24,
+      1,
+      0
+     ]
+    },
+    {
+     "name": "Expenditure",
+     "received": 2440,
+     "disposed": 2339,
+     "pct_disposed": 95.86,
+     "pending": [
+      99,
+      2,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Food and Public Distribution",
+     "received": 19934,
+     "disposed": 18643,
+     "pct_disposed": 93.52,
+     "pending": [
+      916,
+      302,
+      73,
+      0
+     ]
+    },
+    {
+     "name": "Food Processing Industries",
+     "received": 656,
+     "disposed": 632,
+     "pct_disposed": 96.34,
+     "pending": [
+      24,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Fertilizers",
+     "received": 926,
+     "disposed": 849,
+     "pct_disposed": 91.68,
+     "pending": [
+      77,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Promotion of Industry and Internal Trade",
+     "received": 2964,
+     "disposed": 2842,
+     "pct_disposed": 95.88,
+     "pending": [
+      122,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Land Resources",
+     "received": 7530,
+     "disposed": 7467,
+     "pct_disposed": 99.16,
+     "pending": [
+      63,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Development of North Eastern Region",
+     "received": 188,
+     "disposed": 187,
+     "pct_disposed": 99.47,
+     "pending": [
+      1,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Personnel and Training",
+     "received": 24355,
+     "disposed": 23220,
+     "pct_disposed": 95.34,
+     "pending": [
+      1012,
+      120,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "Rural Development",
+     "received": 72563,
+     "disposed": 71416,
+     "pct_disposed": 98.42,
+     "pending": [
+      1138,
+      9,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Revenue",
+     "received": 15286,
+     "disposed": 14978,
+     "pct_disposed": 97.99,
+     "pending": [
+      290,
+      13,
+      5,
+      0
+     ]
+    },
+    {
+     "name": "Science and Technology",
+     "received": 1683,
+     "disposed": 1619,
+     "pct_disposed": 96.2,
+     "pending": [
+      64,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "School Education and Literacy",
+     "received": 26856,
+     "disposed": 25507,
+     "pct_disposed": 94.98,
+     "pending": [
+      1344,
+      5,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Scientific & Industrial Research",
+     "received": 1039,
+     "disposed": 1017,
+     "pct_disposed": 97.88,
+     "pending": [
+      22,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Skill Development and Entrepreneurship",
+     "received": 7180,
+     "disposed": 6957,
+     "pct_disposed": 96.89,
+     "pending": [
+      215,
+      8,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Telecommunications",
+     "received": 89314,
+     "disposed": 87491,
+     "pct_disposed": 97.96,
+     "pending": [
+      1822,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "name": "Urban Development",
+     "received": 33265,
+     "disposed": 32588,
+     "pct_disposed": 97.96,
+     "pending": [
+      648,
+      21,
+      8,
+      0
+     ]
+    },
+    {
+     "name": "Women and Child Development",
+     "received": 11672,
+     "disposed": 11399,
+     "pct_disposed": 97.66,
+     "pending": [
+      269,
+      4,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Pharmaceutical",
+     "received": 1529,
+     "disposed": 1443,
+     "pct_disposed": 94.38,
+     "pending": [
+      86,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "NITI Aayog",
+     "received": 4095,
+     "disposed": 4068,
+     "pct_disposed": 99.34,
+     "pending": [
+      27,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Posts",
+     "received": 71737,
+     "disposed": 71035,
+     "pct_disposed": 99.02,
+     "pending": [
+      701,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Public Enterprises",
+     "received": 803,
+     "disposed": 684,
+     "pct_disposed": 85.18,
+     "pending": [
+      110,
+      7,
+      2,
+      0
+     ]
+    },
+    {
+     "name": "Higher Education",
+     "received": 38102,
+     "disposed": 36186,
+     "pct_disposed": 94.97,
+     "pending": [
+      1601,
+      288,
+      27,
+      0
+     ]
+    },
+    {
+     "name": "Space",
+     "received": 762,
+     "disposed": 711,
+     "pct_disposed": 93.31,
+     "pending": [
+      49,
+      2,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Sports",
+     "received": 2142,
+     "disposed": 2064,
+     "pct_disposed": 96.36,
+     "pending": [
+      72,
+      6,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Tourism",
+     "received": 3193,
+     "disposed": 3113,
+     "pct_disposed": 97.49,
+     "pending": [
+      80,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Defence Finance",
+     "received": 57943,
+     "disposed": 53621,
+     "pct_disposed": 92.54,
+     "pending": [
+      3599,
+      718,
+      5,
+      0
+     ]
+    },
+    {
+     "name": "Official Language",
+     "received": 261,
+     "disposed": 260,
+     "pct_disposed": 99.62,
+     "pending": [
+      1,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Legislative Department",
+     "received": 1727,
+     "disposed": 1705,
+     "pct_disposed": 98.73,
+     "pending": [
+      21,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "name": "Coal",
+     "received": 5580,
+     "disposed": 5449,
+     "pct_disposed": 97.65,
+     "pending": [
+      131,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "External Affairs",
+     "received": 22658,
+     "disposed": 21330,
+     "pct_disposed": 94.14,
+     "pending": [
+      1196,
+      103,
+      29,
+      0
+     ]
+    },
+    {
+     "name": "Home Affairs",
+     "received": 87558,
+     "disposed": 84236,
+     "pct_disposed": 96.21,
+     "pending": [
+      3211,
+      92,
+      19,
+      0
+     ]
+    },
+    {
+     "name": "Electronics & Information Technology",
+     "received": 18726,
+     "disposed": 18126,
+     "pct_disposed": 96.8,
+     "pending": [
+      596,
+      4,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Parliamentary Affairs",
+     "received": 1888,
+     "disposed": 1879,
+     "pct_disposed": 99.52,
+     "pending": [
+      8,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "name": "Water Resources, River Development & Ganga Rejuvenuation,",
+     "received": 4372,
+     "disposed": 4251,
+     "pct_disposed": 97.23,
+     "pending": [
+      120,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Mines",
+     "received": 1956,
+     "disposed": 1893,
+     "pct_disposed": 96.78,
+     "pending": [
+      63,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Micro Small and Medium Enterprises",
+     "received": 29962,
+     "disposed": 28794,
+     "pct_disposed": 96.1,
+     "pending": [
+      1115,
+      48,
+      5,
+      0
+     ]
+    },
+    {
+     "name": "Civil Aviation",
+     "received": 8027,
+     "disposed": 7696,
+     "pct_disposed": 95.88,
+     "pending": [
+      330,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Cooperation",
+     "received": 9680,
+     "disposed": 8454,
+     "pct_disposed": 87.33,
+     "pending": [
+      1212,
+      14,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Defence",
+     "received": 23073,
+     "disposed": 22657,
+     "pct_disposed": 98.2,
+     "pending": [
+      414,
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "name": "Environment, Forest and Climate Change",
+     "received": 10449,
+     "disposed": 10128,
+     "pct_disposed": 96.93,
+     "pending": [
+      320,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Information and Broadcasting",
+     "received": 5265,
+     "disposed": 5118,
+     "pct_disposed": 97.21,
+     "pending": [
+      147,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Labour and Employment",
+     "received": 316275,
+     "disposed": 301560,
+     "pct_disposed": 95.35,
+     "pending": [
+      13758,
+      908,
+      49,
+      0
+     ]
+    },
+    {
+     "name": "Minority Affairs",
+     "received": 1928,
+     "disposed": 1868,
+     "pct_disposed": 96.89,
+     "pending": [
+      58,
+      2,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "New and Renewable Energy",
+     "received": 3688,
+     "disposed": 3445,
+     "pct_disposed": 93.41,
+     "pending": [
+      240,
+      3,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Panchayati Raj",
+     "received": 21863,
+     "disposed": 19745,
+     "pct_disposed": 90.31,
+     "pending": [
+      1527,
+      470,
+      121,
+      0
+     ]
+    },
+    {
+     "name": "Railways, ( Railway Board)",
+     "received": 89830,
+     "disposed": 85673,
+     "pct_disposed": 95.37,
+     "pending": [
+      3915,
+      202,
+      40,
+      0
+     ]
+    },
+    {
+     "name": "Road Transport and Highways",
+     "received": 56258,
+     "disposed": 54995,
+     "pct_disposed": 97.75,
+     "pending": [
+      1239,
+      21,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "Social Justice and Empowerment",
+     "received": 14439,
+     "disposed": 13833,
+     "pct_disposed": 95.8,
+     "pending": [
+      598,
+      8,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Statistics and Programme Implementation",
+     "received": 580,
+     "disposed": 566,
+     "pct_disposed": 97.59,
+     "pending": [
+      14,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Steel",
+     "received": 1830,
+     "disposed": 1788,
+     "pct_disposed": 97.7,
+     "pending": [
+      42,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Youth Affairs",
+     "received": 1151,
+     "disposed": 1131,
+     "pct_disposed": 98.26,
+     "pending": [
+      20,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Petroleum and Natural Gas",
+     "received": 73899,
+     "disposed": 62542,
+     "pct_disposed": 84.63,
+     "pending": [
+      6262,
+      4929,
+      166,
+      0
+     ]
+    },
+    {
+     "name": "Power",
+     "received": 13646,
+     "disposed": 13514,
+     "pct_disposed": 99.03,
+     "pending": [
+      132,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Shipping",
+     "received": 1841,
+     "disposed": 1813,
+     "pct_disposed": 98.48,
+     "pending": [
+      28,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Tribal Affairs",
+     "received": 2893,
+     "disposed": 2830,
+     "pct_disposed": 97.82,
+     "pending": [
+      62,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Textiles",
+     "received": 965,
+     "disposed": 948,
+     "pct_disposed": 98.24,
+     "pending": [
+      17,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Unique Identification Authority of India",
+     "received": 53074,
+     "disposed": 51660,
+     "pct_disposed": 97.34,
+     "pending": [
+      1393,
+      21,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  "states": {
+   "total": {
+    "received": 916808,
+    "disposed": 742004,
+    "pct_disposed": 80.93,
+    "pending": [
+     88530,
+     59798,
+     26476,
+     0
+    ]
+   },
+   "orgs": [
+    {
+     "name": "NCT of Delhi",
+     "received": 49851,
+     "disposed": 42798,
+     "pct_disposed": 85.85,
+     "pending": [
+      3423,
+      2645,
+      985,
+      0
+     ]
+    },
+    {
+     "name": "Union Territory of Andaman & Nicobar",
+     "received": 1248,
+     "disposed": 1102,
+     "pct_disposed": 88.3,
+     "pending": [
+      138,
+      8,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "Andhra Pradesh",
+     "received": 18948,
+     "disposed": 13925,
+     "pct_disposed": 73.49,
+     "pending": [
+      2255,
+      2098,
+      670,
+      0
+     ]
+    },
+    {
+     "name": "Arunachal Pradesh",
+     "received": 489,
+     "disposed": 253,
+     "pct_disposed": 51.74,
+     "pending": [
+      65,
+      127,
+      44,
+      0
+     ]
+    },
+    {
+     "name": "Assam",
+     "received": 8806,
+     "disposed": 5268,
+     "pct_disposed": 59.82,
+     "pending": [
+      1478,
+      1422,
+      638,
+      0
+     ]
+    },
+    {
+     "name": "Bihar",
+     "received": 44059,
+     "disposed": 32287,
+     "pct_disposed": 73.28,
+     "pending": [
+      7252,
+      3333,
+      1187,
+      0
+     ]
+    },
+    {
+     "name": "Union Territory of Chandigarh",
+     "received": 3599,
+     "disposed": 3336,
+     "pct_disposed": 92.69,
+     "pending": [
+      215,
+      44,
+      4,
+      0
+     ]
+    },
+    {
+     "name": "Chattisgarh",
+     "received": 13222,
+     "disposed": 6036,
+     "pct_disposed": 45.65,
+     "pending": [
+      2305,
+      3574,
+      1307,
+      0
+     ]
+    },
+    {
+     "name": "Union Territory of Dadra & Nagar Haveli",
+     "received": 195,
+     "disposed": 72,
+     "pct_disposed": 36.92,
+     "pending": [
+      38,
+      52,
+      33,
+      0
+     ]
+    },
+    {
+     "name": "Union Territory of Daman & Diu",
+     "received": 328,
+     "disposed": 73,
+     "pct_disposed": 22.26,
+     "pending": [
+      47,
+      124,
+      84,
+      0
+     ]
+    },
+    {
+     "name": "Gujarat",
+     "received": 61002,
+     "disposed": 55971,
+     "pct_disposed": 91.75,
+     "pending": [
+      4049,
+      772,
+      210,
+      0
+     ]
+    },
+    {
+     "name": "Goa",
+     "received": 1542,
+     "disposed": 1041,
+     "pct_disposed": 67.51,
+     "pending": [
+      179,
+      191,
+      131,
+      0
+     ]
+    },
+    {
+     "name": "Himachal Pradesh",
+     "received": 4220,
+     "disposed": 1242,
+     "pct_disposed": 29.43,
+     "pending": [
+      732,
+      1224,
+      1022,
+      0
+     ]
+    },
+    {
+     "name": "Haryana",
+     "received": 53692,
+     "disposed": 42039,
+     "pct_disposed": 78.3,
+     "pending": [
+      6692,
+      3362,
+      1599,
+      0
+     ]
+    },
+    {
+     "name": "Jharkhand",
+     "received": 20598,
+     "disposed": 17391,
+     "pct_disposed": 84.43,
+     "pending": [
+      2176,
+      843,
+      188,
+      0
+     ]
+    },
+    {
+     "name": "Union Territory of Jammu and Kashmir",
+     "received": 9254,
+     "disposed": 3824,
+     "pct_disposed": 41.32,
+     "pending": [
+      1274,
+      2330,
+      1826,
+      0
+     ]
+    },
+    {
+     "name": "Kerala",
+     "received": 7230,
+     "disposed": 6072,
+     "pct_disposed": 83.98,
+     "pending": [
+      527,
+      448,
+      183,
+      0
+     ]
+    },
+    {
+     "name": "Karnataka",
+     "received": 33877,
+     "disposed": 27795,
+     "pct_disposed": 82.05,
+     "pending": [
+      3029,
+      2096,
+      957,
+      0
+     ]
+    },
+    {
+     "name": "Union Territory of Lakshadweep",
+     "received": 106,
+     "disposed": 87,
+     "pct_disposed": 82.08,
+     "pending": [
+      8,
+      5,
+      6,
+      0
+     ]
+    },
+    {
+     "name": "Union Territory of Ladakh",
+     "received": 135,
+     "disposed": 26,
+     "pct_disposed": 19.26,
+     "pending": [
+      24,
+      57,
+      28,
+      0
+     ]
+    },
+    {
+     "name": "Meghalaya",
+     "received": 285,
+     "disposed": 119,
+     "pct_disposed": 41.75,
+     "pending": [
+      40,
+      78,
+      48,
+      0
+     ]
+    },
+    {
+     "name": "Maharashtra",
+     "received": 53989,
+     "disposed": 29137,
+     "pct_disposed": 53.97,
+     "pending": [
+      10003,
+      10085,
+      4764,
+      0
+     ]
+    },
+    {
+     "name": "Manipur",
+     "received": 792,
+     "disposed": 14,
+     "pct_disposed": 1.77,
+     "pending": [
+      227,
+      331,
+      220,
+      0
+     ]
+    },
+    {
+     "name": "Madhya Pradesh",
+     "received": 48747,
+     "disposed": 37402,
+     "pct_disposed": 76.73,
+     "pending": [
+      6546,
+      3553,
+      1246,
+      0
+     ]
+    },
+    {
+     "name": "Mizoram",
+     "received": 180,
+     "disposed": 142,
+     "pct_disposed": 78.89,
+     "pending": [
+      29,
+      8,
+      1,
+      0
+     ]
+    },
+    {
+     "name": "Nagaland",
+     "received": 183,
+     "disposed": 41,
+     "pct_disposed": 22.4,
+     "pending": [
+      39,
+      56,
+      47,
+      0
+     ]
+    },
+    {
+     "name": "Odisha",
+     "received": 17193,
+     "disposed": 11046,
+     "pct_disposed": 64.25,
+     "pending": [
+      2828,
+      2287,
+      1032,
+      0
+     ]
+    },
+    {
+     "name": "Punjab",
+     "received": 19038,
+     "disposed": 12673,
+     "pct_disposed": 66.57,
+     "pending": [
+      2315,
+      2428,
+      1622,
+      0
+     ]
+    },
+    {
+     "name": "Union Territory of Puducherry",
+     "received": 2112,
+     "disposed": 1771,
+     "pct_disposed": 83.85,
+     "pending": [
+      269,
+      54,
+      18,
+      0
+     ]
+    },
+    {
+     "name": "Rajasthan",
+     "received": 47076,
+     "disposed": 44021,
+     "pct_disposed": 93.51,
+     "pending": [
+      2558,
+      229,
+      268,
+      0
+     ]
+    },
+    {
+     "name": "Sikkim",
+     "received": 182,
+     "disposed": 138,
+     "pct_disposed": 75.82,
+     "pending": [
+      26,
+      13,
+      5,
+      0
+     ]
+    },
+    {
+     "name": "Telangana",
+     "received": 11728,
+     "disposed": 11252,
+     "pct_disposed": 95.94,
+     "pending": [
+      461,
+      8,
+      7,
+      0
+     ]
+    },
+    {
+     "name": "Tamil Nadu",
+     "received": 29444,
+     "disposed": 24945,
+     "pct_disposed": 84.72,
+     "pending": [
+      2780,
+      1236,
+      483,
+      0
+     ]
+    },
+    {
+     "name": "Tripura",
+     "received": 1788,
+     "disposed": 1510,
+     "pct_disposed": 84.45,
+     "pending": [
+      109,
+      132,
+      37,
+      0
+     ]
+    },
+    {
+     "name": "Uttarakhand",
+     "received": 15381,
+     "disposed": 13969,
+     "pct_disposed": 90.82,
+     "pending": [
+      1124,
+      200,
+      88,
+      0
+     ]
+    },
+    {
+     "name": "Uttar Pradesh",
+     "received": 311145,
+     "disposed": 289970,
+     "pct_disposed": 93.19,
+     "pending": [
+      18589,
+      1552,
+      1034,
+      0
+     ]
+    },
+    {
+     "name": "West Bengal",
+     "received": 25144,
+     "disposed": 3216,
+     "pct_disposed": 12.79,
+     "pending": [
+      4681,
+      12793,
+      4454,
+      0
+     ]
+    }
+   ]
+  },
+  "source": "DARPG, Centralized Public Grievance Redress and Monitoring System (CPGRAMS) dashboard",
+  "source_url": "https://pgportal.gov.in/darpgdashboard",
+  "read_at": "2026-11-08T12:41:43+00:00"
+ },
+ "msme": {
+  "states": [
+   {
+    "name": "Maharashtra",
+    "micro": 8280466,
+    "small": 83680,
+    "medium": 7925,
+    "udyam": 8372071,
+    "uap": 4198000,
+    "total": 12570071
+   },
+   {
+    "name": "Uttar Pradesh",
+    "micro": 5916716,
+    "small": 45502,
+    "medium": 3064,
+    "udyam": 5965282,
+    "uap": 5773588,
+    "total": 11738870
+   },
+   {
+    "name": "Tamil Nadu",
+    "micro": 4737196,
+    "small": 43027,
+    "medium": 3190,
+    "udyam": 4783413,
+    "uap": 2835821,
+    "total": 7619234
+   },
+   {
+    "name": "Rajasthan",
+    "micro": 3608610,
+    "small": 30031,
+    "medium": 1883,
+    "udyam": 3640524,
+    "uap": 2217361,
+    "total": 5857885
+   },
+   {
+    "name": "Gujarat",
+    "micro": 3443126,
+    "small": 61419,
+    "medium": 4926,
+    "udyam": 3509471,
+    "uap": 1911680,
+    "total": 5421151
+   },
+   {
+    "name": "Karnataka",
+    "micro": 2986532,
+    "small": 34712,
+    "medium": 2639,
+    "udyam": 3023883,
+    "uap": 3177658,
+    "total": 6201541
+   },
+   {
+    "name": "Madhya Pradesh",
+    "micro": 2814161,
+    "small": 22199,
+    "medium": 1389,
+    "udyam": 2837749,
+    "uap": 3265685,
+    "total": 6103434
+   },
+   {
+    "name": "West Bengal",
+    "micro": 2648712,
+    "small": 27281,
+    "medium": 2007,
+    "udyam": 2678000,
+    "uap": 4097091,
+    "total": 6775091
+   },
+   {
+    "name": "Andhra Pradesh",
+    "micro": 2494824,
+    "small": 18261,
+    "medium": 1099,
+    "udyam": 2514184,
+    "uap": 2467640,
+    "total": 4981824
+   },
+   {
+    "name": "Telangana",
+    "micro": 2485750,
+    "small": 22593,
+    "medium": 2017,
+    "udyam": 2510360,
+    "uap": 2582769,
+    "total": 5093129
+   },
+   {
+    "name": "Bihar",
+    "micro": 2382142,
+    "small": 13980,
+    "medium": 672,
+    "udyam": 2396794,
+    "uap": 3252968,
+    "total": 5649762
+   },
+   {
+    "name": "Punjab",
+    "micro": 1814194,
+    "small": 18870,
+    "medium": 1404,
+    "udyam": 1834468,
+    "uap": 790474,
+    "total": 2624942
+   },
+   {
+    "name": "Odisha",
+    "micro": 1791635,
+    "small": 11014,
+    "medium": 655,
+    "udyam": 1803304,
+    "uap": 1466589,
+    "total": 3269893
+   },
+   {
+    "name": "Haryana",
+    "micro": 1615852,
+    "small": 26022,
+    "medium": 2039,
+    "udyam": 1643913,
+    "uap": 1071703,
+    "total": 2715616
+   },
+   {
+    "name": "Assam",
+    "micro": 1393103,
+    "small": 7230,
+    "medium": 559,
+    "udyam": 1400892,
+    "uap": 818181,
+    "total": 2219073
+   },
+   {
+    "name": "Kerala",
+    "micro": 1274557,
+    "small": 13898,
+    "medium": 869,
+    "udyam": 1289324,
+    "uap": 1096412,
+    "total": 2385736
+   },
+   {
+    "name": "Delhi",
+    "micro": 1225878,
+    "small": 31809,
+    "medium": 3210,
+    "udyam": 1260897,
+    "uap": 780812,
+    "total": 2041709
+   },
+   {
+    "name": "Jharkhand",
+    "micro": 935075,
+    "small": 6604,
+    "medium": 387,
+    "udyam": 942066,
+    "uap": 1064699,
+    "total": 2006765
+   },
+   {
+    "name": "Chhattisgarh",
+    "micro": 851105,
+    "small": 9375,
+    "medium": 802,
+    "udyam": 861282,
+    "uap": 845102,
+    "total": 1706384
+   },
+   {
+    "name": "Jammu and Kashmir",
+    "micro": 713450,
+    "small": 3550,
+    "medium": 230,
+    "udyam": 717230,
+    "uap": 314805,
+    "total": 1032035
+   },
+   {
+    "name": "Uttarakhand",
+    "micro": 526947,
+    "small": 4703,
+    "medium": 302,
+    "udyam": 531952,
+    "uap": 338384,
+    "total": 870336
+   },
+   {
+    "name": "Himachal Pradesh",
+    "micro": 307571,
+    "small": 2856,
+    "medium": 228,
+    "udyam": 310655,
+    "uap": 135639,
+    "total": 446294
+   },
+   {
+    "name": "Manipur",
+    "micro": 155416,
+    "small": 445,
+    "medium": 18,
+    "udyam": 155879,
+    "uap": 67395,
+    "total": 223274
+   },
+   {
+    "name": "Tripura",
+    "micro": 149192,
+    "small": 790,
+    "medium": 49,
+    "udyam": 150031,
+    "uap": 221466,
+    "total": 371497
+   },
+   {
+    "name": "Goa",
+    "micro": 106437,
+    "small": 1229,
+    "medium": 82,
+    "udyam": 107748,
+    "uap": 52997,
+    "total": 160745
+   },
+   {
+    "name": "Chandigarh",
+    "micro": 74739,
+    "small": 1406,
+    "medium": 139,
+    "udyam": 76284,
+    "uap": 38582,
+    "total": 114866
+   },
+   {
+    "name": "Meghalaya",
+    "micro": 75425,
+    "small": 471,
+    "medium": 31,
+    "udyam": 75927,
+    "uap": 33174,
+    "total": 109101
+   },
+   {
+    "name": "Puducherry",
+    "micro": 73388,
+    "small": 713,
+    "medium": 69,
+    "udyam": 74170,
+    "uap": 58306,
+    "total": 132476
+   },
+   {
+    "name": "Nagaland",
+    "micro": 58294,
+    "small": 198,
+    "medium": 12,
+    "udyam": 58504,
+    "uap": 33925,
+    "total": 92429
+   },
+   {
+    "name": "Mizoram",
+    "micro": 44434,
+    "small": 218,
+    "medium": 8,
+    "udyam": 44660,
+    "uap": 23668,
+    "total": 68328
+   },
+   {
+    "name": "Arunachal Pradesh",
+    "micro": 38961,
+    "small": 427,
+    "medium": 22,
+    "udyam": 39410,
+    "uap": 26972,
+    "total": 66382
+   },
+   {
+    "name": "The Dadra and Nagar Haveli and Daman and Diu",
+    "micro": 31519,
+    "small": 981,
+    "medium": 137,
+    "udyam": 32637,
+    "uap": 11860,
+    "total": 44497
+   },
+   {
+    "name": "Sikkim",
+    "micro": 26249,
+    "small": 167,
+    "medium": 17,
+    "udyam": 26433,
+    "uap": 18604,
+    "total": 45037
+   },
+   {
+    "name": "Andaman and Nicobar Islands",
+    "micro": 21344,
+    "small": 180,
+    "medium": 4,
+    "udyam": 21528,
+    "uap": 4693,
+    "total": 26221
+   },
+   {
+    "name": "Ladakh",
+    "micro": 16869,
+    "small": 136,
+    "medium": 4,
+    "udyam": 17009,
+    "uap": 6143,
+    "total": 23152
+   },
+   {
+    "name": "Lakshadweep",
+    "micro": 1897,
+    "small": 1,
+    "medium": 0,
+    "udyam": 1898,
+    "uap": 933,
+    "total": 2831
+   }
+  ],
+  "total": {
+   "micro": 55121766,
+   "small": 545978,
+   "medium": 42088,
+   "udyam": 55709832,
+   "uap": 45101779,
+   "total": 100811611
+  },
+  "source": "Ministry of MSME dashboard, state-wise Udyam registration",
+  "source_url": "https://dashboard.msme.gov.in/Udyam_Statewise.aspx",
+  "read_at": "2026-11-08T12:42:00+00:00",
+  "history": [
+   {
+    "date": "2026-11-08",
+    "udyam": 55709832,
+    "total": 100811611
+   }
+  ]
+ },
+ "consultations": {
+  "items": [
+   {
+    "regulator": "SEBI",
+    "date": "2026-11-06",
+    "title": "Consultation paper on Introduction of Anti-Money Laundering and Countering the Financing of Terrorism Certification requirement for Principal Officers",
+    "url": "https://www.sebi.gov.in/reports-and-statistics/reports/nov-2026/consultation-paper-on-introduction-of-anti-money-laundering-and-countering-the-financing-of-terrorism-certification-requirement-for-principal-officers-_105651.html",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "RBI",
+    "date": "2026-11-05",
+    "title": "Consolidation of Instructions Related to Priority Sector Lending – Drafts for Comments",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63925",
+    "kind": "Draft for comments"
+   },
+   {
+    "regulator": "TRAI",
+    "date": "2026-10-30",
+    "title": "Draft Guidelines on Responsible Use of Artificial Intelligence (AI) in Telecommunication Networks and Provision of Telecommunication Services",
+    "status": "Open",
+    "division": "Network, Spectrum and Licensing",
+    "url": "https://www.trai.gov.in/draft-guidelines-responsible-use-artificial-intelligence-ai-telecommunication-networks-and",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "SEBI",
+    "date": "2026-10-22",
+    "title": "Consultation Paper on Review of Regulation 38(2) of the SECC Regulations, 2018 and Regulation 7(c)(i) of the D&P Regulations, 2018 for providing an automatic approval route for investment in related activities by the MIIs",
+    "url": "https://www.sebi.gov.in/reports-and-statistics/reports/oct-2026/consultation-paper-on-review-of-regulation-38-2-of-the-secc-regulations-2018-and-regulation-7-c-i-of-the-dandp-regulations-2018-for-providing-an-automatic-approval-route-for-investment-in-related-a-_105391.html",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "SEBI",
+    "date": "2026-10-14",
+    "title": "Consultation Paper on Recommendations pursuant to Review of provisions of SEBI (Issue of Capital and Disclosure Requirements) Regulations, 2018 related to Initial Public Offer by Small and Medium Enterprises",
+    "url": "https://www.sebi.gov.in/reports-and-statistics/reports/oct-2026/consultation-paper-on-recommendations-pursuant-to-review-of-provisions-of-sebi-issue-of-capital-and-disclosure-requirements-regulations-2018-related-to-initial-public-offer-by-small-and-medium-ente-_105252.html",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "SEBI",
+    "date": "2026-10-13",
+    "title": "Consultation Paper on Recommendations of the Working Group for review of SEBI LODR Regulations, 2015 - Review of Framework for Monitoring and Disclosure of Utilization of Issue Proceeds",
+    "url": "https://www.sebi.gov.in/reports-and-statistics/reports/oct-2026/consultation-paper-on-recommendations-of-the-working-group-for-review-of-sebi-lodr-regulations-2015-review-of-framework-for-monitoring-and-disclosure-of-utilization-of-issue-proceeds_105242.html",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "TRAI",
+    "date": "2026-10-09",
+    "title": "Draft Telecommunication (Broadcasting & Cable) Services DRM Based Digital Addressable Systems Audit Manual’ for seeking comments of Stakeholders",
+    "status": "Open",
+    "division": "Broadcasting and Cable Services",
+    "url": "https://www.trai.gov.in/draft-telecommunication-broadcasting-cable-services-drm-based-digital-addressable-systems-audit",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "SEBI",
+    "date": "2026-09-15",
+    "title": "Consultation Paper on Measures to Strengthen Business Continuity Plan (BCP) and Disaster Recovery (DR) of Market Infrastructure Institutions (MIIs)",
+    "url": "https://www.sebi.gov.in/reports-and-statistics/reports/sep-2026/consultation-paper-on-measures-to-strengthen-business-continuity-plan-bcp-and-disaster-recovery-dr-of-market-infrastructure-institutions-miis-_104492.html",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "SEBI",
+    "date": "2026-09-12",
+    "title": "Consultation paper on “Review of certain aspects of the Closing Auction Session, Market Timings and Settlement Methodologies for Derivative Contracts”)",
+    "url": "https://www.sebi.gov.in/reports-and-statistics/reports/sep-2026/consultation-paper-on-review-of-certain-aspects-of-the-closing-auction-session-market-timings-and-settlement-methodologies-for-derivative-contracts-_104464.html",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "SEBI",
+    "date": "2026-09-11",
+    "title": "Consultation Paper on Applicability of IT and Cyber Security Framework of MIIs to their Subsidiaries",
+    "url": "https://www.sebi.gov.in/reports-and-statistics/reports/sep-2026/consultation-paper-on-applicability-of-it-and-cyber-security-framework-of-miis-to-their-subsidiaries_104433.html",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "RBI",
+    "date": "2026-09-11",
+    "title": "RBI invites comments on the Draft “Reserve Bank of India (Know Your Customer) Amendment Directions, 2026”",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63587",
+    "kind": "Draft for comments"
+   },
+   {
+    "regulator": "SEBI",
+    "date": "2026-09-09",
+    "title": "Consultation Paper on Strengthening Governance of MIIs",
+    "url": "https://www.sebi.gov.in/reports-and-statistics/reports/sep-2026/consultation-paper-on-strengthening-governance-of-miis_104385.html",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "SEBI",
+    "date": "2026-09-03",
+    "title": "Consultation Paper on proposal to permit net settlement of funds for transactions undertaken by mutual fund schemes in cash market",
+    "url": "https://www.sebi.gov.in/reports-and-statistics/reports/sep-2026/consultation-paper-on-proposal-to-permit-net-settlement-of-funds-for-transactions-undertaken-by-mutual-fund-schemes-in-cash-market_104231.html",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "SEBI",
+    "date": "2026-08-27",
+    "title": "Consultation paper on Exemption from the requirement of mandatory merchant banker appointment for Small-value debt through private placement by certain listed issuers",
+    "url": "https://www.sebi.gov.in/reports-and-statistics/reports/aug-2026/consultation-paper-on-exemption-from-the-requirement-of-mandatory-merchant-banker-appointment-for-small-value-debt-through-private-placement-by-certain-listed-issuers_104040.html",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "SEBI",
+    "date": "2026-08-21",
+    "title": "Consultation paper on revision of Advertisement Code for Online Bond Platform Providers (OBPPs)",
+    "url": "https://www.sebi.gov.in/reports-and-statistics/reports/aug-2026/consultation-paper-on-revision-of-advertisement-code-for-online-bond-platform-providers-obpps-_103863.html",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "SEBI",
+    "date": "2026-08-21",
+    "title": "Consultation Paper on Introduction of Fixed Income Channel Partners (FICPs) for Distribution of Fixed Income Securities through Online Bond Platform Providers (OBPPs)",
+    "url": "https://www.sebi.gov.in/reports-and-statistics/reports/aug-2026/consultation-paper-on-introduction-of-fixed-income-channel-partners-ficps-for-distribution-of-fixed-income-securities-through-online-bond-platform-providers-obpps-_103859.html",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "RBI",
+    "date": "2026-08-12",
+    "title": "RBI invites comments on the Draft “Reserve Bank of India (Interest Rates on Loans and Advances) Directions, 2026”",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63355",
+    "kind": "Draft for comments"
+   },
+   {
+    "regulator": "RBI",
+    "date": "2026-08-07",
+    "title": "RBI invites public comments on the draft Directions on ‘Credit Valuation Adjustment (CVA) Framework’",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63314",
+    "kind": "Draft for comments"
+   },
+   {
+    "regulator": "RBI",
+    "date": "2026-08-07",
+    "title": "RBI invites comments on the draft “Reserve Bank of India (Commercial Banks – Prudential Norms on Capital Adequacy) Eleventh Amendment Directions, 2026”",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63313",
+    "kind": "Draft for comments"
+   },
+   {
+    "regulator": "RBI",
+    "date": "2026-08-06",
+    "title": "Review of Guidelines on Concentration Risk Management - Rural Co-operative Banks",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63306",
+    "kind": "Draft for comments"
+   },
+   {
+    "regulator": "RBI",
+    "date": "2026-08-06",
+    "title": "RBI invites comments on the draft “Reserve Bank of India (Non-Banking Financial Companies – Credit Facilities) Amendment Directions, 2026”",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63303",
+    "kind": "Draft for comments"
+   },
+   {
+    "regulator": "RBI",
+    "date": "2026-08-05",
+    "title": "RBI invites public comments on Draft Guidelines for ‘on tap’ Licensing of Urban Co-operative Banks",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63294",
+    "kind": "Draft for comments"
+   },
+   {
+    "regulator": "TRAI",
+    "date": "2026-08-05",
+    "title": "Consultation Paper on Draft Amendments in The Standards of Quality of Service of Access (Wireline and Wireless) and Broadband (Wireline and Wireless) Service Regulations, 2024",
+    "status": "Closed",
+    "division": "Quality of Service",
+    "url": "https://www.trai.gov.in/consultation-paper-draft-amendments-standards-quality-service-access-wireline-and-wireless-and",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "IRDAI",
+    "date": "2026-07-31",
+    "title": "General Statement of response to public comments on IRDAI (Insurance Intermediaries) (Amendment) Regulations, 2026",
+    "url": "https://irdai.gov.in/documents/37343/9576082/%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88+%28%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%AE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A5%80%29+%28%E0%A4%B8%E0%A4%82%E0%A4%B6%E0%A5%8B%E0%A4%A7%E0%A4%A8%29+%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%2C+2026+%E0%A4%95%E0%A5%87+%E0%A4%8F%E0%A4%95%E0%A5%8D%E0%A4%B8%E0%A4%AA%E0%A5%8B%E0%A4%9C%E0%A4%BC%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%B0%E0%A5%82%E0%A4%AA+%E0%A4%AA%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AA%E0%A5%8D%E0%A4%A4+%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95+%E0%A4%9F%E0%A4%BF%E0%A4%AA%E0%A5%8D%E0%A4%AA%E0%A4%A3%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%A4%E0%A4%BF%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF%E0%A4%BE+%E0%A4%95%E0%A4%BE+%E0%A4%B8%E0%A4%BE%E0%A4%AE%E0%A4%BE%E0%A4%A8%E0%A5%8D%E0%A4%AF+%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3+_+General+Statement+of+response+to+public+comments+on+IRDAI+%28Insurance+Intermediaries%29+%28Amendment%29+Regulations%2C+2.pdf/a77df9a0-2795-287e-69c6-cfaae0e1389b?version=2.0&t=1787040057915&download=true",
+    "kind": "Response to comments"
+   },
+   {
+    "regulator": "IRDAI",
+    "date": "2026-07-31",
+    "title": "General statement of response to the public comments on draft IRDAI(Actuarial, Finance and Investment Functions of Insurers)(Second Amendment) Reg. 2026",
+    "url": "https://irdai.gov.in/documents/37343/365848/%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88%28%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE%E0%A4%95%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%BE%E0%A4%93%E0%A4%82+%E0%A4%95%E0%A5%87+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE%E0%A4%82%E0%A4%95%E0%A4%BF%E0%A4%95%2C+%E0%A4%B5%E0%A4%BF%E0%A4%A4%E0%A5%8D%E0%A4%A4+%E0%A4%94%E0%A4%B0+%E0%A4%A8%E0%A4%BF%E0%A4%B5%E0%A5%87%E0%A4%B6+%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%AF%29%28%E0%A4%A6%E0%A5%82%E0%A4%B8%E0%A4%B0%E0%A4%BE+%E0%A4%B8%E0%A4%82%E0%A4%B6%E0%A5%8B%E0%A4%A7%E0%A4%A8%29+%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%2C+2026+%E0%A4%95%E0%A5%87+%E0%A4%8F%E0%A4%95%E0%A5%8D%E0%A4%B8%E0%A4%AA%E0%A5%8B%E0%A4%9C%E0%A4%BC%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%B0%E0%A5%82%E0%A4%AA+_General+statement+of+response+to+the+public+comments+on+dft+IRDAI%28Actuarial%2C+Finance+and+Investment+Functions+of+Insurers%29%282nd+Amendment%29Reg.2026.pdf/c613a51a-e729-9bca-7fa9-634864573436?version=2.0&t=1787558155286&download=true",
+    "kind": "Response to comments"
+   },
+   {
+    "regulator": "IRDAI",
+    "date": "2026-07-31",
+    "title": "General Response of IRDAI on feedback of public- Draft IRDAI (Third Party Administrators – Health Services) (Amendment) Regulations, 2026",
+    "url": "https://irdai.gov.in/documents/37343/365848/%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88%28%E0%A4%85%E0%A4%A8%E0%A5%8D%E0%A4%AF+%E0%A4%AA%E0%A4%95%E0%A5%8D%E0%A4%B7+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%82%E0%A4%A7%E0%A4%95%E2%80%93%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%B8%E0%A5%87%E0%A4%B5%E0%A4%BE%E0%A4%8F%E0%A4%81%29%28%E0%A4%B8%E0%A4%82%E0%A4%B6%E0%A5%8B%E0%A4%A7%E0%A4%A8%29+%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A4%AF%E0%A4%AE%2C2026+%E0%A4%95%E0%A5%87+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%B0%E0%A5%82%E0%A4%AA+%E0%A4%AA%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AA%E0%A5%8D%E0%A4%A4+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%A4%E0%A4%BF%E0%A4%B8%E0%A5%82%E0%A4%9A%E0%A4%A8%E0%A4%BE+%E0%A4%B9%E0%A5%87%E0%A4%A4%E0%A5%81+%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88+%E0%A4%95%E0%A5%80+%E0%A4%B8%E0%A4%BE%E0%A4%AE%E0%A4%BE%E0%A4%A8%E0%A5%8D%E0%A4%AF+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%A4%E0%A4%BF%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF%E0%A4%BE+_+GeneralResponse+of+IRDAI+on+feedback+of+public-Draft+IRDAI%28TPA%E2%80%93Health+Services%29%28Amendment%29Regs%2C2026.pdf/1d050536-acb7-c804-e533-ca74652c0b3d?version=2.0&t=1787661532859&download=true",
+    "kind": "Response to comments"
+   },
+   {
+    "regulator": "IRDAI",
+    "date": "2026-07-31",
+    "title": "General statement of response to the public comments on IRDAI (Registration, Capital Structure, Transfer of Shares and Amalgamation of Insurers) (First Amendment) Regulations, 2026.",
+    "url": "https://irdai.gov.in/documents/37343/365848/%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88%28%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE%E0%A4%95%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%BE%E0%A4%93%E0%A4%82+%E0%A4%95%E0%A4%BE+%E0%A4%AA%E0%A4%82%E0%A4%9C%E0%A5%80%E0%A4%95%E0%A4%B0%E0%A4%A3%2C%E0%A4%AA%E0%A5%82%E0%A4%81%E0%A4%9C%E0%A5%80+%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B8%2C%E0%A4%B6%E0%A5%87%E0%A4%AF%E0%A4%B0%E0%A5%8B%E0%A4%82+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A4%A3+%E0%A4%94%E0%A4%B0+%E0%A4%B8%E0%A4%AE%E0%A4%BE%E0%A4%AE%E0%A5%87%E0%A4%B2%E0%A4%A8%29%28%E0%A4%AA%E0%A4%B9%E0%A4%B2%E0%A4%BE+%E0%A4%B8%E0%A4%82%E0%A4%B6%E0%A5%8B%E0%A4%A7%E0%A4%A8%29%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%2C2026+%E0%A4%95%E0%A5%87+%E0%A4%8F%E0%A4%95%E0%A5%8D%E0%A4%B8%E0%A4%AA%E0%A5%8B%E0%A4%9C%E0%A4%BC%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%B0%E0%A5%82%E0%A4%AA+_+Response+to+comments+on+IRDAI%28Registration%2CCapital+Structure%2CTransfer+of+Shares+and+Amalgamation+of+Insurers%29%281st+Amendment%29Reg%2C+.pdf/5d03c3ab-8d7f-4b95-b440-b27b30994579?version=4.0&t=1787662211442&download=true",
+    "kind": "Response to comments"
+   },
+   {
+    "regulator": "IRDAI",
+    "date": "2026-07-31",
+    "title": "General statement of response on Exposure draft on IRDAI (Policyholders Education and Protection Fund) Regulations, 2026",
+    "url": "https://irdai.gov.in/documents/37343/9589114/%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88+%28%E0%A4%AA%E0%A4%BE%E0%A4%B2%E0%A4%BF%E0%A4%B8%E0%A5%80%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%95+%E0%A4%B6%E0%A4%BF%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%BE+%E0%A4%94%E0%A4%B0+%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A3+%E0%A4%A8%E0%A4%BF%E0%A4%A7%E0%A4%BF%29+%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%2C+2026+%E0%A4%95%E0%A5%87+%E0%A4%8F%E0%A4%95%E0%A5%8D%E0%A4%B8%E0%A4%AA%E0%A5%8B%E0%A4%9C%E0%A4%BC%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%B0%E0%A5%82%E0%A4%AA+%E0%A4%AA%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AA%E0%A5%8D%E0%A4%A4+%E0%A4%9F%E0%A4%BF%E0%A4%AA%E0%A5%8D%E0%A4%AA%E0%A4%A3%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82+%E0%A4%95%E0%A4%BE+%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A4%BE%E0%A4%82%E0%A4%B6+_+General+statement+of+response+on+Exposure+draft+on+IRDAI+%28Policyholders+Education+and+Protection+Fund%29+Regulations%2C+2026.pdf/1d170982-7987-0bfc-e901-3582776186e8?version=2.0&t=1787661708429&download=true",
+    "kind": "Response to comments"
+   },
+   {
+    "regulator": "IRDAI",
+    "date": "2026-07-31",
+    "title": "General statement of response to the public comments on Exposure draft of IRDAI (Insurance Surveyors and Loss Assessors) (amendment) Regulations, 2026",
+    "url": "https://irdai.gov.in/documents/37343/9574210/%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88%28%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B8%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A5%87%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%95+%E0%A4%94%E0%A4%B0+%E0%A4%B9%E0%A4%BE%E0%A4%A8%E0%A4%BF+%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%95%29%28%E0%A4%B8%E0%A4%82%E0%A4%B6%E0%A5%8B%E0%A4%A7%E0%A4%A8%29+%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%2C2026+%E0%A4%95%E0%A5%87+%E0%A4%8F%E0%A4%95%E0%A5%8D%E0%A4%B8%E0%A4%AA%E0%A5%8B%E0%A4%9C%E0%A4%BC%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%B0%E0%A5%82%E0%A4%AA+%E0%A4%AA%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AA%E0%A5%8D%E0%A4%A4+%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95+%E0%A4%9F%E0%A4%BF%E0%A4%AA%E0%A5%8D%E0%A4%AA%E0%A4%A3%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82_General+statement+of+response+to+the+public+comments+on+Exp+dft+of+IRDAI%28Insurance+Surveyors+and+Loss+Assessors%29%28amendment%29Regulations%2C.pdf/24da4218-25e9-71d0-446e-ab396a38044c?version=4.0&t=1786623827796&download=true",
+    "kind": "Response to comments"
+   },
+   {
+    "regulator": "IRDAI",
+    "date": "2026-07-30",
+    "title": "General Statement of Response to the Public Comments Received on the IRDAI (Manner and Procedure for Imposing Penalties) Regulations, 2026",
+    "url": "https://irdai.gov.in/documents/37343/9572988/%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88+%28%E0%A4%85%E0%A4%B0%E0%A5%8D%E0%A4%A5%E0%A4%A6%E0%A4%82%E0%A4%A1+%E0%A4%B2%E0%A4%97%E0%A4%BE%E0%A4%A8%E0%A5%87+%E0%A4%95%E0%A5%80+%E0%A4%AA%E0%A4%A6%E0%A5%8D%E0%A4%A7%E0%A4%A4%E0%A4%BF+%E0%A4%94%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF%E0%A4%BE%29+%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%2C+2026+%E0%A4%AA%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AA%E0%A5%8D%E0%A4%A4+%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95+%E0%A4%9F%E0%A4%BF%E0%A4%AA%E0%A5%8D%E0%A4%AA%E0%A4%A3%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%A4%E0%A4%BF%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF%E0%A4%BE+GENERAL+STATEMENT+OF+RESPONSE+TO+THE+PUBLIC+COMMENTS+RECEIVED+ON+THE+IRDAI+%28MANNER+AND+PROCEDURE+FOR+IMPOSING+PENALTIES%29+REGULATIONS%2C+2026.pdf/f91c4b48-47e8-7f99-745f-59f3f57a57e9?version=2.1&t=1787039515396&download=true",
+    "kind": "Response to comments"
+   },
+   {
+    "regulator": "RBI",
+    "date": "2026-07-27",
+    "title": "RBI issues Draft (Securitisation Transactions) Amendment Directions",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63244",
+    "kind": "Draft for comments"
+   },
+   {
+    "regulator": "RBI",
+    "date": "2026-07-21",
+    "title": "Rationalisation of Foreign Exchange Management (Non-Debt Instruments) Rules, 2019 – Draft Rules for Comments",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63204",
+    "kind": "Draft for comments"
+   },
+   {
+    "regulator": "RBI",
+    "date": "2026-07-15",
+    "title": "RBI issues draft ‘Guidance on Regulatory Expectations for Data Governance’",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63155",
+    "kind": "Draft for comments"
+   },
+   {
+    "regulator": "RBI",
+    "date": "2026-07-14",
+    "title": "RBI invites public comments on the draft “Reserve Bank of India (Acquisition and Holding of Shares or Voting Rights) Amendment Directions, 2026”",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63145",
+    "kind": "Draft for comments"
+   },
+   {
+    "regulator": "IRDAI",
+    "date": "2026-06-23",
+    "title": "Consultation Paper - Exposure Draft IRDAI (POLICYHOLDERS’ EDUCATION AND PROTECTION FUND) REGULATIONS, 2026",
+    "url": "https://irdai.gov.in/documents/37343/9589114/%E0%A4%AA%E0%A4%B0%E0%A4%BE%E0%A4%AE%E0%A4%B0%E0%A5%8D%E0%A4%B6+%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+-+%E0%A4%8F%E0%A4%95%E0%A5%8D%E0%A4%B8%E0%A4%AA%E0%A5%8B%E0%A4%9C%E0%A4%B0+%E0%A4%A1%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A5%8D%E0%A4%9F+%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88+%28%E0%A4%AA%E0%A4%BE%E0%A4%B2%E0%A4%BF%E0%A4%B8%E0%A5%80%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%95%E0%A5%8B%E0%A4%82+%E0%A4%95%E0%A5%80+%E0%A4%B6%E0%A4%BF%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%BE+%E0%A4%94%E0%A4%B0+%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A3+%E0%A4%A8%E0%A4%BF%E0%A4%A7%E0%A4%BF%29+%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%2C+2026+_+Consultation+Paper+-+Exposure+Draft+IRDAI+%28POLICYHOLDERS%E2%80%99+EDUCATION+AND+PROTECTION+FUND%29+REGULATIONS%2C+2026.pdf/6901418d-db53-2095-599f-f905c6db411e?version=3.0&t=1783664500934&download=true",
+    "kind": "Exposure draft"
+   },
+   {
+    "regulator": "IRDAI",
+    "date": "2026-06-19",
+    "title": "Exposure Draft on the IRDAI (Third Party Administrators - Health Services) (Amendment) Regulations, 2026.",
+    "url": "https://irdai.gov.in/documents/37343/365848/%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88+%28%E0%A4%85%E0%A4%A8%E0%A5%8D%E0%A4%AF+%E0%A4%AA%E0%A4%95%E0%A5%8D%E0%A4%B7+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%82%E0%A4%A7%E0%A4%95+%E2%80%93+%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%B8%E0%A5%87%E0%A4%B5%E0%A4%BE%E0%A4%8F%E0%A4%81%29+%28%E0%A4%B8%E0%A4%82%E0%A4%B6%E0%A5%8B%E0%A4%A7%E0%A4%A8%29+%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%2C+2026+%E0%A4%AA%E0%A4%B0+%E0%A4%8F%E0%A4%95%E0%A5%8D%E0%A4%B8%E0%A4%AA%E0%A5%8B%E0%A4%9C%E0%A4%BC%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%B0%E0%A5%82%E0%A4%AA+_+Exposure+Draft+on+the+IRDAI+%28Third+Party+Administrators+-+Health+Services%29+%28Amendment%29+Regulations%2C+2026.pdf/5219a725-7214-8bd9-8078-e80fa4f06ec8?version=2.0&t=1783083622428&download=true",
+    "kind": "Exposure draft"
+   },
+   {
+    "regulator": "IRDAI",
+    "date": "2026-06-19",
+    "title": "Exposure Draft on the IRDAI(Manner and Procedure for Imposing Penalties) Regulations, 2026",
+    "url": "https://irdai.gov.in/documents/37343/9572988/%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88+%28%E0%A4%85%E0%A4%B0%E0%A5%8D%E0%A4%A5%E0%A4%A6%E0%A4%82%E0%A4%A1+%E0%A4%B2%E0%A4%97%E0%A4%BE%E0%A4%A8%E0%A5%87+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+%E0%A4%AA%E0%A4%A6%E0%A5%8D%E0%A4%A7%E0%A4%A4%E0%A4%BF+%E0%A4%94%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF%E0%A4%BE%29+%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%2C+2026+%E0%A4%B8%E0%A4%82%E0%A4%AC%E0%A4%82%E0%A4%A7%E0%A5%80+%E0%A4%8F%E0%A4%95%E0%A5%8D%E0%A4%B8%E0%A4%AA%E0%A5%8B%E0%A4%9C%E0%A4%BC%E0%A4%B0+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%B0%E0%A5%82%E0%A4%AA+_+Exposure+Draft+on+the+IRDAI%28Manner+and+Procedure+for+Imposing+Penalties%29+Regulations%2C+2026.pdf/dc7a3ab7-57f8-08ce-1fc0-0c49687f3759?version=2.0&t=1783071907883&download=true",
+    "kind": "Exposure draft"
+   },
+   {
+    "regulator": "IRDAI",
+    "date": "2026-06-19",
+    "title": "Consultation Paper-IRDAI (Insurance Intermediaries)(Amendment) Regulations,2026",
+    "url": "https://irdai.gov.in/documents/37343/9576082/%E0%A4%AA%E0%A4%B0%E0%A4%BE%E0%A4%AE%E0%A4%B0%E0%A5%8D%E0%A4%B6+%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+-+%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88+%28%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%AE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A5%80%29+%28%E0%A4%B8%E0%A4%82%E0%A4%B6%E0%A5%8B%E0%A4%A7%E0%A4%A8%29+%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%2C+2026+_+Consultation+Paper-IRDAI+%28Insurance+Intermediaries%29%28Amendment%29+Regulations%2C2026.pdf/1d9e0dfd-fcfb-ed0d-21aa-15ef39f0406b?version=3.0&t=1783674385581&download=true",
+    "kind": "Exposure draft"
+   },
+   {
+    "regulator": "IRDAI",
+    "date": "2026-06-19",
+    "title": "Consultation Paper-Exposure Draft IRDAI(Registration and Operations of FRBs and Lloyd’s India)(Amendment) Regulations, 2024",
+    "url": "https://irdai.gov.in/documents/37343/9575672/%E0%A4%AA%E0%A4%B0%E0%A4%BE%E0%A4%AE%E0%A4%B0%E0%A5%8D%E0%A4%B6+%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+%E0%A4%8F%E0%A4%95%E0%A5%8D%E0%A4%B8%E0%A4%AA%E0%A5%8B%E0%A4%9C%E0%A4%BC%E0%A4%B0+%E0%A4%A1%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A5%8D%E0%A4%9F+%E0%A4%86%E0%A4%88%E0%A4%86%E0%A4%B0%E0%A4%A1%E0%A5%80%E0%A4%8F%E0%A4%86%E0%A4%88%28%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%87%E0%A4%B6%E0%A5%80+%E0%A4%AA%E0%A5%81%E0%A4%A8%E0%A4%B0%E0%A5%8D%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE%E0%A4%95%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%BE+%E0%A4%B6%E0%A4%BE%E0%A4%96%E0%A4%BE%E0%A4%93%E0%A4%82+%E0%A4%94%E0%A4%B0+%E0%A4%B2%E0%A4%BE%E0%A4%AF%E0%A4%A1%E0%A5%8D%E0%A4%B8+%E0%A4%87%E0%A4%82%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE+%E0%A4%95%E0%A4%BE+%E0%A4%AA%E0%A4%82%E0%A4%9C%E0%A5%80%E0%A4%95%E0%A4%B0%E0%A4%A3+%E0%A4%94%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%9A%E0%A4%BE%E0%A4%B2%E0%A4%A8%29%28%E0%A4%B8%E0%A4%82%E0%A4%B6%E0%A5%8B%E0%A4%A7%E0%A4%A8%29%E0%A4%B5%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%2C+2024_+Consultation+Paper-Exposure+Draft+IRDAI%28Registration+and+Operations+of+FRBs+and+Lloyd%E2%80%99s+India%29%28Amendment%29+Regulations%2C+2.pdf/8aaa80ee-8ba2-3645-27a9-99dc490374da?version=2.0&t=1783676411588&download=true",
+    "kind": "Exposure draft"
+   },
+   {
+    "regulator": "TRAI",
+    "date": "2026-05-07",
+    "title": "Draft Telecom Consumers Complaint Redressal (Fourth Amendment) Regulation, 2026",
+    "status": "Closed",
+    "division": "Consumer Affairs",
+    "url": "https://www.trai.gov.in/draft-telecom-consumers-complaint-redressal-fourth-amendment-regulation-2026",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "TRAI",
+    "date": "2026-04-30",
+    "title": "Consultation Paper on the Regulatory Framework for Vehicle-to-Everything (V2X) Communication",
+    "status": "Closed",
+    "division": "Network, Spectrum and Licensing",
+    "url": "https://www.trai.gov.in/consultation-paper-regulatory-framework-vehicle-everything-v2x-communication",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "TRAI",
+    "date": "2026-04-27",
+    "title": "Consultation Paper On the Proliferation of Public Wi-Fi Networks in India",
+    "status": "Closed",
+    "division": "Broadband & Policy Analysis",
+    "url": "https://www.trai.gov.in/consultation-paper-proliferation-public-wi-fi-networks-india",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "TRAI",
+    "date": "2026-04-08",
+    "title": "Consultation Paper on the Framework for Satellite Communication Network Authorisation, and Assignment of Spectrum to Satellite Communication Network Providers",
+    "status": "Closed",
+    "division": "Network, Spectrum and Licensing",
+    "url": "https://www.trai.gov.in/consultation-paper-framework-satellite-communication-network-authorisation-and-assignment-spectrum",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "TRAI",
+    "date": "2026-04-07",
+    "title": "Draft Telecom Consumers Protection (Thirteenth Amendment) Regulations, 2026",
+    "status": "Closed",
+    "division": "Financial & Economic Analysis",
+    "url": "https://www.trai.gov.in/draft-telecom-consumers-protection-thirteenth-amendment-regulations-2026",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "TRAI",
+    "date": "2026-04-06",
+    "title": "Consultation Paper on Formulation of a Regulatory Framework for Application-based Linear Television Distribution (ALTD) Services (Including Free Ad-Supported Streaming Television (FAST) Services)",
+    "status": "Closed",
+    "division": "Broadcasting and Cable Services",
+    "url": "https://www.trai.gov.in/consultation-paper-formulation-regulatory-framework-application-based-linear-television",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "TRAI",
+    "date": "2026-03-13",
+    "title": "Consultation on Draft Telecom Commercial Communications Customer Preference (Third Amendment) Regulations, 2026.",
+    "status": "Closed",
+    "division": "Quality of Service",
+    "url": "https://www.trai.gov.in/consultation-draft-telecom-commercial-communications-customer-preference-third-amendment",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "TRAI",
+    "date": "2026-02-27",
+    "title": "Consultation Paper on Review of Rating of Properties for Digital Connectivity Regulations, 2024",
+    "status": "Closed",
+    "division": "Quality of Service",
+    "url": "https://www.trai.gov.in/consultation-paper-review-rating-properties-digital-connectivity-regulations-2024",
+    "kind": "Consultation paper"
+   },
+   {
+    "regulator": "TRAI",
+    "date": "2026-01-23",
+    "title": "Consultation Paper on Review of Tariff for Domestic Leased Circuits (DLCs)",
+    "status": "Closed",
+    "division": "Financial & Economic Analysis",
+    "url": "https://www.trai.gov.in/consultation-paper-review-tariff-domestic-leased-circuits-dlcs",
+    "kind": "Consultation paper"
+   }
+  ],
+  "regulators": {
+   "SEBI": {
+    "state": "ok",
+    "count": 12,
+    "page": "https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=4&ssid=38&smid=35"
+   },
+   "RBI": {
+    "state": "ok",
+    "count": 12,
+    "page": "https://www.rbi.org.in/Scripts/DraftNotificationsGuildelines.aspx"
+   },
+   "TRAI": {
+    "state": "ok",
+    "count": 12,
+    "page": "https://www.trai.gov.in/release-publication/consultation"
+   },
+   "IRDAI": {
+    "state": "ok",
+    "count": 12,
+    "page": "https://irdai.gov.in/exposure-drafts"
+   }
+  },
+  "read_at": "2026-11-08T12:42:09+00:00"
  },
  "milestones": [
   {

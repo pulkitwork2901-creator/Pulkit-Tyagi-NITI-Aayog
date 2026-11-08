@@ -35,7 +35,7 @@ jobs:
         run: python scripts/build_indicators.py
         continue-on-error: true   # keeps last good GDP/CPI if MoSPI is down
 
-      - name: Pull World Bank, NJDG and IBBI data for the Reform Evidence Board
+      - name: Pull data for the Reform Evidence Board (World Bank, NJDG, IBBI, CPGRAMS, MSME, regulators)
         run: python scripts/build_reform.py
         continue-on-error: true   # keeps the last good copy of any source that fails
 
@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "board-bot"
           git config user.email "board-bot@users.noreply.github.com"
-          git add public/data/indicators.json public/data/reform/evidence.json data/reform/njdg-snapshots.csv
+          git add public/data/indicators.json public/data/reform/evidence.json data/reform/njdg-snapshots.csv data/reform/msme-snapshots.csv
           git diff --cached --quiet || git commit -m "Refresh indicators $(date -u +%F)"
           git push
 

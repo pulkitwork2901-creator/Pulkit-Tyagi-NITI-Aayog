@@ -3,3 +3,5 @@ requests>=2.32
 certifi>=2026.10.19
 # reads the RBI DBIE workbook in data/rbi/
 openpyxl>=3.1
+# loads the MSME dashboard's missing intermediate certificate (see build_reform.py)
+cryptography>=42

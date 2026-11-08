@@ -111,7 +111,7 @@ Note that a GitHub Pages site on a free account is public. Keep internal or pre-
 
 ## Reform Evidence Board (`reform.html`)
 
-A second, separate board for the Governance and Reforms Division: outcome evidence for regulatory and governance reform. Once deployed it is at `<site>/reform.html`; the E&F-II Dashboard is unchanged. It complements the Samiksha portal (which tracks reform implementation) and does not duplicate it.
+A second, separate board for the Governance and Reforms Division: outcome evidence for regulatory and governance reform. Once deployed it is at `<site>/reform.html`. It covers rule-making (regulator consultations), ease of living (public grievances), doing business (MSME registrations), governance scores, and justice and dispute resolution (courts, insolvency); the E&F-II Dashboard is unchanged. It complements the Samiksha portal (which tracks reform implementation) and does not duplicate it.
 
 | Section | Source | How it updates |
 |---|---|---|
@@ -119,6 +119,9 @@ A second, separate board for the Governance and Reforms Division: outcome eviden
 | Courts | National Judicial Data Grid: district courts (`njdg_v3`) and High Courts (`hcnjdg_v2`) | Automatic, daily; each run adds a dated row to `data/reform/njdg-snapshots.csv`, so a pendency trend builds up |
 | Insolvency | IBBI quarterly newsletter data annex (the `.xlsx` on ibbi.gov.in/publication), Tables 1, 2, 6 and 8 | Automatic; picks up each new quarter's file on its own |
 | Jan Vishwas milestones | `data/reform/milestones.csv`, hand-kept, one official link per row (PRS, Gazette) | Add a row and push |
+| Regulator consultations | The consultation and draft listing pages of SEBI, RBI, TRAI and IRDAI (latest 12 from each) | Automatic, daily; one regulator failing keeps its previous items |
+| Public grievances | DARPG's CPGRAMS dashboard (`pgportal.gov.in/darpgdashboard`): received, disposed and pending by age, per ministry and per State/UT, year to date | Automatic, daily |
+| MSME registrations | Ministry of MSME dashboard, state-wise Udyam registrations and Udyam Assist Platform enterprises | Automatic, daily; each run adds a row to `data/reform/msme-snapshots.csv` |
 
 ```bash
 python3 scripts/build_reform.py              # all sources
@@ -132,5 +135,8 @@ Things to know:
 - **Checks built in.** NJDG civil plus criminal must equal the total; IBBI's printed recovery percentage must agree with its own amounts. A mismatch fails that source rather than showing a wrong figure.
 - **IBBI percentages are IBBI's.** Recovery as a share of fair value is computed by IBBI over the cases where fair value was estimated (1,359 of them as on 30 June 2026), so the board shows IBBI's printed figures rather than dividing totals.
 - **World Bank scores are perception-based.** The page says so, and marks a change as significant only when the 90% intervals do not overlap, as the World Bank recommends.
+- **MSME dashboard certificate.** That server leaves out its intermediate certificate. The script fetches it from the issuer (GlobalSign) and verifies the full chain; certificate checking is never switched off.
+- **Consultation status.** Only TRAI's list says whether a consultation is open, so only TRAI items carry an "Open for comments" tag. For SEBI, RBI and IRDAI the last date for comments is inside each paper.
+- **Company incorporations (MCA)** are not included: MCA's website refuses automated reading, and the board respects that.
 - **Not yet included:** Supreme Court pendency (its data grid is on a different host), the WJP Rule of Law Index (its site blocks automated reading; would need manual entry), and the Jan Vishwas decriminalisation register.
-- **Network.** If you run the build in a restricted environment, it needs `api.worldbank.org`, `ibbi.gov.in` and `njdg.ecourts.gov.in`. GitHub's runners are outside India; if NJDG ever refuses them, the board keeps the last good reading and shows it as stale.
+- **Network.** If you run the build in a restricted environment, it needs `api.worldbank.org`, `ibbi.gov.in`, `njdg.ecourts.gov.in`, `pgportal.gov.in`, `dashboard.msme.gov.in`, `secure.globalsign.com`, `www.sebi.gov.in`, `www.rbi.org.in`, `www.trai.gov.in` and `irdai.gov.in`. GitHub's runners are outside India; if NJDG ever refuses them, the board keeps the last good reading and shows it as stale.

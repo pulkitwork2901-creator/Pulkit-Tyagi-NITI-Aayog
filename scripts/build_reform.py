@@ -1,8 +1,19 @@
 """
 Build public/data/reform/evidence.json for the Reform Evidence Board.
 
-Three live sources, each read straight from the publisher, plus one small
+Six live sources, each read straight from the publisher, plus one small
 hand-kept sheet:
+
+  DARPG CPGRAMS dashboard (pgportal.gov.in/darpgdashboard)
+      Public grievances received, disposed and pending by age, for every
+      central ministry/department and every State/UT, year to date.
+  Ministry of MSME dashboard (dashboard.msme.gov.in)
+      Udyam registrations by State/UT (micro, small, medium) and informal
+      enterprises on the Udyam Assist Platform. Each run appends a dated row
+      to data/reform/msme-snapshots.csv.
+  Regulator consultations (SEBI, RBI, TRAI, IRDAI)
+      The latest consultation papers and draft regulations from each
+      regulator's own listing page.
 
   World Bank, Worldwide Governance Indicators (api.worldbank.org, source 3)
       Six governance scores on the 0-100 absolute scale introduced in the 2025
@@ -118,7 +129,7 @@ def _wb_rows(sess, path: str) -> list[dict]:
         page += 1
 
 
-def fetch_wgi(sess) -> dict:
+def fetch_wgi(sess, old=None) -> dict:
     countries = sess.get(f"{WB}/country", params={"format": "json", "per_page": 400}, timeout=60).json()[1]
     economies = {c["id"] for c in countries if c.get("region", {}).get("id") != "NA"}  # drops aggregates
     meta = sess.get(f"{WB}/sources", params={"format": "json", "per_page": 100}, timeout=60).json()[1]
@@ -297,7 +308,7 @@ def parse_ibbi(xlsx_bytes: bytes) -> dict:
     }
 
 
-def fetch_ibbi(sess) -> dict:
+def fetch_ibbi(sess, old=None) -> dict:
     quarter, url, listing = _ibbi_latest(sess)
     r = sess.get(url, timeout=180)
     r.raise_for_status()
@@ -337,7 +348,7 @@ def parse_njdg(html: str, level: str) -> dict:
             "disposed_last_month": flow("Cases Disposed in Last Month")}
 
 
-def fetch_njdg(sess) -> dict:
+def fetch_njdg(sess, old=None) -> dict:
     out = {"source": "National Judicial Data Grid (eCommittee, Supreme Court of India)", "read_at": now_iso(), "levels": {}}
     for level, url in (("district", NJDG_DISTRICT), ("high_courts", NJDG_HC)):
         r = sess.get(url, timeout=90)
@@ -377,6 +388,276 @@ def snapshot_history() -> dict:
     return hist
 
 
+# ---------------------------------------------------------------- tables
+
+def html_tables(html: str) -> list[list[list[str]]]:
+    """Every <table> on a page as rows of cell text."""
+    out = []
+    for t in re.findall(r"<table.*?</table>", html, flags=re.S | re.I):
+        rows = []
+        for r in re.findall(r"<tr.*?</tr>", t, flags=re.S | re.I):
+            cells = [re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", " ", c))).strip()
+                     for c in re.findall(r"<t[hd][^>]*>(.*?)</t[hd]>", r, flags=re.S | re.I)]
+            if any(cells):
+                rows.append(cells)
+        out.append(rows)
+    return out
+
+
+def write_snapshot(path: Path, fields: list[str], new_rows: list[dict], key=("date",)) -> list[dict]:
+    """Merge dated rows into a CSV, replacing rows with the same key; return all rows."""
+    rows = []
+    if path.exists():
+        with path.open(newline="", encoding="utf-8") as f:
+            rows = list(csv.DictReader(f))
+    keys = {tuple(str(r[k]) for k in key) for r in new_rows}
+    rows = [r for r in rows if tuple(r[k] for k in key) not in keys] + [{k: r.get(k, "") for k in fields} for r in new_rows]
+    rows.sort(key=lambda r: tuple(r[k] for k in key))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader()
+        w.writerows(rows)
+    return rows
+
+
+# ---------------------------------------------------------------- CPGRAMS (public grievances)
+
+CPGRAMS = "https://pgportal.gov.in/darpgdashboard"
+PENDING_BANDS = ["0 to 60 days", "60 to 180 days", "180 to 365 days", "Over 1 year"]
+
+
+def parse_cpgrams(html: str) -> dict:
+    period = re.search(r"between\s*(\d\d)/(\d\d)/(\d{4})\s*and\s*(\d\d)/(\d\d)/(\d{4})", html)
+    if not period:
+        raise ValueError("CPGRAMS: reporting period not found")
+    d1, m1, y1, d2, m2, y2 = period.groups()
+    blocks = []
+    for rows in html_tables(html):
+        head = [c.lower() for c in rows[0]] if rows else []
+        if not (head and "received" in " ".join(head) and "% disposed" in " ".join(head)):
+            continue
+        col = {name: next(i for i, h in enumerate(head) if pat in h) for name, pat in
+               (("name", "organization"), ("received", "received"), ("disposed", "# disposed"), ("pct", "% disposed"),
+                ("p60", "0-60"), ("p180", "60-180"), ("p365", "180-365"), ("p1y", "more than 1 year"))}
+        orgs = []
+        for r in rows[1:]:
+            if len(r) < len(head) or num(r[col["received"]]) is None:
+                continue
+            o = {"name": r[col["name"]], "received": int(num(r[col["received"]])), "disposed": int(num(r[col["disposed"]])),
+                 "pct_disposed": num(r[col["pct"]]),
+                 "pending": [int(num(r[col[k]]) or 0) for k in ("p60", "p180", "p365", "p1y")]}
+            # The portal's own % disposed must match its counts, or the columns are not what we think.
+            if o["received"] and abs(100 * o["disposed"] / o["received"] - o["pct_disposed"]) > 0.6:
+                raise ValueError(f"CPGRAMS: % disposed does not match counts for {o['name']}")
+            orgs.append(o)
+        blocks.append(orgs)
+    if len(blocks) < 2 or len(blocks[0]) < 20:
+        raise ValueError(f"CPGRAMS: expected ministry and state tables, found {[len(b) for b in blocks]}")
+    # The page shows ministries first, then States/UTs.
+    def total(orgs):
+        rec = sum(o["received"] for o in orgs)
+        dis = sum(o["disposed"] for o in orgs)
+        pend = [sum(o["pending"][i] for o in orgs) for i in range(4)]
+        return {"received": rec, "disposed": dis, "pct_disposed": round(100 * dis / rec, 2) if rec else None, "pending": pend}
+    return {"from": f"{y1}-{m1}-{d1}", "to": f"{y2}-{m2}-{d2}", "pending_bands": PENDING_BANDS,
+            "central": {"total": total(blocks[0]), "orgs": blocks[0]},
+            "states": {"total": total(blocks[1]), "orgs": blocks[1]}}
+
+
+def fetch_grievances(sess, old=None) -> dict:
+    r = sess.get(CPGRAMS, timeout=90)
+    r.raise_for_status()
+    return parse_cpgrams(r.text) | {
+        "source": "DARPG, Centralized Public Grievance Redress and Monitoring System (CPGRAMS) dashboard",
+        "source_url": CPGRAMS, "read_at": now_iso()}
+
+
+# ---------------------------------------------------------------- MSME (Udyam registrations)
+
+MSME_STATES = "https://dashboard.msme.gov.in/Udyam_Statewise.aspx"
+MSME_SNAPSHOTS = ROOT / "data" / "reform" / "msme-snapshots.csv"
+# The dashboard's server omits its intermediate certificate. Rather than turn
+# verification off, fetch that intermediate from the issuer (GlobalSign) and
+# verify the full chain to GlobalSign's root in the normal trust store.
+MSME_INTERMEDIATE = "https://secure.globalsign.com/cacert/gsgccr46ovtlsca2025.crt"
+
+
+def _msme_bundle(sess) -> str:
+    import tempfile
+    import certifi
+    from cryptography import x509
+    from cryptography.hazmat.primitives.serialization import Encoding
+    cert = x509.load_der_x509_certificate(sess.get(MSME_INTERMEDIATE, timeout=60).content)
+    f = tempfile.NamedTemporaryFile("w", suffix=".pem", delete=False)
+    f.write(Path(certifi.where()).read_text() + "\n" + cert.public_bytes(Encoding.PEM).decode())
+    f.close()
+    return f.name
+
+
+def parse_msme(html: str) -> dict:
+    tables = [t for t in html_tables(html) if any(len(r) >= 7 and r[-1].replace(",", "").isdigit() for r in t)]
+    if not tables:
+        raise ValueError("MSME: state table not found")
+    if not re.search(r"Micro.*?Small.*?Medium.*?Total Udyam.*?IMEs \(UAP\).*?Total MSMEs", re.sub(r"<[^>]+>", " ", html), flags=re.S):
+        raise ValueError("MSME: column headings have changed")
+    states, total = [], None
+    for r in tables[0]:
+        vals = [num(c) for c in r[-6:]]
+        if None in vals:
+            continue
+        micro, small, medium, udyam, uap, all_ = (int(v) for v in vals)
+        row = {"micro": micro, "small": small, "medium": medium, "udyam": udyam, "uap": uap, "total": all_}
+        if micro + small + medium != udyam or udyam + uap != all_:
+            raise ValueError(f"MSME: row does not add up: {r}")
+        if r[0].lower().startswith("total"):
+            total = row
+        else:
+            states.append({"name": r[-7].title().replace(" And ", " and ").replace(" Of ", " of "), **row})
+    if not total or sum(s["total"] for s in states) != total["total"]:
+        raise ValueError("MSME: states do not add up to the national total")
+    return {"states": sorted(states, key=lambda s: -s["udyam"]), "total": total}
+
+
+def fetch_msme(sess, old=None) -> dict:
+    r = sess.get(MSME_STATES, timeout=90, verify=_msme_bundle(sess))
+    r.raise_for_status()
+    out = parse_msme(r.text) | {"source": "Ministry of MSME dashboard, state-wise Udyam registration",
+                                "source_url": MSME_STATES, "read_at": now_iso()}
+    t = out["total"]
+    rows = write_snapshot(MSME_SNAPSHOTS, ["date", "micro", "small", "medium", "udyam", "uap", "total"],
+                          [{"date": out["read_at"][:10], **t}])
+    out["history"] = [{"date": x["date"], "udyam": int(x["udyam"]), "total": int(x["total"])} for x in rows]
+    return out
+
+
+# ---------------------------------------------------------------- regulator consultations
+
+def _abs(base: str, href: str) -> str:
+    from urllib.parse import urljoin
+    return urljoin(base, href.strip())
+
+
+def _date(s: str, *fmts) -> str | None:
+    for f in fmts:
+        try:
+            return datetime.strptime(s.strip(), f).date().isoformat()
+        except ValueError:
+            pass
+    return None
+
+
+def cons_sebi(sess) -> list[dict]:
+    url = "https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=4&ssid=38&smid=35"
+    html = sess.get(url, timeout=60).text
+    if "consultation" not in html.lower():
+        raise ValueError("SEBI: consultation papers list not found")
+    items = []
+    for r in re.findall(r"<tr.*?</tr>", html, flags=re.S | re.I):
+        # SEBI's title cell is not closed and nests a second link inside the
+        # title attribute, so read the date cell and the first link's attributes.
+        first = re.search(r"<td[^>]*>\s*([A-Z][a-z]{2} \d{1,2}, \d{4})\s*</td>", r)
+        link = re.search(r'<a href="([^"]+)"[^>]*?title="([^"<]+)', r)
+        if not (first and link):
+            continue
+        d = _date(first.group(1), "%b %d, %Y")
+        title = re.sub(r"\s+", " ", unescape(link.group(2))).strip().rstrip(".")
+        if d and title:
+            items.append({"regulator": "SEBI", "date": d, "title": title, "url": _abs(url, link.group(1)), "kind": "Consultation paper"})
+    return items
+
+
+def cons_rbi(sess) -> list[dict]:
+    url = "https://www.rbi.org.in/Scripts/DraftNotificationsGuildelines.aspx"
+    html = sess.get(url, timeout=60).text
+    items, current = [], None
+    for r in re.findall(r"<tr.*?</tr>", html, flags=re.S | re.I):
+        text = html_text(r)
+        d = _date(text, "%b %d, %Y")
+        if d:
+            current = d
+            continue
+        link = re.search(r"<a[^>]+class=['\"]?link2['\"]?[^>]+href=['\"]?([^'\" >]+)['\"]?[^>]*>(.*?)</a>", r, flags=re.S | re.I)
+        if current and link:
+            items.append({"regulator": "RBI", "date": current, "title": html_text(link.group(2)),
+                          "url": _abs("https://www.rbi.org.in/Scripts/", link.group(1)), "kind": "Draft for comments"})
+    return items
+
+
+def cons_trai(sess) -> list[dict]:
+    url = "https://www.trai.gov.in/release-publication/consultation"
+    html = sess.get(url, timeout=60).text
+
+    def field(it, cls):
+        m = re.search(r'class="' + cls + r'[^"]*".*?<span class="field-content">(.*?)</span>', it, flags=re.S)
+        return html_text(m.group(1)) if m else None
+    items = []
+    for it in re.findall(r'<li>\s*<div class="serial-number tablefield">.*?</li>', html, flags=re.S):
+        title, d, status = field(it, "title-number"), _date(field(it, "release-date") or "", "%d/%m/%Y"), field(it, "status-feild")
+        link = re.search(r'class="view-comments"><a href="([^"]+)"', it)
+        if title and d:
+            items.append({"regulator": "TRAI", "date": d, "title": title, "status": status, "division": field(it, "division-section"),
+                          "url": _abs("https://www.trai.gov.in/", link.group(1)) if link else url, "kind": "Consultation paper"})
+    if not items:
+        raise ValueError("TRAI: no consultation entries found")
+    return items
+
+
+def cons_irdai(sess) -> list[dict]:
+    url = "https://irdai.gov.in/exposure-drafts"
+    html = sess.get(url, timeout=60).text
+    items = []
+    for r in re.findall(r"<tr.*?</tr>", html, flags=re.S | re.I):
+        tds = [html_text(c) for c in re.findall(r"<td[^>]*>(.*?)</td>", r, flags=re.S | re.I)]
+        if len(tds) < 4:
+            continue
+        d = next((_date(c, "%d-%m-%Y") for c in tds if re.fullmatch(r"\d\d-\d\d-\d{4}", c)), None)
+        # Titles are bilingual, "Hindi / English": keep the English part, looking
+        # in the description, sub-title and file name cells in that order.
+        title = tds[2]
+        for cell in (tds[2], tds[3] if len(tds) > 3 else "", tds[-1]):
+            part = re.split(r"\s*/\s*", cell)[-1].strip()
+            if re.search(r"[A-Za-z]{4}", part):
+                title = re.sub(r"\.pdf.*$", "", part).replace("+", " ").strip()
+                break
+        link = re.search(r'href="(https://irdai\.gov\.in/documents/[^"]+)"', r)
+        if d and title:
+            kind = "Response to comments" if re.search(r"(?i)response|feedback|statement", title) else "Exposure draft"
+            items.append({"regulator": "IRDAI", "date": d, "title": title, "url": link.group(1) if link else url, "kind": kind})
+    return items
+
+
+REGULATORS = {"SEBI": cons_sebi, "RBI": cons_rbi, "TRAI": cons_trai, "IRDAI": cons_irdai}
+REG_PAGES = {
+    "SEBI": "https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=4&ssid=38&smid=35",
+    "RBI": "https://www.rbi.org.in/Scripts/DraftNotificationsGuildelines.aspx",
+    "TRAI": "https://www.trai.gov.in/release-publication/consultation",
+    "IRDAI": "https://irdai.gov.in/exposure-drafts",
+}
+
+
+def fetch_consultations(sess, old=None) -> dict:
+    """Latest drafts and consultation papers per regulator. One regulator failing keeps its previous items."""
+    old_items = {}
+    for it in (old or {}).get("items", []):
+        old_items.setdefault(it["regulator"], []).append(it)
+    items, regs = [], {}
+    for name, fn in REGULATORS.items():
+        try:
+            got = sorted(fn(sess), key=lambda x: x["date"], reverse=True)[:12]
+            if not got:
+                raise ValueError("no items parsed")
+            items += got
+            regs[name] = {"state": "ok", "count": len(got), "page": REG_PAGES[name]}
+        except Exception as e:
+            items += old_items.get(name, [])
+            regs[name] = {"state": "stale" if old_items.get(name) else "missing", "error": f"{type(e).__name__}: {e}"[:200], "page": REG_PAGES[name]}
+            print(f"  consultations/{name}: FAILED ({e})", file=sys.stderr)
+    if not any(r["state"] == "ok" for r in regs.values()):
+        raise ValueError("no regulator page could be read")
+    return {"items": sorted(items, key=lambda x: x["date"], reverse=True), "regulators": regs, "read_at": now_iso()}
+
+
 # ---------------------------------------------------------------- milestones
 
 def read_milestones() -> list[dict]:
@@ -389,7 +670,8 @@ def read_milestones() -> list[dict]:
 
 # ---------------------------------------------------------------- build
 
-FETCHERS = {"wgi": fetch_wgi, "ibbi": fetch_ibbi, "njdg": fetch_njdg}
+FETCHERS = {"wgi": fetch_wgi, "ibbi": fetch_ibbi, "njdg": fetch_njdg,
+            "grievances": fetch_grievances, "msme": fetch_msme, "consultations": fetch_consultations}
 
 
 def build(only: list[str] | None = None) -> dict:
@@ -402,7 +684,7 @@ def build(only: list[str] | None = None) -> dict:
             out["status"][key] = (old.get("status") or {}).get(key, {"state": "missing"})
             continue
         try:
-            out[key] = fn(sess)
+            out[key] = fn(sess, old.get(key))
             out["status"][key] = {"state": "ok", "checked_at": out["generated_at"]}
             print(f"{key}: ok")
         except Exception as e:  # keep the last good copy
