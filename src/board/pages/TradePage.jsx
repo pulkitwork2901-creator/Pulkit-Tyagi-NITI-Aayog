@@ -14,7 +14,7 @@ const missingOf = (d) => d.missing || [];
 export const FLOWS = {
   exports: {
     key: 'exports', other: 'imports', Noun: 'Exports', noun: 'exports', verb: 'exported', dir: 'to',
-    title: 'Exports: partners and products', bank: 'export data bank', partners: 'destinations',
+    title: 'Merchandise exports: partners and products', bank: 'export data bank', partners: 'destinations',
     partner: 'destination', Partner: 'Destination', largest: 'Largest market', top10: 'Top 10 markets',
     topTitle: 'Top destinations', movers: 'markets', buyer: 'buyer', Buyer: 'Largest buyer',
     top3: 'Top 3 buyers', top3sub: 'concentration of demand', whereTitle: 'Where it goes', whereNote: 'Destinations',
@@ -22,7 +22,7 @@ export const FLOWS = {
   },
   imports: {
     key: 'imports', other: 'exports', Noun: 'Imports', noun: 'imports', verb: 'imported', dir: 'from',
-    title: 'Imports: partners and products', bank: 'import data bank', partners: 'source countries',
+    title: 'Merchandise imports: partners and products', bank: 'import data bank', partners: 'source countries',
     partner: 'source', Partner: 'Source', largest: 'Largest supplier', top10: 'Top 10 suppliers',
     topTitle: 'Top source countries', movers: 'suppliers', buyer: 'supplier', Buyer: 'Largest supplier',
     top3: 'Top 3 suppliers', top3sub: 'concentration of supply', whereTitle: 'Where it comes from', whereNote: 'Source countries',

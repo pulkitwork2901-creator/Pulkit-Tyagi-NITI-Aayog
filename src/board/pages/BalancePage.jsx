@@ -119,7 +119,7 @@ export default function BalancePage({ base }) {
         <div className="eb-hero-top">
           <div>
             <p className="eb-hero-kicker">Trade · DGCI&amp;S export and import data banks</p>
-            <h1>Trade balance by partner</h1>
+            <h1>Merchandise trade balance by partner</h1>
             <p className="eb-hero-asof">Merchandise exports minus imports, US$, by country.{missing.length ? ` ${missing.join(', ')}: import or export files not yet uploaded.` : ''}</p>
           </div>
           <PeriodSwitch periods={periods} value={period} onChange={choose} label="Year shown" missing={missing} />

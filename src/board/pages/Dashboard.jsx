@@ -56,8 +56,8 @@ function TradeCard({ base }) {
     <section className="eb-xcard" aria-labelledby="eb-xcard-t">
       <span className="eb-xcard-icon" aria-hidden="true"><Icon name="trade" size={24} /></span>
       <span>
-        <span className="eb-xcard-kicker">Trade detail · DGCI&amp;S, HS 8-digit by country</span>
-        <span className="eb-xcard-title" id="eb-xcard-t">Exports, imports and balance by partner</span>
+        <span className="eb-xcard-kicker">Merchandise trade · DGCI&amp;S, HS 8-digit by country</span>
+        <span className="eb-xcard-title" id="eb-xcard-t">Merchandise exports, imports and balance by partner</span>
         <span className="eb-xcard-text">
           {yr ? `${yr}: exports ${money(X)}, imports ${money(M)}, deficit ${money(M - X)}. Every partner country and the top 300 products each way.`
             : 'Every partner country and the top 300 products each way, 2021 to 2026.'}
