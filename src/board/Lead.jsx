@@ -4,7 +4,7 @@ const mv = (from, to) => (to > from ? 'up from' : to < from ? 'down from' : 'unc
 
 // The position in brief: a short note written from the latest figures, the way a briefing opens.
 export default function Lead({ byId }) {
-  const { gdp, cpi, repo, fx_reserves: fx, inr_usd: inr, trade_balance: tb, wpi, unemployment: ur } = byId;
+  const { gdp, cpi, repo, fx_reserves: fx, inr_usd: inr, trade_balance: tb, wpi, unemployment: ur, services_net: sv } = byId;
   const parts = [];
 
   if (gdp) {
@@ -36,7 +36,8 @@ export default function Lead({ byId }) {
   if (tb) {
     parts.push(
       <span key="tb">
-        The merchandise trade balance was <strong>US$ {signed(formatValue(tb.value, 2))} bn</strong> in {tb.period}.
+        The merchandise trade balance was <strong>US$ {signed(formatValue(tb.value, 2))} bn</strong> in {tb.period}
+        {sv && sv.period === tb.period ? <>, partly offset by a services surplus of <strong>US$ {formatValue(sv.value, 1)} bn</strong></> : null}.
       </span>,
     );
   }

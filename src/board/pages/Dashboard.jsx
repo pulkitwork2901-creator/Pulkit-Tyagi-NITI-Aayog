@@ -15,7 +15,7 @@ import { formatDateTime, formatValue, signed, tipFor } from '../format.js';
 
 const RANGES = [['1Y', 1], ['3Y', 3], ['5Y', 5]];
 const TILES = ['gdp', 'cpi', 'wpi', 'repo', 'unemployment', 'credit_nonfood'];
-const SHORT = { gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI', unemployment: 'Unemployment', fx_reserves: 'Reserves', inr_usd: '₹ per US$' };
+const SHORT = { services_net: 'Services surplus', ca_usd: 'Current account', remittances: 'Remittances', gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI', unemployment: 'Unemployment', fx_reserves: 'Reserves', inr_usd: '₹ per US$' };
 const S1 = 'var(--eb-s1)';
 const S2 = 'var(--eb-s2)';
 const S3 = 'var(--eb-s3)';
@@ -131,7 +131,7 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
   const start = latest - years * 365.25 * 86400000;
   const h = (id) => byId[id]?.history || [];
   const has = (...ids) => ids.some((id) => byId[id]);
-  const head = (id) => byId[id] && { value: (byId[id].unit.startsWith('%') ? `${signed(formatValue(byId[id].value, byId[id].decimals))}%` : byId[id].unit === 'US$ bn' ? `US$ ${signed(formatValue(byId[id].value, 1))} bn` : byId[id].unit.startsWith('₹ per US$') ? `₹${formatValue(byId[id].value, 2)}` : `${signed(formatValue(byId[id].value, byId[id].decimals))} ${byId[id].unit}`), sub: `${SHORT[id] || byId[id].label} · ${byId[id].period.replace(/^(Week|Fortnight) to /, '')}` };
+  const head = (id) => byId[id] && { value: (byId[id].unit.startsWith('%') ? `${signed(formatValue(byId[id].value, byId[id].decimals))}%` : byId[id].unit.startsWith('US$ bn') ? `US$ ${signed(formatValue(byId[id].value, 1))} bn` : byId[id].unit.startsWith('₹ per US$') ? `₹${formatValue(byId[id].value, 2)}` : `${signed(formatValue(byId[id].value, byId[id].decimals))} ${byId[id].unit}`), sub: `${SHORT[id] || byId[id].label} · ${byId[id].period.replace(/^(Week|Fortnight) to /, '')}` };
 
   return (
     <div className="eb-dash">
@@ -199,6 +199,26 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
               { key: 'imports', label: 'Imports', color: S2, points: h('imports') },
               { key: 'trade_balance', label: 'Balance', color: S3, points: h('trade_balance') },
             ]} />
+        )}
+        {has('services_exports', 'services_imports') && (
+          <MultiChart title="Services trade" icon="trade" headline={head('services_net')} note="US$ bn a month. The surplus offsets part of the goods deficit. RBI." start={start} fmt={bn}
+            series={[
+              { key: 'services_exports', label: 'Services exports', color: S1, points: h('services_exports') },
+              { key: 'services_imports', label: 'Services imports', color: S2, points: h('services_imports') },
+              { key: 'services_net', label: 'Surplus', color: S3, points: h('services_net') },
+            ]} />
+        )}
+        {has('ca_goods', 'ca_services') && (
+          <MultiChart title="Current account" icon="flows" headline={head('ca_usd')} note="US$ bn a quarter, net. Services and transfers (mostly remittances) cover most of the goods deficit. RBI balance of payments." kind="bar" start={start} fmt={bn}
+            series={[
+              { key: 'ca_goods', label: 'Goods', color: S2, points: h('ca_goods') },
+              { key: 'ca_services', label: 'Services', color: S1, points: h('ca_services') },
+              { key: 'ca_secondary', label: 'Transfers', color: S3, points: h('ca_secondary') },
+            ]} />
+        )}
+        {has('remittances') && (
+          <MultiChart title="Remittances" icon="money" headline={head('remittances')} note="US$ bn a quarter. Personal transfer receipts, mainly money sent home by Indians working abroad. RBI." kind="bar" start={start} fmt={bn}
+            series={[{ key: 'remittances', label: 'Remittances', color: S1, points: h('remittances') }]} />
         )}
         {has('fdi_net', 'fpi_net') && (
           <MultiChart title="Capital flows" icon="flows" headline={head('fdi_net')} note="US$ bn a month, net. RBI DBIE." kind="bar" start={start} fmt={bn}

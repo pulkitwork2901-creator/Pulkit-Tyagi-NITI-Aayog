@@ -50,6 +50,15 @@ META = {
     "imports":        {"label": "Merchandise imports", "group": "External sector", "decimals": 2, "up_is_good": None,  "change_unit": "bn"},
     "trade_balance":  {"label": "Merchandise trade balance", "group": "External sector", "decimals": 2, "up_is_good": True,  "change_unit": "bn"},
     "cad":            {"label": "Current account balance", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
+    "services_exports": {"label": "Services exports", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "bn"},
+    "services_imports": {"label": "Services imports", "group": "External sector", "decimals": 1, "up_is_good": None,  "change_unit": "bn"},
+    "services_net":   {"label": "Services trade surplus", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "bn"},
+    "remittances":    {"label": "Remittances (personal transfer receipts)", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "bn"},
+    "ca_usd":         {"label": "Current account balance, US$", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "bn"},
+    "ca_goods":       {"label": "Current account: goods balance", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "bn"},
+    "ca_services":    {"label": "Current account: services balance", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "bn"},
+    "ca_primary":     {"label": "Current account: primary income (net)", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "bn"},
+    "ca_secondary":   {"label": "Current account: transfers (net)", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "bn"},
     "fx_reserves":    {"label": "Forex reserves", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "bn"},
     "inr_usd":        {"label": "Rupee per US dollar", "group": "External sector", "decimals": 2, "up_is_good": False, "change_unit": ""},
     "fwd_premia_3m":  {"label": "3-month forward premium on US$", "group": "External sector", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
@@ -77,6 +86,7 @@ META = {
     "fdi_net":        {"label": "Net FDI", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": True,  "change_unit": "bn"},
     "fdi_gross":      {"label": "Gross FDI into India", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": True,  "change_unit": "bn"},
     "fpi_net":        {"label": "Net portfolio investment", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None,  "change_unit": "bn"},
+    "nri_deposits":   {"label": "Net NRI deposit inflows", "group": "Money, credit and capital flows", "decimals": 1, "up_is_good": None,  "change_unit": "bn"},
     "ecb_reg":        {"label": "External commercial borrowing registrations", "group": "Money, credit and capital flows", "decimals": 2, "up_is_good": None,  "change_unit": "bn"},
     "digital_payments": {"label": "Digital payments, value", "group": "Money, credit and capital flows", "decimals": 1, "up_is_good": True,  "change_unit": "lakh cr"},
 }
@@ -345,6 +355,93 @@ def shape_manual(path: Path) -> list[dict]:
 # Main
 # --------------------------------------------------------------------------
 
+# --------------------------------------------------------------------------
+# RBI press releases: services trade, remittances, balance of payments
+# --------------------------------------------------------------------------
+
+RBI_SERVICES_URL = "https://www.rbi.org.in/Scripts/Pr_DataRelease.aspx?SectionID=352"
+RBI_PR_URL = "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid={}"
+
+
+def _year_ago_item(ind_id, hist, unit, source, url, note=None):
+    """hist: sorted [{date,label,short,value}] -> indicator compared with the same period a year earlier."""
+    hist = [h for h in hist if h["value"] is not None]
+    if not hist:
+        return None
+    last = hist[-1]
+    y, rest = last["date"][:4], last["date"][4:7]
+    prev = next((h for h in hist if h["date"][:7] == f"{int(y) - 1}{rest}"), None)
+    item = {
+        "id": ind_id, "mode": "rbi", "value": last["value"], "unit": unit, "period": last["label"],
+        "compare_value": prev["value"] if prev else None, "compare_period": prev["label"] if prev else None,
+        "change": _change(last["value"], prev["value"] if prev else None),
+        "source": source, "source_url": url, "released": None, "history": hist,
+    }
+    if note:
+        item["note"] = note
+    return item
+
+
+def rbi_release_items() -> dict[str, dict]:
+    import rbi_releases
+    cache_path = rbi_releases.CACHE
+    if not cache_path.exists():
+        return {}
+    cache = json.loads(cache_path.read_text())
+    m = rbi_releases.merged(cache)
+    latest = {}
+    for p, r in cache["releases"].items():
+        if int(p) > int(latest.get(r["kind"], "0")):
+            latest[r["kind"]] = p
+    out = {}
+
+    def month_pt(k, v):
+        y, mo = int(k[:4]), int(k[5:7])
+        return {"date": _month_end(y, mo), "label": f"{MONTHS[mo - 1][:3]} {y}", "short": f"{MONTHS[mo - 1][:3]} {str(y)[2:]}", "value": v}
+
+    def quarter_pt(k, v):
+        y, mo = int(k[:4]), int(k[5:7])
+        fy0 = y if mo > 3 else y - 1
+        q = {6: 1, 9: 2, 12: 3, 3: 4}[mo]
+        return {"date": _month_end(y, mo), "label": f"Q{q} {fy0}-{str(fy0 + 1)[2:]}", "short": f"Q{q} {str(fy0)[2:]}", "value": v}
+
+    sv = m["services"]
+    src_s = "RBI, Monthly data on India's international trade in services"
+    url_s = RBI_PR_URL.format(latest["services"]) if "services" in latest else RBI_SERVICES_URL
+    note_s = "Latest two months provisional; earlier months revised with the quarterly balance of payments."
+    for key, fn in (("services_exports", lambda v: v["exports"]), ("services_imports", lambda v: v["imports"]),
+                    ("services_net", lambda v: v["exports"] - v["imports"])):
+        hist = [month_pt(k, round(fn(v) / 1000, 2)) for k, v in sorted(sv.items())]
+        item = _year_ago_item(key, hist, "US$ bn", src_s, url_s, note_s)
+        if item:
+            out[key] = item
+
+    bq = m["bop_quarter"]
+    src_q = "RBI, Developments in India's balance of payments (quarterly)"
+    url_q = RBI_PR_URL.format(latest["bop_quarter"]) if "bop_quarter" in latest else None
+    rem = [quarter_pt(k, v["remittances"]) for k, v in sorted(bq.items()) if v.get("remittances") is not None]
+    item = _year_ago_item("remittances", rem, "US$ bn a quarter", src_q, url_q,
+                          "Personal transfer receipts, mainly money sent home by Indians working abroad, as stated in RBI's quarterly release.")
+    if item:
+        out["remittances"] = item
+    for key, field in (("ca_usd", "current_account"), ("ca_goods", "goods"), ("ca_services", "services"),
+                       ("ca_primary", "primary_income"), ("ca_secondary", "secondary_income")):
+        hist = [quarter_pt(k, v[field]["net"]) for k, v in sorted(bq.items()) if isinstance(v.get(field), dict)]
+        item = _year_ago_item(key, hist, "US$ bn a quarter", src_q, url_q)
+        if item:
+            out[key] = item
+
+    bm = m["bop_month"]
+    nri = [month_pt(k, v["nri_deposits"]) for k, v in sorted(bm.items()) if v.get("nri_deposits") is not None]
+    item = _year_ago_item("nri_deposits", nri, "US$ bn", "RBI, Developments in India's balance of payments (monthly, from April 2026)",
+                          RBI_PR_URL.format(latest["bop_month"]) if "bop_month" in latest else None,
+                          "Net inflow into NRI deposit accounts. RBI's 5 June 2026 measures on NRI deposits drew US$ 119 bn in April to August 2026, against US$ 6 bn a year earlier. Monthly figures exist only for April to August of 2025 and 2026.")
+    if item:
+        out["nri_deposits"] = item
+    return out
+
+
+
 def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rbi_path: Path = DEFAULT_RBI) -> dict:
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     previous = {}
@@ -405,7 +502,12 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
     rbi, rbi_status = rbi_dbie.load(rbi_path, manual_rows_by_id(manual_path))
     # Precedence: MoSPI live > RBI workbook (already merged with the sheet where
     # the sheet carries newer figures from the same release) > sheet alone.
-    by_id = {**{i["id"]: i for i in manual}, **rbi, **live}
+    try:
+        releases = rbi_release_items()
+    except Exception as exc:  # a parse problem must not stop the board
+        print(f"RBI releases skipped: {exc}")
+        releases = {}
+    by_id = {**{i["id"]: i for i in manual}, **rbi, **releases, **live}
     # CPI before the 2024 base: published 2012-base inflation from the RBI file,
     # only for months before MoSPI's 2024-base series starts.
     if "cpi" in by_id and by_id["cpi"].get("history"):

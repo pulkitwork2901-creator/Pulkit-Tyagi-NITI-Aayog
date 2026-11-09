@@ -1,0 +1,4014 @@
+{
+ "releases": {
+  "49152": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services-November 2019",
+   "date": "Jan 15, 2020",
+   "data": {
+    "2019-10": {
+     "exports": 17698.0,
+     "imports": 10864.0
+    },
+    "2019-11": {
+     "exports": 17996.0,
+     "imports": 11472.0
+    }
+   }
+  },
+  "49405": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services- December 2019",
+   "date": "Feb 14, 2020",
+   "data": {
+    "2019-10": {
+     "exports": 17698.0,
+     "imports": 10864.0
+    },
+    "2019-11": {
+     "exports": 17996.0,
+     "imports": 11472.0
+    },
+    "2019-12": {
+     "exports": 20004.0,
+     "imports": 12555.0
+    }
+   }
+  },
+  "49513": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services - January 2020",
+   "date": "Mar 13, 2020",
+   "data": {
+    "2019-10": {
+     "exports": 17698.0,
+     "imports": 10864.0
+    },
+    "2019-11": {
+     "exports": 17996.0,
+     "imports": 11472.0
+    },
+    "2019-12": {
+     "exports": 20004.0,
+     "imports": 12555.0
+    },
+    "2020-01": {
+     "exports": 18985.0,
+     "imports": 12001.0
+    }
+   }
+  },
+  "49675": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services- February 2020",
+   "date": "Apr 15, 2020",
+   "data": {
+    "2020-01": {
+     "exports": 18985.0,
+     "imports": 12001.0
+    },
+    "2020-02": {
+     "exports": 17725.0,
+     "imports": 11067.0
+    }
+   }
+  },
+  "49820": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services - March 2020",
+   "date": "May 15, 2020",
+   "data": {
+    "2020-01": {
+     "exports": 18985.0,
+     "imports": 12001.0
+    },
+    "2020-02": {
+     "exports": 17725.0,
+     "imports": 11067.0
+    },
+    "2020-03": {
+     "exports": 18163.0,
+     "imports": 11112.0
+    }
+   }
+  },
+  "49951": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services- April 2020",
+   "date": "Jun 15, 2020",
+   "data": {
+    "2020-01": {
+     "exports": 18985.0,
+     "imports": 12001.0
+    },
+    "2020-02": {
+     "exports": 17725.0,
+     "imports": 11067.0
+    },
+    "2020-03": {
+     "exports": 18163.0,
+     "imports": 11112.0
+    },
+    "2020-04": {
+     "exports": 16450.0,
+     "imports": 9301.0
+    }
+   }
+  },
+  "50088": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services- May 2020",
+   "date": "Jul 15, 2020",
+   "data": {
+    "2020-04": {
+     "exports": 16450.0,
+     "imports": 9301.0
+    },
+    "2020-05": {
+     "exports": 16766.0,
+     "imports": 9938.0
+    }
+   }
+  },
+  "50221": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services - June 2020",
+   "date": "Aug 14, 2020",
+   "data": {
+    "2020-04": {
+     "exports": 16450.0,
+     "imports": 9301.0
+    },
+    "2020-05": {
+     "exports": 16766.0,
+     "imports": 9938.0
+    },
+    "2020-06": {
+     "exports": 16995.0,
+     "imports": 9960.0
+    }
+   }
+  },
+  "50361": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services- July 2020",
+   "date": "Sep 15, 2020",
+   "data": {
+    "2020-04": {
+     "exports": 16450.0,
+     "imports": 9301.0
+    },
+    "2020-05": {
+     "exports": 16766.0,
+     "imports": 9938.0
+    },
+    "2020-06": {
+     "exports": 16995.0,
+     "imports": 9960.0
+    },
+    "2020-07": {
+     "exports": 17031.0,
+     "imports": 10047.0
+    }
+   }
+  },
+  "50516": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services- August 2020",
+   "date": "Oct 15, 2020",
+   "data": {
+    "2020-07": {
+     "exports": 17031.0,
+     "imports": 10047.0
+    },
+    "2020-08": {
+     "exports": 16441.0,
+     "imports": 9597.0
+    }
+   }
+  },
+  "50659": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of September 2020",
+   "date": "Nov 13, 2020",
+   "data": {
+    "2020-07": {
+     "exports": 17031.0,
+     "imports": 10047.0
+    },
+    "2020-08": {
+     "exports": 16441.0,
+     "imports": 9597.0
+    },
+    "2020-09": {
+     "exports": 17285.0,
+     "imports": 10135.0
+    }
+   }
+  },
+  "50805": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of October 2020",
+   "date": "Dec 15, 2020",
+   "data": {
+    "2020-07": {
+     "exports": 17031.0,
+     "imports": 10047.0
+    },
+    "2020-08": {
+     "exports": 16441.0,
+     "imports": 9597.0
+    },
+    "2020-09": {
+     "exports": 17285.0,
+     "imports": 10135.0
+    },
+    "2020-10": {
+     "exports": 16583.0,
+     "imports": 9525.0
+    }
+   }
+  },
+  "50984": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of November 2020",
+   "date": "Jan 15, 2021",
+   "data": {
+    "2020-10": {
+     "exports": 16583.0,
+     "imports": 9525.0
+    },
+    "2020-11": {
+     "exports": 17080.0,
+     "imports": 10120.0
+    }
+   }
+  },
+  "51133": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services- December 2020",
+   "date": "Feb 15, 2021",
+   "data": {
+    "2020-10": {
+     "exports": 16583.0,
+     "imports": 9525.0
+    },
+    "2020-11": {
+     "exports": 17080.0,
+     "imports": 10120.0
+    },
+    "2020-12": {
+     "exports": 18721.0,
+     "imports": 11500.0
+    }
+   }
+  },
+  "51271": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services - January 2021",
+   "date": "Mar 15, 2021",
+   "data": {
+    "2020-10": {
+     "exports": 16583.0,
+     "imports": 9525.0
+    },
+    "2020-11": {
+     "exports": 17080.0,
+     "imports": 10120.0
+    },
+    "2020-12": {
+     "exports": 18721.0,
+     "imports": 11500.0
+    }
+   }
+  },
+  "51425": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services - February 2021",
+   "date": "Apr 15, 2021",
+   "data": {
+    "2021-01": {
+     "exports": 17076.0,
+     "imports": 10098.0
+    },
+    "2021-02": {
+     "exports": 17545.0,
+     "imports": 10613.0
+    }
+   }
+  },
+  "51575": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services - March 2021",
+   "date": "May 14, 2021",
+   "data": {
+    "2021-01": {
+     "exports": 17076.0,
+     "imports": 10098.0
+    },
+    "2021-02": {
+     "exports": 17545.0,
+     "imports": 10613.0
+    },
+    "2021-03": {
+     "exports": 20451.0,
+     "imports": 12537.0
+    }
+   }
+  },
+  "51663": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of April 2021",
+   "date": "Jun 01, 2021",
+   "data": {
+    "2021-01": {
+     "exports": 17076.0,
+     "imports": 10098.0
+    },
+    "2021-02": {
+     "exports": 17545.0,
+     "imports": 10613.0
+    },
+    "2021-03": {
+     "exports": 20451.0,
+     "imports": 12537.0
+    },
+    "2021-04": {
+     "exports": 17547.0,
+     "imports": 9896.0
+    }
+   }
+  },
+  "51831": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of May 2021",
+   "date": "Jul 01, 2021",
+   "data": {
+    "2021-01": {
+     "exports": 17365.0,
+     "imports": 9877.0
+    },
+    "2021-02": {
+     "exports": 17842.0,
+     "imports": 10380.0
+    },
+    "2021-03": {
+     "exports": 20797.0,
+     "imports": 12263.0
+    },
+    "2021-04": {
+     "exports": 17547.0,
+     "imports": 9896.0
+    },
+    "2021-05": {
+     "exports": 17357.0,
+     "imports": 10233.0
+    }
+   }
+  },
+  "51992": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of June 2021",
+   "date": "Aug 02, 2021",
+   "data": {
+    "2021-04": {
+     "exports": 17547.0,
+     "imports": 9896.0
+    },
+    "2021-05": {
+     "exports": 17357.0,
+     "imports": 10233.0
+    },
+    "2021-06": {
+     "exports": 19726.0,
+     "imports": 11147.0
+    }
+   }
+  },
+  "52159": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of July 2021",
+   "date": "Sep 01, 2021",
+   "data": {
+    "2021-04": {
+     "exports": 17547.0,
+     "imports": 9896.0
+    },
+    "2021-05": {
+     "exports": 17357.0,
+     "imports": 10233.0
+    },
+    "2021-06": {
+     "exports": 19726.0,
+     "imports": 11147.0
+    },
+    "2021-07": {
+     "exports": 18524.0,
+     "imports": 11057.0
+    }
+   }
+  },
+  "52341": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the month of August 2021",
+   "date": "Oct 01, 2021",
+   "data": {
+    "2021-04": {
+     "exports": 18056.0,
+     "imports": 9620.0
+    },
+    "2021-05": {
+     "exports": 17861.0,
+     "imports": 9948.0
+    },
+    "2021-06": {
+     "exports": 20299.0,
+     "imports": 10836.0
+    },
+    "2021-07": {
+     "exports": 18524.0,
+     "imports": 11057.0
+    },
+    "2021-08": {
+     "exports": 19574.0,
+     "imports": 11520.0
+    }
+   }
+  },
+  "52497": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of September 2021",
+   "date": "Nov 01, 2021",
+   "data": {
+    "2021-07": {
+     "exports": 18524.0,
+     "imports": 11057.0
+    },
+    "2021-08": {
+     "exports": 19574.0,
+     "imports": 11520.0
+    },
+    "2021-09": {
+     "exports": 20680.0,
+     "imports": 12214.0
+    }
+   }
+  },
+  "52657": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of October 2021",
+   "date": "Dec 01, 2021",
+   "data": {
+    "2021-07": {
+     "exports": 18524.0,
+     "imports": 11057.0
+    },
+    "2021-08": {
+     "exports": 19574.0,
+     "imports": 11520.0
+    },
+    "2021-09": {
+     "exports": 20680.0,
+     "imports": 12214.0
+    },
+    "2021-10": {
+     "exports": 19845.0,
+     "imports": 11605.0
+    }
+   }
+  },
+  "53047": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of November 2021",
+   "date": "Jan 04, 2022",
+   "data": {
+    "2021-07": {
+     "exports": 19357.0,
+     "imports": 11389.0
+    },
+    "2021-08": {
+     "exports": 20455.0,
+     "imports": 11866.0
+    },
+    "2021-09": {
+     "exports": 21609.0,
+     "imports": 12581.0
+    },
+    "2021-10": {
+     "exports": 19845.0,
+     "imports": 11605.0
+    },
+    "2021-11": {
+     "exports": 20136.0,
+     "imports": 12585.0
+    }
+   }
+  },
+  "53207": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the month of December 2021",
+   "date": "Feb 01, 2022",
+   "data": {
+    "2021-10": {
+     "exports": 19845.0,
+     "imports": 11605.0
+    },
+    "2021-11": {
+     "exports": 20136.0,
+     "imports": 12585.0
+    },
+    "2021-12": {
+     "exports": 25306.0,
+     "imports": 14891.0
+    }
+   }
+  },
+  "53357": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the month of January 2022",
+   "date": "Mar 02, 2022",
+   "data": {
+    "2021-10": {
+     "exports": 19845.0,
+     "imports": 11605.0
+    },
+    "2021-11": {
+     "exports": 20136.0,
+     "imports": 12585.0
+    },
+    "2021-12": {
+     "exports": 25306.0,
+     "imports": 14891.0
+    },
+    "2022-01": {
+     "exports": 21572.0,
+     "imports": 13220.0
+    }
+   }
+  },
+  "53502": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of February 2022",
+   "date": "Apr 01, 2022",
+   "data": {
+    "2021-10": {
+     "exports": 20371.0,
+     "imports": 11642.0
+    },
+    "2021-11": {
+     "exports": 20670.0,
+     "imports": 12626.0
+    },
+    "2021-12": {
+     "exports": 25977.0,
+     "imports": 14939.0
+    },
+    "2022-01": {
+     "exports": 21572.0,
+     "imports": 13220.0
+    },
+    "2022-02": {
+     "exports": 21250.0,
+     "imports": 12954.0
+    }
+   }
+  },
+  "53644": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the month of March 2022",
+   "date": "May 02, 2022",
+   "data": {
+    "2022-01": {
+     "exports": 21572.0,
+     "imports": 13220.0
+    },
+    "2022-02": {
+     "exports": 21250.0,
+     "imports": 12954.0
+    },
+    "2022-03": {
+     "exports": 26882.0,
+     "imports": 15328.0
+    }
+   }
+  },
+  "53792": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the month of April 2022",
+   "date": "Jun 01, 2022",
+   "data": {
+    "2022-01": {
+     "exports": 21572.0,
+     "imports": 13220.0
+    },
+    "2022-02": {
+     "exports": 21250.0,
+     "imports": 12954.0
+    },
+    "2022-03": {
+     "exports": 26882.0,
+     "imports": 15328.0
+    },
+    "2022-04": {
+     "exports": 22594.0,
+     "imports": 14052.0
+    }
+   }
+  },
+  "53960": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of May 2022",
+   "date": "Jul 01, 2022",
+   "data": {
+    "2022-01": {
+     "exports": 21625.0,
+     "imports": 13237.0
+    },
+    "2022-02": {
+     "exports": 21302.0,
+     "imports": 12971.0
+    },
+    "2022-03": {
+     "exports": 26948.0,
+     "imports": 15348.0
+    },
+    "2022-04": {
+     "exports": 22594.0,
+     "imports": 14052.0
+    },
+    "2022-05": {
+     "exports": 23606.0,
+     "imports": 15195.0
+    }
+   }
+  },
+  "54130": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the month of June 2022",
+   "date": "Aug 01, 2022",
+   "data": {
+    "2022-04": {
+     "exports": 22594.0,
+     "imports": 14052.0
+    },
+    "2022-05": {
+     "exports": 23606.0,
+     "imports": 15195.0
+    },
+    "2022-06": {
+     "exports": 25292.0,
+     "imports": 15767.0
+    }
+   }
+  },
+  "54299": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of July 2022",
+   "date": "Sep 01, 2022",
+   "data": {
+    "2022-04": {
+     "exports": 22594.0,
+     "imports": 14052.0
+    },
+    "2022-05": {
+     "exports": 23606.0,
+     "imports": 15195.0
+    },
+    "2022-06": {
+     "exports": 25292.0,
+     "imports": 15767.0
+    },
+    "2022-07": {
+     "exports": 23265.0,
+     "imports": 13929.0
+    }
+   }
+  },
+  "54483": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of August 2022",
+   "date": "Oct 03, 2022",
+   "data": {
+    "2022-04": {
+     "exports": 24051.0,
+     "imports": 14056.0
+    },
+    "2022-05": {
+     "exports": 25127.0,
+     "imports": 15198.0
+    },
+    "2022-06": {
+     "exports": 26922.0,
+     "imports": 15770.0
+    },
+    "2022-07": {
+     "exports": 23265.0,
+     "imports": 13929.0
+    },
+    "2022-08": {
+     "exports": 25416.0,
+     "imports": 15080.0
+    }
+   }
+  },
+  "54629": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of September 2022",
+   "date": "Nov 01, 2022",
+   "data": {
+    "2022-07": {
+     "exports": 23265.0,
+     "imports": 13929.0
+    },
+    "2022-08": {
+     "exports": 25416.0,
+     "imports": 15080.0
+    },
+    "2022-09": {
+     "exports": 28026.0,
+     "imports": 16117.0
+    }
+   }
+  },
+  "54789": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of October 2022",
+   "date": "Dec 01, 2022",
+   "data": {
+    "2022-07": {
+     "exports": 23265.0,
+     "imports": 13929.0
+    },
+    "2022-08": {
+     "exports": 25416.0,
+     "imports": 15080.0
+    },
+    "2022-09": {
+     "exports": 28026.0,
+     "imports": 16117.0
+    },
+    "2022-10": {
+     "exports": 25375.0,
+     "imports": 13493.0
+    }
+   }
+  },
+  "54980": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of November 2022",
+   "date": "Jan 02, 2023",
+   "data": {
+    "2022-07": {
+     "exports": 24260.0,
+     "imports": 14061.0
+    },
+    "2022-08": {
+     "exports": 26503.0,
+     "imports": 15223.0
+    },
+    "2022-09": {
+     "exports": 29224.0,
+     "imports": 16270.0
+    },
+    "2022-10": {
+     "exports": 25375.0,
+     "imports": 13493.0
+    },
+    "2022-11": {
+     "exports": 27017.0,
+     "imports": 15366.0
+    }
+   }
+  },
+  "55148": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of December 2022",
+   "date": "Feb 01, 2023",
+   "data": {
+    "2022-10": {
+     "exports": 25375.0,
+     "imports": 13493.0
+    },
+    "2022-11": {
+     "exports": 27017.0,
+     "imports": 15366.0
+    },
+    "2022-12": {
+     "exports": 31287.0,
+     "imports": 15788.0
+    }
+   }
+  },
+  "55311": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of January 2023",
+   "date": "Mar 01, 2023",
+   "data": {
+    "2022-10": {
+     "exports": 25375.0,
+     "imports": 13493.0
+    },
+    "2022-11": {
+     "exports": 27017.0,
+     "imports": 15366.0
+    },
+    "2022-12": {
+     "exports": 31287.0,
+     "imports": 15788.0
+    },
+    "2023-01": {
+     "exports": 28036.0,
+     "imports": 14226.0
+    }
+   }
+  },
+  "55457": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of February 2023",
+   "date": "Apr 03, 2023",
+   "data": {
+    "2022-10": {
+     "exports": 25346.0,
+     "imports": 13516.0
+    },
+    "2022-11": {
+     "exports": 26986.0,
+     "imports": 15392.0
+    },
+    "2022-12": {
+     "exports": 31090.0,
+     "imports": 15794.0
+    },
+    "2023-01": {
+     "exports": 28036.0,
+     "imports": 14226.0
+    },
+    "2023-02": {
+     "exports": 27431.0,
+     "imports": 14368.0
+    }
+   }
+  },
+  "55612": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of March 2023",
+   "date": "May 02, 2023",
+   "data": {
+    "2023-01": {
+     "exports": 28036.0,
+     "imports": 14226.0
+    },
+    "2023-02": {
+     "exports": 27431.0,
+     "imports": 14368.0
+    },
+    "2023-03": {
+     "exports": 30478.0,
+     "imports": 16272.0
+    }
+   }
+  },
+  "55771": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of April 2023",
+   "date": "Jun 01, 2023",
+   "data": {
+    "2023-01": {
+     "exports": 28036.0,
+     "imports": 14226.0
+    },
+    "2023-02": {
+     "exports": 27431.0,
+     "imports": 14368.0
+    },
+    "2023-03": {
+     "exports": 30478.0,
+     "imports": 16272.0
+    },
+    "2023-04": {
+     "exports": 25842.0,
+     "imports": 13626.0
+    }
+   }
+  },
+  "55976": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of May 2023",
+   "date": "Jul 03, 2023",
+   "data": {
+    "2023-01": {
+     "exports": 27999.0,
+     "imports": 14827.0
+    },
+    "2023-02": {
+     "exports": 27395.0,
+     "imports": 14974.0
+    },
+    "2023-03": {
+     "exports": 30439.0,
+     "imports": 16958.0
+    },
+    "2023-04": {
+     "exports": 25842.0,
+     "imports": 13626.0
+    },
+    "2023-05": {
+     "exports": 27060.0,
+     "imports": 15502.0
+    }
+   }
+  },
+  "56134": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of June 2023",
+   "date": "Aug 01, 2023",
+   "data": {
+    "2023-04": {
+     "exports": 25842.0,
+     "imports": 13626.0
+    },
+    "2023-05": {
+     "exports": 27060.0,
+     "imports": 15502.0
+    },
+    "2023-06": {
+     "exports": 27861.0,
+     "imports": 15236.0
+    }
+   }
+  },
+  "56304": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of July 2023",
+   "date": "Sep 01, 2023",
+   "data": {
+    "2023-04": {
+     "exports": 25842.0,
+     "imports": 13626.0
+    },
+    "2023-05": {
+     "exports": 27060.0,
+     "imports": 15502.0
+    },
+    "2023-06": {
+     "exports": 27861.0,
+     "imports": 15236.0
+    },
+    "2023-07": {
+     "exports": 26228.0,
+     "imports": 13754.0
+    }
+   }
+  },
+  "56485": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of August 2023",
+   "date": "Oct 03, 2023",
+   "data": {
+    "2023-04": {
+     "exports": 25781.0,
+     "imports": 13959.0
+    },
+    "2023-05": {
+     "exports": 26997.0,
+     "imports": 15881.0
+    },
+    "2023-06": {
+     "exports": 27796.0,
+     "imports": 15609.0
+    },
+    "2023-07": {
+     "exports": 26228.0,
+     "imports": 13754.0
+    },
+    "2023-08": {
+     "exports": 28719.0,
+     "imports": 15103.0
+    }
+   }
+  },
+  "56670": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of September 2023",
+   "date": "Nov 01, 2023",
+   "data": {
+    "2023-07": {
+     "exports": 26228.0,
+     "imports": 13754.0
+    },
+    "2023-08": {
+     "exports": 28719.0,
+     "imports": 15103.0
+    },
+    "2023-09": {
+     "exports": 28429.0,
+     "imports": 14589.0
+    }
+   }
+  },
+  "56847": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of October 2023",
+   "date": "Dec 01, 2023",
+   "data": {
+    "2023-07": {
+     "exports": 26228.0,
+     "imports": 13754.0
+    },
+    "2023-08": {
+     "exports": 28719.0,
+     "imports": 15103.0
+    },
+    "2023-09": {
+     "exports": 28429.0,
+     "imports": 14589.0
+    },
+    "2023-10": {
+     "exports": 28025.0,
+     "imports": 13459.0
+    }
+   }
+  },
+  "57046": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of November 2023",
+   "date": "Jan 01, 2024",
+   "data": {
+    "2023-07": {
+     "exports": 26224.0,
+     "imports": 13743.0
+    },
+    "2023-08": {
+     "exports": 28714.0,
+     "imports": 15091.0
+    },
+    "2023-09": {
+     "exports": 28424.0,
+     "imports": 14577.0
+    },
+    "2023-10": {
+     "exports": 28025.0,
+     "imports": 13459.0
+    },
+    "2023-11": {
+     "exports": 28085.0,
+     "imports": 13677.0
+    }
+   }
+  },
+  "57233": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of December 2023",
+   "date": "Feb 01, 2024",
+   "data": {
+    "2023-10": {
+     "exports": 28025.0,
+     "imports": 13459.0
+    },
+    "2023-11": {
+     "exports": 28085.0,
+     "imports": 13677.0
+    },
+    "2023-12": {
+     "exports": 31606.0,
+     "imports": 15627.0
+    }
+   }
+  },
+  "57433": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of January 2024",
+   "date": "Mar 01, 2024",
+   "data": {
+    "2023-10": {
+     "exports": 28025.0,
+     "imports": 13459.0
+    },
+    "2023-11": {
+     "exports": 28085.0,
+     "imports": 13677.0
+    },
+    "2023-12": {
+     "exports": 31606.0,
+     "imports": 15627.0
+    },
+    "2024-01": {
+     "exports": 31023.0,
+     "imports": 14850.0
+    }
+   }
+  },
+  "57601": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of February 2024",
+   "date": "Apr 01, 2024",
+   "data": {
+    "2023-10": {
+     "exports": 28048.0,
+     "imports": 13460.0
+    },
+    "2023-11": {
+     "exports": 28108.0,
+     "imports": 13679.0
+    },
+    "2023-12": {
+     "exports": 31631.0,
+     "imports": 15628.0
+    },
+    "2024-01": {
+     "exports": 31023.0,
+     "imports": 14850.0
+    },
+    "2024-02": {
+     "exports": 28348.0,
+     "imports": 15240.0
+    }
+   }
+  },
+  "57828": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of March 2024",
+   "date": "May 02, 2024",
+   "data": {
+    "2024-01": {
+     "exports": 31023.0,
+     "imports": 14850.0
+    },
+    "2024-02": {
+     "exports": 28348.0,
+     "imports": 15240.0
+    },
+    "2024-03": {
+     "exports": 30028.0,
+     "imports": 16608.0
+    }
+   }
+  },
+  "58017": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of April 2024",
+   "date": "Jun 01, 2024",
+   "data": {
+    "2024-01": {
+     "exports": 31023.0,
+     "imports": 14850.0
+    },
+    "2024-02": {
+     "exports": 28348.0,
+     "imports": 15240.0
+    },
+    "2024-03": {
+     "exports": 30028.0,
+     "imports": 16608.0
+    },
+    "2024-04": {
+     "exports": 30332.0,
+     "imports": 16631.0
+    }
+   }
+  },
+  "58184": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of May 2024",
+   "date": "Jun 28, 2024",
+   "data": {
+    "2024-01": {
+     "exports": 31009.0,
+     "imports": 14842.0
+    },
+    "2024-02": {
+     "exports": 28335.0,
+     "imports": 15231.0
+    },
+    "2024-03": {
+     "exports": 30014.0,
+     "imports": 16599.0
+    },
+    "2024-04": {
+     "exports": 30332.0,
+     "imports": 16631.0
+    },
+    "2024-05": {
+     "exports": 29764.0,
+     "imports": 16744.0
+    }
+   }
+  },
+  "58405": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of June 2024",
+   "date": "Jul 31, 2024",
+   "data": {
+    "2024-04": {
+     "exports": 30332.0,
+     "imports": 16631.0
+    },
+    "2024-05": {
+     "exports": 29764.0,
+     "imports": 16744.0
+    },
+    "2024-06": {
+     "exports": 28818.0,
+     "imports": 15021.0
+    }
+   }
+  },
+  "58607": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of July 2024",
+   "date": "Aug 30, 2024",
+   "data": {
+    "2024-04": {
+     "exports": 30332.0,
+     "imports": 16631.0
+    },
+    "2024-05": {
+     "exports": 29764.0,
+     "imports": 16744.0
+    },
+    "2024-06": {
+     "exports": 28818.0,
+     "imports": 15021.0
+    },
+    "2024-07": {
+     "exports": 30580.0,
+     "imports": 15903.0
+    }
+   }
+  },
+  "58787": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of August 2024",
+   "date": "Sep 30, 2024",
+   "data": {
+    "2024-04": {
+     "exports": 30179.0,
+     "imports": 16749.0
+    },
+    "2024-05": {
+     "exports": 29614.0,
+     "imports": 16863.0
+    },
+    "2024-06": {
+     "exports": 28673.0,
+     "imports": 15128.0
+    },
+    "2024-07": {
+     "exports": 30580.0,
+     "imports": 15903.0
+    },
+    "2024-08": {
+     "exports": 30340.0,
+     "imports": 16423.0
+    }
+   }
+  },
+  "59007": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of September 2024",
+   "date": "Oct 31, 2024",
+   "data": {
+    "2024-07": {
+     "exports": 30580.0,
+     "imports": 15903.0
+    },
+    "2024-08": {
+     "exports": 30340.0,
+     "imports": 16423.0
+    },
+    "2024-09": {
+     "exports": 32579.0,
+     "imports": 16507.0
+    }
+   }
+  },
+  "59213": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of October 2024",
+   "date": "Nov 29, 2024",
+   "data": {
+    "2024-07": {
+     "exports": 30580.0,
+     "imports": 15903.0
+    },
+    "2024-08": {
+     "exports": 30340.0,
+     "imports": 16423.0
+    },
+    "2024-09": {
+     "exports": 32579.0,
+     "imports": 16507.0
+    },
+    "2024-10": {
+     "exports": 34309.0,
+     "imports": 17215.0
+    }
+   }
+  },
+  "59425": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of November 2024",
+   "date": "Dec 31, 2024",
+   "data": {
+    "2024-07": {
+     "exports": 30578.0,
+     "imports": 15939.0
+    },
+    "2024-08": {
+     "exports": 30338.0,
+     "imports": 16460.0
+    },
+    "2024-09": {
+     "exports": 32577.0,
+     "imports": 16544.0
+    },
+    "2024-10": {
+     "exports": 34309.0,
+     "imports": 17215.0
+    },
+    "2024-11": {
+     "exports": 32014.0,
+     "imports": 17229.0
+    }
+   }
+  },
+  "59656": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of December 2024",
+   "date": "Jan 31, 2025",
+   "data": {
+    "2024-10": {
+     "exports": 34309.0,
+     "imports": 17215.0
+    },
+    "2024-11": {
+     "exports": 32014.0,
+     "imports": 17229.0
+    },
+    "2024-12": {
+     "exports": 36857.0,
+     "imports": 17781.0
+    }
+   }
+  },
+  "59882": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of January 2025",
+   "date": "Mar 01, 2025",
+   "data": {
+    "2024-10": {
+     "exports": 34309.0,
+     "imports": 17215.0
+    },
+    "2024-11": {
+     "exports": 32014.0,
+     "imports": 17229.0
+    },
+    "2024-12": {
+     "exports": 36857.0,
+     "imports": 17781.0
+    },
+    "2025-01": {
+     "exports": 34726.0,
+     "imports": 16706.0
+    }
+   }
+  },
+  "60101": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of February 2025",
+   "date": "Mar 28, 2025",
+   "data": {
+    "2024-10": {
+     "exports": 34411.0,
+     "imports": 17232.0
+    },
+    "2024-11": {
+     "exports": 32109.0,
+     "imports": 17246.0
+    },
+    "2024-12": {
+     "exports": 36967.0,
+     "imports": 17799.0
+    },
+    "2025-01": {
+     "exports": 34726.0,
+     "imports": 16706.0
+    },
+    "2025-02": {
+     "exports": 31625.0,
+     "imports": 14506.0
+    }
+   }
+  },
+  "60337": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of March 2025",
+   "date": "Apr 30, 2025",
+   "data": {
+    "2025-01": {
+     "exports": 34726.0,
+     "imports": 16706.0
+    },
+    "2025-02": {
+     "exports": 31625.0,
+     "imports": 14506.0
+    },
+    "2025-03": {
+     "exports": 35600.0,
+     "imports": 17475.0
+    }
+   }
+  },
+  "60559": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of April 2025",
+   "date": "May 30, 2025",
+   "data": {
+    "2025-01": {
+     "exports": 34726.0,
+     "imports": 16706.0
+    },
+    "2025-02": {
+     "exports": 31625.0,
+     "imports": 14506.0
+    },
+    "2025-03": {
+     "exports": 35600.0,
+     "imports": 17475.0
+    },
+    "2025-04": {
+     "exports": 32843.0,
+     "imports": 16909.0
+    }
+   }
+  },
+  "60741": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of May 2025",
+   "date": "Jun 30, 2025",
+   "data": {
+    "2025-01": {
+     "exports": 34749.0,
+     "imports": 16714.0
+    },
+    "2025-02": {
+     "exports": 31646.0,
+     "imports": 14513.0
+    },
+    "2025-03": {
+     "exports": 35624.0,
+     "imports": 17484.0
+    },
+    "2025-04": {
+     "exports": 32843.0,
+     "imports": 16909.0
+    },
+    "2025-05": {
+     "exports": 32452.0,
+     "imports": 16694.0
+    }
+   }
+  },
+  "60932": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of June 2025",
+   "date": "Jul 31, 2025",
+   "data": {
+    "2025-04": {
+     "exports": 32843.0,
+     "imports": 16909.0
+    },
+    "2025-05": {
+     "exports": 32452.0,
+     "imports": 16694.0
+    },
+    "2025-06": {
+     "exports": 32105.0,
+     "imports": 15897.0
+    }
+   }
+  },
+  "61122": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of July 2025",
+   "date": "Aug 29, 2025",
+   "data": {
+    "2025-04": {
+     "exports": 32843.0,
+     "imports": 16909.0
+    },
+    "2025-05": {
+     "exports": 32452.0,
+     "imports": 16694.0
+    },
+    "2025-06": {
+     "exports": 32105.0,
+     "imports": 15897.0
+    },
+    "2025-07": {
+     "exports": 33740.0,
+     "imports": 17293.0
+    }
+   }
+  },
+  "61323": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of August 2025",
+   "date": "Sep 30, 2025",
+   "data": {
+    "2025-04": {
+     "exports": 32853.0,
+     "imports": 16912.0
+    },
+    "2025-05": {
+     "exports": 32461.0,
+     "imports": 16697.0
+    },
+    "2025-06": {
+     "exports": 32114.0,
+     "imports": 15899.0
+    },
+    "2025-07": {
+     "exports": 33740.0,
+     "imports": 17293.0
+    },
+    "2025-08": {
+     "exports": 31191.0,
+     "imports": 15591.0
+    }
+   }
+  },
+  "61544": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of September 2025",
+   "date": "Oct 31, 2025",
+   "data": {
+    "2025-07": {
+     "exports": 33740.0,
+     "imports": 17293.0
+    },
+    "2025-08": {
+     "exports": 31191.0,
+     "imports": 15591.0
+    },
+    "2025-09": {
+     "exports": 36674.0,
+     "imports": 17842.0
+    }
+   }
+  },
+  "61700": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of October 2025",
+   "date": "Nov 28, 2025",
+   "data": {
+    "2025-07": {
+     "exports": 33740.0,
+     "imports": 17293.0
+    },
+    "2025-08": {
+     "exports": 31191.0,
+     "imports": 15591.0
+    },
+    "2025-09": {
+     "exports": 36674.0,
+     "imports": 17842.0
+    },
+    "2025-10": {
+     "exports": 35167.0,
+     "imports": 17729.0
+    }
+   }
+  },
+  "61930": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of November 2025",
+   "date": "Dec 31, 2025",
+   "data": {
+    "2025-07": {
+     "exports": 33745.0,
+     "imports": 17296.0
+    },
+    "2025-08": {
+     "exports": 31196.0,
+     "imports": 15593.0
+    },
+    "2025-09": {
+     "exports": 36680.0,
+     "imports": 17845.0
+    },
+    "2025-10": {
+     "exports": 35167.0,
+     "imports": 17729.0
+    },
+    "2025-11": {
+     "exports": 34262.0,
+     "imports": 16877.0
+    }
+   }
+  },
+  "62138": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of December 2025",
+   "date": "Jan 30, 2026",
+   "data": {
+    "2025-10": {
+     "exports": 35167.0,
+     "imports": 17729.0
+    },
+    "2025-11": {
+     "exports": 34262.0,
+     "imports": 16877.0
+    },
+    "2025-12": {
+     "exports": 41775.0,
+     "imports": 19104.0
+    }
+   }
+  },
+  "62307": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of January 2026",
+   "date": "Feb 27, 2026",
+   "data": {
+    "2025-10": {
+     "exports": 35167.0,
+     "imports": 17729.0
+    },
+    "2025-11": {
+     "exports": 34262.0,
+     "imports": 16877.0
+    },
+    "2025-12": {
+     "exports": 41775.0,
+     "imports": 19104.0
+    },
+    "2026-01": {
+     "exports": 38165.0,
+     "imports": 16631.0
+    }
+   }
+  },
+  "62470": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of February 2026",
+   "date": "Mar 30, 2026",
+   "data": {
+    "2025-10": {
+     "exports": 35174.0,
+     "imports": 17734.0
+    },
+    "2025-11": {
+     "exports": 34269.0,
+     "imports": 16882.0
+    },
+    "2025-12": {
+     "exports": 41784.0,
+     "imports": 19110.0
+    },
+    "2026-01": {
+     "exports": 38165.0,
+     "imports": 16631.0
+    },
+    "2026-02": {
+     "exports": 34708.0,
+     "imports": 16865.0
+    }
+   }
+  },
+  "62662": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of March 2026",
+   "date": "Apr 30, 2026",
+   "data": {
+    "2026-01": {
+     "exports": 38165.0,
+     "imports": 16631.0
+    },
+    "2026-02": {
+     "exports": 34708.0,
+     "imports": 16865.0
+    },
+    "2026-03": {
+     "exports": 38208.0,
+     "imports": 17210.0
+    }
+   }
+  },
+  "62832": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of April 2026",
+   "date": "May 29, 2026",
+   "data": {
+    "2026-01": {
+     "exports": 38165.0,
+     "imports": 16631.0
+    },
+    "2026-02": {
+     "exports": 34708.0,
+     "imports": 16865.0
+    },
+    "2026-03": {
+     "exports": 38208.0,
+     "imports": 17210.0
+    },
+    "2026-04": {
+     "exports": 37021.0,
+     "imports": 18417.0
+    }
+   }
+  },
+  "62935": {
+   "kind": "bop_month",
+   "title": "Developments in India’s Balance of Payments for the Month of April 2026",
+   "date": "Jun 15, 2026",
+   "data": {
+    "2025-04": {
+     "current_account": -4.8,
+     "goods": -27.1,
+     "services": 15.9,
+     "transfers": 9.4,
+     "income": -3.0,
+     "fdi": 1.6,
+     "fpi": -2.1
+    },
+    "2026-04": {
+     "current_account": 4.7,
+     "goods": -27.9,
+     "services": 18.6,
+     "transfers": 16.0,
+     "income": -1.9,
+     "fdi": 7.4,
+     "fpi": -8.7
+    }
+   }
+  },
+  "63054": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of May 2026",
+   "date": "Jun 30, 2026",
+   "data": {
+    "2026-01": {
+     "exports": 38159.0,
+     "imports": 16632.0
+    },
+    "2026-02": {
+     "exports": 34703.0,
+     "imports": 16866.0
+    },
+    "2026-03": {
+     "exports": 38203.0,
+     "imports": 17211.0
+    },
+    "2026-04": {
+     "exports": 37021.0,
+     "imports": 18417.0
+    },
+    "2026-05": {
+     "exports": 33355.0,
+     "imports": 17637.0
+    }
+   }
+  },
+  "63159": {
+   "kind": "bop_month",
+   "title": "Developments in India’s Balance of Payments for the Month of May 2026",
+   "date": "Jul 15, 2026",
+   "data": {
+    "2025-05": {
+     "current_account": 0.7,
+     "goods": -22.6,
+     "services": 15.8,
+     "transfers": 10.5,
+     "income": -3.0,
+     "fdi": 0.9,
+     "fpi": 1.3,
+     "nri_deposits": 1.1
+    },
+    "2026-05": {
+     "current_account": -2.0,
+     "goods": -27.9,
+     "services": 15.7,
+     "transfers": 13.6,
+     "income": -3.4,
+     "fdi": -0.1,
+     "fpi": -4.7,
+     "nri_deposits": 0.6
+    }
+   }
+  },
+  "63270": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of June 2026",
+   "date": "Jul 31, 2026",
+   "data": {
+    "2026-04": {
+     "exports": 37021.0,
+     "imports": 18417.0
+    },
+    "2026-05": {
+     "exports": 33355.0,
+     "imports": 17637.0
+    },
+    "2026-06": {
+     "exports": 36371.0,
+     "imports": 18477.0
+    }
+   }
+  },
+  "63373": {
+   "kind": "bop_month",
+   "title": "Developments in India’s Balance of Payments for the Month of June 2026",
+   "date": "Aug 14, 2026",
+   "data": {
+    "2025-06": {
+     "current_account": 1.2,
+     "goods": -19.2,
+     "services": 16.2,
+     "transfers": 10.9,
+     "income": -6.8,
+     "fdi": 2.3,
+     "fpi": 2.4,
+     "nri_deposits": 1.7
+    },
+    "2026-06": {
+     "current_account": -6.2,
+     "goods": -30.2,
+     "services": 17.9,
+     "transfers": 11.9,
+     "income": -5.8,
+     "fdi": 1.3,
+     "fpi": 2.5,
+     "nri_deposits": 1.4
+    }
+   }
+  },
+  "63480": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of July 2026",
+   "date": "Aug 31, 2026",
+   "data": {
+    "2026-04": {
+     "exports": 37021.0,
+     "imports": 18417.0
+    },
+    "2026-05": {
+     "exports": 33355.0,
+     "imports": 17637.0
+    },
+    "2026-06": {
+     "exports": 36371.0,
+     "imports": 18477.0
+    },
+    "2026-07": {
+     "exports": 38253.0,
+     "imports": 20606.0
+    }
+   }
+  },
+  "63596": {
+   "kind": "bop_month",
+   "title": "Developments in India’s Balance of Payments for the Month of July 2026",
+   "date": "Sep 15, 2026",
+   "data": {
+    "2025-07": {
+     "current_account": -3.2,
+     "goods": -28.2,
+     "services": 16.4,
+     "transfers": 12.6,
+     "income": -4.0,
+     "fdi": 4.5,
+     "fpi": -2.5,
+     "nri_deposits": 1.0
+    },
+    "2026-07": {
+     "current_account": -7.0,
+     "goods": -31.7,
+     "services": 17.6,
+     "transfers": 13.2,
+     "income": -6.1,
+     "fdi": 7.3,
+     "fpi": 4.1,
+     "nri_deposits": 33.5
+    }
+   }
+  },
+  "63699": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of August 2026",
+   "date": "Sep 30, 2026",
+   "data": {
+    "2026-04": {
+     "exports": 36845.0,
+     "imports": 18448.0
+    },
+    "2026-05": {
+     "exports": 33196.0,
+     "imports": 17667.0
+    },
+    "2026-06": {
+     "exports": 36197.0,
+     "imports": 18508.0
+    },
+    "2026-07": {
+     "exports": 38253.0,
+     "imports": 20606.0
+    },
+    "2026-08": {
+     "exports": 35471.0,
+     "imports": 18934.0
+    }
+   }
+  },
+  "63813": {
+   "kind": "bop_month",
+   "title": "Developments in India’s Balance of Payments for the Month of August 2026",
+   "date": "Oct 15, 2026",
+   "data": {
+    "2025-08": {
+     "current_account": -6.1,
+     "goods": -27.6,
+     "services": 15.6,
+     "transfers": 12.2,
+     "income": -6.3,
+     "fdi": -0.1,
+     "fpi": -2.6,
+     "nri_deposits": 1.0
+    },
+    "2026-08": {
+     "current_account": -5.2,
+     "goods": -26.6,
+     "services": 16.5,
+     "transfers": 12.8,
+     "income": -8.0,
+     "fdi": 3.3,
+     "fpi": 1.7,
+     "nri_deposits": 83.0
+    }
+   }
+  },
+  "63893": {
+   "kind": "services",
+   "title": "Monthly Data on India’s International Trade in Services for the Month of September 2026",
+   "date": "Oct 30, 2026",
+   "data": {
+    "2026-07": {
+     "exports": 38253.0,
+     "imports": 20606.0
+    },
+    "2026-08": {
+     "exports": 35471.0,
+     "imports": 18934.0
+    },
+    "2026-09": {
+     "exports": 39305.0,
+     "imports": 20097.0
+    }
+   }
+  },
+  "49502": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Third Quarter (October-December) of 2019-20",
+   "date": "Mar 12, 2020",
+   "data": {
+    "2019-12": {
+     "current_account": {
+      "credit": 162.6,
+      "debit": 164.0,
+      "net": -1.4
+     },
+     "goods": {
+      "credit": 81.2,
+      "debit": 115.9,
+      "net": -34.6
+     },
+     "services": {
+      "credit": 55.2,
+      "debit": 33.3,
+      "net": 21.9
+     },
+     "primary_income": {
+      "credit": 5.6,
+      "debit": 12.9,
+      "net": -7.4
+     },
+     "secondary_income": {
+      "credit": 20.6,
+      "debit": 1.9,
+      "net": 18.7
+     },
+     "remittances": 20.6
+    },
+    "2018-12": {
+     "current_account": {
+      "credit": 162.8,
+      "debit": 180.5,
+      "net": -17.7
+     },
+     "goods": {
+      "credit": 83.1,
+      "debit": 132.4,
+      "net": -49.3
+     },
+     "services": {
+      "credit": 55.1,
+      "debit": 33.4,
+      "net": 21.7
+     },
+     "primary_income": {
+      "credit": 5.7,
+      "debit": 13.2,
+      "net": -7.6
+     },
+     "secondary_income": {
+      "credit": 19.0,
+      "debit": 1.5,
+      "net": 17.4
+     }
+    }
+   }
+  },
+  "50020": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Fourth Quarter (January-March) of 2019-20",
+   "date": "Jun 30, 2020",
+   "data": {
+    "2020-03": {
+     "current_account": {
+      "credit": 157.1,
+      "debit": 156.5,
+      "net": 0.6
+     },
+     "goods": {
+      "credit": 76.5,
+      "debit": 111.6,
+      "net": -35.0
+     },
+     "services": {
+      "credit": 53.1,
+      "debit": 31.0,
+      "net": 22.0
+     },
+     "primary_income": {
+      "credit": 7.0,
+      "debit": 11.8,
+      "net": -4.8
+     },
+     "secondary_income": {
+      "credit": 20.6,
+      "debit": 2.2,
+      "net": 18.4
+     },
+     "remittances": 20.6
+    },
+    "2019-03": {
+     "current_account": {
+      "credit": 165.2,
+      "debit": 169.8,
+      "net": -4.6
+     },
+     "goods": {
+      "credit": 87.4,
+      "debit": 122.6,
+      "net": -35.2
+     },
+     "services": {
+      "credit": 54.6,
+      "debit": 33.3,
+      "net": 21.3
+     },
+     "primary_income": {
+      "credit": 5.2,
+      "debit": 12.1,
+      "net": -6.9
+     },
+     "secondary_income": {
+      "credit": 18.0,
+      "debit": 1.8,
+      "net": 16.2
+     }
+    }
+   }
+  },
+  "50436": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the First Quarter (April-June) of 2020-21",
+   "date": "Sep 30, 2020",
+   "data": {
+    "2020-06": {
+     "current_account": {
+      "credit": 122.4,
+      "debit": 102.6,
+      "net": 19.8
+     },
+     "goods": {
+      "credit": 52.3,
+      "debit": 62.3,
+      "net": -10.0
+     },
+     "services": {
+      "credit": 46.8,
+      "debit": 26.3,
+      "net": 20.5
+     },
+     "primary_income": {
+      "credit": 5.1,
+      "debit": 12.8,
+      "net": -7.7
+     },
+     "secondary_income": {
+      "credit": 18.2,
+      "debit": 1.2,
+      "net": 17.0
+     },
+     "remittances": 18.2
+    },
+    "2019-06": {
+     "current_account": {
+      "credit": 160.7,
+      "debit": 175.7,
+      "net": -15.0
+     },
+     "goods": {
+      "credit": 82.7,
+      "debit": 129.5,
+      "net": -46.8
+     },
+     "services": {
+      "credit": 52.2,
+      "debit": 32.1,
+      "net": 20.1
+     },
+     "primary_income": {
+      "credit": 5.8,
+      "debit": 12.1,
+      "net": -6.3
+     },
+     "secondary_income": {
+      "credit": 20.0,
+      "debit": 2.0,
+      "net": 18.0
+     }
+    }
+   }
+  },
+  "50879": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Second Quarter (July-September) of 2020-21",
+   "date": "Dec 30, 2020",
+   "data": {
+    "2020-09": {
+     "current_account": {
+      "credit": 151.0,
+      "debit": 135.4,
+      "net": 15.5
+     },
+     "goods": {
+      "credit": 75.6,
+      "debit": 90.4,
+      "net": -14.8
+     },
+     "services": {
+      "credit": 49.9,
+      "debit": 28.7,
+      "net": 21.2
+     },
+     "primary_income": {
+      "credit": 5.0,
+      "debit": 14.3,
+      "net": -9.3
+     },
+     "secondary_income": {
+      "credit": 20.4,
+      "debit": 2.0,
+      "net": 18.4
+     },
+     "remittances": 20.4
+    },
+    "2019-09": {
+     "current_account": {
+      "credit": 161.6,
+      "debit": 169.1,
+      "net": -7.6
+     },
+     "goods": {
+      "credit": 80.0,
+      "debit": 119.6,
+      "net": -39.6
+     },
+     "services": {
+      "credit": 52.8,
+      "debit": 31.8,
+      "net": 20.9
+     },
+     "primary_income": {
+      "credit": 6.8,
+      "debit": 15.7,
+      "net": -8.8
+     },
+     "secondary_income": {
+      "credit": 22.0,
+      "debit": 2.0,
+      "net": 20.0
+     }
+    }
+   }
+  },
+  "51356": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Third Quarter (October-December) of 2020-21",
+   "date": "Mar 31, 2021",
+   "data": {
+    "2020-12": {
+     "current_account": {
+      "credit": 157.4,
+      "debit": 159.2,
+      "net": -1.7
+     },
+     "goods": {
+      "credit": 77.2,
+      "debit": 111.8,
+      "net": -34.5
+     },
+     "services": {
+      "credit": 53.7,
+      "debit": 30.1,
+      "net": 23.6
+     },
+     "primary_income": {
+      "credit": 5.7,
+      "debit": 15.8,
+      "net": -10.1
+     },
+     "secondary_income": {
+      "credit": 20.8,
+      "debit": 1.5,
+      "net": 19.3
+     }
+    },
+    "2019-12": {
+     "current_account": {
+      "credit": 162.8,
+      "debit": 165.4,
+      "net": -2.6
+     },
+     "goods": {
+      "credit": 81.2,
+      "debit": 117.3,
+      "net": -36.0
+     },
+     "services": {
+      "credit": 55.2,
+      "debit": 33.3,
+      "net": 21.9
+     },
+     "primary_income": {
+      "credit": 5.6,
+      "debit": 12.9,
+      "net": -7.4
+     },
+     "secondary_income": {
+      "credit": 20.8,
+      "debit": 1.9,
+      "net": 18.9
+     }
+    }
+   }
+  },
+  "51820": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Fourth Quarter (January-March) of 2020-21",
+   "date": "Jun 30, 2021",
+   "data": {
+    "2021-03": {
+     "current_account": {
+      "credit": 173.4,
+      "debit": 181.5,
+      "net": -8.1
+     },
+     "goods": {
+      "credit": 91.3,
+      "debit": 133.0,
+      "net": -41.7
+     },
+     "services": {
+      "credit": 56.0,
+      "debit": 32.5,
+      "net": 23.5
+     },
+     "primary_income": {
+      "credit": 5.2,
+      "debit": 13.9,
+      "net": -8.7
+     },
+     "secondary_income": {
+      "credit": 20.9,
+      "debit": 2.1,
+      "net": 18.9
+     },
+     "remittances": 20.9
+    },
+    "2020-03": {
+     "current_account": {
+      "credit": 157.1,
+      "debit": 156.5,
+      "net": 0.6
+     },
+     "goods": {
+      "credit": 76.5,
+      "debit": 111.6,
+      "net": -35.0
+     },
+     "services": {
+      "credit": 53.1,
+      "debit": 31.0,
+      "net": 22.0
+     },
+     "primary_income": {
+      "credit": 7.0,
+      "debit": 11.8,
+      "net": -4.8
+     },
+     "secondary_income": {
+      "credit": 20.6,
+      "debit": 2.2,
+      "net": 18.4
+     }
+    }
+   }
+  },
+  "52324": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the First Quarter (April-June) of 2021-22",
+   "date": "Sep 30, 2021",
+   "data": {
+    "2021-06": {
+     "current_account": {
+      "credit": 180.0,
+      "debit": 173.5,
+      "net": 6.5
+     },
+     "goods": {
+      "credit": 97.4,
+      "debit": 128.1,
+      "net": -30.7
+     },
+     "services": {
+      "credit": 56.2,
+      "debit": 30.4,
+      "net": 25.8
+     },
+     "primary_income": {
+      "credit": 5.4,
+      "debit": 13.0,
+      "net": -7.5
+     },
+     "secondary_income": {
+      "credit": 20.9,
+      "debit": 1.9,
+      "net": 19.0
+     },
+     "remittances": 20.9
+    },
+    "2020-06": {
+     "current_account": {
+      "credit": 122.4,
+      "debit": 103.3,
+      "net": 19.1
+     },
+     "goods": {
+      "credit": 52.2,
+      "debit": 63.2,
+      "net": -11.0
+     },
+     "services": {
+      "credit": 47.0,
+      "debit": 26.2,
+      "net": 20.8
+     },
+     "primary_income": {
+      "credit": 5.0,
+      "debit": 12.7,
+      "net": -7.7
+     },
+     "secondary_income": {
+      "credit": 18.2,
+      "debit": 1.2,
+      "net": 17.0
+     }
+    }
+   }
+  },
+  "53015": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Second Quarter (July-September) of 2021-22 ( Revised )",
+   "date": "Dec 31, 2021",
+   "data": {
+    "2021-09": {
+     "current_account": {
+      "credit": 194.3,
+      "debit": 203.9,
+      "net": -9.6
+     },
+     "goods": {
+      "credit": 104.8,
+      "debit": 149.3,
+      "net": -44.4
+     },
+     "services": {
+      "credit": 61.4,
+      "debit": 35.8,
+      "net": 25.6
+     },
+     "primary_income": {
+      "credit": 6.9,
+      "debit": 16.5,
+      "net": -9.7
+     },
+     "secondary_income": {
+      "credit": 21.2,
+      "debit": 2.2,
+      "net": 18.9
+     },
+     "remittances": 21.1
+    },
+    "2020-09": {
+     "current_account": {
+      "credit": 150.8,
+      "debit": 135.5,
+      "net": 15.3
+     },
+     "goods": {
+      "credit": 75.6,
+      "debit": 90.4,
+      "net": -14.8
+     },
+     "services": {
+      "credit": 49.8,
+      "debit": 28.7,
+      "net": 21.1
+     },
+     "primary_income": {
+      "credit": 5.0,
+      "debit": 14.4,
+      "net": -9.4
+     },
+     "secondary_income": {
+      "credit": 20.4,
+      "debit": 2.0,
+      "net": 18.4
+     }
+    }
+   }
+  },
+  "53492": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Third Quarter (October-December) of 2021-22",
+   "date": "Mar 31, 2022",
+   "data": {
+    "2021-12": {
+     "current_account": {
+      "credit": 205.4,
+      "debit": 228.4,
+      "net": -23.0
+     },
+     "goods": {
+      "credit": 109.0,
+      "debit": 169.4,
+      "net": -60.4
+     },
+     "services": {
+      "credit": 67.0,
+      "debit": 39.2,
+      "net": 27.8
+     },
+     "primary_income": {
+      "credit": 5.9,
+      "debit": 17.6,
+      "net": -11.7
+     },
+     "secondary_income": {
+      "credit": 23.5,
+      "debit": 2.2,
+      "net": 21.3
+     },
+     "remittances": 23.4
+    },
+    "2020-12": {
+     "current_account": {
+      "credit": 157.0,
+      "debit": 159.2,
+      "net": -2.2
+     },
+     "goods": {
+      "credit": 77.2,
+      "debit": 111.8,
+      "net": -34.6
+     },
+     "services": {
+      "credit": 53.3,
+      "debit": 30.1,
+      "net": 23.2
+     },
+     "primary_income": {
+      "credit": 5.7,
+      "debit": 15.8,
+      "net": -10.1
+     },
+     "secondary_income": {
+      "credit": 20.8,
+      "debit": 1.5,
+      "net": 19.3
+     }
+    }
+   }
+  },
+  "53906": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Fourth Quarter (January-March) of 2021-22",
+   "date": "Jun 22, 2022",
+   "data": {
+    "2022-03": {
+     "current_account": {
+      "credit": 218.8,
+      "debit": 232.2,
+      "net": -13.4
+     },
+     "goods": {
+      "credit": 118.0,
+      "debit": 172.5,
+      "net": -54.5
+     },
+     "services": {
+      "credit": 69.9,
+      "debit": 41.6,
+      "net": 28.3
+     },
+     "primary_income": {
+      "credit": 7.2,
+      "debit": 15.6,
+      "net": -8.4
+     },
+     "secondary_income": {
+      "credit": 23.7,
+      "debit": 2.6,
+      "net": 21.2
+     },
+     "remittances": 23.7
+    },
+    "2021-03": {
+     "current_account": {
+      "credit": 173.4,
+      "debit": 181.5,
+      "net": -8.1
+     },
+     "goods": {
+      "credit": 91.3,
+      "debit": 133.0,
+      "net": -41.7
+     },
+     "services": {
+      "credit": 56.0,
+      "debit": 32.5,
+      "net": 23.5
+     },
+     "primary_income": {
+      "credit": 5.2,
+      "debit": 13.9,
+      "net": -8.7
+     },
+     "secondary_income": {
+      "credit": 20.9,
+      "debit": 2.1,
+      "net": 18.9
+     }
+    }
+   }
+  },
+  "54455": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the First Quarter (April-June) of 2022-23",
+   "date": "Sep 29, 2022",
+   "data": {
+    "2022-06": {
+     "current_account": {
+      "credit": 231.0,
+      "debit": 254.9,
+      "net": -23.9
+     },
+     "goods": {
+      "credit": 123.0,
+      "debit": 191.5,
+      "net": -68.6
+     },
+     "services": {
+      "credit": 76.1,
+      "debit": 45.0,
+      "net": 31.1
+     },
+     "primary_income": {
+      "credit": 6.3,
+      "debit": 15.5,
+      "net": -9.3
+     },
+     "secondary_income": {
+      "credit": 25.6,
+      "debit": 2.8,
+      "net": 22.9
+     },
+     "remittances": 25.6
+    },
+    "2021-06": {
+     "current_account": {
+      "credit": 180.1,
+      "debit": 173.5,
+      "net": 6.6
+     },
+     "goods": {
+      "credit": 97.4,
+      "debit": 128.2,
+      "net": -30.7
+     },
+     "services": {
+      "credit": 56.2,
+      "debit": 30.4,
+      "net": 25.8
+     },
+     "primary_income": {
+      "credit": 5.5,
+      "debit": 13.1,
+      "net": -7.5
+     },
+     "secondary_income": {
+      "credit": 20.9,
+      "debit": 1.9,
+      "net": 19.0
+     }
+    }
+   }
+  },
+  "54951": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Second Quarter (July-September) of 2022-23",
+   "date": "Dec 29, 2022",
+   "data": {
+    "2022-09": {
+     "current_account": {
+      "credit": 225.2,
+      "debit": 261.6,
+      "net": -36.4
+     },
+     "goods": {
+      "credit": 112.0,
+      "debit": 195.5,
+      "net": -83.5
+     },
+     "services": {
+      "credit": 80.0,
+      "debit": 45.6,
+      "net": 34.4
+     },
+     "primary_income": {
+      "credit": 5.8,
+      "debit": 17.8,
+      "net": -12.0
+     },
+     "secondary_income": {
+      "credit": 27.5,
+      "debit": 2.7,
+      "net": 24.8
+     },
+     "remittances": 27.4
+    },
+    "2021-09": {
+     "current_account": {
+      "credit": 194.3,
+      "debit": 204.0,
+      "net": -9.7
+     },
+     "goods": {
+      "credit": 104.8,
+      "debit": 149.3,
+      "net": -44.5
+     },
+     "services": {
+      "credit": 61.4,
+      "debit": 35.8,
+      "net": 25.6
+     },
+     "primary_income": {
+      "credit": 6.9,
+      "debit": 16.7,
+      "net": -9.8
+     },
+     "secondary_income": {
+      "credit": 21.2,
+      "debit": 2.1,
+      "net": 19.0
+     }
+    }
+   }
+  },
+  "55444": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Third Quarter (October-December) of 2022-23",
+   "date": "Mar 31, 2023",
+   "data": {
+    "2022-12": {
+     "current_account": {
+      "credit": 227.5,
+      "debit": 245.7,
+      "net": -18.2
+     },
+     "goods": {
+      "credit": 105.6,
+      "debit": 178.3,
+      "net": -72.7
+     },
+     "services": {
+      "credit": 83.4,
+      "debit": 44.7,
+      "net": 38.7
+     },
+     "primary_income": {
+      "credit": 7.6,
+      "debit": 20.3,
+      "net": -12.7
+     },
+     "secondary_income": {
+      "credit": 30.9,
+      "debit": 2.4,
+      "net": 28.5
+     },
+     "remittances": 30.8
+    },
+    "2021-12": {
+     "current_account": {
+      "credit": 205.6,
+      "debit": 227.7,
+      "net": -22.2
+     },
+     "goods": {
+      "credit": 108.9,
+      "debit": 168.7,
+      "net": -59.7
+     },
+     "services": {
+      "credit": 67.0,
+      "debit": 39.2,
+      "net": 27.8
+     },
+     "primary_income": {
+      "credit": 6.1,
+      "debit": 17.6,
+      "net": -11.5
+     },
+     "secondary_income": {
+      "credit": 23.5,
+      "debit": 2.2,
+      "net": 21.3
+     }
+    }
+   }
+  },
+  "55933": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Fourth Quarter (January-March) of 2022-23",
+   "date": "Jun 27, 2023",
+   "data": {
+    "2023-03": {
+     "current_account": {
+      "credit": 238.0,
+      "debit": 239.3,
+      "net": -1.3
+     },
+     "goods": {
+      "credit": 115.8,
+      "debit": 168.4,
+      "net": -52.6
+     },
+     "services": {
+      "credit": 85.8,
+      "debit": 46.8,
+      "net": 39.1
+     },
+     "primary_income": {
+      "credit": 7.7,
+      "debit": 20.3,
+      "net": -12.6
+     },
+     "secondary_income": {
+      "credit": 28.6,
+      "debit": 3.9,
+      "net": 24.8
+     },
+     "remittances": 28.6
+    },
+    "2022-03": {
+     "current_account": {
+      "credit": 218.8,
+      "debit": 232.2,
+      "net": -13.4
+     },
+     "goods": {
+      "credit": 118.0,
+      "debit": 172.5,
+      "net": -54.5
+     },
+     "services": {
+      "credit": 69.9,
+      "debit": 41.6,
+      "net": 28.3
+     },
+     "primary_income": {
+      "credit": 7.2,
+      "debit": 15.6,
+      "net": -8.4
+     },
+     "secondary_income": {
+      "credit": 23.7,
+      "debit": 2.6,
+      "net": 21.2
+     }
+    }
+   }
+  },
+  "56458": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the First Quarter (April-June) of 2023-24",
+   "date": "Sep 28, 2023",
+   "data": {
+    "2023-06": {
+     "current_account": {
+      "credit": 221.4,
+      "debit": 230.6,
+      "net": -9.2
+     },
+     "goods": {
+      "credit": 105.0,
+      "debit": 161.6,
+      "net": -56.6
+     },
+     "services": {
+      "credit": 80.6,
+      "debit": 45.4,
+      "net": 35.1
+     },
+     "primary_income": {
+      "credit": 8.7,
+      "debit": 19.3,
+      "net": -10.6
+     },
+     "secondary_income": {
+      "credit": 27.1,
+      "debit": 4.2,
+      "net": 22.9
+     },
+     "remittances": 27.1
+    },
+    "2022-06": {
+     "current_account": {
+      "credit": 231.0,
+      "debit": 249.0,
+      "net": -17.9
+     },
+     "goods": {
+      "credit": 122.8,
+      "debit": 185.9,
+      "net": -63.1
+     },
+     "services": {
+      "credit": 76.1,
+      "debit": 45.0,
+      "net": 31.1
+     },
+     "primary_income": {
+      "credit": 6.5,
+      "debit": 15.3,
+      "net": -8.9
+     },
+     "secondary_income": {
+      "credit": 25.6,
+      "debit": 2.8,
+      "net": 22.9
+     },
+     "remittances": 28.6
+    }
+   }
+  },
+  "56991": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Second Quarter (July-September) of 2023-24",
+   "date": "Dec 26, 2023",
+   "data": {
+    "2023-09": {
+     "current_account": {
+      "credit": 231.6,
+      "debit": 239.9,
+      "net": -8.3
+     },
+     "goods": {
+      "credit": 108.5,
+      "debit": 169.5,
+      "net": -61.0
+     },
+     "services": {
+      "credit": 83.4,
+      "debit": 43.4,
+      "net": 40.0
+     },
+     "primary_income": {
+      "credit": 11.6,
+      "debit": 23.8,
+      "net": -12.2
+     },
+     "secondary_income": {
+      "credit": 28.1,
+      "debit": 3.2,
+      "net": 25.0
+     },
+     "remittances": 28.1
+    },
+    "2022-09": {
+     "current_account": {
+      "credit": 225.3,
+      "debit": 256.2,
+      "net": -30.9
+     },
+     "goods": {
+      "credit": 111.9,
+      "debit": 190.2,
+      "net": -78.3
+     },
+     "services": {
+      "credit": 80.0,
+      "debit": 45.6,
+      "net": 34.4
+     },
+     "primary_income": {
+      "credit": 6.0,
+      "debit": 17.8,
+      "net": -11.8
+     },
+     "secondary_income": {
+      "credit": 27.5,
+      "debit": 2.7,
+      "net": 24.8
+     }
+    }
+   }
+  },
+  "57567": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Third Quarter (October-December) of 2023-24",
+   "date": "Mar 26, 2024",
+   "data": {
+    "2022-12": {
+     "current_account": {
+      "credit": 227.5,
+      "debit": 244.3,
+      "net": -16.8
+     },
+     "goods": {
+      "credit": 105.6,
+      "debit": 176.9,
+      "net": -71.3
+     },
+     "services": {
+      "credit": 83.4,
+      "debit": 44.7,
+      "net": 38.7
+     },
+     "primary_income": {
+      "credit": 7.6,
+      "debit": 20.3,
+      "net": -12.7
+     },
+     "secondary_income": {
+      "credit": 30.9,
+      "debit": 2.4,
+      "net": 28.5
+     }
+    },
+    "2023-12": {
+     "current_account": {
+      "credit": 235.9,
+      "debit": 246.4,
+      "net": -10.5
+     },
+     "goods": {
+      "credit": 106.7,
+      "debit": 178.3,
+      "net": -71.6
+     },
+     "services": {
+      "credit": 87.8,
+      "debit": 42.8,
+      "net": 45.0
+     },
+     "primary_income": {
+      "credit": 10.0,
+      "debit": 23.2,
+      "net": -13.2
+     },
+     "secondary_income": {
+      "credit": 31.5,
+      "debit": 2.2,
+      "net": 29.3
+     },
+     "remittances": 31.4
+    }
+   }
+  },
+  "58147": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Fourth Quarter (January-March) of 2023-24",
+   "date": "Jun 24, 2024",
+   "data": {
+    "2023-03": {
+     "current_account": {
+      "credit": 238.0,
+      "debit": 239.3,
+      "net": -1.3
+     },
+     "goods": {
+      "credit": 115.8,
+      "debit": 168.4,
+      "net": -52.6
+     },
+     "services": {
+      "credit": 85.8,
+      "debit": 46.8,
+      "net": 39.1
+     },
+     "primary_income": {
+      "credit": 7.7,
+      "debit": 20.3,
+      "net": -12.6
+     },
+     "secondary_income": {
+      "credit": 28.6,
+      "debit": 3.9,
+      "net": 24.8
+     }
+    },
+    "2024-03": {
+     "current_account": {
+      "credit": 253.6,
+      "debit": 247.9,
+      "net": 5.7
+     },
+     "goods": {
+      "credit": 121.7,
+      "debit": 172.5,
+      "net": -50.9
+     },
+     "services": {
+      "credit": 89.4,
+      "debit": 46.7,
+      "net": 42.7
+     },
+     "primary_income": {
+      "credit": 10.5,
+      "debit": 25.3,
+      "net": -14.8
+     },
+     "secondary_income": {
+      "credit": 32.1,
+      "debit": 3.4,
+      "net": 28.7
+     },
+     "remittances": 32.0
+    }
+   }
+  },
+  "58783": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the First Quarter (April-June) of 2024-25",
+   "date": "Sep 30, 2024",
+   "data": {
+    "2023-06": {
+     "current_account": {
+      "credit": 221.6,
+      "debit": 230.6,
+      "net": -8.9
+     },
+     "goods": {
+      "credit": 104.9,
+      "debit": 161.6,
+      "net": -56.7
+     },
+     "services": {
+      "credit": 80.6,
+      "debit": 45.4,
+      "net": 35.1
+     },
+     "primary_income": {
+      "credit": 9.0,
+      "debit": 19.2,
+      "net": -10.2
+     },
+     "secondary_income": {
+      "credit": 27.1,
+      "debit": 4.3,
+      "net": 22.9
+     },
+     "fdi": {
+      "credit": 19.3,
+      "debit": 14.6,
+      "net": 4.7
+     },
+     "fpi": {
+      "credit": 89.8,
+      "debit": 74.0,
+      "net": 15.7
+     },
+     "nri_deposits": {
+      "credit": 18.9,
+      "debit": 16.7,
+      "net": 2.2
+     },
+     "ecb": {
+      "credit": 13.2,
+      "debit": 7.7,
+      "net": 5.6
+     },
+     "remittances": 27.1
+    },
+    "2024-06": {
+     "current_account": {
+      "credit": 241.6,
+      "debit": 251.4,
+      "net": -9.7
+     },
+     "goods": {
+      "credit": 111.2,
+      "debit": 176.3,
+      "net": -65.1
+     },
+     "services": {
+      "credit": 88.5,
+      "debit": 48.7,
+      "net": 39.7
+     },
+     "primary_income": {
+      "credit": 12.5,
+      "debit": 23.2,
+      "net": -10.7
+     },
+     "secondary_income": {
+      "credit": 29.5,
+      "debit": 3.1,
+      "net": 26.4
+     },
+     "fdi": {
+      "credit": 23.4,
+      "debit": 17.1,
+      "net": 6.3
+     },
+     "fpi": {
+      "credit": 159.8,
+      "debit": 158.9,
+      "net": 0.9
+     },
+     "nri_deposits": {
+      "credit": 23.4,
+      "debit": 19.4,
+      "net": 4.0
+     },
+     "ecb": {
+      "credit": 8.5,
+      "debit": 6.7,
+      "net": 1.8
+     },
+     "remittances": 29.5
+    }
+   }
+  },
+  "59395": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Second Quarter (July-September) of 2024-25",
+   "date": "Dec 27, 2024",
+   "data": {
+    "2023-09": {
+     "current_account": {
+      "credit": 231.7,
+      "debit": 242.9,
+      "net": -11.3
+     },
+     "goods": {
+      "credit": 108.3,
+      "debit": 172.8,
+      "net": -64.5
+     },
+     "services": {
+      "credit": 83.4,
+      "debit": 43.4,
+      "net": 39.9
+     },
+     "primary_income": {
+      "credit": 11.9,
+      "debit": 23.5,
+      "net": -11.6
+     },
+     "secondary_income": {
+      "credit": 28.1,
+      "debit": 3.2,
+      "net": 24.9
+     },
+     "fdi": {
+      "credit": 16.6,
+      "debit": 17.4,
+      "net": -0.8
+     },
+     "fpi": {
+      "credit": 112.0,
+      "debit": 107.0,
+      "net": 4.9
+     },
+     "nri_deposits": {
+      "credit": 21.3,
+      "debit": 18.0,
+      "net": 3.2
+     },
+     "ecb": {
+      "credit": 4.6,
+      "debit": 6.5,
+      "net": -1.9
+     },
+     "remittances": 28.1
+    },
+    "2024-09": {
+     "current_account": {
+      "credit": 245.7,
+      "debit": 256.8,
+      "net": -11.2
+     },
+     "goods": {
+      "credit": 104.0,
+      "debit": 179.3,
+      "net": -75.3
+     },
+     "services": {
+      "credit": 93.5,
+      "debit": 48.9,
+      "net": 44.5
+     },
+     "primary_income": {
+      "credit": 16.3,
+      "debit": 25.8,
+      "net": -9.5
+     },
+     "secondary_income": {
+      "credit": 31.9,
+      "debit": 2.8,
+      "net": 29.1
+     },
+     "fdi": {
+      "credit": 21.2,
+      "debit": 23.5,
+      "net": -2.2
+     },
+     "fpi": {
+      "credit": 182.1,
+      "debit": 162.3,
+      "net": 19.9
+     },
+     "nri_deposits": {
+      "credit": 28.9,
+      "debit": 22.8,
+      "net": 6.2
+     },
+     "ecb": {
+      "credit": 12.4,
+      "debit": 7.4,
+      "net": 5.0
+     },
+     "remittances": 31.9
+    }
+   }
+  },
+  "60095": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Third Quarter (October-December) of 2024-25",
+   "date": "Mar 28, 2025",
+   "data": {
+    "2023-12": {
+     "current_account": {
+      "credit": 236.0,
+      "debit": 246.4,
+      "net": -10.4
+     },
+     "goods": {
+      "credit": 106.6,
+      "debit": 178.3,
+      "net": -71.6
+     },
+     "services": {
+      "credit": 87.8,
+      "debit": 42.8,
+      "net": 45.0
+     },
+     "primary_income": {
+      "credit": 10.1,
+      "debit": 23.2,
+      "net": -13.1
+     },
+     "secondary_income": {
+      "credit": 31.5,
+      "debit": 2.2,
+      "net": 29.3
+     },
+     "fdi": {
+      "credit": 18.9,
+      "debit": 14.9,
+      "net": 4.0
+     },
+     "fpi": {
+      "credit": 125.5,
+      "debit": 113.5,
+      "net": 12.0
+     },
+     "nri_deposits": {
+      "credit": 22.4,
+      "debit": 18.5,
+      "net": 3.9
+     },
+     "ecb": {
+      "credit": 3.9,
+      "debit": 6.6,
+      "net": -2.7
+     },
+     "remittances": 30.6
+    },
+    "2024-12": {
+     "current_account": {
+      "credit": 261.6,
+      "debit": 273.1,
+      "net": -11.5
+     },
+     "goods": {
+      "credit": 109.8,
+      "debit": 189.0,
+      "net": -79.2
+     },
+     "services": {
+      "credit": 103.5,
+      "debit": 52.3,
+      "net": 51.2
+     },
+     "primary_income": {
+      "credit": 12.3,
+      "debit": 29.0,
+      "net": -16.7
+     },
+     "secondary_income": {
+      "credit": 36.1,
+      "debit": 2.9,
+      "net": 33.2
+     },
+     "fdi": {
+      "credit": 20.8,
+      "debit": 23.6,
+      "net": -2.8
+     },
+     "fpi": {
+      "credit": 171.4,
+      "debit": 182.8,
+      "net": -11.4
+     },
+     "nri_deposits": {
+      "credit": 25.9,
+      "debit": 22.8,
+      "net": 3.1
+     },
+     "ecb": {
+      "credit": 11.2,
+      "debit": 6.9,
+      "net": 4.3
+     },
+     "remittances": 35.1
+    }
+   }
+  },
+  "60727": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Fourth Quarter (January-March) of 2024-25",
+   "date": "Jun 27, 2025",
+   "data": {
+    "2024-03": {
+     "current_account": {
+      "credit": 253.5,
+      "debit": 248.9,
+      "net": 4.6
+     },
+     "goods": {
+      "credit": 121.6,
+      "debit": 173.6,
+      "net": -52.0
+     },
+     "services": {
+      "credit": 89.4,
+      "debit": 46.7,
+      "net": 42.7
+     },
+     "primary_income": {
+      "credit": 10.5,
+      "debit": 25.3,
+      "net": -14.8
+     },
+     "secondary_income": {
+      "credit": 32.1,
+      "debit": 3.4,
+      "net": 28.7
+     },
+     "fdi": {
+      "credit": 20.2,
+      "debit": 17.9,
+      "net": 2.3
+     },
+     "fpi": {
+      "credit": 138.9,
+      "debit": 127.5,
+      "net": 11.4
+     },
+     "nri_deposits": {
+      "credit": 26.0,
+      "debit": 20.7,
+      "net": 5.4
+     },
+     "ecb": {
+      "credit": 11.7,
+      "debit": 9.2,
+      "net": 2.6
+     },
+     "remittances": 31.3
+    },
+    "2025-03": {
+     "current_account": {
+      "credit": 264.9,
+      "debit": 251.4,
+      "net": 13.5
+     },
+     "goods": {
+      "credit": 116.3,
+      "debit": 175.8,
+      "net": -59.5
+     },
+     "services": {
+      "credit": 102.0,
+      "debit": 48.7,
+      "net": 53.3
+     },
+     "primary_income": {
+      "credit": 11.9,
+      "debit": 23.8,
+      "net": -11.9
+     },
+     "secondary_income": {
+      "credit": 34.7,
+      "debit": 3.2,
+      "net": 31.5
+     },
+     "fdi": {
+      "credit": 18.5,
+      "debit": 18.1,
+      "net": 0.4
+     },
+     "fpi": {
+      "credit": 126.0,
+      "debit": 131.8,
+      "net": -5.9
+     },
+     "nri_deposits": {
+      "credit": 26.3,
+      "debit": 23.5,
+      "net": 2.8
+     },
+     "ecb": {
+      "credit": 15.6,
+      "debit": 8.2,
+      "net": 7.4
+     },
+     "remittances": 33.9
+    }
+   }
+  },
+  "61129": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the First Quarter (April-June) of 2025-26",
+   "date": "Sep 01, 2025",
+   "data": {
+    "2024-06": {
+     "current_account": {
+      "credit": 241.8,
+      "debit": 250.5,
+      "net": -8.6
+     },
+     "goods": {
+      "credit": 111.2,
+      "debit": 175.0,
+      "net": -63.8
+     },
+     "services": {
+      "credit": 88.5,
+      "debit": 48.8,
+      "net": 39.7
+     },
+     "primary_income": {
+      "credit": 12.7,
+      "debit": 23.5,
+      "net": -10.9
+     },
+     "secondary_income": {
+      "credit": 29.5,
+      "debit": 3.2,
+      "net": 26.3
+     },
+     "fdi": {
+      "credit": 23.9,
+      "debit": 17.7,
+      "net": 6.2
+     },
+     "fpi": {
+      "credit": 159.8,
+      "debit": 158.9,
+      "net": 0.9
+     },
+     "nri_deposits": {
+      "credit": 23.4,
+      "debit": 19.4,
+      "net": 4.0
+     },
+     "ecb": {
+      "credit": 8.5,
+      "debit": 6.8,
+      "net": 1.6
+     },
+     "remittances": 28.6
+    },
+    "2025-06": {
+     "current_account": {
+      "credit": 256.7,
+      "debit": 259.1,
+      "net": -2.4
+     },
+     "goods": {
+      "credit": 113.1,
+      "debit": 181.6,
+      "net": -68.5
+     },
+     "services": {
+      "credit": 97.4,
+      "debit": 49.5,
+      "net": 47.9
+     },
+     "primary_income": {
+      "credit": 12.2,
+      "debit": 25.0,
+      "net": -12.8
+     },
+     "secondary_income": {
+      "credit": 34.0,
+      "debit": 3.0,
+      "net": 31.0
+     },
+     "fdi": {
+      "credit": 27.2,
+      "debit": 21.5,
+      "net": 5.7
+     },
+     "fpi": {
+      "credit": 146.3,
+      "debit": 144.7,
+      "net": 1.6
+     },
+     "nri_deposits": {
+      "credit": 23.8,
+      "debit": 20.2,
+      "net": 3.6
+     },
+     "ecb": {
+      "credit": 10.7,
+      "debit": 7.1,
+      "net": 3.7
+     },
+     "remittances": 33.2
+    }
+   }
+  },
+  "61714": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Second Quarter (July-September) of 2025-26",
+   "date": "Dec 01, 2025",
+   "data": {
+    "2024-09": {
+     "current_account": {
+      "credit": 245.8,
+      "debit": 266.6,
+      "net": -20.8
+     },
+     "goods": {
+      "credit": 100.6,
+      "debit": 189.2,
+      "net": -88.5
+     },
+     "services": {
+      "credit": 93.4,
+      "debit": 48.9,
+      "net": 44.5
+     },
+     "primary_income": {
+      "credit": 16.5,
+      "debit": 25.7,
+      "net": -9.2
+     },
+     "secondary_income": {
+      "credit": 35.3,
+      "debit": 2.8,
+      "net": 32.4
+     },
+     "fdi": {
+      "credit": 21.1,
+      "debit": 24.0,
+      "net": -2.8
+     },
+     "fpi": {
+      "credit": 182.1,
+      "debit": 162.3,
+      "net": 19.9
+     },
+     "nri_deposits": {
+      "credit": 28.9,
+      "debit": 22.8,
+      "net": 6.2
+     },
+     "ecb": {
+      "credit": 12.4,
+      "debit": 7.5,
+      "net": 5.0
+     },
+     "remittances": 34.4
+    },
+    "2025-09": {
+     "current_account": {
+      "credit": 266.7,
+      "debit": 279.0,
+      "net": -12.3
+     },
+     "goods": {
+      "credit": 109.4,
+      "debit": 196.8,
+      "net": -87.4
+     },
+     "services": {
+      "credit": 101.6,
+      "debit": 50.7,
+      "net": 50.9
+     },
+     "primary_income": {
+      "credit": 16.7,
+      "debit": 28.9,
+      "net": -12.2
+     },
+     "secondary_income": {
+      "credit": 39.0,
+      "debit": 2.6,
+      "net": 36.5
+     },
+     "fdi": {
+      "credit": 25.9,
+      "debit": 23.1,
+      "net": 2.9
+     },
+     "fpi": {
+      "credit": 135.6,
+      "debit": 141.3,
+      "net": -5.7
+     },
+     "nri_deposits": {
+      "credit": 23.3,
+      "debit": 20.9,
+      "net": 2.5
+     },
+     "ecb": {
+      "credit": 6.9,
+      "debit": 5.3,
+      "net": 1.6
+     },
+     "remittances": 38.2
+    }
+   }
+  },
+  "62317": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Third Quarter (October-December) of 2025-26",
+   "date": "Mar 02, 2026",
+   "data": {
+    "2024-12": {
+     "current_account": {
+      "credit": 261.7,
+      "debit": 273.0,
+      "net": -11.3
+     },
+     "goods": {
+      "credit": 109.8,
+      "debit": 189.1,
+      "net": -79.3
+     },
+     "services": {
+      "credit": 103.5,
+      "debit": 52.3,
+      "net": 51.2
+     },
+     "primary_income": {
+      "credit": 12.3,
+      "debit": 28.8,
+      "net": -16.4
+     },
+     "secondary_income": {
+      "credit": 36.1,
+      "debit": 2.9,
+      "net": 33.2
+     },
+     "fdi": {
+      "credit": 20.6,
+      "debit": 23.4,
+      "net": -2.8
+     },
+     "fpi": {
+      "credit": 171.4,
+      "debit": 182.8,
+      "net": -11.4
+     },
+     "nri_deposits": {
+      "credit": 25.9,
+      "debit": 22.8,
+      "net": 3.1
+     },
+     "ecb": {
+      "credit": 11.3,
+      "debit": 6.9,
+      "net": 4.4
+     },
+     "remittances": 35.1
+    },
+    "2025-12": {
+     "current_account": {
+      "credit": 274.9,
+      "debit": 288.0,
+      "net": -13.2
+     },
+     "goods": {
+      "credit": 111.7,
+      "debit": 205.3,
+      "net": -93.6
+     },
+     "services": {
+      "credit": 111.2,
+      "debit": 53.7,
+      "net": 57.5
+     },
+     "primary_income": {
+      "credit": 14.0,
+      "debit": 26.2,
+      "net": -12.2
+     },
+     "secondary_income": {
+      "credit": 37.9,
+      "debit": 2.8,
+      "net": 35.2
+     },
+     "fdi": {
+      "credit": 22.5,
+      "debit": 26.1,
+      "net": -3.7
+     },
+     "fpi": {
+      "credit": 185.6,
+      "debit": 185.7,
+      "net": -0.2
+     },
+     "nri_deposits": {
+      "credit": 25.9,
+      "debit": 20.9,
+      "net": 5.1
+     },
+     "ecb": {
+      "credit": 7.9,
+      "debit": 4.6,
+      "net": 3.3
+     },
+     "remittances": 36.9
+    }
+   }
+  },
+  "62890": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the Fourth Quarter (January-March) of 2025-26",
+   "date": "Jun 08, 2026",
+   "data": {
+    "2025-03": {
+     "current_account": {
+      "credit": 265.1,
+      "debit": 251.4,
+      "net": 13.7
+     },
+     "goods": {
+      "credit": 116.4,
+      "debit": 175.8,
+      "net": -59.3
+     },
+     "services": {
+      "credit": 102.0,
+      "debit": 48.7,
+      "net": 53.3
+     },
+     "primary_income": {
+      "credit": 11.9,
+      "debit": 23.8,
+      "net": -11.9
+     },
+     "secondary_income": {
+      "credit": 34.7,
+      "debit": 3.2,
+      "net": 31.5
+     },
+     "fdi": {
+      "credit": 18.5,
+      "debit": 18.1,
+      "net": 0.4
+     },
+     "fpi": {
+      "credit": 126.0,
+      "debit": 131.8,
+      "net": -5.9
+     },
+     "nri_deposits": {
+      "credit": 26.3,
+      "debit": 23.5,
+      "net": 2.8
+     },
+     "ecb": {
+      "credit": 15.8,
+      "debit": 8.3,
+      "net": 7.5
+     },
+     "remittances": 33.9
+    },
+    "2026-03": {
+     "current_account": {
+      "credit": 280.5,
+      "debit": 273.4,
+      "net": 7.1
+     },
+     "goods": {
+      "credit": 113.1,
+      "debit": 196.6,
+      "net": -83.4
+     },
+     "services": {
+      "credit": 111.1,
+      "debit": 50.7,
+      "net": 60.4
+     },
+     "primary_income": {
+      "credit": 12.0,
+      "debit": 23.2,
+      "net": -11.1
+     },
+     "secondary_income": {
+      "credit": 44.3,
+      "debit": 3.0,
+      "net": 41.3
+     },
+     "fdi": {
+      "credit": 22.5,
+      "debit": 18.3,
+      "net": 4.2
+     },
+     "fpi": {
+      "credit": 126.2,
+      "debit": 138.3,
+      "net": -12.0
+     },
+     "nri_deposits": {
+      "credit": 28.8,
+      "debit": 25.5,
+      "net": 3.3
+     },
+     "ecb": {
+      "credit": 10.0,
+      "debit": 6.4,
+      "net": 3.6
+     },
+     "remittances": 43.5
+    }
+   }
+  },
+  "63493": {
+   "kind": "bop_quarter",
+   "title": "Developments in India’s Balance of Payments during the First Quarter (April-June) of 2026-27",
+   "date": "Sep 01, 2026",
+   "data": {
+    "2025-06": {
+     "current_account": {
+      "credit": 256.4,
+      "debit": 259.7,
+      "net": -3.4
+     },
+     "goods": {
+      "credit": 112.7,
+      "debit": 181.6,
+      "net": -68.9
+     },
+     "services": {
+      "credit": 97.4,
+      "debit": 49.5,
+      "net": 47.9
+     },
+     "primary_income": {
+      "credit": 12.2,
+      "debit": 25.5,
+      "net": -13.3
+     },
+     "secondary_income": {
+      "credit": 34.0,
+      "debit": 3.1,
+      "net": 30.9
+     },
+     "fdi": {
+      "credit": 27.8,
+      "debit": 22.6,
+      "net": 5.2
+     },
+     "fpi": {
+      "credit": 146.3,
+      "debit": 144.7,
+      "net": 1.6
+     },
+     "nri_deposits": {
+      "credit": 23.8,
+      "debit": 20.2,
+      "net": 3.6
+     },
+     "ecb": {
+      "credit": 10.8,
+      "debit": 6.4,
+      "net": 4.4
+     },
+     "remittances": 33.2
+    },
+    "2026-06": {
+     "current_account": {
+      "credit": 294.9,
+      "debit": 299.2,
+      "net": -4.2
+     },
+     "goods": {
+      "credit": 132.0,
+      "debit": 218.0,
+      "net": -86.1
+     },
+     "services": {
+      "credit": 106.2,
+      "debit": 54.6,
+      "net": 51.6
+     },
+     "primary_income": {
+      "credit": 13.0,
+      "debit": 23.5,
+      "net": -10.5
+     },
+     "secondary_income": {
+      "credit": 43.8,
+      "debit": 3.0,
+      "net": 40.8
+     },
+     "fdi": {
+      "credit": 29.7,
+      "debit": 23.6,
+      "net": 6.1
+     },
+     "fpi": {
+      "credit": 134.4,
+      "debit": 144.0,
+      "net": -9.6
+     },
+     "nri_deposits": {
+      "credit": 24.3,
+      "debit": 21.5,
+      "net": 2.8
+     },
+     "ecb": {
+      "credit": 10.2,
+      "debit": 7.0,
+      "net": 3.3
+     },
+     "remittances": 42.9
+    }
+   }
+  }
+ },
+ "fetched_at": "2026-11-09"
+}
