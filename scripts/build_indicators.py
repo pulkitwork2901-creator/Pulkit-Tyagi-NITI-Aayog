@@ -317,9 +317,12 @@ def fetch_core_cpi(session) -> list[dict]:
     u = idx(_get_all(session, "/api/cpi/getCPIData", {**p24, "division_code": "4", "group_code": "11"}), lambda r: not r.get("class"))
     c24 = core(g, f, u, CORE_WEIGHTS_2024)
     rows = []
+    # One year per request: MoSPI's paging is not stable across pages, so a
+    # multi-page reply can drop rows. A single year fits on one page.
     for gc in ("0", "1", "5"):
-        rows += _get_all(session, "/api/cpi/getCPIIndex", {"base_year": "2012", "series": "Current", "state_code": "99", "sector_code": "3",
-                         "group_code": gc, "year": ",".join(str(y) for y in range(2018, 2026)), "limit": "200", "Format": "JSON"})
+        for yr in range(2018, 2026):
+            rows += _get_all(session, "/api/cpi/getCPIIndex", {"base_year": "2012", "series": "Current", "state_code": "99", "sector_code": "3",
+                             "group_code": gc, "year": str(yr), "limit": "200", "Format": "JSON"})
     sub = lambda name: idx(rows, lambda r: r.get("subgroup") == name)
     c12 = core(sub("General-Overall"), sub("Food and Beverages-Overall"), sub("Fuel and Light-Overall"), CORE_WEIGHTS_2012)
     yoy = {}
