@@ -71,8 +71,8 @@ export default function EconomicBoard({ source = '/data/indicators.json', title 
   const tradeBase = source.replace(/[^/]*$/, 'trade/');
 
   let page;
-  if (route.name === 'indicator') page = <IndicatorPage item={item} />;
-  else if (route.name === 'theme') page = <ThemePage group={group} items={indicators.filter((i) => i.group === group)} />;
+  if (route.name === 'indicator') page = <IndicatorPage item={item} byId={byId} />;
+  else if (route.name === 'theme') page = <ThemePage group={group} items={indicators.filter((i) => i.group === group)} byId={byId} />;
   else if (route.name === 'sources') page = <SourcesPage indicators={indicators} />;
   else if (route.name === 'exports' || route.name === 'imports') page = <TradePage base={tradeBase} flow={route.name} view={route.arg} arg={route.arg2} />;
   else if (route.name === 'balance') page = <BalancePage base={tradeBase} />;

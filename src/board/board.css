@@ -711,3 +711,10 @@ a.eb-bar-row:hover .eb-bar-label { text-decoration: underline; }
 .eb-pair.eb-col-missing .eb-pair-bars i.eb-pair-x { display: none; }
 .eb-pair.eb-col-missing .eb-pair-bars i.eb-pair-m { background: none; border: 1.5px dashed var(--eb-muted); }
 .eb-tile-value.eb-bad { color: var(--eb-bad-ink); } .eb-tile-value.eb-good { color: var(--eb-good-ink); }
+
+/* Theme pages: what the figures say together */
+.eb-themebrief { margin: 12px 0 14px; padding: 14px 18px; border-left: 4px solid var(--eb-s1); border-radius: 0 10px 10px 0; background: var(--eb-panel-soft); max-width: 96ch; }
+.eb-themebrief-kicker { margin: 0 0 6px !important; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--eb-muted); }
+.eb-themebrief p { margin: 0; font-size: 15.5px; line-height: 1.65; color: var(--eb-ink); }
+.eb-themebrief p + p { margin-top: 6px; }
+.eb-ru-lead { margin: 0 0 12px; font-size: 15.5px; line-height: 1.6; max-width: 96ch; }

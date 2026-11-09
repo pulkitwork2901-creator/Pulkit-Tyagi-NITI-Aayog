@@ -1,8 +1,9 @@
 import Ledger from '../Ledger.jsx';
+import ThemeBrief from '../ThemeBrief.jsx';
 import TrendChart from '../TrendChart.jsx';
 import { formatValue, signed, tipFor } from '../format.js';
 
-export default function ThemePage({ group, items }) {
+export default function ThemePage({ group, items, byId }) {
   if (!group) {
     return (
       <div className="eb-notfound">
@@ -17,6 +18,7 @@ export default function ThemePage({ group, items }) {
       <nav className="eb-crumbs" aria-label="Breadcrumb"><a href="#/">Dashboard</a><span aria-hidden="true">/</span><span>{group}</span></nav>
       <header className="eb-pagehead">
         <h1>{group}</h1>
+        <ThemeBrief group={group} byId={byId} />
         <p className="eb-asof">{items.length} indicators. Select an indicator to see its full history and source.</p>
       </header>
 

@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-09T13:45:01+00:00",
+ "generated_at": "2026-11-09T14:08:24+00:00",
  "sources": {
   "mospi": {
    "status": "ok",
-   "fetched_at": "2026-11-09T13:45:01+00:00",
+   "fetched_at": "2026-11-09T14:08:24+00:00",
    "message": null
   },
   "rbi": {
@@ -496,6 +496,1142 @@
    ],
    "note": "From January 2026: MoSPI's CPI on the 2024 base. Earlier months: CPI inflation as published on the 2012 base (RBI DBIE). The two series agree within about 0.1 point where they overlap.",
    "updated_at": null
+  },
+  {
+   "label": "CPI inflation, rural",
+   "group": "Growth and prices",
+   "decimals": 2,
+   "up_is_good": false,
+   "change_unit": "pts",
+   "id": "cpi_rural",
+   "mode": "live",
+   "value": 6.08,
+   "unit": "% YoY",
+   "period": "Sep 2026",
+   "compare_value": 5.24,
+   "compare_period": "Aug 2026",
+   "change": 0.84,
+   "source": "MoSPI CPI, rural, base 2024 (2012 base before 2026)",
+   "source_url": "https://esankhyiki.mospi.gov.in",
+   "released": null,
+   "history": [
+    {
+     "date": "2019-01-31",
+     "label": "Jan 2019",
+     "short": "Jan 19",
+     "value": 1.22
+    },
+    {
+     "date": "2019-02-28",
+     "label": "Feb 2019",
+     "short": "Feb 19",
+     "value": 1.81
+    },
+    {
+     "date": "2019-03-31",
+     "label": "Mar 2019",
+     "short": "Mar 19",
+     "value": 1.8
+    },
+    {
+     "date": "2019-04-30",
+     "label": "Apr 2019",
+     "short": "Apr 19",
+     "value": 1.87
+    },
+    {
+     "date": "2019-05-31",
+     "label": "May 2019",
+     "short": "May 19",
+     "value": 1.86
+    },
+    {
+     "date": "2019-06-30",
+     "label": "Jun 2019",
+     "short": "Jun 19",
+     "value": 2.21
+    },
+    {
+     "date": "2019-07-31",
+     "label": "Jul 2019",
+     "short": "Jul 19",
+     "value": 2.19
+    },
+    {
+     "date": "2019-08-31",
+     "label": "Aug 2019",
+     "short": "Aug 19",
+     "value": 2.25
+    },
+    {
+     "date": "2019-09-30",
+     "label": "Sep 2019",
+     "short": "Sep 19",
+     "value": 3.24
+    },
+    {
+     "date": "2019-10-31",
+     "label": "Oct 2019",
+     "short": "Oct 19",
+     "value": 4.29
+    },
+    {
+     "date": "2019-11-30",
+     "label": "Nov 2019",
+     "short": "Nov 19",
+     "value": 5.27
+    },
+    {
+     "date": "2019-12-31",
+     "label": "Dec 2019",
+     "short": "Dec 19",
+     "value": 7.33
+    },
+    {
+     "date": "2020-01-31",
+     "label": "Jan 2020",
+     "short": "Jan 20",
+     "value": 7.73
+    },
+    {
+     "date": "2020-02-29",
+     "label": "Feb 2020",
+     "short": "Feb 20",
+     "value": 6.67
+    },
+    {
+     "date": "2020-03-31",
+     "label": "Mar 2020",
+     "short": "Mar 20",
+     "value": 6.09
+    },
+    {
+     "date": "2020-06-30",
+     "label": "Jun 2020",
+     "short": "Jun 20",
+     "value": 6.34
+    },
+    {
+     "date": "2020-07-31",
+     "label": "Jul 2020",
+     "short": "Jul 20",
+     "value": 6.76
+    },
+    {
+     "date": "2020-08-31",
+     "label": "Aug 2020",
+     "short": "Aug 20",
+     "value": 6.66
+    },
+    {
+     "date": "2020-09-30",
+     "label": "Sep 2020",
+     "short": "Sep 20",
+     "value": 7.36
+    },
+    {
+     "date": "2020-10-31",
+     "label": "Oct 2020",
+     "short": "Oct 20",
+     "value": 7.75
+    },
+    {
+     "date": "2020-11-30",
+     "label": "Nov 2020",
+     "short": "Nov 20",
+     "value": 7.2
+    },
+    {
+     "date": "2020-12-31",
+     "label": "Dec 2020",
+     "short": "Dec 20",
+     "value": 4.07
+    },
+    {
+     "date": "2021-01-31",
+     "label": "Jan 2021",
+     "short": "Jan 21",
+     "value": 3.23
+    },
+    {
+     "date": "2021-02-28",
+     "label": "Feb 2021",
+     "short": "Feb 21",
+     "value": 4.19
+    },
+    {
+     "date": "2021-03-31",
+     "label": "Mar 2021",
+     "short": "Mar 21",
+     "value": 4.61
+    },
+    {
+     "date": "2021-04-30",
+     "label": "Apr 2021",
+     "short": "Apr 21",
+     "value": 3.75
+    },
+    {
+     "date": "2021-05-31",
+     "label": "May 2021",
+     "short": "May 21",
+     "value": 6.55
+    },
+    {
+     "date": "2021-06-30",
+     "label": "Jun 2021",
+     "short": "Jun 21",
+     "value": 6.16
+    },
+    {
+     "date": "2021-07-31",
+     "label": "Jul 2021",
+     "short": "Jul 21",
+     "value": 5.49
+    },
+    {
+     "date": "2021-08-31",
+     "label": "Aug 2021",
+     "short": "Aug 21",
+     "value": 5.28
+    },
+    {
+     "date": "2021-09-30",
+     "label": "Sep 2021",
+     "short": "Sep 21",
+     "value": 4.13
+    },
+    {
+     "date": "2021-10-31",
+     "label": "Oct 2021",
+     "short": "Oct 21",
+     "value": 4.07
+    },
+    {
+     "date": "2021-11-30",
+     "label": "Nov 2021",
+     "short": "Nov 21",
+     "value": 4.29
+    },
+    {
+     "date": "2021-12-31",
+     "label": "Dec 2021",
+     "short": "Dec 21",
+     "value": 5.36
+    },
+    {
+     "date": "2022-01-31",
+     "label": "Jan 2022",
+     "short": "Jan 22",
+     "value": 6.12
+    },
+    {
+     "date": "2022-02-28",
+     "label": "Feb 2022",
+     "short": "Feb 22",
+     "value": 6.38
+    },
+    {
+     "date": "2022-03-31",
+     "label": "Mar 2022",
+     "short": "Mar 22",
+     "value": 7.66
+    },
+    {
+     "date": "2022-04-30",
+     "label": "Apr 2022",
+     "short": "Apr 22",
+     "value": 8.38
+    },
+    {
+     "date": "2022-05-31",
+     "label": "May 2022",
+     "short": "May 22",
+     "value": 7.08
+    },
+    {
+     "date": "2022-06-30",
+     "label": "Jun 2022",
+     "short": "Jun 22",
+     "value": 7.09
+    },
+    {
+     "date": "2022-07-31",
+     "label": "Jul 2022",
+     "short": "Jul 22",
+     "value": 6.8
+    },
+    {
+     "date": "2022-08-31",
+     "label": "Aug 2022",
+     "short": "Aug 22",
+     "value": 7.15
+    },
+    {
+     "date": "2022-09-30",
+     "label": "Sep 2022",
+     "short": "Sep 22",
+     "value": 7.56
+    },
+    {
+     "date": "2022-10-31",
+     "label": "Oct 2022",
+     "short": "Oct 22",
+     "value": 6.98
+    },
+    {
+     "date": "2022-11-30",
+     "label": "Nov 2022",
+     "short": "Nov 22",
+     "value": 6.09
+    },
+    {
+     "date": "2022-12-31",
+     "label": "Dec 2022",
+     "short": "Dec 22",
+     "value": 6.05
+    },
+    {
+     "date": "2023-01-31",
+     "label": "Jan 2023",
+     "short": "Jan 23",
+     "value": 6.85
+    },
+    {
+     "date": "2023-02-28",
+     "label": "Feb 2023",
+     "short": "Feb 23",
+     "value": 6.72
+    },
+    {
+     "date": "2023-03-31",
+     "label": "Mar 2023",
+     "short": "Mar 23",
+     "value": 5.51
+    },
+    {
+     "date": "2023-04-30",
+     "label": "Apr 2023",
+     "short": "Apr 23",
+     "value": 4.68
+    },
+    {
+     "date": "2023-05-31",
+     "label": "May 2023",
+     "short": "May 23",
+     "value": 4.23
+    },
+    {
+     "date": "2023-06-30",
+     "label": "Jun 2023",
+     "short": "Jun 23",
+     "value": 4.78
+    },
+    {
+     "date": "2023-07-31",
+     "label": "Jul 2023",
+     "short": "Jul 23",
+     "value": 7.63
+    },
+    {
+     "date": "2023-08-31",
+     "label": "Aug 2023",
+     "short": "Aug 23",
+     "value": 7.02
+    },
+    {
+     "date": "2023-09-30",
+     "label": "Sep 2023",
+     "short": "Sep 23",
+     "value": 5.33
+    },
+    {
+     "date": "2023-10-31",
+     "label": "Oct 2023",
+     "short": "Oct 23",
+     "value": 5.12
+    },
+    {
+     "date": "2023-11-30",
+     "label": "Nov 2023",
+     "short": "Nov 23",
+     "value": 5.85
+    },
+    {
+     "date": "2023-12-31",
+     "label": "Dec 2023",
+     "short": "Dec 23",
+     "value": 5.93
+    },
+    {
+     "date": "2024-01-31",
+     "label": "Jan 2024",
+     "short": "Jan 24",
+     "value": 5.34
+    },
+    {
+     "date": "2024-02-29",
+     "label": "Feb 2024",
+     "short": "Feb 24",
+     "value": 5.34
+    },
+    {
+     "date": "2024-03-31",
+     "label": "Mar 2024",
+     "short": "Mar 24",
+     "value": 5.51
+    },
+    {
+     "date": "2024-04-30",
+     "label": "Apr 2024",
+     "short": "Apr 24",
+     "value": 5.43
+    },
+    {
+     "date": "2024-05-31",
+     "label": "May 2024",
+     "short": "May 24",
+     "value": 5.34
+    },
+    {
+     "date": "2024-06-30",
+     "label": "Jun 2024",
+     "short": "Jun 24",
+     "value": 5.66
+    },
+    {
+     "date": "2024-07-31",
+     "label": "Jul 2024",
+     "short": "Jul 24",
+     "value": 4.1
+    },
+    {
+     "date": "2024-08-31",
+     "label": "Aug 2024",
+     "short": "Aug 24",
+     "value": 4.16
+    },
+    {
+     "date": "2024-09-30",
+     "label": "Sep 2024",
+     "short": "Sep 24",
+     "value": 5.87
+    },
+    {
+     "date": "2024-10-31",
+     "label": "Oct 2024",
+     "short": "Oct 24",
+     "value": 6.68
+    },
+    {
+     "date": "2024-11-30",
+     "label": "Nov 2024",
+     "short": "Nov 24",
+     "value": 5.95
+    },
+    {
+     "date": "2024-12-31",
+     "label": "Dec 2024",
+     "short": "Dec 24",
+     "value": 5.76
+    },
+    {
+     "date": "2025-01-31",
+     "label": "Jan 2025",
+     "short": "Jan 25",
+     "value": 4.59
+    },
+    {
+     "date": "2025-02-28",
+     "label": "Feb 2025",
+     "short": "Feb 25",
+     "value": 3.79
+    },
+    {
+     "date": "2025-03-31",
+     "label": "Mar 2025",
+     "short": "Mar 25",
+     "value": 3.25
+    },
+    {
+     "date": "2025-04-30",
+     "label": "Apr 2025",
+     "short": "Apr 25",
+     "value": 2.92
+    },
+    {
+     "date": "2025-05-31",
+     "label": "May 2025",
+     "short": "May 25",
+     "value": 2.59
+    },
+    {
+     "date": "2025-06-30",
+     "label": "Jun 2025",
+     "short": "Jun 25",
+     "value": 1.72
+    },
+    {
+     "date": "2025-07-31",
+     "label": "Jul 2025",
+     "short": "Jul 25",
+     "value": 1.18
+    },
+    {
+     "date": "2025-08-31",
+     "label": "Aug 2025",
+     "short": "Aug 25",
+     "value": 1.69
+    },
+    {
+     "date": "2025-09-30",
+     "label": "Sep 2025",
+     "short": "Sep 25",
+     "value": 1.07
+    },
+    {
+     "date": "2025-10-31",
+     "label": "Oct 2025",
+     "short": "Oct 25",
+     "value": -0.25
+    },
+    {
+     "date": "2025-11-30",
+     "label": "Nov 2025",
+     "short": "Nov 25",
+     "value": 0.1
+    },
+    {
+     "date": "2025-12-31",
+     "label": "Dec 2025",
+     "short": "Dec 25",
+     "value": 0.76
+    },
+    {
+     "date": "2026-01-31",
+     "label": "Jan 2026",
+     "short": "Jan 26",
+     "value": 2.73
+    },
+    {
+     "date": "2026-02-28",
+     "label": "Feb 2026",
+     "short": "Feb 26",
+     "value": 3.37
+    },
+    {
+     "date": "2026-03-31",
+     "label": "Mar 2026",
+     "short": "Mar 26",
+     "value": 3.63
+    },
+    {
+     "date": "2026-04-30",
+     "label": "Apr 2026",
+     "short": "Apr 26",
+     "value": 3.74
+    },
+    {
+     "date": "2026-05-31",
+     "label": "May 2026",
+     "short": "May 26",
+     "value": 4.25
+    },
+    {
+     "date": "2026-06-30",
+     "label": "Jun 2026",
+     "short": "Jun 26",
+     "value": 4.74
+    },
+    {
+     "date": "2026-07-31",
+     "label": "Jul 2026",
+     "short": "Jul 26",
+     "value": 4.84
+    },
+    {
+     "date": "2026-08-31",
+     "label": "Aug 2026",
+     "short": "Aug 26",
+     "value": 5.24
+    },
+    {
+     "date": "2026-09-30",
+     "label": "Sep 2026",
+     "short": "Sep 26",
+     "value": 6.08
+    }
+   ],
+   "note": "All India rural CPI inflation. From January 2026 MoSPI's 2024-base series; earlier months as published on the 2012 base.",
+   "updated_at": "2026-11-09T14:08:24+00:00"
+  },
+  {
+   "label": "CPI inflation, urban",
+   "group": "Growth and prices",
+   "decimals": 2,
+   "up_is_good": false,
+   "change_unit": "pts",
+   "id": "cpi_urban",
+   "mode": "live",
+   "value": 4.88,
+   "unit": "% YoY",
+   "period": "Sep 2026",
+   "compare_value": 4.31,
+   "compare_period": "Aug 2026",
+   "change": 0.57,
+   "source": "MoSPI CPI, urban, base 2024 (2012 base before 2026)",
+   "source_url": "https://esankhyiki.mospi.gov.in",
+   "released": null,
+   "history": [
+    {
+     "date": "2019-01-31",
+     "label": "Jan 2019",
+     "short": "Jan 19",
+     "value": 2.91
+    },
+    {
+     "date": "2019-02-28",
+     "label": "Feb 2019",
+     "short": "Feb 19",
+     "value": 3.43
+    },
+    {
+     "date": "2019-03-31",
+     "label": "Mar 2019",
+     "short": "Mar 19",
+     "value": 4.1
+    },
+    {
+     "date": "2019-04-30",
+     "label": "Apr 2019",
+     "short": "Apr 19",
+     "value": 4.3
+    },
+    {
+     "date": "2019-05-31",
+     "label": "May 2019",
+     "short": "May 19",
+     "value": 4.51
+    },
+    {
+     "date": "2019-06-30",
+     "label": "Jun 2019",
+     "short": "Jun 19",
+     "value": 4.33
+    },
+    {
+     "date": "2019-07-31",
+     "label": "Jul 2019",
+     "short": "Jul 19",
+     "value": 4.22
+    },
+    {
+     "date": "2019-08-31",
+     "label": "Aug 2019",
+     "short": "Aug 19",
+     "value": 4.49
+    },
+    {
+     "date": "2019-09-30",
+     "label": "Sep 2019",
+     "short": "Sep 19",
+     "value": 4.78
+    },
+    {
+     "date": "2019-10-31",
+     "label": "Oct 2019",
+     "short": "Oct 19",
+     "value": 5.11
+    },
+    {
+     "date": "2019-11-30",
+     "label": "Nov 2019",
+     "short": "Nov 19",
+     "value": 5.76
+    },
+    {
+     "date": "2019-12-31",
+     "label": "Dec 2019",
+     "short": "Dec 19",
+     "value": 7.46
+    },
+    {
+     "date": "2020-01-31",
+     "label": "Jan 2020",
+     "short": "Jan 20",
+     "value": 7.39
+    },
+    {
+     "date": "2020-02-29",
+     "label": "Feb 2020",
+     "short": "Feb 20",
+     "value": 6.57
+    },
+    {
+     "date": "2020-03-31",
+     "label": "Mar 2020",
+     "short": "Mar 20",
+     "value": 5.59
+    },
+    {
+     "date": "2020-06-30",
+     "label": "Jun 2020",
+     "short": "Jun 20",
+     "value": 6.12
+    },
+    {
+     "date": "2020-07-31",
+     "label": "Jul 2020",
+     "short": "Jul 20",
+     "value": 6.7
+    },
+    {
+     "date": "2020-08-31",
+     "label": "Aug 2020",
+     "short": "Aug 20",
+     "value": 6.8
+    },
+    {
+     "date": "2020-09-30",
+     "label": "Sep 2020",
+     "short": "Sep 20",
+     "value": 7.26
+    },
+    {
+     "date": "2020-10-31",
+     "label": "Oct 2020",
+     "short": "Oct 20",
+     "value": 7.33
+    },
+    {
+     "date": "2020-11-30",
+     "label": "Nov 2020",
+     "short": "Nov 20",
+     "value": 6.73
+    },
+    {
+     "date": "2020-12-31",
+     "label": "Dec 2020",
+     "short": "Dec 20",
+     "value": 5.19
+    },
+    {
+     "date": "2021-01-31",
+     "label": "Jan 2021",
+     "short": "Jan 21",
+     "value": 5.13
+    },
+    {
+     "date": "2021-02-28",
+     "label": "Feb 2021",
+     "short": "Feb 21",
+     "value": 5.96
+    },
+    {
+     "date": "2021-03-31",
+     "label": "Mar 2021",
+     "short": "Mar 21",
+     "value": 6.52
+    },
+    {
+     "date": "2021-04-30",
+     "label": "Apr 2021",
+     "short": "Apr 21",
+     "value": 4.71
+    },
+    {
+     "date": "2021-05-31",
+     "label": "May 2021",
+     "short": "May 21",
+     "value": 5.91
+    },
+    {
+     "date": "2021-06-30",
+     "label": "Jun 2021",
+     "short": "Jun 21",
+     "value": 6.37
+    },
+    {
+     "date": "2021-07-31",
+     "label": "Jul 2021",
+     "short": "Jul 21",
+     "value": 5.82
+    },
+    {
+     "date": "2021-08-31",
+     "label": "Aug 2021",
+     "short": "Aug 21",
+     "value": 5.32
+    },
+    {
+     "date": "2021-09-30",
+     "label": "Sep 2021",
+     "short": "Sep 21",
+     "value": 4.57
+    },
+    {
+     "date": "2021-10-31",
+     "label": "Oct 2021",
+     "short": "Oct 21",
+     "value": 5.04
+    },
+    {
+     "date": "2021-11-30",
+     "label": "Nov 2021",
+     "short": "Nov 21",
+     "value": 5.54
+    },
+    {
+     "date": "2021-12-31",
+     "label": "Dec 2021",
+     "short": "Dec 21",
+     "value": 5.9
+    },
+    {
+     "date": "2022-01-31",
+     "label": "Jan 2022",
+     "short": "Jan 22",
+     "value": 5.91
+    },
+    {
+     "date": "2022-02-28",
+     "label": "Feb 2022",
+     "short": "Feb 22",
+     "value": 5.75
+    },
+    {
+     "date": "2022-03-31",
+     "label": "Mar 2022",
+     "short": "Mar 22",
+     "value": 6.12
+    },
+    {
+     "date": "2022-04-30",
+     "label": "Apr 2022",
+     "short": "Apr 22",
+     "value": 7.09
+    },
+    {
+     "date": "2022-05-31",
+     "label": "May 2022",
+     "short": "May 22",
+     "value": 7.08
+    },
+    {
+     "date": "2022-06-30",
+     "label": "Jun 2022",
+     "short": "Jun 22",
+     "value": 6.86
+    },
+    {
+     "date": "2022-07-31",
+     "label": "Jul 2022",
+     "short": "Jul 22",
+     "value": 6.49
+    },
+    {
+     "date": "2022-08-31",
+     "label": "Aug 2022",
+     "short": "Aug 22",
+     "value": 6.72
+    },
+    {
+     "date": "2022-09-30",
+     "label": "Sep 2022",
+     "short": "Sep 22",
+     "value": 7.27
+    },
+    {
+     "date": "2022-10-31",
+     "label": "Oct 2022",
+     "short": "Oct 22",
+     "value": 6.5
+    },
+    {
+     "date": "2022-11-30",
+     "label": "Nov 2022",
+     "short": "Nov 22",
+     "value": 5.68
+    },
+    {
+     "date": "2022-12-31",
+     "label": "Dec 2022",
+     "short": "Dec 22",
+     "value": 5.39
+    },
+    {
+     "date": "2023-01-31",
+     "label": "Jan 2023",
+     "short": "Jan 23",
+     "value": 6.0
+    },
+    {
+     "date": "2023-02-28",
+     "label": "Feb 2023",
+     "short": "Feb 23",
+     "value": 6.1
+    },
+    {
+     "date": "2023-03-31",
+     "label": "Mar 2023",
+     "short": "Mar 23",
+     "value": 5.89
+    },
+    {
+     "date": "2023-04-30",
+     "label": "Apr 2023",
+     "short": "Apr 23",
+     "value": 4.85
+    },
+    {
+     "date": "2023-05-31",
+     "label": "May 2023",
+     "short": "May 23",
+     "value": 4.33
+    },
+    {
+     "date": "2023-06-30",
+     "label": "Jun 2023",
+     "short": "Jun 23",
+     "value": 4.96
+    },
+    {
+     "date": "2023-07-31",
+     "label": "Jul 2023",
+     "short": "Jul 23",
+     "value": 7.2
+    },
+    {
+     "date": "2023-08-31",
+     "label": "Aug 2023",
+     "short": "Aug 23",
+     "value": 6.59
+    },
+    {
+     "date": "2023-09-30",
+     "label": "Sep 2023",
+     "short": "Sep 23",
+     "value": 4.65
+    },
+    {
+     "date": "2023-10-31",
+     "label": "Oct 2023",
+     "short": "Oct 23",
+     "value": 4.62
+    },
+    {
+     "date": "2023-11-30",
+     "label": "Nov 2023",
+     "short": "Nov 23",
+     "value": 5.26
+    },
+    {
+     "date": "2023-12-31",
+     "label": "Dec 2023",
+     "short": "Dec 23",
+     "value": 5.46
+    },
+    {
+     "date": "2024-01-31",
+     "label": "Jan 2024",
+     "short": "Jan 24",
+     "value": 4.92
+    },
+    {
+     "date": "2024-02-29",
+     "label": "Feb 2024",
+     "short": "Feb 24",
+     "value": 4.78
+    },
+    {
+     "date": "2024-03-31",
+     "label": "Mar 2024",
+     "short": "Mar 24",
+     "value": 4.14
+    },
+    {
+     "date": "2024-04-30",
+     "label": "Apr 2024",
+     "short": "Apr 24",
+     "value": 4.11
+    },
+    {
+     "date": "2024-05-31",
+     "label": "May 2024",
+     "short": "May 24",
+     "value": 4.21
+    },
+    {
+     "date": "2024-06-30",
+     "label": "Jun 2024",
+     "short": "Jun 24",
+     "value": 4.39
+    },
+    {
+     "date": "2024-07-31",
+     "label": "Jul 2024",
+     "short": "Jul 24",
+     "value": 3.03
+    },
+    {
+     "date": "2024-08-31",
+     "label": "Aug 2024",
+     "short": "Aug 24",
+     "value": 3.14
+    },
+    {
+     "date": "2024-09-30",
+     "label": "Sep 2024",
+     "short": "Sep 24",
+     "value": 5.05
+    },
+    {
+     "date": "2024-10-31",
+     "label": "Oct 2024",
+     "short": "Oct 24",
+     "value": 5.62
+    },
+    {
+     "date": "2024-11-30",
+     "label": "Nov 2024",
+     "short": "Nov 24",
+     "value": 4.89
+    },
+    {
+     "date": "2024-12-31",
+     "label": "Dec 2024",
+     "short": "Dec 24",
+     "value": 4.58
+    },
+    {
+     "date": "2025-01-31",
+     "label": "Jan 2025",
+     "short": "Jan 25",
+     "value": 3.87
+    },
+    {
+     "date": "2025-02-28",
+     "label": "Feb 2025",
+     "short": "Feb 25",
+     "value": 3.32
+    },
+    {
+     "date": "2025-03-31",
+     "label": "Mar 2025",
+     "short": "Mar 25",
+     "value": 3.43
+    },
+    {
+     "date": "2025-04-30",
+     "label": "Apr 2025",
+     "short": "Apr 25",
+     "value": 3.36
+    },
+    {
+     "date": "2025-05-31",
+     "label": "May 2025",
+     "short": "May 25",
+     "value": 3.12
+    },
+    {
+     "date": "2025-06-30",
+     "label": "Jun 2025",
+     "short": "Jun 25",
+     "value": 2.56
+    },
+    {
+     "date": "2025-07-31",
+     "label": "Jul 2025",
+     "short": "Jul 25",
+     "value": 2.1
+    },
+    {
+     "date": "2025-08-31",
+     "label": "Aug 2025",
+     "short": "Aug 25",
+     "value": 2.47
+    },
+    {
+     "date": "2025-09-30",
+     "label": "Sep 2025",
+     "short": "Sep 25",
+     "value": 1.83
+    },
+    {
+     "date": "2025-10-31",
+     "label": "Oct 2025",
+     "short": "Oct 25",
+     "value": 0.88
+    },
+    {
+     "date": "2025-11-30",
+     "label": "Nov 2025",
+     "short": "Nov 25",
+     "value": 1.4
+    },
+    {
+     "date": "2025-12-31",
+     "label": "Dec 2025",
+     "short": "Dec 25",
+     "value": 2.03
+    },
+    {
+     "date": "2026-01-31",
+     "label": "Jan 2026",
+     "short": "Jan 26",
+     "value": 2.75
+    },
+    {
+     "date": "2026-02-28",
+     "label": "Feb 2026",
+     "short": "Feb 26",
+     "value": 3.02
+    },
+    {
+     "date": "2026-03-31",
+     "label": "Mar 2026",
+     "short": "Mar 26",
+     "value": 3.11
+    },
+    {
+     "date": "2026-04-30",
+     "label": "Apr 2026",
+     "short": "Apr 26",
+     "value": 3.16
+    },
+    {
+     "date": "2026-05-31",
+     "label": "May 2026",
+     "short": "May 26",
+     "value": 3.53
+    },
+    {
+     "date": "2026-06-30",
+     "label": "Jun 2026",
+     "short": "Jun 26",
+     "value": 3.93
+    },
+    {
+     "date": "2026-07-31",
+     "label": "Jul 2026",
+     "short": "Jul 26",
+     "value": 3.96
+    },
+    {
+     "date": "2026-08-31",
+     "label": "Aug 2026",
+     "short": "Aug 26",
+     "value": 4.31
+    },
+    {
+     "date": "2026-09-30",
+     "label": "Sep 2026",
+     "short": "Sep 26",
+     "value": 4.88
+    }
+   ],
+   "note": "All India urban CPI inflation. From January 2026 MoSPI's 2024-base series; earlier months as published on the 2012 base.",
+   "updated_at": "2026-11-09T14:08:24+00:00"
   },
   {
    "label": "IIP growth",

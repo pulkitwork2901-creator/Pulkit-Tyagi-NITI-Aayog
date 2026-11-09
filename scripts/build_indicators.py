@@ -41,6 +41,8 @@ META = {
     # Growth and prices
     "gdp":            {"label": "Real GDP growth", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "cpi":            {"label": "CPI inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
+    "cpi_rural":      {"label": "CPI inflation, rural", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
+    "cpi_urban":      {"label": "CPI inflation, urban", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
     "iip":            {"label": "IIP growth", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "wpi":            {"label": "WPI inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
     "wpi_food":       {"label": "WPI food inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
@@ -245,6 +247,34 @@ def shape_gdp(rows: list[dict]) -> dict | None:
                      "label": f'{r["quarter"]} {r["year"]}', "short": f'{r["quarter"]} {str(r["year"])[2:]}',
                      "value": _num(r["constant_price"])} for r in pts],
     }
+
+
+def fetch_cpi_sectors(session) -> list[dict]:
+    """Rural and urban CPI inflation: 2024 base from January 2026, linked to the
+    2012 base (MoSPI getCPIIndex, All India, General) for earlier months."""
+    this_year = date.today().year
+    out = []
+    for code, ind_id, name in (("1", "cpi_rural", "rural"), ("2", "cpi_urban", "urban")):
+        new = _get_all(session, "/api/cpi/getCPIData", {
+            "base_year": "2024", "series": "Current", "state_code": "1", "sector_code": code,
+            "division_code": "0", "year": f"{this_year - 1},{this_year}", "limit": "100", "Format": "JSON"})
+        old = _get_all(session, "/api/cpi/getCPIIndex", {
+            "base_year": "2012", "series": "Current", "state_code": "99", "sector_code": code, "group_code": "0",
+            "year": ",".join(str(y) for y in range(2019, 2026)), "limit": "200", "Format": "JSON"})
+        old = [r for r in old if r.get("subgroup") == "General-Overall"]
+        pts = {}
+        for r in old + new:  # the 2024 base overrides where both exist
+            v = _num(r.get("inflation"))
+            if v is None or r.get("month") not in MONTHS:
+                continue
+            pts[(int(r["year"]), MONTHS.index(r["month"]) + 1)] = v
+        points = [(y, m, v) for (y, m), v in sorted(pts.items())]
+        item = _monthly_item(ind_id, points, "% YoY", f"MoSPI CPI, {name}, base 2024 (2012 base before 2026)",
+                             f"All India {name} CPI inflation. From January 2026 MoSPI's 2024-base series; earlier months as published on the 2012 base.")
+        if item:  # compared with the previous month, like headline CPI
+            out.append(item)
+    return out
+
 
 
 def shape_cpi(rows: list[dict]) -> dict | None:
@@ -515,7 +545,8 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
             s = _session()
         except Exception as exc:
             s, extra_failed = None, [f"session: {exc}"]
-        for name, fetch, shape in (("WPI", fetch_wpi, shape_wpi), ("PLFS", fetch_unemployment, lambda r: [shape_unemployment(r)])):
+        for name, fetch, shape in (("WPI", fetch_wpi, shape_wpi), ("PLFS", fetch_unemployment, lambda r: [shape_unemployment(r)]),
+                                   ("CPI rural/urban", fetch_cpi_sectors, lambda items: items)):
             try:
                 if s is None:
                     raise RuntimeError("no connection")
@@ -526,7 +557,7 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
                     live[i["id"]] = i
             except Exception as exc:
                 extra_failed.append(f"{name}: {exc}")
-    for k in ("wpi", "wpi_food", "unemployment"):
+    for k in ("wpi", "wpi_food", "unemployment", "cpi_rural", "cpi_urban"):
         if k not in live and k in previous:
             live[k] = {**previous[k], "stale": bool(extra_failed)}
     if extra_failed:
