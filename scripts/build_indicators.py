@@ -37,10 +37,15 @@ MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
 
 # Display settings per indicator. Order inside each group is the display order.
+ROOT_DIR = Path(__file__).resolve().parent.parent
+
 META = {
     # Growth and prices
     "gdp":            {"label": "Real GDP growth", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "cpi":            {"label": "CPI inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
+    "cpi_core":       {"label": "Core CPI inflation (excluding food and fuel)", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
+    "gdp_nominal":    {"label": "Nominal GDP growth", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
+    "gdp_deflator":   {"label": "GDP deflator inflation", "group": "Growth and prices", "decimals": 1, "up_is_good": None,  "change_unit": "pts"},
     "cpi_rural":      {"label": "CPI inflation, rural", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
     "cpi_urban":      {"label": "CPI inflation, urban", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
     "iip":            {"label": "IIP growth", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
@@ -48,6 +53,8 @@ META = {
     "wpi_food":       {"label": "WPI food inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
     "pmi_mfg":        {"label": "Manufacturing PMI (HSBC)", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "pmi_services":   {"label": "Services PMI (HSBC)", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
+    "crude_basket":   {"label": "Crude oil price (Indian basket)", "group": "Growth and prices", "decimals": 1, "up_is_good": False, "change_unit": "$"},
+    "crude_basket_inr": {"label": "Crude oil price in rupees", "group": "Growth and prices", "decimals": 0, "up_is_good": False, "change_unit": "₹"},
     "unemployment":   {"label": "Unemployment rate", "group": "Growth and prices", "decimals": 1, "up_is_good": False, "change_unit": "pts"},
     # External sector
     "exports":        {"label": "Merchandise exports", "group": "External sector", "decimals": 2, "up_is_good": True,  "change_unit": "bn"},
@@ -71,12 +78,16 @@ META = {
     # Fiscal and monetary
     "fiscal_deficit": {"label": "Centre's fiscal deficit", "group": "Fiscal and monetary", "decimals": 1, "up_is_good": False, "change_unit": "pts"},
     "capex_centre":   {"label": "Centre's capital expenditure", "group": "Fiscal and monetary", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
+    "gst_domestic":   {"label": "GST on domestic transactions (gross)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
+    "gst_imports":    {"label": "GST on imports (gross)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "lakh cr"},
     "gst_gross":      {"label": "Gross GST collections", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
     "sdl_borrowing":  {"label": "State government market borrowing", "group": "Fiscal and monetary", "decimals": 1, "up_is_good": None,  "change_unit": "'000 cr"},
     "repo":           {"label": "Policy repo rate", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
     "sdf_rate":       {"label": "Standing deposit facility rate", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
     "msf_rate":       {"label": "Marginal standing facility rate", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
     "crr":            {"label": "Cash reserve ratio", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
+    "real_repo":      {"label": "Real policy rate (repo minus CPI inflation)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None, "change_unit": "pts"},
+    "real_gsec10":    {"label": "Real 10-year yield (G-sec minus CPI inflation)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None, "change_unit": "pts"},
     "tbill_91":       {"label": "91-day T-bill yield", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
     "gsec10":         {"label": "10-year G-sec yield", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
     # Money, credit and capital flows
@@ -277,6 +288,79 @@ def fetch_cpi_sectors(session) -> list[dict]:
 
 
 
+# Official CPI basket weights (MoSPI), All India combined.
+CORE_WEIGHTS_2024 = {"food": 0.3675, "fuel": 0.05489}   # food and beverages; electricity, gas and other fuels
+CORE_WEIGHTS_2012 = {"food": 0.45863, "fuel": 0.06843}  # food and beverages; fuel and light
+
+
+def fetch_core_cpi(session) -> list[dict]:
+    """Core CPI inflation, excluding food and fuel, from MoSPI component indices and
+    official weights: core index = (general - w_food x food - w_fuel x fuel) / (1 - w_food - w_fuel).
+    2024 base from January 2026, 2012 base for earlier months."""
+    this_year = date.today().year
+
+    def idx(rows, pick):
+        out = {}
+        for r in rows:
+            v = _num(r.get("index"))
+            if v is not None and pick(r) and r.get("month") in MONTHS:
+                out[(int(r["year"]), MONTHS.index(r["month"]) + 1)] = v
+        return out
+
+    def core(g, f, u, w):
+        return {k: (g[k] - w["food"] * f[k] - w["fuel"] * u[k]) / (1 - w["food"] - w["fuel"]) for k in g if k in f and k in u}
+
+    p24 = {"base_year": "2024", "series": "Current", "state_code": "1", "sector_code": "3",
+           "year": ",".join(str(y) for y in range(2025, this_year + 1)), "limit": "100", "Format": "JSON"}
+    g = idx(_get_all(session, "/api/cpi/getCPIData", {**p24, "division_code": "0"}), lambda r: True)
+    f = idx(_get_all(session, "/api/cpi/getCPIData", {**p24, "division_code": "1"}), lambda r: not r.get("group"))
+    u = idx(_get_all(session, "/api/cpi/getCPIData", {**p24, "division_code": "4", "group_code": "11"}), lambda r: not r.get("class"))
+    c24 = core(g, f, u, CORE_WEIGHTS_2024)
+    rows = []
+    for gc in ("0", "1", "5"):
+        rows += _get_all(session, "/api/cpi/getCPIIndex", {"base_year": "2012", "series": "Current", "state_code": "99", "sector_code": "3",
+                         "group_code": gc, "year": ",".join(str(y) for y in range(2018, 2026)), "limit": "200", "Format": "JSON"})
+    sub = lambda name: idx(rows, lambda r: r.get("subgroup") == name)
+    c12 = core(sub("General-Overall"), sub("Food and Beverages-Overall"), sub("Fuel and Light-Overall"), CORE_WEIGHTS_2012)
+    yoy = {}
+    for c in (c12, c24):  # the 2024 base overrides from January 2026
+        for (y, m), v in c.items():
+            if (y - 1, m) in c:
+                yoy[(y, m)] = (v / c[(y - 1, m)] - 1) * 100
+    pts = [(y, m, round(v, 2)) for (y, m), v in sorted(yoy.items())]
+    item = _monthly_item("cpi_core", pts, "% YoY", "Computed from MoSPI CPI component indices and official weights",
+                         "CPI excluding food and beverages and household fuel (electricity, gas and other fuels), All India combined. "
+                         "Computed from MoSPI's published indices with MoSPI's basket weights (2024 base: food 36.75%, fuel 5.49%; "
+                         "2012 base: food 45.86%, fuel and light 6.84%). Petrol and diesel for vehicles stay in, as in the usual Indian measure. "
+                         "Not an official MoSPI series.")
+    return [item] if item else []
+
+
+def shape_gdp_extra(rows: list[dict]) -> list[dict]:
+    """Nominal GDP growth (MoSPI current prices) and the implied GDP deflator."""
+    key = lambda r: (int(str(r["year"])[:4]), int(str(r["quarter"]).lstrip("Q")))
+    pts = sorted((r for r in rows if _num(r.get("current_price")) is not None and _num(r.get("constant_price")) is not None), key=key)
+    out = []
+    for ind_id, fn, src, note in (
+        ("gdp_nominal", lambda r: _num(r["current_price"]), "MoSPI National Accounts, base 2022-23 (current prices)",
+         "GDP growth at current prices, before adjusting for inflation."),
+        ("gdp_deflator", lambda r: round(((1 + _num(r["current_price"]) / 100) / (1 + _num(r["constant_price"]) / 100) - 1) * 100, 1),
+         "Derived from MoSPI National Accounts (current and constant prices)",
+         "Implied GDP deflator inflation: (1 + nominal growth) / (1 + real growth) - 1. The broadest measure of inflation across everything the economy produces."),
+    ):
+        hist = [{"date": _fy_quarter_end(r["year"], r["quarter"]), "label": f'{r["quarter"]} {r["year"]}',
+                 "short": f'{r["quarter"]} {str(r["year"])[2:]}', "value": fn(r)} for r in pts]
+        if not hist:
+            continue
+        last, prev = hist[-1], (hist[-2] if len(hist) > 1 else None)
+        out.append({"id": ind_id, "mode": "live", "value": last["value"], "unit": "% YoY", "period": last["label"],
+                    "compare_value": prev["value"] if prev else None, "compare_period": prev["label"] if prev else None,
+                    "change": _change(last["value"], prev["value"] if prev else None),
+                    "source": src, "source_url": "https://esankhyiki.mospi.gov.in", "released": None, "history": hist, "note": note})
+    return out
+
+
+
 def shape_cpi(rows: list[dict]) -> dict | None:
     key = lambda r: (int(r["year"]), MONTHS.index(r["month"]))
     pts = sorted((r for r in rows if _num(r.get("inflation")) is not None and r.get("month") in MONTHS), key=key)
@@ -473,6 +557,21 @@ def rbi_release_items() -> dict[str, dict]:
         if item:
             out[key] = item
 
+    sec = m.get("sectoral") or {}
+    url_c = RBI_PR_URL.format(latest["sectoral"]) if "sectoral" in latest else "https://www.rbi.org.in/Scripts/Pr_DataRelease.aspx?SectionID=348"
+    for key in ("credit_agri", "credit_industry", "credit_services", "credit_personal"):
+        hist = [month_pt(k, v[key]) for k, v in sorted(sec.items()) if v.get(key) is not None]
+        if not hist:
+            continue
+        last_k = max(k for k, v in sec.items() if v.get(key) is not None)
+        ya = sec[last_k].get(key + "_year_ago")
+        last = hist[-1]
+        y, mo = int(last_k[:4]), int(last_k[5:7])
+        out[key] = {"id": key, "mode": "rbi", "value": last["value"], "unit": "% YoY", "period": last["label"],
+                    "compare_value": ya, "compare_period": f"Growth a year earlier ({MONTHS[mo - 1][:3]} {y - 1}), as restated by RBI" if ya is not None else None,
+                    "change": _change(last["value"], ya), "source": "RBI, Sectoral Deployment of Bank Credit (monthly release)",
+                    "source_url": url_c, "released": None, "history": hist}
+
     bm = m["bop_month"]
     nri = [month_pt(k, v["nri_deposits"]) for k, v in sorted(bm.items()) if v.get("nri_deposits") is not None]
     item = _year_ago_item("nri_deposits", nri, "US$ bn", "RBI, Developments in India's balance of payments (monthly, from April 2026)",
@@ -480,6 +579,101 @@ def rbi_release_items() -> dict[str, dict]:
                           "Net inflow into NRI deposit accounts. RBI's 5 June 2026 measures on NRI deposits drew US$ 119 bn in April to August 2026, against US$ 6 bn a year earlier. Monthly figures exist only for April to August of 2025 and 2026.")
     if item:
         out["nri_deposits"] = item
+    return out
+
+
+
+def ppac_items(by_id: dict) -> dict[str, dict]:
+    """Indian basket crude from data/ppac_crude.json (written by scripts/ppac_crude.py),
+    in US$ and, using the rupee's month-end reference rate, in rupees."""
+    path = ROOT_DIR / "data" / "ppac_crude.json"
+    if not path.exists():
+        return {}
+    d = json.loads(path.read_text())
+    months = d.get("months") or {}
+    if not months:
+        return {}
+    fetched = d.get("fetched_at", "")
+    pts = []
+    for k in sorted(months):
+        y, m = int(k[:4]), int(k[5:7])
+        pts.append((y, m, months[k]))
+    note = ("Monthly average FOB price of the crude basket Indian refineries import (Brent Dated as the sweet grade, "
+            "Oman and Dubai as the sour grade). PPAC does not publish monthly figures for 2022-23 on its site, so that year is a gap.")
+    item = _monthly_item("crude_basket", pts, "US$ per barrel", d.get("source", "PPAC"), note)
+    out = {}
+    if item:
+        item["source_url"] = d.get("source_url")
+        item["mode"] = "ppac"
+        last = sorted(months)[-1]
+        if fetched[:7] == last:  # the current month is an average to date
+            item["period"] += " (to date)"
+            item["history"][-1]["label"] += " (to date)"
+        out["crude_basket"] = item
+    inr = {h["date"][:7]: h["value"] for h in (by_id.get("inr_usd") or {}).get("history", []) if h.get("value")}
+    rpts = [(y, m, round(v * inr[f"{y}-{m:02d}"])) for y, m, v in pts if f"{y}-{m:02d}" in inr]
+    ritem = _monthly_item("crude_basket_inr", rpts, "₹ per barrel", "PPAC Indian basket (US$) x RBI reference rate (month end)",
+                          "Indian basket price in US$ multiplied by the rupee's month-end reference rate: what a barrel costs in rupees. "
+                          "A weaker rupee raises it even when dollar prices are flat.")
+    if ritem:
+        ritem["mode"] = "ppac"
+        out["crude_basket_inr"] = ritem
+    return out
+
+
+
+def real_rate_items(by_id: dict) -> dict[str, dict]:
+    """Repo rate and 10-year G-sec yield minus CPI inflation, month by month.
+    The rate is taken as it stood at each month's end."""
+    cpi = [h for h in (by_id.get("cpi") or {}).get("history", []) if h.get("value") is not None]
+    out = {}
+    for ind_id, rate_id, name in (("real_repo", "repo", "policy repo rate"), ("real_gsec10", "gsec10", "10-year G-sec yield")):
+        rates = sorted((h["date"], h["value"]) for h in (by_id.get(rate_id) or {}).get("history", []) if h.get("value") is not None)
+        if not rates or not cpi:
+            continue
+        pts = []
+        for h in cpi:
+            prior = [v for d, v in rates if d <= h["date"]]
+            if prior and h["date"] >= rates[0][0]:
+                y, m = int(h["date"][:4]), int(h["date"][5:7])
+                pts.append((y, m, round(prior[-1] - h["value"], 2)))
+        item = _monthly_item(ind_id, pts, "%", f"Derived: RBI {name} minus MoSPI CPI inflation",
+                             f"The {name} at each month's end minus CPI inflation for that month. Near zero or below means "
+                             "borrowing is cheap once inflation is allowed for, so policy is not restraining demand.")
+        if item:
+            item["mode"] = "derived"
+            out[ind_id] = item
+    return out
+
+
+
+def gst_items() -> dict[str, dict]:
+    """Gross GST, and its domestic and import parts, from GSTN's monthly reports
+    (data/gst_reports.json, written by scripts/gst_reports.py)."""
+    path = ROOT_DIR / "data" / "gst_reports.json"
+    if not path.exists():
+        return {}
+    months = json.loads(path.read_text()).get("months") or {}
+    out = {}
+    for key, field, label in (("gst_gross", "gross", "Gross GST"), ("gst_domestic", "domestic", "GST on domestic transactions"),
+                              ("gst_imports", "imports", "GST on imports")):
+        rows = sorted((k, v) for k, v in months.items() if v.get(field) is not None)
+        if not rows:
+            continue
+        hist = []
+        for k, v in rows:
+            y, m = int(k[:4]), int(k[5:7])
+            hist.append({"date": _month_end(y, m), "label": f"{MONTHS[m - 1][:3]} {y}", "short": f"{MONTHS[m - 1][:3]} {str(y)[2:]}",
+                         "value": round(v[field] / 1e5, 4)})
+        k, v = rows[-1]
+        y, m = int(k[:4]), int(k[5:7])
+        ya = round(v[field + "_year_ago"] / 1e5, 4) if v.get(field + "_year_ago") else None
+        out[key] = {"id": key, "mode": "gstn", "value": hist[-1]["value"], "unit": "₹ lakh crore", "period": hist[-1]["label"],
+                    "compare_value": ya, "compare_period": f"{MONTHS[m - 1][:3]} {y - 1}" if ya is not None else None,
+                    "change": _change(hist[-1]["value"], ya), "source": "GSTN, monthly GST revenue report (provisional)",
+                    "source_url": v.get("source_url"), "released": None, "history": hist,
+                    "note": f"{label}, as reported by GSTN for the month (provisional). Compared with the same month a year earlier, "
+                            "as stated in the same report, so both exclude compensation cess."}
     return out
 
 
@@ -529,6 +723,8 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
         for item in (shape_gdp(gdp_rows), shape_cpi(cpi_rows)):
             if item:
                 live[item["id"]] = item
+        for item in shape_gdp_extra(gdp_rows):
+            live[item["id"]] = item
         if len(live) < 2:
             raise RuntimeError("MoSPI returned no usable rows for GDP or CPI")
     except Exception as exc:  # keep the board up with last good values
@@ -546,7 +742,8 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
         except Exception as exc:
             s, extra_failed = None, [f"session: {exc}"]
         for name, fetch, shape in (("WPI", fetch_wpi, shape_wpi), ("PLFS", fetch_unemployment, lambda r: [shape_unemployment(r)]),
-                                   ("CPI rural/urban", fetch_cpi_sectors, lambda items: items)):
+                                   ("CPI rural/urban", fetch_cpi_sectors, lambda items: items),
+                                   ("Core CPI", fetch_core_cpi, lambda items: items)):
             try:
                 if s is None:
                     raise RuntimeError("no connection")
@@ -557,7 +754,7 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
                     live[i["id"]] = i
             except Exception as exc:
                 extra_failed.append(f"{name}: {exc}")
-    for k in ("wpi", "wpi_food", "unemployment", "cpi_rural", "cpi_urban"):
+    for k in ("wpi", "wpi_food", "unemployment", "cpi_rural", "cpi_urban", "cpi_core", "gdp_nominal", "gdp_deflator"):
         if k not in live and k in previous:
             live[k] = {**previous[k], "stale": bool(extra_failed)}
     if extra_failed:
@@ -574,6 +771,10 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
     except Exception as exc:  # a parse problem must not stop the board
         print(f"RBI releases skipped: {exc}")
         releases = {}
+    try:
+        releases.update(gst_items())
+    except Exception as exc:
+        print(f"GST reports skipped: {exc}")
     by_id = {**{i["id"]: i for i in manual}, **rbi, **releases, **live}
     # The division's workbook gives history for series otherwise typed in one
     # reading at a time. A newer (or same-date, more precise) manual reading
@@ -589,7 +790,8 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
         current = by_id.get(wid)
         if current is None:
             by_id[wid] = witem
-        elif current.get("mode") == "manual":
+        elif current.get("mode") == "manual" or wid.startswith("credit_") or wid == "gst_gross":
+            # Newer readings (manual sheet, RBI's monthly sectoral release) take the top.
             by_id[wid] = merge_series(witem, current, other_wins_ties=True)
         else:
             by_id[wid] = merge_series(current, witem, other_wins_ties=True)
@@ -601,6 +803,11 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
         if back:
             by_id["cpi"] = {**by_id["cpi"], "history": back + by_id["cpi"]["history"],
                             "note": "From January 2026: MoSPI's CPI on the 2024 base. Earlier months: CPI inflation as published on the 2012 base (RBI DBIE). The two series agree within about 0.1 point where they overlap."}
+    by_id.update(real_rate_items(by_id))
+    try:
+        by_id.update(ppac_items(by_id))
+    except Exception as exc:
+        print(f"PPAC crude skipped: {exc}")
     indicators = []
     for ind_id, meta in META.items():
         if ind_id in by_id:

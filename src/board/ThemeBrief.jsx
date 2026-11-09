@@ -16,11 +16,11 @@ const yearAgo = (i) => {
 };
 
 function growth(b) {
-  const { gdp, iip, pmi_mfg: pm, pmi_services: ps, cpi, wpi, cpi_rural: cr, cpi_urban: cu, unemployment: ur } = b;
+  const { gdp, iip, pmi_mfg: pm, pmi_services: ps, cpi, wpi, cpi_rural: cr, cpi_urban: cu, unemployment: ur, cpi_core: core, crude_basket: oil, gdp_nominal: gn } = b;
   const expanding = pm && ps ? (pm.value > 50 && ps.value > 50 ? 'both above 50, so activity is expanding' : 'one or both below 50, so activity is slowing') : null;
   const s1 = gdp && (
     <>
-      The economy grew {pct(gdp)} in {gdp.period}
+      The economy grew {pct(gdp)} in {gdp.period}{gn ? <> ({pct(gn)} before adjusting for inflation)</> : null}
       {iip ? <>, industrial output rose {pct(iip)} in {iip.period}</> : null}
       {expanding ? <>, and the business surveys (PMIs) are {expanding} (manufacturing {formatValue(pm.value, 1)}, services {formatValue(ps.value, 1)})</> : null}.
     </>
@@ -29,7 +29,8 @@ function growth(b) {
   const s2 = cpi && (
     <>
       Retail (CPI) inflation is {dir ? `${dir} at ` : ''}{pct(cpi, 2)}
-      {wpi ? <>, with wholesale prices up {pct(wpi, 2)}{wpi.value > cpi.value ? ', a sign that more cost pressure may reach shoppers' : ''}</> : null}
+      {core ? <> and core inflation (excluding food and fuel) {core.change > 0 ? 'climbing to' : 'at'} {pct(core, 2)}</> : null}
+      {wpi ? <>, with wholesale prices up {pct(wpi, 2)}{oil ? <> as Indian-basket crude {oil.period.includes('to date') ? 'averages' : 'averaged'} <strong>{'$' + formatValue(oil.value, 0)}</strong> a barrel ({oil.period.replace(' (to date)', ', month to date')})</> : null}{wpi.value > cpi.value ? ', a sign that more cost pressure may reach shoppers' : ''}</> : null}
       {cr && cu ? <>; prices are rising faster in {cr.value >= cu.value ? 'villages' : 'towns'} ({cr.value >= cu.value ? `rural ${f(cr.value, 2)}% against urban ${f(cu.value, 2)}%` : `urban ${f(cu.value, 2)}% against rural ${f(cr.value, 2)}%`})</> : null}
       {ur ? <>, while unemployment is {pct(ur)}</> : null}.
     </>
@@ -62,7 +63,7 @@ function external(b) {
 }
 
 function fiscal(b) {
-  const { repo, cpi, gsec10: g, fiscal_deficit: fd, capex_centre: cx, gst_gross: gst } = b;
+  const { repo, cpi, gsec10: g, fiscal_deficit: fd, capex_centre: cx, gst_gross: gst, gst_imports: gi, gst_domestic: gd } = b;
   const move = repo && repo.change ? `after a ${Math.round(Math.abs(repo.change) * 100)} basis point ${repo.change > 0 ? 'hike' : 'cut'}` : 'unchanged';
   const real = repo && cpi ? repo.value - cpi.value : null;
   const s1 = repo && (
@@ -78,7 +79,8 @@ function fiscal(b) {
       The Centre had used {pct(fd)} of its full-year fiscal deficit target by {fd.period}
       {fd.compare_value != null ? <> (against {f(fd.compare_value)}% a year earlier)</> : null}
       {cx ? <> and {pct(cx)} of its capital budget</> : null}
-      {gy != null ? <>; GST collections of <strong>₹{formatValue(gst.value, 2)} lakh crore</strong> in {gst.period} were {Math.abs(gy).toFixed(0)}% {gy >= 0 ? 'higher' : 'lower'} than a year earlier</> : null}.
+      {gy != null ? <>; GST collections of <strong>₹{formatValue(gst.value, 2)} lakh crore</strong> in {gst.period} were {Math.abs(gy).toFixed(0)}% {gy >= 0 ? 'higher' : 'lower'} than a year earlier</> : null}
+      {gi && gd && gi.compare_value && gd.compare_value && gi.period === gst.period ? <> (GST on imports up {((gi.value / gi.compare_value - 1) * 100).toFixed(0)}%, on domestic transactions {((gd.value / gd.compare_value - 1) * 100).toFixed(0)}%)</> : null}.
     </>
   );
   return [s1, s2];

@@ -60,6 +60,13 @@ Deliberately not used from that file: the IIP column (it splices the 2011-12 and
 
 Where the team sheet has a newer figure from the same release (for example Commerce's trade data a month ahead of RBI's table, or RBI's published credit growth), the sheet's figure is used for that month and the RBI file supplies the history.
 
+## Crude oil, GST, core inflation and real rates (automatic)
+
+- `scripts/ppac_crude.py` reads PPAC's Indian basket crude price (US$ a barrel, monthly average) from the endpoint behind PPAC's price page. PPAC publishes no monthly figures for 2022-23, so that year is a gap. The board also shows the price in rupees (US$ price times the RBI reference rate).
+- `scripts/gst_reports.py` reads the GST portal's news feed, downloads each new GSTN monthly revenue report (PDF) and takes gross, domestic and import GST with the year-ago figures.
+- Bank credit by sector is read from RBI's monthly "Sectoral Deployment of Bank Credit" release by `scripts/rbi_releases.py`.
+- Core CPI (excluding food and household fuel) is computed in `build_indicators.py` from MoSPI's component indices and MoSPI's basket weights (2024 base: food and beverages 36.75%, electricity, gas and other fuels 5.489%; 2012 base: 45.863% and 6.843%). Nominal GDP growth and the implied GDP deflator come from MoSPI's quarterly national accounts. Real interest rates are the repo rate and 10-year G-sec yield minus CPI inflation.
+
 ## The division's indicators workbook
 
 `data/uploads/india-economic-indicators.xlsx` holds history compiled from official releases, each value cited on its Sources sheet: bank credit by sector, gross GST, the Centre's fiscal deficit and capital expenditure (% of budget estimate), IIP on the 2022-23 base, HSBC PMIs and the current account (% of GDP). `scripts/econ_workbook.py` reads it on every build. To update, replace the file with a newer version of the same layout and push; a reading typed into `data/manual-indicators.csv` that is newer than the workbook takes over the latest point.

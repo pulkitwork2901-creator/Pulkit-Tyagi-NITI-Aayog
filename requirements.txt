@@ -5,3 +5,5 @@ certifi>=2026.10.19
 openpyxl>=3.1
 # loads the MSME dashboard's missing intermediate certificate (see build_reform.py)
 cryptography>=42
+# reads GSTN's monthly GST revenue report PDFs (scripts/gst_reports.py)
+pypdf>=4.0

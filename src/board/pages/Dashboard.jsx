@@ -15,7 +15,7 @@ import { formatDateTime, formatValue, signed, tipFor } from '../format.js';
 
 const RANGES = [['1Y', 1], ['3Y', 3], ['5Y', 5]];
 const TILES = ['gdp', 'cpi', 'wpi', 'repo', 'unemployment', 'credit_nonfood'];
-const SHORT = { iip: 'IIP', credit_services: 'Credit to services', fiscal_deficit: 'Fiscal deficit', services_net: 'Services surplus', ca_usd: 'Current account', remittances: 'Remittances', gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI', unemployment: 'Unemployment', fx_reserves: 'Reserves', inr_usd: '₹ per US$' };
+const SHORT = { crude_basket: 'Indian basket', real_repo: 'Real repo rate', cpi_rural: 'Rural CPI', iip: 'IIP', credit_services: 'Credit to services', fiscal_deficit: 'Fiscal deficit', services_net: 'Services surplus', ca_usd: 'Current account', remittances: 'Remittances', gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI', unemployment: 'Unemployment', fx_reserves: 'Reserves', inr_usd: '₹ per US$' };
 const S1 = 'var(--eb-s1)';
 const S2 = 'var(--eb-s2)';
 const S3 = 'var(--eb-s3)';
@@ -131,7 +131,7 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
   const start = latest - years * 365.25 * 86400000;
   const h = (id) => byId[id]?.history || [];
   const has = (...ids) => ids.some((id) => byId[id]);
-  const head = (id) => byId[id] && { value: (byId[id].unit.startsWith('%') ? `${signed(formatValue(byId[id].value, byId[id].decimals))}%` : byId[id].unit.startsWith('US$ bn') ? `US$ ${signed(formatValue(byId[id].value, 1))} bn` : byId[id].unit.startsWith('₹ per US$') ? `₹${formatValue(byId[id].value, 2)}` : `${signed(formatValue(byId[id].value, byId[id].decimals))} ${byId[id].unit}`), sub: `${SHORT[id] || byId[id].label} · ${byId[id].period.replace(/^(Week|Fortnight) to /, '')}` };
+  const head = (id) => byId[id] && { value: (byId[id].unit.startsWith('%') ? `${signed(formatValue(byId[id].value, byId[id].decimals))}%` : byId[id].unit.startsWith('US$ bn') ? `US$ ${signed(formatValue(byId[id].value, 1))} bn` : byId[id].unit === 'US$ per barrel' ? `$${formatValue(byId[id].value, 1)}` : byId[id].unit.startsWith('₹ per US$') ? `₹${formatValue(byId[id].value, 2)}` : `${signed(formatValue(byId[id].value, byId[id].decimals))} ${byId[id].unit}`), sub: `${SHORT[id] || byId[id].label} · ${byId[id].period.replace(/^(Week|Fortnight) to /, '')}` };
 
   return (
     <div className="eb-dash">
@@ -164,16 +164,38 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
       <h2 className="eb-eyebrow" id="eb-panels-h">Trends</h2>
       <section className="eb-panels" aria-labelledby="eb-panels-h">
         {has('gdp') && (
-          <MultiChart title="Growth" icon="growth" headline={head('gdp')} note="Real GDP, % year on year, by quarter. MoSPI." kind="bar" start={start} fmt={pct(1)}
-            series={[{ key: 'gdp', label: 'Real GDP growth', color: S1, points: h('gdp') }]} />
+          <MultiChart title="Growth, real and nominal" icon="growth" headline={head('gdp')} note="% year on year, by quarter. Deflator: the inflation that turns real into nominal growth. MoSPI." kind="bar" start={start} fmt={pct(1)}
+            series={[
+              { key: 'gdp', label: 'Real GDP', color: S1, points: h('gdp') },
+              { key: 'gdp_nominal', label: 'Nominal GDP', color: S2, points: h('gdp_nominal') },
+              { key: 'gdp_deflator', label: 'Deflator', color: S3, points: h('gdp_deflator') },
+            ]} />
         )}
-        {has('cpi', 'repo') && (
-          <MultiChart title="Inflation and policy rate" icon="prices" headline={head('cpi')} note="% year on year. Shaded: RBI's 2 to 6% CPI tolerance band. CPI before 2026 on the 2012 base. MoSPI, RBI." start={start} fmt={pct(2)}
+        {has('cpi') && (
+          <MultiChart title="Inflation" icon="prices" headline={head('cpi')} note="% year on year. Core excludes food and household fuel (computed from MoSPI indices and weights). Shaded: RBI's 2 to 6% band. MoSPI." start={start} fmt={pct(2)}
             band={{ lo: 2, hi: 6, label: '2–6% band' }}
             series={[
-              { key: 'cpi', label: 'CPI inflation', color: S1, points: h('cpi') },
-              { key: 'repo', label: 'Repo rate', color: S2, points: h('repo') },
-              { key: 'wpi', label: 'WPI inflation', color: S3, points: h('wpi') },
+              { key: 'cpi', label: 'CPI', color: S1, points: h('cpi') },
+              { key: 'cpi_core', label: 'Core CPI', color: S2, points: h('cpi_core') },
+              { key: 'wpi', label: 'WPI', color: S3, points: h('wpi') },
+            ]} />
+        )}
+        {has('crude_basket') && (
+          <MultiChart title="Oil price" icon="wholesale" headline={head('crude_basket')} note="Indian basket crude, US$ a barrel, monthly average (latest month to date). PPAC publishes no monthly figures for 2022-23. PPAC." start={start} fmt={(v) => '$' + formatValue(v, 0)}
+            series={[{ key: 'crude_basket', label: 'Indian basket crude', color: S1, points: h('crude_basket') }]} />
+        )}
+        {has('real_repo', 'real_gsec10') && (
+          <MultiChart title="Real interest rates" icon="rates" headline={head('real_repo')} note="Policy repo rate and 10-year G-sec yield minus CPI inflation, month end. Below zero means borrowing is cheap after inflation. RBI, MoSPI." start={start} fmt={pct(1)}
+            series={[
+              { key: 'real_repo', label: 'Real repo rate', color: S1, points: h('real_repo') },
+              { key: 'real_gsec10', label: 'Real 10-year yield', color: S2, points: h('real_gsec10') },
+            ]} />
+        )}
+        {has('cpi_rural', 'cpi_urban') && (
+          <MultiChart title="Rural and urban inflation" icon="prices" headline={head('cpi_rural')} note="CPI, % year on year, All India. 2024 base from January 2026, 2012 base before. MoSPI." start={start} fmt={pct(2)}
+            series={[
+              { key: 'cpi_rural', label: 'Rural', color: S1, points: h('cpi_rural') },
+              { key: 'cpi_urban', label: 'Urban', color: S2, points: h('cpi_urban') },
             ]} />
         )}
         {has('tbill_91', 'gsec10') && (

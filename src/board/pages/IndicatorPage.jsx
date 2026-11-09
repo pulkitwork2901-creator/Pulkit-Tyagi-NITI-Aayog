@@ -109,6 +109,12 @@ export default function IndicatorPage({ item, byId }) {
             ? (item.stale ? 'Pulled from MoSPI. The last attempt failed, so this is the last good copy.' : 'Pulled live from MoSPI each time the data is rebuilt.')
             : item.mode === 'rbi'
               ? "Read from RBI's DBIE Macro-economic Indicators download (data/rbi/macro-indicators.xlsx) or RBI's press releases, refreshed daily."
+              : item.mode === 'ppac'
+              ? "Read daily from PPAC's crude oil price page (scripts/ppac_crude.py)."
+              : item.mode === 'gstn'
+              ? "Read from GSTN's monthly GST revenue report, found through the GST portal's news feed (scripts/gst_reports.py)."
+              : item.mode === 'derived'
+              ? 'Calculated on the board from other series shown here; see the note.'
               : item.mode === 'workbook'
               ? "From the division's indicators workbook (data/uploads/india-economic-indicators.xlsx), compiled from official releases with each value cited."
               : 'Entered by the team from the official release, in data/manual-indicators.csv. Earlier points may come from the RBI DBIE download.'}</dd></div>

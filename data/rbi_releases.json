@@ -4090,6 +4090,380 @@
      "remittances": 42.9
     }
    }
+  },
+  "59651": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – December 2024",
+   "date": "Jan 31, 2025",
+   "data": {
+    "2024-12": {
+     "credit_agri": 12.5,
+     "credit_agri_year_ago": 19.4,
+     "credit_industry": 7.4,
+     "credit_industry_year_ago": 7.5,
+     "credit_services": 13.0,
+     "credit_services_year_ago": 20.0,
+     "credit_personal": 14.9,
+     "credit_personal_year_ago": 17.6
+    }
+   }
+  },
+  "59874": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – January 2025",
+   "date": "Feb 28, 2025",
+   "data": {
+    "2025-01": {
+     "credit_agri": 12.2,
+     "credit_agri_year_ago": 20.0,
+     "credit_industry": 8.2,
+     "credit_industry_year_ago": 7.5,
+     "credit_services": 13.8,
+     "credit_services_year_ago": 21.0,
+     "credit_personal": 14.2,
+     "credit_personal_year_ago": 18.2
+    }
+   }
+  },
+  "60072": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – February 2025",
+   "date": "Mar 27, 2025",
+   "data": {
+    "2025-02": {
+     "credit_agri": 11.4,
+     "credit_agri_year_ago": 20.0,
+     "credit_industry": 7.3,
+     "credit_industry_year_ago": 8.4,
+     "credit_services": 13.0,
+     "credit_services_year_ago": 21.4,
+     "credit_personal": 14.0,
+     "credit_personal_year_ago": 18.0
+    }
+   }
+  },
+  "60332": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – March 2025",
+   "date": "Apr 30, 2025",
+   "data": {
+    "2025-03": {
+     "credit_agri": 10.4,
+     "credit_agri_year_ago": 20.0,
+     "credit_industry": 8.0,
+     "credit_industry_year_ago": 8.0,
+     "credit_services": 13.4,
+     "credit_services_year_ago": 20.8,
+     "credit_personal": 14.0,
+     "credit_personal_year_ago": 17.6
+    }
+   }
+  },
+  "60554": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – April 2025",
+   "date": "May 30, 2025",
+   "data": {
+    "2025-04": {
+     "credit_agri": 9.2,
+     "credit_agri_year_ago": 19.8,
+     "credit_industry": 6.7,
+     "credit_industry_year_ago": 6.9,
+     "credit_services": 11.2,
+     "credit_services_year_ago": 19.5,
+     "credit_personal": 14.5,
+     "credit_personal_year_ago": 17.0
+    }
+   }
+  },
+  "60738": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – May 2025",
+   "date": "Jun 30, 2025",
+   "data": {
+    "2025-05": {
+     "credit_agri": 7.5,
+     "credit_agri_year_ago": 21.6,
+     "credit_industry": 4.9,
+     "credit_industry_year_ago": 8.9,
+     "credit_services": 9.4,
+     "credit_services_year_ago": 20.7,
+     "credit_personal": 13.7,
+     "credit_personal_year_ago": 19.3
+    }
+   }
+  },
+  "60931": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – June 2025",
+   "date": "Jul 31, 2025",
+   "data": {
+    "2025-06": {
+     "credit_agri": 6.8,
+     "credit_agri_year_ago": 17.4,
+     "credit_industry": 5.5,
+     "credit_industry_year_ago": 7.7,
+     "credit_services": 9.6,
+     "credit_services_year_ago": 15.1,
+     "credit_personal": 14.7,
+     "credit_personal_year_ago": 16.6
+    }
+   }
+  },
+  "61116": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – July 2025",
+   "date": "Aug 29, 2025",
+   "data": {
+    "2025-07": {
+     "credit_agri": 7.3,
+     "credit_agri_year_ago": 18.1,
+     "credit_industry": 6.0,
+     "credit_industry_year_ago": 10.2,
+     "credit_services": 10.6,
+     "credit_services_year_ago": 14.5,
+     "credit_personal": 11.9,
+     "credit_personal_year_ago": 14.0
+    }
+   }
+  },
+  "61319": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – August 2025",
+   "date": "Sep 30, 2025",
+   "data": {
+    "2025-08": {
+     "credit_agri": 7.6,
+     "credit_agri_year_ago": 17.7,
+     "credit_industry": 6.5,
+     "credit_industry_year_ago": 9.7,
+     "credit_services": 10.6,
+     "credit_services_year_ago": 13.9,
+     "credit_personal": 11.8,
+     "credit_personal_year_ago": 13.9
+    }
+   }
+  },
+  "61539": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – September 2025",
+   "date": "Oct 31, 2025",
+   "data": {
+    "2025-09": {
+     "credit_agri": 9.0,
+     "credit_agri_year_ago": 16.4,
+     "credit_industry": 7.3,
+     "credit_industry_year_ago": 8.9,
+     "credit_services": 10.2,
+     "credit_services_year_ago": 13.7,
+     "credit_personal": 11.7,
+     "credit_personal_year_ago": 13.4
+    }
+   }
+  },
+  "61694": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – October 2025",
+   "date": "Nov 28, 2025",
+   "data": {
+    "2025-10": {
+     "credit_agri": 8.9,
+     "credit_agri_year_ago": 15.5,
+     "credit_industry": 10.0,
+     "credit_industry_year_ago": 8.1,
+     "credit_services": 13.0,
+     "credit_services_year_ago": 12.5,
+     "credit_personal": 14.0,
+     "credit_personal_year_ago": 12.9
+    }
+   }
+  },
+  "61924": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – November 2025",
+   "date": "Dec 31, 2025",
+   "data": {
+    "2025-11": {
+     "credit_agri": 8.7,
+     "credit_agri_year_ago": 15.3,
+     "credit_industry": 9.6,
+     "credit_industry_year_ago": 8.3,
+     "credit_services": 11.7,
+     "credit_services_year_ago": 12.8,
+     "credit_personal": 12.8,
+     "credit_personal_year_ago": 13.4
+    }
+   }
+  },
+  "62135": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – December 2025",
+   "date": "Jan 30, 2026",
+   "data": {
+    "2025-12": {
+     "credit_agri": 12.1,
+     "credit_agri_year_ago": 12.5,
+     "credit_industry": 13.3,
+     "credit_industry_year_ago": 7.5,
+     "credit_services": 15.3,
+     "credit_services_year_ago": 11.5,
+     "credit_personal": 14.4,
+     "credit_personal_year_ago": 12.0
+    }
+   }
+  },
+  "62301": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – January 2026",
+   "date": "Feb 27, 2026",
+   "data": {
+    "2026-01": {
+     "credit_agri": 11.4,
+     "credit_agri_year_ago": 12.2,
+     "credit_industry": 12.1,
+     "credit_industry_year_ago": 8.3,
+     "credit_services": 15.5,
+     "credit_services_year_ago": 12.3,
+     "credit_personal": 14.9,
+     "credit_personal_year_ago": 11.9
+    }
+   }
+  },
+  "62467": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – February 2026",
+   "date": "Mar 30, 2026",
+   "data": {
+    "2026-02": {
+     "credit_agri": 12.3,
+     "credit_agri_year_ago": 11.4,
+     "credit_industry": 13.5,
+     "credit_industry_year_ago": 7.5,
+     "credit_services": 16.3,
+     "credit_services_year_ago": 11.7,
+     "credit_personal": 15.2,
+     "credit_personal_year_ago": 11.7
+    }
+   }
+  },
+  "62660": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – March 2026",
+   "date": "Apr 30, 2026",
+   "data": {
+    "2026-03": {
+     "credit_agri": 15.7,
+     "credit_agri_year_ago": 10.4,
+     "credit_industry": 15.0,
+     "credit_industry_year_ago": 8.2,
+     "credit_services": 19.0,
+     "credit_services_year_ago": 12.0,
+     "credit_personal": 16.2,
+     "credit_personal_year_ago": 11.7
+    }
+   }
+  },
+  "62827": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – April 2026",
+   "date": "May 29, 2026",
+   "data": {
+    "2026-04": {
+     "credit_agri": 13.7,
+     "credit_agri_year_ago": 9.2,
+     "credit_industry": 15.1,
+     "credit_industry_year_ago": 7.0,
+     "credit_services": 18.6,
+     "credit_services_year_ago": 10.1,
+     "credit_personal": 16.0,
+     "credit_personal_year_ago": 11.9
+    }
+   }
+  },
+  "63052": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – May 2026",
+   "date": "Jun 30, 2026",
+   "data": {
+    "2026-05": {
+     "credit_agri": 14.9,
+     "credit_agri_year_ago": 7.5,
+     "credit_industry": 17.5,
+     "credit_industry_year_ago": 5.3,
+     "credit_services": 20.4,
+     "credit_services_year_ago": 8.4,
+     "credit_personal": 15.4,
+     "credit_personal_year_ago": 11.1
+    }
+   }
+  },
+  "63267": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – June 2026",
+   "date": "Jul 31, 2026",
+   "data": {
+    "2026-06": {
+     "credit_agri": 16.8,
+     "credit_agri_year_ago": 6.8,
+     "credit_industry": 19.2,
+     "credit_industry_year_ago": 6.3,
+     "credit_services": 21.4,
+     "credit_services_year_ago": 8.8,
+     "credit_personal": 15.8,
+     "credit_personal_year_ago": 11.7
+    }
+   }
+  },
+  "63478": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – July 2026",
+   "date": "Aug 31, 2026",
+   "data": {
+    "2026-07": {
+     "credit_agri": 17.0,
+     "credit_agri_year_ago": 7.3,
+     "credit_industry": 20.0,
+     "credit_industry_year_ago": 6.5,
+     "credit_services": 22.9,
+     "credit_services_year_ago": 10.2,
+     "credit_personal": 16.2,
+     "credit_personal_year_ago": 11.9
+    }
+   }
+  },
+  "63697": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – August 2026",
+   "date": "Sep 30, 2026",
+   "data": {
+    "2026-08": {
+     "credit_agri": 17.2,
+     "credit_agri_year_ago": 7.6,
+     "credit_industry": 18.2,
+     "credit_industry_year_ago": 7.0,
+     "credit_services": 24.3,
+     "credit_services_year_ago": 10.3,
+     "credit_personal": 16.9,
+     "credit_personal_year_ago": 11.9
+    }
+   }
+  },
+  "63891": {
+   "kind": "sectoral",
+   "title": "Sectoral Deployment of Bank Credit – September 2026",
+   "date": "Oct 30, 2026",
+   "data": {
+    "2026-09": {
+     "credit_agri": 19.5,
+     "credit_agri_year_ago": 8.9,
+     "credit_industry": 19.5,
+     "credit_industry_year_ago": 7.7,
+     "credit_services": 28.3,
+     "credit_services_year_ago": 9.9,
+     "credit_personal": 17.3,
+     "credit_personal_year_ago": 11.5
+    }
+   }
   }
  },
  "fetched_at": "2026-11-09"

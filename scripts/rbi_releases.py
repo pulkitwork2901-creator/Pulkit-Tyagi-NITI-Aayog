@@ -11,6 +11,8 @@ server, rbidocs, answers scripts with a browser check, so it is not used):
     (quarterly): Table 1 with goods, services, primary and secondary income,
     NRI deposits and the current account, for the quarter and a year earlier.
     The text gives personal transfer receipts (remittances).
+  * "Sectoral Deployment of Bank Credit" (monthly): y-o-y credit growth to
+    agriculture, industry, services and personal loans, from the highlights.
   * "Developments in India's Balance of Payments for the Month of ..."
     (monthly, from April 2026): the same items for one month.
 
@@ -198,6 +200,43 @@ def parse_bop_month(page: str) -> dict[str, dict]:
     return out
 
 
+SECTORS = {
+    "credit_agri": r"Credit (?:growth )?to agriculture",
+    "credit_industry": r"Credit (?:growth )?to industry",
+    "credit_services": r"Credit (?:growth )?to services sector",
+    "credit_personal": r"Credit (?:growth )?to personal loans",
+}
+
+
+def parse_sectoral(page: str, title: str) -> dict[str, dict]:
+    """Sectoral Deployment of Bank Credit: y-o-y growth by sector and the
+    restated rate a year earlier, from the release's highlights text.
+    The wording varies ("recorded a growth of", "moderated to", "expanded by");
+    each sector sentence states this year's rate first, then last year's
+    (or says it was the same)."""
+    month = _month_key(title)
+    if not month:
+        return {}
+    text = _clean(page)
+    vals = {}
+    for key, lead in SECTORS.items():
+        m = re.search(lead, text, re.I)
+        if not m:
+            continue
+        seg = text[m.end():m.end() + 330]
+        nums = re.findall(r"(-?\d+(?:\.\d+)?)\s*per\s*cent", seg)
+        if not nums:
+            continue
+        vals[key] = float(nums[0])
+        cut = seg.find(nums[0]) + len(nums[0])
+        rest = seg[cut:]
+        if re.match(r".{0,120}?same as in the corresponding", rest, re.I):
+            vals[key + "_year_ago"] = vals[key]
+        elif len(nums) > 1:
+            vals[key + "_year_ago"] = float(nums[1])
+    return {month: vals} if vals else {}
+
+
 def refresh(full: bool = False) -> dict:
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {"releases": {}}
     rel = cache["releases"]
@@ -214,7 +253,11 @@ def refresh(full: bool = False) -> dict:
     bop = _listing(s, f"{BASE}/BS_PressReleaseDisplay.aspx", months)
     bop = {p: t for p, t in bop.items() if re.search(r"Developments in India.s Balance of Payments", t, re.I)}
 
-    todo = [(p, "services", t) for p, t in services.items()] + \
+    sec_years = range(2025, today.year + 1) if full or not any(r["kind"] == "sectoral" for r in rel.values()) else range(today.year - 1, today.year + 1)
+    sectoral = _listing(s, f"{BASE}/Pr_DataRelease.aspx?SectionID=348", [(y, 0) for y in sec_years])
+    sectoral = {p: t for p, t in sectoral.items() if "sectoral deployment of bank credit" in t.lower()}
+    todo = [(p, "sectoral", t) for p, t in sectoral.items()] + \
+           [(p, "services", t) for p, t in services.items()] + \
            [(p, "bop_month" if "for the month" in t.lower() else "bop_quarter", t) for p, t in bop.items()]
     for p, kind, title in sorted(todo):
         if p in rel:
@@ -224,7 +267,8 @@ def refresh(full: bool = False) -> dict:
         except requests.RequestException as e:
             print(f"  {p}: {e}")
             continue
-        parser = {"services": parse_services, "bop_quarter": parse_bop_quarter, "bop_month": parse_bop_month}[kind]
+        parser = {"services": parse_services, "bop_quarter": parse_bop_quarter, "bop_month": parse_bop_month,
+                  "sectoral": lambda pg: parse_sectoral(pg, title)}[kind]
         data = parser(page)
         d = re.search(r"Date\s*:\s*([A-Za-z]{3} \d{1,2}, \d{4})", _clean(page))
         rel[p] = {"kind": kind, "title": title, "date": d.group(1) if d else None, "data": data}
@@ -238,7 +282,7 @@ def refresh(full: bool = False) -> dict:
 def merged(cache: dict | None = None) -> dict[str, dict]:
     """kind -> period -> values, later releases overriding earlier ones."""
     cache = cache or (json.loads(CACHE.read_text()) if CACHE.exists() else {"releases": {}})
-    out = {"services": {}, "bop_quarter": {}, "bop_month": {}}
+    out = {"services": {}, "bop_quarter": {}, "bop_month": {}, "sectoral": {}}
     for p in sorted(cache["releases"], key=int):
         r = cache["releases"][p]
         for period, vals in r["data"].items():

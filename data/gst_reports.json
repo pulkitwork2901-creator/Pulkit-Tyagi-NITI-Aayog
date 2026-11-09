@@ -1,0 +1,45 @@
+{
+ "months": {
+  "2026-10": {
+   "domestic_year_ago": 137328.0,
+   "domestic": 159044.0,
+   "imports_year_ago": 50796.0,
+   "imports": 72246.0,
+   "gross_year_ago": 188125.0,
+   "gross": 231290.0,
+   "source_url": "https://tutorial.gst.gov.in/downloads/news/gst_revenue_report_final_for_publishing_oct_2026.pdf",
+   "posted": "01/11/2026"
+  },
+  "2026-09": {
+   "domestic_year_ago": 125334.0,
+   "domestic": 137996.0,
+   "imports_year_ago": 52031.0,
+   "imports": 65525.0,
+   "gross_year_ago": 177365.0,
+   "gross": 203521.0,
+   "source_url": "https://tutorial.gst.gov.in/downloads/news/final_gst_revenue_report_for_publishing_monthly_sep_2026.pdf",
+   "posted": "01/10/2026"
+  },
+  "2026-08": {
+   "domestic_year_ago": 125570.0,
+   "domestic": 137249.0,
+   "imports_year_ago": 48546.0,
+   "imports": 62604.0,
+   "gross_year_ago": 174116.0,
+   "gross": 199853.0,
+   "source_url": "https://tutorial.gst.gov.in/downloads/news/aug_2026_gst_revenue_report_final_for_publishing_monthly.pdf",
+   "posted": "01/09/2026"
+  },
+  "2026-07": {
+   "domestic_year_ago": 131439.0,
+   "domestic": 144695.0,
+   "imports_year_ago": 51626.0,
+   "imports": 66511.0,
+   "gross_year_ago": 183065.0,
+   "gross": 211205.0,
+   "source_url": "https://tutorial.gst.gov.in/downloads/news/final_for_publishing_july_2026_monthly_gst_revenue_report.pdf",
+   "posted": "01/08/2026"
+  }
+ },
+ "fetched_at": "2026-11-09"
+}

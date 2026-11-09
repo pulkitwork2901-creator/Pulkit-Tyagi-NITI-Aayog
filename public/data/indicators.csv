@@ -72,6 +72,123 @@ cpi,CPI inflation,Growth and prices,Jun 2026,2026-06-30,4.38,% YoY,"MoSPI CPI, b
 cpi,CPI inflation,Growth and prices,Jul 2026,2026-07-31,4.45,% YoY,"MoSPI CPI, base 2024, All India combined"
 cpi,CPI inflation,Growth and prices,Aug 2026,2026-08-31,4.83,% YoY,"MoSPI CPI, base 2024, All India combined"
 cpi,CPI inflation,Growth and prices,Sep 2026,2026-09-30,5.54,% YoY,"MoSPI CPI, base 2024, All India combined"
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jan 2019,2019-01-31,5.22,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Feb 2019,2019-02-28,5.36,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Mar 2019,2019-03-31,5.09,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Apr 2019,2019-04-30,4.62,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,May 2019,2019-05-31,4.12,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jun 2019,2019-06-30,4.11,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jul 2019,2019-07-31,4.46,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Aug 2019,2019-08-31,4.31,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Sep 2019,2019-09-30,4.22,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Oct 2019,2019-10-31,3.37,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Nov 2019,2019-11-30,3.59,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Dec 2019,2019-12-31,3.77,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jan 2020,2020-01-31,4.28,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Feb 2020,2020-02-29,3.91,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Mar 2020,2020-03-31,3.88,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Apr 2020,2020-04-30,4.76,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,May 2020,2020-05-31,4.92,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jun 2020,2020-06-30,5.41,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jul 2020,2020-07-31,5.57,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Aug 2020,2020-08-31,5.61,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Sep 2020,2020-09-30,5.42,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Oct 2020,2020-10-31,5.9,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Nov 2020,2020-11-30,5.71,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Dec 2020,2020-12-31,5.56,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jan 2021,2021-01-31,5.49,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Feb 2021,2021-02-28,6.01,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Mar 2021,2021-03-31,5.95,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Apr 2021,2021-04-30,5.33,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,May 2021,2021-05-31,6.57,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jun 2021,2021-06-30,6.06,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jul 2021,2021-07-31,5.79,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Aug 2021,2021-08-31,5.84,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Sep 2021,2021-09-30,5.89,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Oct 2021,2021-10-31,5.91,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Nov 2021,2021-11-30,6.16,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Dec 2021,2021-12-31,6.12,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jan 2022,2022-01-31,5.97,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Feb 2022,2022-02-28,5.83,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Mar 2022,2022-03-31,6.37,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Apr 2022,2022-04-30,7.09,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,May 2022,2022-05-31,5.91,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jun 2022,2022-06-30,6.0,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jul 2022,2022-07-31,5.98,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Aug 2022,2022-08-31,5.9,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Sep 2022,2022-09-30,6.0,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Oct 2022,2022-10-31,5.98,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Nov 2022,2022-11-30,6.01,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Dec 2022,2022-12-31,6.09,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jan 2023,2023-01-31,6.22,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Feb 2023,2023-02-28,6.12,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Mar 2023,2023-03-31,5.76,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Apr 2023,2023-04-30,5.12,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,May 2023,2023-05-31,5.21,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jun 2023,2023-06-30,5.19,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jul 2023,2023-07-31,4.9,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Aug 2023,2023-08-31,4.86,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Sep 2023,2023-09-30,4.51,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Oct 2023,2023-10-31,4.23,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Nov 2023,2023-11-30,4.05,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Dec 2023,2023-12-31,3.76,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jan 2024,2024-01-31,3.53,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Feb 2024,2024-02-29,3.37,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Mar 2024,2024-03-31,3.27,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Apr 2024,2024-04-30,3.19,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,May 2024,2024-05-31,3.07,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jun 2024,2024-06-30,3.12,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jul 2024,2024-07-31,3.42,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Aug 2024,2024-08-31,3.28,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Oct 2024,2024-10-31,3.77,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Nov 2024,2024-11-30,3.71,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Dec 2024,2024-12-31,3.64,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jan 2025,2025-01-31,3.64,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Feb 2025,2025-02-28,4.08,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Mar 2025,2025-03-31,4.06,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Apr 2025,2025-04-30,4.23,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,May 2025,2025-05-31,4.17,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jun 2025,2025-06-30,4.39,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jul 2025,2025-07-31,4.06,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Aug 2025,2025-08-31,4.18,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Oct 2025,2025-10-31,4.33,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Nov 2025,2025-11-30,4.25,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Dec 2025,2025-12-31,4.62,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jan 2026,2026-01-31,3.37,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Feb 2026,2026-02-28,3.4,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Mar 2026,2026-03-31,3.38,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Apr 2026,2026-04-30,3.42,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,May 2026,2026-05-31,3.85,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jun 2026,2026-06-30,4.2,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Jul 2026,2026-07-31,4.17,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Aug 2026,2026-08-31,4.43,% YoY,Computed from MoSPI CPI component indices and official weights
+cpi_core,Core CPI inflation (excluding food and fuel),Growth and prices,Sep 2026,2026-09-30,4.6,% YoY,Computed from MoSPI CPI component indices and official weights
+gdp_nominal,Nominal GDP growth,Growth and prices,Q1 2023-24,2023-06-30,10.5,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_nominal,Nominal GDP growth,Growth and prices,Q2 2023-24,2023-09-30,11.3,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_nominal,Nominal GDP growth,Growth and prices,Q3 2023-24,2023-12-31,11.1,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_nominal,Nominal GDP growth,Growth and prices,Q4 2023-24,2024-03-31,11.3,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_nominal,Nominal GDP growth,Growth and prices,Q1 2024-25,2024-06-30,10.4,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_nominal,Nominal GDP growth,Growth and prices,Q2 2024-25,2024-09-30,9.0,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_nominal,Nominal GDP growth,Growth and prices,Q3 2024-25,2024-12-31,9.7,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_nominal,Nominal GDP growth,Growth and prices,Q4 2024-25,2025-03-31,8.5,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_nominal,Nominal GDP growth,Growth and prices,Q1 2025-26,2025-06-30,8.1,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_nominal,Nominal GDP growth,Growth and prices,Q2 2025-26,2025-09-30,8.4,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_nominal,Nominal GDP growth,Growth and prices,Q3 2025-26,2025-12-31,8.7,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_nominal,Nominal GDP growth,Growth and prices,Q4 2025-26,2026-03-31,9.2,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_nominal,Nominal GDP growth,Growth and prices,Q1 2026-27,2026-06-30,10.3,% YoY,"MoSPI National Accounts, base 2022-23 (current prices)"
+gdp_deflator,GDP deflator inflation,Growth and prices,Q1 2023-24,2023-06-30,3.7,% YoY,Derived from MoSPI National Accounts (current and constant prices)
+gdp_deflator,GDP deflator inflation,Growth and prices,Q2 2023-24,2023-09-30,3.5,% YoY,Derived from MoSPI National Accounts (current and constant prices)
+gdp_deflator,GDP deflator inflation,Growth and prices,Q3 2023-24,2023-12-31,3.2,% YoY,Derived from MoSPI National Accounts (current and constant prices)
+gdp_deflator,GDP deflator inflation,Growth and prices,Q4 2023-24,2024-03-31,3.6,% YoY,Derived from MoSPI National Accounts (current and constant prices)
+gdp_deflator,GDP deflator inflation,Growth and prices,Q1 2024-25,2024-06-30,2.7,% YoY,Derived from MoSPI National Accounts (current and constant prices)
+gdp_deflator,GDP deflator inflation,Growth and prices,Q2 2024-25,2024-09-30,1.6,% YoY,Derived from MoSPI National Accounts (current and constant prices)
+gdp_deflator,GDP deflator inflation,Growth and prices,Q3 2024-25,2024-12-31,2.1,% YoY,Derived from MoSPI National Accounts (current and constant prices)
+gdp_deflator,GDP deflator inflation,Growth and prices,Q4 2024-25,2025-03-31,1.8,% YoY,Derived from MoSPI National Accounts (current and constant prices)
+gdp_deflator,GDP deflator inflation,Growth and prices,Q1 2025-26,2025-06-30,1.1,% YoY,Derived from MoSPI National Accounts (current and constant prices)
+gdp_deflator,GDP deflator inflation,Growth and prices,Q2 2025-26,2025-09-30,0.3,% YoY,Derived from MoSPI National Accounts (current and constant prices)
+gdp_deflator,GDP deflator inflation,Growth and prices,Q3 2025-26,2025-12-31,0.9,% YoY,Derived from MoSPI National Accounts (current and constant prices)
+gdp_deflator,GDP deflator inflation,Growth and prices,Q4 2025-26,2026-03-31,0.6,% YoY,Derived from MoSPI National Accounts (current and constant prices)
+gdp_deflator,GDP deflator inflation,Growth and prices,Q1 2026-27,2026-06-30,2.3,% YoY,Derived from MoSPI National Accounts (current and constant prices)
 cpi_rural,"CPI inflation, rural",Growth and prices,Jan 2019,2019-01-31,1.22,% YoY,"MoSPI CPI, rural, base 2024 (2012 base before 2026)"
 cpi_rural,"CPI inflation, rural",Growth and prices,Feb 2019,2019-02-28,1.81,% YoY,"MoSPI CPI, rural, base 2024 (2012 base before 2026)"
 cpi_rural,"CPI inflation, rural",Growth and prices,Mar 2019,2019-03-31,1.8,% YoY,"MoSPI CPI, rural, base 2024 (2012 base before 2026)"
@@ -350,6 +467,122 @@ pmi_mfg,Manufacturing PMI (HSBC),Growth and prices,Sep 2026,2026-09-30,55.1,inde
 pmi_mfg,Manufacturing PMI (HSBC),Growth and prices,Oct 2026,2026-10-31,54.7,index,"HSBC India Manufacturing PMI, S&P Global"
 pmi_services,Services PMI (HSBC),Growth and prices,Sep 2026,2026-09-30,55.2,index,"HSBC India Services PMI (business activity), S&P Global"
 pmi_services,Services PMI (HSBC),Growth and prices,Oct 2026,2026-10-31,55.8,index,"HSBC India Services PMI (business activity), S&P Global"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Apr 2020,2020-04-30,19.9,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,May 2020,2020-05-31,30.61,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jun 2020,2020-06-30,40.63,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jul 2020,2020-07-31,43.35,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Aug 2020,2020-08-31,44.19,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Sep 2020,2020-09-30,41.35,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Oct 2020,2020-10-31,40.66,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Nov 2020,2020-11-30,43.34,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Dec 2020,2020-12-31,49.84,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jan 2021,2021-01-31,54.79,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Feb 2021,2021-02-28,61.22,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Mar 2021,2021-03-31,64.73,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Apr 2021,2021-04-30,63.4,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,May 2021,2021-05-31,66.95,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jun 2021,2021-06-30,71.98,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jul 2021,2021-07-31,73.54,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Aug 2021,2021-08-31,69.8,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Sep 2021,2021-09-30,73.13,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Oct 2021,2021-10-31,82.11,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Nov 2021,2021-11-30,80.64,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Dec 2021,2021-12-31,73.3,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jan 2022,2022-01-31,84.67,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Feb 2022,2022-02-28,94.07,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Mar 2022,2022-03-31,112.87,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Apr 2023,2023-04-30,83.76,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,May 2023,2023-05-31,74.98,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jun 2023,2023-06-30,74.93,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jul 2023,2023-07-31,80.37,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Aug 2023,2023-08-31,86.43,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Sep 2023,2023-09-30,93.54,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Oct 2023,2023-10-31,90.08,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Nov 2023,2023-11-30,83.46,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Dec 2023,2023-12-31,77.42,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jan 2024,2024-01-31,79.22,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Feb 2024,2024-02-29,81.62,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Mar 2024,2024-03-31,84.38,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Apr 2024,2024-04-30,89.44,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,May 2024,2024-05-31,83.62,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jun 2024,2024-06-30,82.55,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jul 2024,2024-07-31,84.15,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Aug 2024,2024-08-31,78.27,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Sep 2024,2024-09-30,73.69,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Oct 2024,2024-10-31,75.12,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Nov 2024,2024-11-30,73.02,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Dec 2024,2024-12-31,73.34,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jan 2025,2025-01-31,80.2,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Feb 2025,2025-02-28,77.33,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Mar 2025,2025-03-31,72.47,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Apr 2025,2025-04-30,67.72,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,May 2025,2025-05-31,64.04,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jun 2025,2025-06-30,69.77,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jul 2025,2025-07-31,70.95,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Aug 2025,2025-08-31,69.11,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Sep 2025,2025-09-30,69.61,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Oct 2025,2025-10-31,65.08,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Nov 2025,2025-11-30,64.31,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Dec 2025,2025-12-31,62.2,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jan 2026,2026-01-31,63.08,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Feb 2026,2026-02-28,69.01,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Mar 2026,2026-03-31,113.49,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Apr 2026,2026-04-30,114.48,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,May 2026,2026-05-31,106.23,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jun 2026,2026-06-30,83.22,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Jul 2026,2026-07-31,82.04,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Aug 2026,2026-08-31,90.19,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Sep 2026,2026-09-30,116.09,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Oct 2026,2026-10-31,119.91,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Growth and prices,Nov 2026 (to date),2026-11-30,100.01,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Nov 2021,2021-11-30,6055,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Dec 2021,2021-12-31,5446,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Jan 2022,2022-01-31,6347,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Feb 2022,2022-02-28,7101,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Mar 2022,2022-03-31,8556,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Apr 2023,2023-04-30,6850,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,May 2023,2023-05-31,6199,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Jun 2023,2023-06-30,6147,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Jul 2023,2023-07-31,6610,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Aug 2023,2023-08-31,7146,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Sep 2023,2023-09-30,7769,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Oct 2023,2023-10-31,7501,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Nov 2023,2023-11-30,6956,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Dec 2023,2023-12-31,6435,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Jan 2024,2024-01-31,6582,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Feb 2024,2024-02-29,6768,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Mar 2024,2024-03-31,7035,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Apr 2024,2024-04-30,7470,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,May 2024,2024-05-31,6965,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Jun 2024,2024-06-30,6889,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Jul 2024,2024-07-31,7047,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Aug 2024,2024-08-31,6565,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Sep 2024,2024-09-30,6174,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Oct 2024,2024-10-31,6317,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Nov 2024,2024-11-30,6170,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Dec 2024,2024-12-31,6280,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Jan 2025,2025-01-31,6949,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Feb 2025,2025-02-28,6759,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Mar 2025,2025-03-31,6202,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Apr 2025,2025-04-30,5760,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,May 2025,2025-05-31,5474,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Jun 2025,2025-06-30,5968,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Jul 2025,2025-07-31,6212,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Aug 2025,2025-08-31,6071,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Sep 2025,2025-09-30,6181,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Oct 2025,2025-10-31,5774,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Nov 2025,2025-11-30,5753,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Dec 2025,2025-12-31,5593,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Jan 2026,2026-01-31,5797,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Feb 2026,2026-02-28,6277,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Mar 2026,2026-03-31,10742,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Apr 2026,2026-04-30,10903,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,May 2026,2026-05-31,10133,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Jun 2026,2026-06-30,7872,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Jul 2026,2026-07-31,7824,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Aug 2026,2026-08-31,8609,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Sep 2026,2026-09-30,11143,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
+crude_basket_inr,Crude oil price in rupees,Growth and prices,Oct 2026,2026-10-31,11421,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
 unemployment,Unemployment rate,Growth and prices,Apr 2025,2025-04-30,5.1,%,"MoSPI Periodic Labour Force Survey, monthly"
 unemployment,Unemployment rate,Growth and prices,May 2025,2025-05-31,5.6,%,"MoSPI Periodic Labour Force Survey, monthly"
 unemployment,Unemployment rate,Growth and prices,Jun 2025,2025-06-30,5.6,%,"MoSPI Periodic Labour Force Survey, monthly"
@@ -1315,76 +1548,84 @@ capex_centre,Centre's capital expenditure,Fiscal and monetary,Apr-Jun 2026,2026-
 capex_centre,Centre's capital expenditure,Fiscal and monetary,Apr-Jul 2026,2026-07-31,36.9,% of BE,"CGA, Union Government Accounts"
 capex_centre,Centre's capital expenditure,Fiscal and monetary,Apr-Aug 2026,2026-08-31,41.7,% of BE,"CGA, Union Government Accounts"
 capex_centre,Centre's capital expenditure,Fiscal and monetary,Apr-Sep 2026,2026-09-30,53.6,% of BE,"CGA, Union Government Accounts"
-gst_gross,Gross GST collections,Fiscal and monetary,Jan 2021,2021-01-31,1.2,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Feb 2021,2021-02-28,1.13,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Mar 2021,2021-03-31,1.24,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Apr 2021,2021-04-30,1.41,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,May 2021,2021-05-31,0.98,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jun 2021,2021-06-30,0.93,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jul 2021,2021-07-31,1.16,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Aug 2021,2021-08-31,1.12,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Sep 2021,2021-09-30,1.17,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Oct 2021,2021-10-31,1.3,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Nov 2021,2021-11-30,1.32,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Dec 2021,2021-12-31,1.3,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jan 2022,2022-01-31,1.38,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Feb 2022,2022-02-28,1.33,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Mar 2022,2022-03-31,1.42,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Apr 2022,2022-04-30,1.68,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,May 2022,2022-05-31,1.41,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jun 2022,2022-06-30,1.45,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jul 2022,2022-07-31,1.49,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Aug 2022,2022-08-31,1.44,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Sep 2022,2022-09-30,1.48,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Oct 2022,2022-10-31,1.52,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Nov 2022,2022-11-30,1.46,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Dec 2022,2022-12-31,1.5,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jan 2023,2023-01-31,1.56,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Feb 2023,2023-02-28,1.5,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Mar 2023,2023-03-31,1.6,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Apr 2023,2023-04-30,1.87,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,May 2023,2023-05-31,1.57,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jun 2023,2023-06-30,1.61,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jul 2023,2023-07-31,1.65,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Aug 2023,2023-08-31,1.59,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Sep 2023,2023-09-30,1.63,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Oct 2023,2023-10-31,1.72,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Nov 2023,2023-11-30,1.68,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Dec 2023,2023-12-31,1.65,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jan 2024,2024-01-31,1.74,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Feb 2024,2024-02-29,1.68,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Mar 2024,2024-03-31,1.78,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Apr 2024,2024-04-30,2.1,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,May 2024,2024-05-31,1.73,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jun 2024,2024-06-30,1.74,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jul 2024,2024-07-31,1.82,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Aug 2024,2024-08-31,1.75,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Sep 2024,2024-09-30,1.73,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Oct 2024,2024-10-31,1.87,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Nov 2024,2024-11-30,1.82,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Dec 2024,2024-12-31,1.77,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jan 2025,2025-01-31,1.96,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Feb 2025,2025-02-28,1.84,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Mar 2025,2025-03-31,1.96,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Apr 2025,2025-04-30,2.37,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,May 2025,2025-05-31,2.01,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jun 2025,2025-06-30,1.85,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jul 2025,2025-07-31,1.96,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Aug 2025,2025-08-31,1.86,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Sep 2025,2025-09-30,1.89,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Oct 2025,2025-10-31,1.96,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Nov 2025,2025-11-30,1.7,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Dec 2025,2025-12-31,1.75,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jan 2026,2026-01-31,1.93,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Feb 2026,2026-02-28,1.84,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Mar 2026,2026-03-31,2.0,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Apr 2026,2026-04-30,2.43,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,May 2026,2026-05-31,1.94,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jun 2026,2026-06-30,1.95,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Jul 2026,2026-07-31,2.11,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Aug 2026,2026-08-31,2.0,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Sep 2026,2026-09-30,2.03,₹ lakh crore,Ministry of Finance (provisional)
-gst_gross,Gross GST collections,Fiscal and monetary,Oct 2026,2026-10-31,2.31,₹ lakh crore,Ministry of Finance (provisional)
+gst_domestic,GST on domestic transactions (gross),Fiscal and monetary,Jul 2026,2026-07-31,1.4469,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_domestic,GST on domestic transactions (gross),Fiscal and monetary,Aug 2026,2026-08-31,1.3725,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_domestic,GST on domestic transactions (gross),Fiscal and monetary,Sep 2026,2026-09-30,1.38,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_domestic,GST on domestic transactions (gross),Fiscal and monetary,Oct 2026,2026-10-31,1.5904,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_imports,GST on imports (gross),Fiscal and monetary,Jul 2026,2026-07-31,0.6651,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_imports,GST on imports (gross),Fiscal and monetary,Aug 2026,2026-08-31,0.626,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_imports,GST on imports (gross),Fiscal and monetary,Sep 2026,2026-09-30,0.6552,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_imports,GST on imports (gross),Fiscal and monetary,Oct 2026,2026-10-31,0.7225,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jan 2021,2021-01-31,1.2,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Feb 2021,2021-02-28,1.13,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Mar 2021,2021-03-31,1.24,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Apr 2021,2021-04-30,1.41,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,May 2021,2021-05-31,0.98,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jun 2021,2021-06-30,0.93,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jul 2021,2021-07-31,1.16,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Aug 2021,2021-08-31,1.12,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Sep 2021,2021-09-30,1.17,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Oct 2021,2021-10-31,1.3,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Nov 2021,2021-11-30,1.32,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Dec 2021,2021-12-31,1.3,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jan 2022,2022-01-31,1.38,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Feb 2022,2022-02-28,1.33,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Mar 2022,2022-03-31,1.42,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Apr 2022,2022-04-30,1.68,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,May 2022,2022-05-31,1.41,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jun 2022,2022-06-30,1.45,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jul 2022,2022-07-31,1.49,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Aug 2022,2022-08-31,1.44,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Sep 2022,2022-09-30,1.48,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Oct 2022,2022-10-31,1.52,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Nov 2022,2022-11-30,1.46,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Dec 2022,2022-12-31,1.5,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jan 2023,2023-01-31,1.56,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Feb 2023,2023-02-28,1.5,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Mar 2023,2023-03-31,1.6,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Apr 2023,2023-04-30,1.87,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,May 2023,2023-05-31,1.57,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jun 2023,2023-06-30,1.61,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jul 2023,2023-07-31,1.65,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Aug 2023,2023-08-31,1.59,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Sep 2023,2023-09-30,1.63,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Oct 2023,2023-10-31,1.72,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Nov 2023,2023-11-30,1.68,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Dec 2023,2023-12-31,1.65,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jan 2024,2024-01-31,1.74,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Feb 2024,2024-02-29,1.68,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Mar 2024,2024-03-31,1.78,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Apr 2024,2024-04-30,2.1,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,May 2024,2024-05-31,1.73,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jun 2024,2024-06-30,1.74,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jul 2024,2024-07-31,1.82,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Aug 2024,2024-08-31,1.75,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Sep 2024,2024-09-30,1.73,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Oct 2024,2024-10-31,1.87,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Nov 2024,2024-11-30,1.82,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Dec 2024,2024-12-31,1.77,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jan 2025,2025-01-31,1.96,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Feb 2025,2025-02-28,1.84,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Mar 2025,2025-03-31,1.96,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Apr 2025,2025-04-30,2.37,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,May 2025,2025-05-31,2.01,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jun 2025,2025-06-30,1.85,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jul 2025,2025-07-31,1.96,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Aug 2025,2025-08-31,1.86,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Sep 2025,2025-09-30,1.89,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Oct 2025,2025-10-31,1.96,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Nov 2025,2025-11-30,1.7,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Dec 2025,2025-12-31,1.75,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jan 2026,2026-01-31,1.93,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Feb 2026,2026-02-28,1.84,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Mar 2026,2026-03-31,2.0,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Apr 2026,2026-04-30,2.43,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,May 2026,2026-05-31,1.94,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jun 2026,2026-06-30,1.95,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Jul 2026,2026-07-31,2.112,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Aug 2026,2026-08-31,1.9985,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Sep 2026,2026-09-30,2.0352,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+gst_gross,Gross GST collections,Fiscal and monetary,Oct 2026,2026-10-31,2.3129,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
 sdl_borrowing,State government market borrowing,Fiscal and monetary,Sep 2021,2021-09-30,70.8217,₹ '000 crore,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
 sdl_borrowing,State government market borrowing,Fiscal and monetary,Oct 2021,2021-10-31,59.4492,₹ '000 crore,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
 sdl_borrowing,State government market borrowing,Fiscal and monetary,Nov 2021,2021-11-30,37.825,₹ '000 crore,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
@@ -1680,6 +1921,124 @@ crr,Cash reserve ratio,Fiscal and monetary,Jul 2026,2026-07-31,3.0,% of deposits
 crr,Cash reserve ratio,Fiscal and monetary,Aug 2026,2026-08-28,3.0,% of deposits,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
 crr,Cash reserve ratio,Fiscal and monetary,Sep 2026,2026-09-25,3.0,% of deposits,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
 crr,Cash reserve ratio,Fiscal and monetary,Week to 30 Oct 2026,2026-10-30,3.0,% of deposits,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Nov 2021,2021-11-30,-0.91,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Dec 2021,2021-12-31,-1.66,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jan 2022,2022-01-31,-2.01,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Feb 2022,2022-02-28,-2.07,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Mar 2022,2022-03-31,-2.95,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Apr 2022,2022-04-30,-3.79,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,May 2022,2022-05-31,-2.64,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jun 2022,2022-06-30,-2.11,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jul 2022,2022-07-31,-1.81,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Aug 2022,2022-08-31,-1.6,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Sep 2022,2022-09-30,-1.51,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Oct 2022,2022-10-31,-0.87,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Nov 2022,2022-11-30,0.02,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Dec 2022,2022-12-31,0.53,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jan 2023,2023-01-31,-0.27,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Feb 2023,2023-02-28,0.06,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Mar 2023,2023-03-31,0.84,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Apr 2023,2023-04-30,1.8,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,May 2023,2023-05-31,2.19,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jun 2023,2023-06-30,1.63,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jul 2023,2023-07-31,-0.94,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Aug 2023,2023-08-31,-0.33,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Sep 2023,2023-09-30,1.48,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Oct 2023,2023-10-31,1.63,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Nov 2023,2023-11-30,0.95,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Dec 2023,2023-12-31,0.81,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jan 2024,2024-01-31,1.4,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Feb 2024,2024-02-29,1.41,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Mar 2024,2024-03-31,1.65,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Apr 2024,2024-04-30,1.67,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,May 2024,2024-05-31,1.7,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jun 2024,2024-06-30,1.42,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jul 2024,2024-07-31,2.9,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Aug 2024,2024-08-31,2.85,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Sep 2024,2024-09-30,1.01,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Oct 2024,2024-10-31,0.29,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Nov 2024,2024-11-30,1.02,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Dec 2024,2024-12-31,1.28,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jan 2025,2025-01-31,2.24,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Feb 2025,2025-02-28,2.64,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Mar 2025,2025-03-31,2.91,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Apr 2025,2025-04-30,2.84,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,May 2025,2025-05-31,3.18,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jun 2025,2025-06-30,3.4,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jul 2025,2025-07-31,3.89,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Aug 2025,2025-08-31,3.43,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Sep 2025,2025-09-30,4.06,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Oct 2025,2025-10-31,5.25,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Nov 2025,2025-11-30,4.79,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Dec 2025,2025-12-31,3.92,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jan 2026,2026-01-31,2.51,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Feb 2026,2026-02-28,2.04,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Mar 2026,2026-03-31,1.85,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Apr 2026,2026-04-30,1.77,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,May 2026,2026-05-31,1.32,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jun 2026,2026-06-30,0.87,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Jul 2026,2026-07-31,0.8,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Aug 2026,2026-08-31,0.42,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_repo,Real policy rate (repo minus CPI inflation),Fiscal and monetary,Sep 2026,2026-09-30,-0.29,%,Derived: RBI policy repo rate minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Nov 2021,2021-11-30,1.43,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Dec 2021,2021-12-31,0.81,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jan 2022,2022-01-31,0.76,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Feb 2022,2022-02-28,0.69,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Mar 2022,2022-03-31,-0.12,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Apr 2022,2022-04-30,-0.64,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,May 2022,2022-05-31,0.33,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jun 2022,2022-06-30,0.48,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jul 2022,2022-07-31,0.61,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Aug 2022,2022-08-31,0.2,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Sep 2022,2022-09-30,0.0,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Oct 2022,2022-10-31,0.64,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Nov 2022,2022-11-30,1.44,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Dec 2022,2022-12-31,1.62,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jan 2023,2023-01-31,0.87,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Feb 2023,2023-02-28,0.95,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Mar 2023,2023-03-31,1.65,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Apr 2023,2023-04-30,2.42,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,May 2023,2023-05-31,2.71,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jun 2023,2023-06-30,2.23,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jul 2023,2023-07-31,-0.3,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Aug 2023,2023-08-31,0.35,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Sep 2023,2023-09-30,2.2,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Oct 2023,2023-10-31,2.5,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Nov 2023,2023-11-30,1.71,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Dec 2023,2023-12-31,1.51,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jan 2024,2024-01-31,2.08,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Feb 2024,2024-02-29,2.0,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Mar 2024,2024-03-31,2.22,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Apr 2024,2024-04-30,2.33,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,May 2024,2024-05-31,2.21,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jun 2024,2024-06-30,1.96,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jul 2024,2024-07-31,3.38,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Aug 2024,2024-08-31,3.25,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Sep 2024,2024-09-30,1.29,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Oct 2024,2024-10-31,0.6,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Nov 2024,2024-11-30,1.31,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Dec 2024,2024-12-31,1.57,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jan 2025,2025-01-31,2.45,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Feb 2025,2025-02-28,3.12,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Mar 2025,2025-03-31,3.28,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Apr 2025,2025-04-30,3.24,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,May 2025,2025-05-31,3.41,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jun 2025,2025-06-30,4.23,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jul 2025,2025-07-31,4.82,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Aug 2025,2025-08-31,4.6,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Sep 2025,2025-09-30,5.16,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Oct 2025,2025-10-31,6.25,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Nov 2025,2025-11-30,5.84,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Dec 2025,2025-12-31,5.32,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jan 2026,2026-01-31,4.03,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Feb 2026,2026-02-28,3.5,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Mar 2026,2026-03-31,3.62,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Apr 2026,2026-04-30,3.54,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,May 2026,2026-05-31,3.06,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jun 2026,2026-06-30,2.41,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Jul 2026,2026-07-31,2.39,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Aug 2026,2026-08-31,2.09,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
+real_gsec10,Real 10-year yield (G-sec minus CPI inflation),Fiscal and monetary,Sep 2026,2026-09-30,1.6,%,Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation
 tbill_91,91-day T-bill yield,Fiscal and monetary,Nov 2021,2021-11-26,3.53,%,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
 tbill_91,91-day T-bill yield,Fiscal and monetary,Dec 2021,2021-12-31,3.657,%,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
 tbill_91,91-day T-bill yield,Fiscal and monetary,Jan 2022,2022-01-28,3.708,%,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
@@ -1860,282 +2219,282 @@ credit_nonfood,Non-food bank credit growth,"Money, credit and capital flows",Jul
 credit_nonfood,Non-food bank credit growth,"Money, credit and capital flows",Aug 2026,2026-08-31,19.0576,% YoY,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
 credit_nonfood,Non-food bank credit growth,"Money, credit and capital flows",Sep 2026,2026-09-30,19.15,% YoY,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
 credit_nonfood,Non-food bank credit growth,"Money, credit and capital flows",Fortnight to 15 Oct 2026,2026-10-15,18.3574,% YoY,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jan 2021,2021-01-31,8.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Feb 2021,2021-02-28,8.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Mar 2021,2021-03-31,10.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Apr 2021,2021-04-30,10.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",May 2021,2021-05-31,9.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jun 2021,2021-06-30,10.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jul 2021,2021-07-31,11.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Aug 2021,2021-08-31,13.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Sep 2021,2021-09-30,10.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Oct 2021,2021-10-31,10.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Nov 2021,2021-11-30,10.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Dec 2021,2021-12-31,14.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jan 2022,2022-01-31,10.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Feb 2022,2022-02-28,10.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Mar 2022,2022-03-31,9.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Apr 2022,2022-04-30,10.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",May 2022,2022-05-31,11.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jun 2022,2022-06-30,12.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jul 2022,2022-07-31,13.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Aug 2022,2022-08-31,13.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Sep 2022,2022-09-30,13.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Oct 2022,2022-10-31,13.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Nov 2022,2022-11-30,14.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Dec 2022,2022-12-31,11.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jan 2023,2023-01-31,14.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Feb 2023,2023-02-28,15.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Mar 2023,2023-03-31,15.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Apr 2023,2023-04-30,16.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",May 2023,2023-05-31,16.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jun 2023,2023-06-30,19.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jul 2023,2023-07-31,16.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Aug 2023,2023-08-31,16.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Sep 2023,2023-09-30,16.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Oct 2023,2023-10-31,17.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Nov 2023,2023-11-30,18.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Dec 2023,2023-12-31,19.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jan 2024,2024-01-31,20.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Feb 2024,2024-02-29,20.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Mar 2024,2024-03-31,20.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Apr 2024,2024-04-30,19.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",May 2024,2024-05-31,21.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jun 2024,2024-06-30,17.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jul 2024,2024-07-31,18.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Aug 2024,2024-08-31,17.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Sep 2024,2024-09-30,16.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Oct 2024,2024-10-31,15.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Nov 2024,2024-11-30,15.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Dec 2024,2024-12-31,12.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jan 2025,2025-01-31,12.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Feb 2025,2025-02-28,11.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Mar 2025,2025-03-31,10.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Apr 2025,2025-04-30,9.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",May 2025,2025-05-31,7.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jun 2025,2025-06-30,6.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jul 2025,2025-07-31,7.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Aug 2025,2025-08-31,7.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Sep 2025,2025-09-30,9.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Oct 2025,2025-10-31,8.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Nov 2025,2025-11-30,8.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Dec 2025,2025-12-31,12.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jan 2026,2026-01-31,11.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Feb 2026,2026-02-28,12.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Mar 2026,2026-03-31,15.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Apr 2026,2026-04-30,13.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",May 2026,2026-05-31,14.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jun 2026,2026-06-30,16.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jul 2026,2026-07-31,17.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Aug 2026,2026-08-31,17.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Sep 2026,2026-09-30,19.52,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jan 2021,2021-01-31,0.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Feb 2021,2021-02-28,1.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Mar 2021,2021-03-31,-0.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Apr 2021,2021-04-30,-0.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",May 2021,2021-05-31,0.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jun 2021,2021-06-30,-0.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jul 2021,2021-07-31,0.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Aug 2021,2021-08-31,1.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Sep 2021,2021-09-30,1.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Oct 2021,2021-10-31,3.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Nov 2021,2021-11-30,3.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Dec 2021,2021-12-31,7.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jan 2022,2022-01-31,5.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Feb 2022,2022-02-28,6.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Mar 2022,2022-03-31,7.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Apr 2022,2022-04-30,8.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",May 2022,2022-05-31,8.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jun 2022,2022-06-30,9.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jul 2022,2022-07-31,10.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Aug 2022,2022-08-31,11.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Sep 2022,2022-09-30,12.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Oct 2022,2022-10-31,13.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Nov 2022,2022-11-30,13.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Dec 2022,2022-12-31,8.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jan 2023,2023-01-31,8.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Feb 2023,2023-02-28,6.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Mar 2023,2023-03-31,5.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Apr 2023,2023-04-30,7.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",May 2023,2023-05-31,6.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jun 2023,2023-06-30,7.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jul 2023,2023-07-31,4.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Aug 2023,2023-08-31,5.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Sep 2023,2023-09-30,6.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Oct 2023,2023-10-31,4.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Nov 2023,2023-11-30,5.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Dec 2023,2023-12-31,7.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jan 2024,2024-01-31,7.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Feb 2024,2024-02-29,8.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Mar 2024,2024-03-31,8.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Apr 2024,2024-04-30,6.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",May 2024,2024-05-31,8.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jun 2024,2024-06-30,7.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jul 2024,2024-07-31,10.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Aug 2024,2024-08-31,9.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Sep 2024,2024-09-30,9.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Oct 2024,2024-10-31,8.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Nov 2024,2024-11-30,8.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Dec 2024,2024-12-31,7.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jan 2025,2025-01-31,8.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Feb 2025,2025-02-28,7.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Mar 2025,2025-03-31,8.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Apr 2025,2025-04-30,6.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",May 2025,2025-05-31,4.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jun 2025,2025-06-30,5.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jul 2025,2025-07-31,6.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Aug 2025,2025-08-31,6.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Sep 2025,2025-09-30,7.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Oct 2025,2025-10-31,10.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Nov 2025,2025-11-30,9.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Dec 2025,2025-12-31,13.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jan 2026,2026-01-31,12.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Feb 2026,2026-02-28,13.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Mar 2026,2026-03-31,15.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Apr 2026,2026-04-30,15.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",May 2026,2026-05-31,17.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jun 2026,2026-06-30,19.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Jul 2026,2026-07-31,20.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Aug 2026,2026-08-31,18.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_industry,Credit to industry,"Money, credit and capital flows",Sep 2026,2026-09-30,19.46,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jan 2021,2021-01-31,8.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Feb 2021,2021-02-28,8.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Mar 2021,2021-03-31,3.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Apr 2021,2021-04-30,2.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",May 2021,2021-05-31,3.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jun 2021,2021-06-30,4.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jul 2021,2021-07-31,3.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Aug 2021,2021-08-31,2.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Sep 2021,2021-09-30,1.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Oct 2021,2021-10-31,2.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Nov 2021,2021-11-30,3.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Dec 2021,2021-12-31,10.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jan 2022,2022-01-31,5.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Feb 2022,2022-02-28,6.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Mar 2022,2022-03-31,8.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Apr 2022,2022-04-30,11.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",May 2022,2022-05-31,12.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jun 2022,2022-06-30,12.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jul 2022,2022-07-31,16.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Aug 2022,2022-08-31,17.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Sep 2022,2022-09-30,20.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Oct 2022,2022-10-31,22.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Nov 2022,2022-11-30,21.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Dec 2022,2022-12-31,19.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jan 2023,2023-01-31,21.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Feb 2023,2023-02-28,20.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Mar 2023,2023-03-31,19.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Apr 2023,2023-04-30,21.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",May 2023,2023-05-31,21.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jun 2023,2023-06-30,26.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jul 2023,2023-07-31,19.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Aug 2023,2023-08-31,21.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Sep 2023,2023-09-30,21.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Oct 2023,2023-10-31,20.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Nov 2023,2023-11-30,22.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Dec 2023,2023-12-31,20.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jan 2024,2024-01-31,21.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Feb 2024,2024-02-29,21.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Mar 2024,2024-03-31,20.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Apr 2024,2024-04-30,19.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",May 2024,2024-05-31,20.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jun 2024,2024-06-30,15.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jul 2024,2024-07-31,15.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Aug 2024,2024-08-31,15.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Sep 2024,2024-09-30,15.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Oct 2024,2024-10-31,14.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Nov 2024,2024-11-30,14.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Dec 2024,2024-12-31,13.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jan 2025,2025-01-31,13.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Feb 2025,2025-02-28,13.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Mar 2025,2025-03-31,13.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Apr 2025,2025-04-30,11.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",May 2025,2025-05-31,9.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jun 2025,2025-06-30,9.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jul 2025,2025-07-31,10.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Aug 2025,2025-08-31,10.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Sep 2025,2025-09-30,10.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Oct 2025,2025-10-31,13.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Nov 2025,2025-11-30,11.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Dec 2025,2025-12-31,15.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jan 2026,2026-01-31,15.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Feb 2026,2026-02-28,16.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Mar 2026,2026-03-31,19.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Apr 2026,2026-04-30,18.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",May 2026,2026-05-31,20.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jun 2026,2026-06-30,21.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Jul 2026,2026-07-31,22.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Aug 2026,2026-08-31,24.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_services,Credit to services,"Money, credit and capital flows",Sep 2026,2026-09-30,28.32,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jan 2021,2021-01-31,8.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Feb 2021,2021-02-28,9.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Mar 2021,2021-03-31,10.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Apr 2021,2021-04-30,12.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",May 2021,2021-05-31,12.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jun 2021,2021-06-30,12.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jul 2021,2021-07-31,11.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Aug 2021,2021-08-31,12.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Sep 2021,2021-09-30,13.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Oct 2021,2021-10-31,12.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Nov 2021,2021-11-30,12.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Dec 2021,2021-12-31,14.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jan 2022,2022-01-31,12.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Feb 2022,2022-02-28,12.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Mar 2022,2022-03-31,12.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Apr 2022,2022-04-30,14.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",May 2022,2022-05-31,16.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jun 2022,2022-06-30,18.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jul 2022,2022-07-31,18.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Aug 2022,2022-08-31,19.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Sep 2022,2022-09-30,19.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Oct 2022,2022-10-31,20.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Nov 2022,2022-11-30,19.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Dec 2022,2022-12-31,20.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jan 2023,2023-01-31,20.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Feb 2023,2023-02-28,20.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Mar 2023,2023-03-31,21.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Apr 2023,2023-04-30,19.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",May 2023,2023-05-31,19.1,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jun 2023,2023-06-30,21.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jul 2023,2023-07-31,18.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Aug 2023,2023-08-31,18.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Sep 2023,2023-09-30,18.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Oct 2023,2023-10-31,18.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Nov 2023,2023-11-30,18.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Dec 2023,2023-12-31,17.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jan 2024,2024-01-31,18.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Feb 2024,2024-02-29,18.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Mar 2024,2024-03-31,17.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Apr 2024,2024-04-30,17.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",May 2024,2024-05-31,19.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jun 2024,2024-06-30,16.6,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jul 2024,2024-07-31,17.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Aug 2024,2024-08-31,16.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Sep 2024,2024-09-30,16.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Oct 2024,2024-10-31,15.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Nov 2024,2024-11-30,16.3,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Dec 2024,2024-12-31,14.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jan 2025,2025-01-31,14.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Feb 2025,2025-02-28,14.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Mar 2025,2025-03-31,14.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Apr 2025,2025-04-30,14.5,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",May 2025,2025-05-31,13.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jun 2025,2025-06-30,14.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jul 2025,2025-07-31,11.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Aug 2025,2025-08-31,11.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Sep 2025,2025-09-30,11.7,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Oct 2025,2025-10-31,14.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Nov 2025,2025-11-30,12.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Dec 2025,2025-12-31,14.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jan 2026,2026-01-31,14.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Feb 2026,2026-02-28,15.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Mar 2026,2026-03-31,16.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Apr 2026,2026-04-30,16.0,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",May 2026,2026-05-31,15.4,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jun 2026,2026-06-30,15.8,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Jul 2026,2026-07-31,16.2,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Aug 2026,2026-08-31,16.9,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
-credit_personal,Personal loans,"Money, credit and capital flows",Sep 2026,2026-09-30,17.25,% YoY,"RBI, Sectoral Deployment of Bank Credit, Sep 2026 (provisional; see note on comparison dates)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jan 2021,2021-01-31,8.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Feb 2021,2021-02-28,8.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Mar 2021,2021-03-31,10.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Apr 2021,2021-04-30,10.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",May 2021,2021-05-31,9.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jun 2021,2021-06-30,10.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jul 2021,2021-07-31,11.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Aug 2021,2021-08-31,13.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Sep 2021,2021-09-30,10.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Oct 2021,2021-10-31,10.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Nov 2021,2021-11-30,10.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Dec 2021,2021-12-31,14.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jan 2022,2022-01-31,10.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Feb 2022,2022-02-28,10.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Mar 2022,2022-03-31,9.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Apr 2022,2022-04-30,10.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",May 2022,2022-05-31,11.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jun 2022,2022-06-30,12.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jul 2022,2022-07-31,13.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Aug 2022,2022-08-31,13.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Sep 2022,2022-09-30,13.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Oct 2022,2022-10-31,13.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Nov 2022,2022-11-30,14.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Dec 2022,2022-12-31,11.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jan 2023,2023-01-31,14.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Feb 2023,2023-02-28,15.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Mar 2023,2023-03-31,15.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Apr 2023,2023-04-30,16.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",May 2023,2023-05-31,16.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jun 2023,2023-06-30,19.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jul 2023,2023-07-31,16.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Aug 2023,2023-08-31,16.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Sep 2023,2023-09-30,16.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Oct 2023,2023-10-31,17.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Nov 2023,2023-11-30,18.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Dec 2023,2023-12-31,19.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jan 2024,2024-01-31,20.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Feb 2024,2024-02-29,20.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Mar 2024,2024-03-31,20.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Apr 2024,2024-04-30,19.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",May 2024,2024-05-31,21.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jun 2024,2024-06-30,17.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jul 2024,2024-07-31,18.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Aug 2024,2024-08-31,17.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Sep 2024,2024-09-30,16.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Oct 2024,2024-10-31,15.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Nov 2024,2024-11-30,15.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Dec 2024,2024-12-31,12.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jan 2025,2025-01-31,12.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Feb 2025,2025-02-28,11.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Mar 2025,2025-03-31,10.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Apr 2025,2025-04-30,9.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",May 2025,2025-05-31,7.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jun 2025,2025-06-30,6.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jul 2025,2025-07-31,7.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Aug 2025,2025-08-31,7.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Sep 2025,2025-09-30,9.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Oct 2025,2025-10-31,8.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Nov 2025,2025-11-30,8.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Dec 2025,2025-12-31,12.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jan 2026,2026-01-31,11.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Feb 2026,2026-02-28,12.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Mar 2026,2026-03-31,15.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Apr 2026,2026-04-30,13.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",May 2026,2026-05-31,14.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jun 2026,2026-06-30,16.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Jul 2026,2026-07-31,17.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Aug 2026,2026-08-31,17.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_agri,Credit to agriculture and allied activities,"Money, credit and capital flows",Sep 2026,2026-09-30,19.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jan 2021,2021-01-31,0.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Feb 2021,2021-02-28,1.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Mar 2021,2021-03-31,-0.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Apr 2021,2021-04-30,-0.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",May 2021,2021-05-31,0.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jun 2021,2021-06-30,-0.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jul 2021,2021-07-31,0.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Aug 2021,2021-08-31,1.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Sep 2021,2021-09-30,1.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Oct 2021,2021-10-31,3.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Nov 2021,2021-11-30,3.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Dec 2021,2021-12-31,7.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jan 2022,2022-01-31,5.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Feb 2022,2022-02-28,6.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Mar 2022,2022-03-31,7.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Apr 2022,2022-04-30,8.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",May 2022,2022-05-31,8.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jun 2022,2022-06-30,9.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jul 2022,2022-07-31,10.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Aug 2022,2022-08-31,11.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Sep 2022,2022-09-30,12.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Oct 2022,2022-10-31,13.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Nov 2022,2022-11-30,13.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Dec 2022,2022-12-31,8.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jan 2023,2023-01-31,8.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Feb 2023,2023-02-28,6.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Mar 2023,2023-03-31,5.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Apr 2023,2023-04-30,7.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",May 2023,2023-05-31,6.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jun 2023,2023-06-30,7.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jul 2023,2023-07-31,4.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Aug 2023,2023-08-31,5.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Sep 2023,2023-09-30,6.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Oct 2023,2023-10-31,4.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Nov 2023,2023-11-30,5.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Dec 2023,2023-12-31,7.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jan 2024,2024-01-31,7.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Feb 2024,2024-02-29,8.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Mar 2024,2024-03-31,8.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Apr 2024,2024-04-30,6.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",May 2024,2024-05-31,8.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jun 2024,2024-06-30,7.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jul 2024,2024-07-31,10.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Aug 2024,2024-08-31,9.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Sep 2024,2024-09-30,9.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Oct 2024,2024-10-31,8.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Nov 2024,2024-11-30,8.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Dec 2024,2024-12-31,7.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jan 2025,2025-01-31,8.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Feb 2025,2025-02-28,7.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Mar 2025,2025-03-31,8.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Apr 2025,2025-04-30,6.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",May 2025,2025-05-31,4.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jun 2025,2025-06-30,5.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jul 2025,2025-07-31,6.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Aug 2025,2025-08-31,6.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Sep 2025,2025-09-30,7.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Oct 2025,2025-10-31,10.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Nov 2025,2025-11-30,9.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Dec 2025,2025-12-31,13.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jan 2026,2026-01-31,12.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Feb 2026,2026-02-28,13.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Mar 2026,2026-03-31,15.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Apr 2026,2026-04-30,15.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",May 2026,2026-05-31,17.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jun 2026,2026-06-30,19.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Jul 2026,2026-07-31,20.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Aug 2026,2026-08-31,18.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_industry,Credit to industry,"Money, credit and capital flows",Sep 2026,2026-09-30,19.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jan 2021,2021-01-31,8.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Feb 2021,2021-02-28,8.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Mar 2021,2021-03-31,3.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Apr 2021,2021-04-30,2.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",May 2021,2021-05-31,3.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jun 2021,2021-06-30,4.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jul 2021,2021-07-31,3.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Aug 2021,2021-08-31,2.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Sep 2021,2021-09-30,1.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Oct 2021,2021-10-31,2.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Nov 2021,2021-11-30,3.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Dec 2021,2021-12-31,10.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jan 2022,2022-01-31,5.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Feb 2022,2022-02-28,6.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Mar 2022,2022-03-31,8.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Apr 2022,2022-04-30,11.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",May 2022,2022-05-31,12.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jun 2022,2022-06-30,12.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jul 2022,2022-07-31,16.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Aug 2022,2022-08-31,17.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Sep 2022,2022-09-30,20.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Oct 2022,2022-10-31,22.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Nov 2022,2022-11-30,21.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Dec 2022,2022-12-31,19.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jan 2023,2023-01-31,21.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Feb 2023,2023-02-28,20.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Mar 2023,2023-03-31,19.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Apr 2023,2023-04-30,21.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",May 2023,2023-05-31,21.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jun 2023,2023-06-30,26.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jul 2023,2023-07-31,19.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Aug 2023,2023-08-31,21.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Sep 2023,2023-09-30,21.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Oct 2023,2023-10-31,20.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Nov 2023,2023-11-30,22.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Dec 2023,2023-12-31,20.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jan 2024,2024-01-31,21.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Feb 2024,2024-02-29,21.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Mar 2024,2024-03-31,20.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Apr 2024,2024-04-30,19.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",May 2024,2024-05-31,20.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jun 2024,2024-06-30,15.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jul 2024,2024-07-31,15.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Aug 2024,2024-08-31,15.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Sep 2024,2024-09-30,15.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Oct 2024,2024-10-31,14.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Nov 2024,2024-11-30,14.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Dec 2024,2024-12-31,13.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jan 2025,2025-01-31,13.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Feb 2025,2025-02-28,13.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Mar 2025,2025-03-31,13.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Apr 2025,2025-04-30,11.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",May 2025,2025-05-31,9.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jun 2025,2025-06-30,9.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jul 2025,2025-07-31,10.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Aug 2025,2025-08-31,10.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Sep 2025,2025-09-30,10.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Oct 2025,2025-10-31,13.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Nov 2025,2025-11-30,11.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Dec 2025,2025-12-31,15.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jan 2026,2026-01-31,15.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Feb 2026,2026-02-28,16.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Mar 2026,2026-03-31,19.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Apr 2026,2026-04-30,18.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",May 2026,2026-05-31,20.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jun 2026,2026-06-30,21.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Jul 2026,2026-07-31,22.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Aug 2026,2026-08-31,24.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_services,Credit to services,"Money, credit and capital flows",Sep 2026,2026-09-30,28.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jan 2021,2021-01-31,8.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Feb 2021,2021-02-28,9.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Mar 2021,2021-03-31,10.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Apr 2021,2021-04-30,12.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",May 2021,2021-05-31,12.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jun 2021,2021-06-30,12.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jul 2021,2021-07-31,11.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Aug 2021,2021-08-31,12.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Sep 2021,2021-09-30,13.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Oct 2021,2021-10-31,12.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Nov 2021,2021-11-30,12.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Dec 2021,2021-12-31,14.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jan 2022,2022-01-31,12.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Feb 2022,2022-02-28,12.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Mar 2022,2022-03-31,12.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Apr 2022,2022-04-30,14.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",May 2022,2022-05-31,16.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jun 2022,2022-06-30,18.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jul 2022,2022-07-31,18.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Aug 2022,2022-08-31,19.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Sep 2022,2022-09-30,19.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Oct 2022,2022-10-31,20.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Nov 2022,2022-11-30,19.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Dec 2022,2022-12-31,20.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jan 2023,2023-01-31,20.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Feb 2023,2023-02-28,20.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Mar 2023,2023-03-31,21.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Apr 2023,2023-04-30,19.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",May 2023,2023-05-31,19.1,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jun 2023,2023-06-30,21.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jul 2023,2023-07-31,18.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Aug 2023,2023-08-31,18.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Sep 2023,2023-09-30,18.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Oct 2023,2023-10-31,18.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Nov 2023,2023-11-30,18.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Dec 2023,2023-12-31,17.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jan 2024,2024-01-31,18.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Feb 2024,2024-02-29,18.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Mar 2024,2024-03-31,17.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Apr 2024,2024-04-30,17.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",May 2024,2024-05-31,19.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jun 2024,2024-06-30,16.6,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jul 2024,2024-07-31,17.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Aug 2024,2024-08-31,16.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Sep 2024,2024-09-30,16.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Oct 2024,2024-10-31,15.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Nov 2024,2024-11-30,16.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Dec 2024,2024-12-31,14.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jan 2025,2025-01-31,14.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Feb 2025,2025-02-28,14.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Mar 2025,2025-03-31,14.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Apr 2025,2025-04-30,14.5,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",May 2025,2025-05-31,13.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jun 2025,2025-06-30,14.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jul 2025,2025-07-31,11.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Aug 2025,2025-08-31,11.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Sep 2025,2025-09-30,11.7,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Oct 2025,2025-10-31,14.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Nov 2025,2025-11-30,12.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Dec 2025,2025-12-31,14.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jan 2026,2026-01-31,14.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Feb 2026,2026-02-28,15.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Mar 2026,2026-03-31,16.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Apr 2026,2026-04-30,16.0,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",May 2026,2026-05-31,15.4,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jun 2026,2026-06-30,15.8,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Jul 2026,2026-07-31,16.2,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Aug 2026,2026-08-31,16.9,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
+credit_personal,Personal loans,"Money, credit and capital flows",Sep 2026,2026-09-30,17.3,% YoY,"RBI, Sectoral Deployment of Bank Credit (monthly release)"
 deposit_growth,Bank deposit growth,"Money, credit and capital flows",Nov 2021,2021-11-19,9.8026,% YoY,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
 deposit_growth,Bank deposit growth,"Money, credit and capital flows",Dec 2021,2021-12-31,10.2881,% YoY,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"
 deposit_growth,Bank deposit growth,"Money, credit and capital flows",Jan 2022,2022-01-28,8.3076,% YoY,"RBI Database on Indian Economy (DBIE), Macro-economic Indicators"

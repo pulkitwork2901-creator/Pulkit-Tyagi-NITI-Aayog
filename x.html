@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Goods & Services Tax (GST) | News and Updates</title>
+<base href="/">
+<link rel="icon" href="//www.gst.gov.in/favicon.ico">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="GST, Ministry of Finance, Government of India, Tax, Goods and Service Tax, Indirect Tax, India" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="//static.gst.gov.in/uiassets/css/fwk/fa-bootstrap1.1.css">
+<link rel="stylesheet" href="//static.gst.gov.in/uiassets/css/staticapp1.2.css" title="app-css"/>
+</head>
+<body ng-app="myApp">
+<div data-ng-controller="headerCtrl">
+<header class="main-header ng-cloak">
+<div class="skip">
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+<ul class="skip list-inline">
+<li><a tabindex="-1" class="accessible" href="javascript:void(0)">Skip to Main Content</a></li>
+<li class="high-low"><i class="fa fa-adjust"></i></li>
+<li class="fresize f-up">A<sup>+</sup></li>
+<li class="fresize f-down">A<sup>-</sup></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row branding">
+<div class="col-xs-12">
+<a href="//www.gst.gov.in/" title="Goods and Services Tax Home" style="font-size:13px;">
+<img data-ng-src="//static.gst.gov.in/uiassets/images/Emblem_of_India-white.svg" class="logo" alt="Goods and Services Tax Home" onerror="this.data-ng-src='{{servers.GST_STATIC_R1_URL}}/uiassets/images/emblem.png'" style="vertical-align:middle; position:relative;margin-top:-10px;margin-left: 13px;width: 62px;height: 72px;">
+</a>
+<h1 class="site-title"><a href="//www.gst.gov.in/">Goods and Services Tax<br><span class="subtitle">Government of India, States and Union Territories</span></a></h1>
+<ul class="list-inline mlinks">
+<li ng-if="!udata || udata.role == undefined" style="font-size:11px">
+<a target="_self" href="//reg.gst.gov.in/registration" class="button"> Register</a>
+</li>
+<li ng-if="!udata || udata.role == undefined" style="font-size:11px">
+<a target="_self" href="{{servers.GST_REGISTRATION_R1_URL}}/registration/msr" class="button">Multi-State Registration</a>
+</li>
+<li ng-if="!udata || udata.role == undefined">
+<a target="_self" href="//services.gst.gov.in/services/login" class="button"> Login</a>
+</li>
+<li ng-if="udata && udata.role == 'login'">
+<div class="dropdown">
+<a class="dropdown-toggle lang-dpwn" data-toggle="dropdown" aria-expanded="false" title="{{udata.bname}}" data-tooltip="true">
+<i class="fa fa-user"></i>
+<span data-ng-bind="(udata.bname.length > 20)? udata.bname.substr(0,19) : udata.bname"></span>
+</a>
+<ul class="dropdown-menu profile-dpdwn">
+<li>
+<p class="lst-log">Last Logged In at</p>
+<p class="lst-log-dt">
+<span data-ng-bind="udata.Llogin"></span>
+IST</p>
+</li>
+<li>
+<a target="_self" href='//services.gst.gov.in/services/auth/myprofile'> <i class="fa fa-user"></i> My Profile</a>
+</li>
+<li>
+<a target="_self" href='//services.gst.gov.in/services/auth/changepassword'> <i class="fa fa-unlock-alt"></i> Change Password</a>
+</li>
+<li>
+<a target="_self" href="//reg.gst.gov.in/registration/auth/register/dsc"> <i class="fa fa-check-square-o"></i> Register / Update DSC</a>
+</li>
+<li>
+<a target="_self" href='//services.gst.gov.in/services/logout'><i class="fa fa-sign-out"></i> Logout</a>
+</li>
+</ul>
+</div>
+</li>
+<li ng-if="udata && udata.role == 'panLogin'">
+<a target="_self" href="//services.gst.gov.in/services/logout"><i class="fa fa-sign-out"></i> Logout</a>
+</li>
+</ul>
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="sr-only">Toggle navigation</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<ng-include src="'/pages/common/menu.html'"></ng-include>
+</div>
+<div class="content-wrapper">
+<div class="dimmer-holder" style="display:block">
+<div id="dimmer"></div>
+</div>
+<div class="container">
+<div class="mypage">
+<div class="row">
+<div class="col-xs-12">
+<ol class="breadcrumb">
+<li><a href="//www.gst.gov.in/">Home</a></li>
+<li><span>News and Updates</span></li>
+</ol>
+</div>
+</div>
+<div class="news-content-pane" data-ng-controller="newsCtrl" data-ng-init="readNews()">
+<div id ="pdf-content" style="text-align: justify;" ng-repeat="news in news1">
+<div class="row">
+<div class="col-xs-12" >
+<strong style="font-size: 18px;line-height: 2.3;" data-ng-bind="news.title"></strong>
+<p data-ng-bind="news.date"></p>
+</div>
+</div>
+<div class="row" style="text-align: justify;">
+<div class="col-xs-12">
+<p data-ng-bind-html="news.content | to_trusted"></p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<div class="pull-right">
+<a class="btn btn-default" data-ng-click="goBack()"><span data-ng-bind="'Back'"></span></a>
+<a class="btn btn-primary" data-ng-click="downloadpdf()"><span data-ng-bind="'PRINT'"></span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer ng-controller = "footerCtrl">
+<div class="expbtn">
+<i ng-click="fexpand()" ng-class="{'fa-angle-up': expanded, 'fa-angle-down': !expanded}" class="fa"
+title="Expand/Collapse Footer"></i>
+</div>
+<div class="ifooter " id="demo">
+<ng-include src="'/pages/common/footer.html'">Loading...</ng-include>
+</div>
+</footer>
+<div title="Scroll to Top" class="back-to-top">
+<i class="fa fa-angle-up"></i>
+<p>Top</p>
+</div> <script src="//static.gst.gov.in/uiassets/javascripts/fwk/uiscriptsupgrd.js"></script>
+<script src="//static.gst.gov.in/uiassets/javascripts/common/common1.3.js"></script>
+<script>
+var server_urls = {
+"GST_CONTENT_R1_URL": "//www.gst.gov.in",
+"GST_SERVICES_R1_URL": "//services.gst.gov.in",
+"GST_REGISTRATION_R1_URL": "//reg.gst.gov.in",
+"GST_TUTORIAL_R1_URL": "//tutorial.gst.gov.in",
+"GST_STATIC_R1_URL": "//static.gst.gov.in",
+"GST_PAYMENTS_R1_URL": "//payment.gst.gov.in",
+"GST_RETURNS_R1_URL": "//return.gst.gov.in",
+"GST_SRM_R1_URL": "//srm.gst.gov.in",
+"GST_REFUNDS_R1_URL" : "//refund.gst.gov.in",
+"REFUNDS_STATIC_URL" : "//refundstatic.gst.gov.in",
+"LAST_UPDATED_DATE" : "28-10-2026",
+"GST_NEWRET_STATIC_URL": "//dashret.gst.gov.in",
+"NAV_COMPONENT": "home",
+"GST_EINVOICE_URL" : "//einvoice.gst.gov.in",
+"STATIC_WEB": true
+}
+$().setServers(server_urls);
+</script>
+<script src="//static.gst.gov.in/uiassets/javascripts/fwk/datepicker.min.1.4.js"></script>
+<script src="//static.gst.gov.in/uiassets/javascripts/fwk/angular-all1.0.js"></script>
+<script src="//static.gst.gov.in/uiassets/javascripts/common/directives1.6.js"></script>
+<script src="//static.gst.gov.in/uiassets/js/common/landing1.2.js"></script>
+</body>
+</html>
