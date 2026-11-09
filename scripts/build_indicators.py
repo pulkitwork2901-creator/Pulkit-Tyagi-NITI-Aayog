@@ -44,6 +44,8 @@ META = {
     "iip":            {"label": "IIP growth", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "wpi":            {"label": "WPI inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
     "wpi_food":       {"label": "WPI food inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
+    "pmi_mfg":        {"label": "Manufacturing PMI (HSBC)", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
+    "pmi_services":   {"label": "Services PMI (HSBC)", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "unemployment":   {"label": "Unemployment rate", "group": "Growth and prices", "decimals": 1, "up_is_good": False, "change_unit": "pts"},
     # External sector
     "exports":        {"label": "Merchandise exports", "group": "External sector", "decimals": 2, "up_is_good": True,  "change_unit": "bn"},
@@ -66,6 +68,7 @@ META = {
     "niip":           {"label": "Net international investment position", "group": "External sector", "decimals": 1, "up_is_good": True,  "change_unit": "bn"},
     # Fiscal and monetary
     "fiscal_deficit": {"label": "Centre's fiscal deficit", "group": "Fiscal and monetary", "decimals": 1, "up_is_good": False, "change_unit": "pts"},
+    "capex_centre":   {"label": "Centre's capital expenditure", "group": "Fiscal and monetary", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "gst_gross":      {"label": "Gross GST collections", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
     "sdl_borrowing":  {"label": "State government market borrowing", "group": "Fiscal and monetary", "decimals": 1, "up_is_good": None,  "change_unit": "'000 cr"},
     "repo":           {"label": "Policy repo rate", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
@@ -424,7 +427,16 @@ def rbi_release_items() -> dict[str, dict]:
                           "Personal transfer receipts, mainly money sent home by Indians working abroad, as stated in RBI's quarterly release.")
     if item:
         out["remittances"] = item
-    for key, field in (("ca_usd", "current_account"), ("ca_goods", "goods"), ("ca_services", "services"),
+    hist = [quarter_pt(k, v.get("ca_revised", v["current_account"]["net"])) for k, v in sorted(bq.items()) if isinstance(v.get("current_account"), dict)]
+    item = _year_ago_item("ca_usd", hist, "US$ bn a quarter", src_q, url_q,
+                          "Revisions RBI states in later releases are applied, so components may not add up exactly for revised quarters.")
+    if item:
+        out["ca_usd"] = item
+    hist = [quarter_pt(k, v["ca_pct_gdp"]) for k, v in sorted(bq.items()) if v.get("ca_pct_gdp") is not None]
+    item = _year_ago_item("cad", hist, "% of GDP", src_q, url_q)
+    if item:
+        out["cad"] = item
+    for key, field in (("ca_goods", "goods"), ("ca_services", "services"),
                        ("ca_primary", "primary_income"), ("ca_secondary", "secondary_income")):
         hist = [quarter_pt(k, v[field]["net"]) for k, v in sorted(bq.items()) if isinstance(v.get(field), dict)]
         item = _year_ago_item(key, hist, "US$ bn a quarter", src_q, url_q)
@@ -439,6 +451,30 @@ def rbi_release_items() -> dict[str, dict]:
     if item:
         out["nri_deposits"] = item
     return out
+
+
+
+def merge_series(base: dict, other: dict, other_wins_ties: bool) -> dict:
+    """Join two versions of one indicator: history by date, the newest reading on top.
+
+    base is the long series (workbook); other is a newer or more precise source
+    (manual sheet, RBI release). On the same date, other_wins_ties decides.
+    """
+    hist = {h["date"]: h for h in base.get("history", [])}
+    for h in other.get("history", []):
+        if h.get("value") is None:
+            continue
+        if h["date"] not in hist or other_wins_ties:
+            hist[h["date"]] = {**h, "short": h.get("short") or _short_label(h["date"])}
+    merged = [hist[d] for d in sorted(hist)]
+    lb = base["history"][-1]["date"] if base.get("history") else ""
+    lo = other["history"][-1]["date"] if other.get("history") else ""
+    head = other if (lo > lb or (lo == lb and other_wins_ties)) else base
+    item = {**base, "history": merged}
+    for k in ("value", "unit", "period", "compare_value", "compare_period", "change", "released", "source", "source_url", "mode", "entered_by"):
+        if k in head:
+            item[k] = head[k]
+    return item
 
 
 
@@ -508,6 +544,24 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
         print(f"RBI releases skipped: {exc}")
         releases = {}
     by_id = {**{i["id"]: i for i in manual}, **rbi, **releases, **live}
+    # The division's workbook gives history for series otherwise typed in one
+    # reading at a time. A newer (or same-date, more precise) manual reading
+    # takes over the top; for the current account the workbook's latest-vintage
+    # values win over the first estimates parsed from RBI releases.
+    import econ_workbook
+    try:
+        workbook = econ_workbook.load()
+    except Exception as exc:
+        print(f"Workbook skipped: {exc}")
+        workbook = {}
+    for wid, witem in workbook.items():
+        current = by_id.get(wid)
+        if current is None:
+            by_id[wid] = witem
+        elif current.get("mode") == "manual":
+            by_id[wid] = merge_series(witem, current, other_wins_ties=True)
+        else:
+            by_id[wid] = merge_series(current, witem, other_wins_ties=True)
     # CPI before the 2024 base: published 2012-base inflation from the RBI file,
     # only for months before MoSPI's 2024-base series starts.
     if "cpi" in by_id and by_id["cpi"].get("history"):

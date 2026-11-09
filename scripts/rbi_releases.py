@@ -143,6 +143,20 @@ def parse_bop_quarter(page: str) -> dict[str, dict]:
         for i, q in enumerate(qs[:2]):
             c, d, n = vals[3 * i: 3 * i + 3]
             out[q].setdefault(key, {"credit": c, "debit": d, "net": n})
+    # Current account as % of GDP, and revisions of earlier quarters, from the text.
+    def qkey(q, fy):
+        y0 = int(fy[:4])
+        return {1: f"{y0}-06", 2: f"{y0}-09", 3: f"{y0}-12", 4: f"{y0 + 1}-03"}[int(q)]
+    text0 = _clean(page)
+    for m in re.finditer(r"US\$\s*([\d.]+)\s*billion\s*\(([\d.]+)\s*per\s*cent of GDP\)\s*in\s*Q(\d)\s*:\s*(\d{4})-\d{2}", text0, re.I):
+        before = text0[max(0, m.start() - 250):m.start()].lower()
+        sign = -1 if before.rfind("deficit") > before.rfind("surplus") else 1
+        out.setdefault(qkey(m.group(3), m.group(4)), {})["ca_pct_gdp"] = sign * float(m.group(2))
+    for m in re.finditer(r"current account (deficit|surplus) for Q(\d)\s*:\s*(\d{4})-\d{2} has been revised.{0,160}?to US\$\s*([\d.]+)\s*billion\s*\(([\d.]+)\s*per\s*cent of GDP\)", text0, re.I):
+        sign = -1 if m.group(1).lower() == "deficit" else 1
+        k = qkey(m.group(2), m.group(3))
+        out.setdefault(k, {}).update({"ca_revised": sign * float(m.group(4)), "ca_pct_gdp": sign * float(m.group(5))})
+
     # Remittances: personal (earlier "private") transfer receipts, stated in the text.
     text = _clean(page)
     m = re.search(r"(?:personal|private) transfer receipts[^.]*?US\$\s*([\d.]+)\s*billion(?:[^.]*?from US\$\s*([\d.]+)\s*billion)?", text, re.I)

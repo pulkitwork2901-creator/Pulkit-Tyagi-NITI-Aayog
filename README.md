@@ -60,6 +60,10 @@ Deliberately not used from that file: the IIP column (it splices the 2011-12 and
 
 Where the team sheet has a newer figure from the same release (for example Commerce's trade data a month ahead of RBI's table, or RBI's published credit growth), the sheet's figure is used for that month and the RBI file supplies the history.
 
+## The division's indicators workbook
+
+`data/uploads/india-economic-indicators.xlsx` holds history compiled from official releases, each value cited on its Sources sheet: bank credit by sector, gross GST, the Centre's fiscal deficit and capital expenditure (% of budget estimate), IIP on the 2022-23 base, HSBC PMIs and the current account (% of GDP). `scripts/econ_workbook.py` reads it on every build. To update, replace the file with a newer version of the same layout and push; a reading typed into `data/manual-indicators.csv` that is newer than the workbook takes over the latest point.
+
 ## Services trade, remittances and the balance of payments (automatic)
 
 `scripts/rbi_releases.py` reads three RBI press-release series from www.rbi.org.in: the monthly data on India's international trade in services, the quarterly "Developments in India's Balance of Payments" (with remittances from its text), and RBI's monthly balance of payments (from April 2026). Each release is parsed once and kept in `data/rbi_releases.json`; the daily workflow fetches only new ones, and later releases replace revised figures. Run it with `--full` to rebuild the whole history. RBI's document server (rbidocs) is not used: it answers scripts with a browser check.

@@ -15,7 +15,7 @@ import { formatDateTime, formatValue, signed, tipFor } from '../format.js';
 
 const RANGES = [['1Y', 1], ['3Y', 3], ['5Y', 5]];
 const TILES = ['gdp', 'cpi', 'wpi', 'repo', 'unemployment', 'credit_nonfood'];
-const SHORT = { services_net: 'Services surplus', ca_usd: 'Current account', remittances: 'Remittances', gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI', unemployment: 'Unemployment', fx_reserves: 'Reserves', inr_usd: '₹ per US$' };
+const SHORT = { iip: 'IIP', credit_services: 'Credit to services', fiscal_deficit: 'Fiscal deficit', services_net: 'Services surplus', ca_usd: 'Current account', remittances: 'Remittances', gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI', unemployment: 'Unemployment', fx_reserves: 'Reserves', inr_usd: '₹ per US$' };
 const S1 = 'var(--eb-s1)';
 const S2 = 'var(--eb-s2)';
 const S3 = 'var(--eb-s3)';
@@ -190,6 +190,25 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
               { key: 'credit_nonfood', label: 'Non-food credit', color: S1, points: h('credit_nonfood') },
               { key: 'deposit_growth', label: 'Deposits', color: S2, points: h('deposit_growth') },
               { key: 'm3_growth', label: 'M3', color: S3, points: h('m3_growth') },
+            ]} />
+        )}
+        {has('iip') && (
+          <MultiChart title="Industrial output" icon="wholesale" headline={head('iip')} note="IIP, % year on year, base 2022-23. MoSPI has not published June 2023 to March 2024 on this base. MoSPI." kind="bar" start={start} fmt={pct(1)}
+            series={[{ key: 'iip', label: 'IIP growth', color: S1, points: h('iip') }]} />
+        )}
+        {has('credit_industry', 'credit_services') && (
+          <MultiChart title="Credit by sector" icon="credit" headline={head('credit_services')} note="% year on year, as first published each month. RBI sectoral deployment of bank credit." start={start} fmt={pct(1)}
+            series={[
+              { key: 'credit_industry', label: 'Industry', color: S1, points: h('credit_industry') },
+              { key: 'credit_services', label: 'Services', color: S2, points: h('credit_services') },
+              { key: 'credit_personal', label: 'Personal loans', color: S3, points: h('credit_personal') },
+            ]} />
+        )}
+        {has('fiscal_deficit', 'capex_centre') && (
+          <MultiChart title="Government finances" icon="money" headline={head('fiscal_deficit')} note="Centre, cumulative from April as % of the full-year budget estimate; resets each April. CGA." start={start} fmt={pct(0)}
+            series={[
+              { key: 'fiscal_deficit', label: 'Fiscal deficit', color: S2, points: h('fiscal_deficit') },
+              { key: 'capex_centre', label: 'Capital spending', color: S1, points: h('capex_centre') },
             ]} />
         )}
         {has('exports', 'imports') && (
