@@ -4464,6 +4464,2756 @@
      "credit_personal_year_ago": 11.5
     }
    }
+  },
+  "49348": {
+   "kind": "surveys",
+   "title": "RBI releases the results of forward looking Surveys",
+   "date": "Feb 06, 2020",
+   "data": {
+    "iesh": {
+     "2018-12": {
+      "perception_mean": 8.3,
+      "perception": 7.1,
+      "exp_3m_mean": 9.1,
+      "exp_3m": 8.2,
+      "exp_1y_mean": 8.6,
+      "exp_1y": 8.5
+     },
+     "2019-07": {
+      "perception_mean": 7.9,
+      "perception": 6.6,
+      "exp_3m_mean": 8.6,
+      "exp_3m": 7.6,
+      "exp_1y_mean": 8.3,
+      "exp_1y": 7.9
+     },
+     "2019-09": {
+      "perception_mean": 8.2,
+      "perception": 7.1,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 8.0,
+      "exp_1y_mean": 8.6,
+      "exp_1y": 8.1
+     },
+     "2019-11": {
+      "perception_mean": 9.1,
+      "perception": 8.2,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 9.9
+     },
+     "2020-01": {
+      "perception_mean": 8.7,
+      "perception": 7.6,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.6,
+      "exp_1y_mean": 9.3,
+      "exp_1y": 9.2
+     }
+    },
+    "obicus": {
+     "2018-09": {
+      "cu": 74.8
+     },
+     "2018-12": {
+      "cu": 75.9
+     },
+     "2019-03": {
+      "cu": 76.1
+     },
+     "2019-06": {
+      "cu": 73.6
+     },
+     "2019-09": {
+      "cu": 69.1
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "19413",
+    "obicus": "19414"
+   }
+  },
+  "49630": {
+   "kind": "surveys",
+   "title": "RBI releases the results of forward looking Surveys",
+   "date": "Apr 03, 2020",
+   "data": {
+    "iesh": {
+     "2019-03": {
+      "perception_mean": 8.0,
+      "perception": 6.9,
+      "exp_3m_mean": 8.7,
+      "exp_3m": 7.8,
+      "exp_1y_mean": 8.3,
+      "exp_1y": 8.1
+     },
+     "2019-09": {
+      "perception_mean": 8.2,
+      "perception": 7.1,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 8.0,
+      "exp_1y_mean": 8.6,
+      "exp_1y": 8.1
+     },
+     "2019-11": {
+      "perception_mean": 9.1,
+      "perception": 8.2,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 9.9
+     },
+     "2020-01": {
+      "perception_mean": 8.7,
+      "perception": 7.6,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.6,
+      "exp_1y_mean": 9.3,
+      "exp_1y": 9.2
+     },
+     "2020-03": {
+      "perception_mean": 8.4,
+      "perception": 7.6,
+      "exp_3m_mean": 9.2,
+      "exp_3m": 8.5,
+      "exp_1y_mean": 9.1,
+      "exp_1y": 9.0
+     }
+    },
+    "obicus": {
+     "2018-12": {
+      "cu": 75.9
+     },
+     "2019-03": {
+      "cu": 76.1
+     },
+     "2019-06": {
+      "cu": 73.6
+     },
+     "2019-09": {
+      "cu": 69.1
+     },
+     "2019-12": {
+      "cu": 68.6
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "19435",
+    "obicus": "19436"
+   }
+  },
+  "49902": {
+   "kind": "surveys",
+   "title": "RBI releases the results of forward looking Surveys",
+   "date": "Jun 04, 2020",
+   "data": {
+    "iesh": {
+     "2019-05": {
+      "perception_mean": 7.8,
+      "perception": 6.6,
+      "exp_3m_mean": 8.6,
+      "exp_3m": 7.6,
+      "exp_1y_mean": 8.4,
+      "exp_1y": 8.1
+     },
+     "2019-11": {
+      "perception_mean": 9.1,
+      "perception": 8.2,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 9.9
+     },
+     "2020-01": {
+      "perception_mean": 8.7,
+      "perception": 7.6,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.6,
+      "exp_1y_mean": 9.3,
+      "exp_1y": 9.2
+     },
+     "2020-03": {
+      "perception_mean": 8.4,
+      "perception": 7.6,
+      "exp_3m_mean": 9.2,
+      "exp_3m": 8.5,
+      "exp_1y_mean": 9.1,
+      "exp_1y": 9.0
+     },
+     "2020-05": {
+      "perception_mean": 9.6,
+      "perception": 9.3,
+      "exp_3m_mean": 10.6,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.2
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "19456"
+   }
+  },
+  "50178": {
+   "kind": "surveys",
+   "title": "RBI releases the results of forward looking Surveys",
+   "date": "Aug 06, 2020",
+   "data": {
+    "iesh": {
+     "2019-07": {
+      "perception_mean": 7.9,
+      "perception": 6.6,
+      "exp_3m_mean": 8.6,
+      "exp_3m": 7.6,
+      "exp_1y_mean": 8.3,
+      "exp_1y": 7.9
+     },
+     "2020-01": {
+      "perception_mean": 8.7,
+      "perception": 7.6,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.6,
+      "exp_1y_mean": 9.3,
+      "exp_1y": 9.2
+     },
+     "2020-03": {
+      "perception_mean": 8.4,
+      "perception": 7.6,
+      "exp_3m_mean": 9.2,
+      "exp_3m": 8.5,
+      "exp_1y_mean": 9.1,
+      "exp_1y": 9.0
+     },
+     "2020-05": {
+      "perception_mean": 9.6,
+      "perception": 9.3,
+      "exp_3m_mean": 10.6,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.2
+     },
+     "2020-07": {
+      "perception_mean": 10.0,
+      "perception": 9.9,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.5,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.3
+     }
+    },
+    "obicus": {
+     "2019-03": {
+      "cu": 76.1
+     },
+     "2019-06": {
+      "cu": 73.6
+     },
+     "2019-09": {
+      "cu": 69.1
+     },
+     "2019-12": {
+      "cu": 68.6
+     },
+     "2020-03": {
+      "cu": 69.9
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "19715",
+    "obicus": "19716"
+   }
+  },
+  "50485": {
+   "kind": "surveys",
+   "title": "RBI releases the results of forward looking Surveys",
+   "date": "Oct 09, 2020",
+   "data": {
+    "iesh": {
+     "2019-09": {
+      "perception_mean": 8.2,
+      "perception": 7.1,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 8.0,
+      "exp_1y_mean": 8.6,
+      "exp_1y": 8.1
+     },
+     "2020-03": {
+      "perception_mean": 8.4,
+      "perception": 7.6,
+      "exp_3m_mean": 9.2,
+      "exp_3m": 8.5,
+      "exp_1y_mean": 9.1,
+      "exp_1y": 9.0
+     },
+     "2020-05": {
+      "perception_mean": 9.6,
+      "perception": 9.3,
+      "exp_3m_mean": 10.6,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.2
+     },
+     "2020-07": {
+      "perception_mean": 10.0,
+      "perception": 9.9,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.5,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.3
+     },
+     "2020-09": {
+      "perception_mean": 9.9,
+      "perception": 9.8,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 9.9,
+      "exp_1y": 10.3
+     }
+    },
+    "obicus": {
+     "2019-06": {
+      "cu": 73.6
+     },
+     "2019-09": {
+      "cu": 69.1
+     },
+     "2019-12": {
+      "cu": 68.6
+     },
+     "2020-03": {
+      "cu": 69.9
+     },
+     "2020-06": {
+      "cu": 47.3
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "19982",
+    "obicus": "19983"
+   }
+  },
+  "50758": {
+   "kind": "surveys",
+   "title": "RBI releases the results of forward looking Surveys",
+   "date": "Dec 04, 2020",
+   "data": {
+    "iesh": {
+     "2019-11": {
+      "perception_mean": 9.1,
+      "perception": 8.2,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 9.9
+     },
+     "2020-05": {
+      "perception_mean": 9.6,
+      "perception": 9.3,
+      "exp_3m_mean": 10.6,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.2
+     },
+     "2020-07": {
+      "perception_mean": 10.0,
+      "perception": 9.9,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.5,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.3
+     },
+     "2020-09": {
+      "perception_mean": 9.9,
+      "perception": 9.8,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 9.9,
+      "exp_1y": 10.3
+     },
+     "2020-11": {
+      "perception_mean": 9.5,
+      "perception": 8.8,
+      "exp_3m_mean": 10.4,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.1
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "20257"
+   }
+  },
+  "51085": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Feb 05, 2021",
+   "data": {
+    "iesh": {
+     "2020-01": {
+      "perception_mean": 8.7,
+      "perception": 7.6,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.6,
+      "exp_1y_mean": 9.3,
+      "exp_1y": 9.2
+     },
+     "2020-07": {
+      "perception_mean": 10.0,
+      "perception": 9.9,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.5,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.3
+     },
+     "2020-09": {
+      "perception_mean": 9.9,
+      "perception": 9.8,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 9.9,
+      "exp_1y": 10.3
+     },
+     "2020-11": {
+      "perception_mean": 9.5,
+      "perception": 8.8,
+      "exp_3m_mean": 10.4,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.1
+     },
+     "2021-01": {
+      "perception_mean": 9.1,
+      "perception": 8.2,
+      "exp_3m_mean": 10.0,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.1
+     }
+    },
+    "obicus": {
+     "2019-09": {
+      "cu": 69.1
+     },
+     "2019-12": {
+      "cu": 68.6
+     },
+     "2020-03": {
+      "cu": 69.9
+     },
+     "2020-06": {
+      "cu": 47.3
+     },
+     "2020-09": {
+      "cu": 63.3
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "20321",
+    "obicus": "20322"
+   }
+  },
+  "51387": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Apr 07, 2021",
+   "data": {
+    "iesh": {
+     "2020-03": {
+      "perception_mean": 8.4,
+      "perception": 7.6,
+      "exp_3m_mean": 9.2,
+      "exp_3m": 8.5,
+      "exp_1y_mean": 9.1,
+      "exp_1y": 9.0
+     },
+     "2020-09": {
+      "perception_mean": 9.9,
+      "perception": 9.8,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 9.9,
+      "exp_1y": 10.3
+     },
+     "2020-11": {
+      "perception_mean": 9.5,
+      "perception": 8.8,
+      "exp_3m_mean": 10.4,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.1
+     },
+     "2021-01": {
+      "perception_mean": 9.1,
+      "perception": 8.2,
+      "exp_3m_mean": 10.0,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.1
+     },
+     "2021-03": {
+      "perception_mean": 9.4,
+      "perception": 8.7,
+      "exp_3m_mean": 10.4,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 10.0,
+      "exp_1y": 10.2
+     }
+    },
+    "obicus": {
+     "2019-12": {
+      "cu": 68.6
+     },
+     "2020-03": {
+      "cu": 69.9
+     },
+     "2020-06": {
+      "cu": 47.3
+     },
+     "2020-09": {
+      "cu": 63.3
+     },
+     "2020-12": {
+      "cu": 66.6
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "20352",
+    "obicus": "20353"
+   }
+  },
+  "51691": {
+   "kind": "surveys",
+   "title": "RBI releases the results of forward looking Surveys",
+   "date": "Jun 04, 2021",
+   "data": {
+    "iesh": {
+     "2020-05": {
+      "perception_mean": 9.6,
+      "perception": 9.3,
+      "exp_3m_mean": 10.6,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.2
+     },
+     "2020-11": {
+      "perception_mean": 9.5,
+      "perception": 8.8,
+      "exp_3m_mean": 10.4,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.1
+     },
+     "2021-01": {
+      "perception_mean": 9.1,
+      "perception": 8.2,
+      "exp_3m_mean": 10.0,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.1
+     },
+     "2021-03": {
+      "perception_mean": 9.4,
+      "perception": 8.7,
+      "exp_3m_mean": 10.4,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 10.0,
+      "exp_1y": 10.2
+     },
+     "2021-05": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 10.7,
+      "exp_1y": 10.9
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "20374"
+   }
+  },
+  "52015": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Aug 06, 2021",
+   "data": {
+    "iesh": {
+     "2020-07": {
+      "perception_mean": 10.0,
+      "perception": 9.9,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.5,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.3
+     },
+     "2021-01": {
+      "perception_mean": 9.1,
+      "perception": 8.2,
+      "exp_3m_mean": 10.0,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.1
+     },
+     "2021-03": {
+      "perception_mean": 9.4,
+      "perception": 8.7,
+      "exp_3m_mean": 10.4,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 10.0,
+      "exp_1y": 10.2
+     },
+     "2021-05": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 10.7,
+      "exp_1y": 10.9
+     },
+     "2021-07": {
+      "perception_mean": 10.5,
+      "perception": 10.3,
+      "exp_3m_mean": 11.7,
+      "exp_3m": 11.3,
+      "exp_1y_mean": 11.0,
+      "exp_1y": 11.5
+     }
+    },
+    "obicus": {
+     "2020-03": {
+      "cu": 69.9
+     },
+     "2020-06": {
+      "cu": 47.3
+     },
+     "2020-09": {
+      "cu": 63.3
+     },
+     "2020-12": {
+      "cu": 66.6
+     },
+     "2021-03": {
+      "cu": 69.4
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "20382",
+    "obicus": "20383"
+   }
+  },
+  "52380": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Oct 08, 2021",
+   "data": {
+    "iesh": {
+     "2020-09": {
+      "perception_mean": 9.9,
+      "perception": 9.8,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 9.9,
+      "exp_1y": 10.3
+     },
+     "2021-03": {
+      "perception_mean": 9.4,
+      "perception": 8.7,
+      "exp_3m_mean": 10.4,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 10.0,
+      "exp_1y": 10.2
+     },
+     "2021-05": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 10.7,
+      "exp_1y": 10.9
+     },
+     "2021-07": {
+      "perception_mean": 10.5,
+      "perception": 10.3,
+      "exp_3m_mean": 11.7,
+      "exp_3m": 11.3,
+      "exp_1y_mean": 11.0,
+      "exp_1y": 11.5
+     },
+     "2021-09": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.9
+     }
+    },
+    "obicus": {
+     "2020-06": {
+      "cu": 47.3
+     },
+     "2020-09": {
+      "cu": 63.3
+     },
+     "2020-12": {
+      "cu": 66.6
+     },
+     "2021-03": {
+      "cu": 69.4
+     },
+     "2021-06": {
+      "cu": 60.0
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "20649",
+    "obicus": "20650"
+   }
+  },
+  "52695": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Dec 08, 2021",
+   "data": {
+    "iesh": {
+     "2020-11": {
+      "perception_mean": 9.5,
+      "perception": 8.8,
+      "exp_3m_mean": 10.4,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.1
+     },
+     "2021-05": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 10.7,
+      "exp_1y": 10.9
+     },
+     "2021-07": {
+      "perception_mean": 10.5,
+      "perception": 10.3,
+      "exp_3m_mean": 11.7,
+      "exp_3m": 11.3,
+      "exp_1y_mean": 11.0,
+      "exp_1y": 11.5
+     },
+     "2021-09": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.9
+     },
+     "2021-11": {
+      "perception_mean": 10.7,
+      "perception": 10.4,
+      "exp_3m_mean": 11.9,
+      "exp_3m": 12.3,
+      "exp_1y_mean": 11.5,
+      "exp_1y": 12.6
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "20930"
+   }
+  },
+  "53257": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Feb 10, 2022",
+   "data": {
+    "iesh": {
+     "2021-01": {
+      "perception_mean": 9.1,
+      "perception": 8.2,
+      "exp_3m_mean": 10.0,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.1
+     },
+     "2021-07": {
+      "perception_mean": 10.5,
+      "perception": 10.3,
+      "exp_3m_mean": 11.7,
+      "exp_3m": 11.3,
+      "exp_1y_mean": 11.0,
+      "exp_1y": 11.5
+     },
+     "2021-09": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.9
+     },
+     "2021-11": {
+      "perception_mean": 10.7,
+      "perception": 10.4,
+      "exp_3m_mean": 11.9,
+      "exp_3m": 12.3,
+      "exp_1y_mean": 11.5,
+      "exp_1y": 12.6
+     },
+     "2022-01": {
+      "perception_mean": 9.9,
+      "perception": 9.7,
+      "exp_3m_mean": 11.1,
+      "exp_3m": 10.6,
+      "exp_1y_mean": 10.7,
+      "exp_1y": 10.7
+     }
+    },
+    "obicus": {
+     "2020-09": {
+      "cu": 63.3
+     },
+     "2020-12": {
+      "cu": 66.6
+     },
+     "2021-03": {
+      "cu": 69.4
+     },
+     "2021-06": {
+      "cu": 60.0
+     },
+     "2021-09": {
+      "cu": 68.3
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "20999",
+    "obicus": "21000"
+   }
+  },
+  "53547": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Apr 08, 2022",
+   "data": {
+    "iesh": {
+     "2021-03": {
+      "perception_mean": 9.4,
+      "perception": 8.8,
+      "exp_3m_mean": 10.4,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 10.0,
+      "exp_1y": 10.2
+     },
+     "2021-09": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.9
+     },
+     "2021-11": {
+      "perception_mean": 10.7,
+      "perception": 10.4,
+      "exp_3m_mean": 11.9,
+      "exp_3m": 12.3,
+      "exp_1y_mean": 11.5,
+      "exp_1y": 12.7
+     },
+     "2022-01": {
+      "perception_mean": 9.9,
+      "perception": 9.7,
+      "exp_3m_mean": 11.1,
+      "exp_3m": 10.6,
+      "exp_1y_mean": 10.7,
+      "exp_1y": 10.7
+     },
+     "2022-03": {
+      "perception_mean": 9.8,
+      "perception": 9.7,
+      "exp_3m_mean": 11.1,
+      "exp_3m": 10.7,
+      "exp_1y_mean": 10.9,
+      "exp_1y": 10.8
+     }
+    },
+    "obicus": {
+     "2020-12": {
+      "cu": 66.6
+     },
+     "2021-03": {
+      "cu": 69.4
+     },
+     "2021-06": {
+      "cu": 60.0
+     },
+     "2021-09": {
+      "cu": 68.3
+     },
+     "2021-12": {
+      "cu": 72.4
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "21025",
+    "obicus": "21026"
+   }
+  },
+  "53836": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Jun 08, 2022",
+   "data": {
+    "iesh": {
+     "2021-05": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.3,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 10.7,
+      "exp_1y": 10.8
+     },
+     "2021-11": {
+      "perception_mean": 10.7,
+      "perception": 10.4,
+      "exp_3m_mean": 11.9,
+      "exp_3m": 12.3,
+      "exp_1y_mean": 11.5,
+      "exp_1y": 12.7
+     },
+     "2022-01": {
+      "perception_mean": 9.9,
+      "perception": 9.7,
+      "exp_3m_mean": 11.1,
+      "exp_3m": 10.6,
+      "exp_1y_mean": 10.7,
+      "exp_1y": 10.7
+     },
+     "2022-03": {
+      "perception_mean": 9.8,
+      "perception": 9.7,
+      "exp_3m_mean": 11.1,
+      "exp_3m": 10.7,
+      "exp_1y_mean": 10.9,
+      "exp_1y": 10.8
+     },
+     "2022-05": {
+      "perception_mean": 10.3,
+      "perception": 10.1,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 11.1,
+      "exp_1y": 11.1
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "21064"
+   }
+  },
+  "54153": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Aug 05, 2022",
+   "data": {
+    "iesh": {
+     "2021-07": {
+      "perception_mean": 10.5,
+      "perception": 10.3,
+      "exp_3m_mean": 11.7,
+      "exp_3m": 11.3,
+      "exp_1y_mean": 11.0,
+      "exp_1y": 11.5
+     },
+     "2022-01": {
+      "perception_mean": 9.9,
+      "perception": 9.7,
+      "exp_3m_mean": 11.1,
+      "exp_3m": 10.6,
+      "exp_1y_mean": 10.7,
+      "exp_1y": 10.7
+     },
+     "2022-03": {
+      "perception_mean": 9.8,
+      "perception": 9.7,
+      "exp_3m_mean": 11.1,
+      "exp_3m": 10.7,
+      "exp_1y_mean": 10.9,
+      "exp_1y": 10.8
+     },
+     "2022-05": {
+      "perception_mean": 10.3,
+      "perception": 10.1,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 11.1,
+      "exp_1y": 11.1
+     },
+     "2022-07": {
+      "perception_mean": 9.8,
+      "perception": 9.3,
+      "exp_3m_mean": 10.7,
+      "exp_3m": 10.3,
+      "exp_1y_mean": 10.3,
+      "exp_1y": 10.5
+     }
+    },
+    "obicus": {
+     "2021-03": {
+      "cu": 69.4
+     },
+     "2021-06": {
+      "cu": 60.0
+     },
+     "2021-09": {
+      "cu": 68.3
+     },
+     "2021-12": {
+      "cu": 72.4
+     },
+     "2022-03": {
+      "cu": 75.3
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "21074",
+    "obicus": "21075"
+   }
+  },
+  "54475": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Sep 30, 2022",
+   "data": {
+    "iesh": {
+     "2021-09": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.9
+     },
+     "2022-03": {
+      "perception_mean": 9.8,
+      "perception": 9.7,
+      "exp_3m_mean": 11.1,
+      "exp_3m": 10.7,
+      "exp_1y_mean": 10.9,
+      "exp_1y": 10.8
+     },
+     "2022-05": {
+      "perception_mean": 10.3,
+      "perception": 10.1,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 11.1,
+      "exp_1y": 11.1
+     },
+     "2022-07": {
+      "perception_mean": 9.8,
+      "perception": 9.3,
+      "exp_3m_mean": 10.7,
+      "exp_3m": 10.3,
+      "exp_1y_mean": 10.3,
+      "exp_1y": 10.5
+     },
+     "2022-09": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.3,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 11.1,
+      "exp_1y": 11.0
+     }
+    },
+    "obicus": {
+     "2021-06": {
+      "cu": 60.0
+     },
+     "2021-09": {
+      "cu": 68.3
+     },
+     "2021-12": {
+      "cu": 72.4
+     },
+     "2022-03": {
+      "cu": 75.3
+     },
+     "2022-06": {
+      "cu": 72.4
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "21344",
+    "obicus": "21346"
+   }
+  },
+  "54823": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Dec 07, 2022",
+   "data": {
+    "iesh": {
+     "2021-11": {
+      "perception_mean": 10.7,
+      "perception": 10.4,
+      "exp_3m_mean": 11.9,
+      "exp_3m": 12.3,
+      "exp_1y_mean": 11.5,
+      "exp_1y": 12.7
+     },
+     "2022-05": {
+      "perception_mean": 10.3,
+      "perception": 10.1,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 11.1,
+      "exp_1y": 11.1
+     },
+     "2022-07": {
+      "perception_mean": 9.8,
+      "perception": 9.3,
+      "exp_3m_mean": 10.7,
+      "exp_3m": 10.3,
+      "exp_1y_mean": 10.3,
+      "exp_1y": 10.5
+     },
+     "2022-09": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.3,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 11.1,
+      "exp_1y": 11.0
+     },
+     "2022-11": {
+      "perception_mean": 10.0,
+      "perception": 9.8,
+      "exp_3m_mean": 10.9,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.8
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "21570"
+   }
+  },
+  "55184": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Feb 08, 2023",
+   "data": {
+    "iesh": {
+     "2022-01": {
+      "perception_mean": 9.9,
+      "perception": 9.7,
+      "exp_3m_mean": 11.1,
+      "exp_3m": 10.6,
+      "exp_1y_mean": 10.7,
+      "exp_1y": 10.7
+     },
+     "2022-07": {
+      "perception_mean": 9.8,
+      "perception": 9.3,
+      "exp_3m_mean": 10.7,
+      "exp_3m": 10.3,
+      "exp_1y_mean": 10.3,
+      "exp_1y": 10.5
+     },
+     "2022-09": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.3,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 11.1,
+      "exp_1y": 11.0
+     },
+     "2022-11": {
+      "perception_mean": 10.0,
+      "perception": 9.8,
+      "exp_3m_mean": 10.9,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.8
+     },
+     "2023-01": {
+      "perception_mean": 9.7,
+      "perception": 9.6,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.5,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.8
+     }
+    },
+    "obicus": {
+     "2021-09": {
+      "cu": 68.3
+     },
+     "2021-12": {
+      "cu": 72.4
+     },
+     "2022-03": {
+      "cu": 75.3
+     },
+     "2022-06": {
+      "cu": 72.4
+     },
+     "2022-09": {
+      "cu": 74.0
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "21732",
+    "obicus": "21733"
+   }
+  },
+  "55480": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Apr 06, 2023",
+   "data": {
+    "iesh": {
+     "2022-03": {
+      "perception_mean": 9.8,
+      "perception": 9.7,
+      "exp_3m_mean": 11.1,
+      "exp_3m": 10.7,
+      "exp_1y_mean": 10.9,
+      "exp_1y": 10.8
+     },
+     "2022-09": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.3,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 11.1,
+      "exp_1y": 11.0
+     },
+     "2022-11": {
+      "perception_mean": 10.0,
+      "perception": 9.8,
+      "exp_3m_mean": 10.9,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.8
+     },
+     "2023-01": {
+      "perception_mean": 9.7,
+      "perception": 9.6,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.5,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.8
+     },
+     "2023-03": {
+      "perception_mean": 9.5,
+      "perception": 8.9,
+      "exp_3m_mean": 10.5,
+      "exp_3m": 10.2,
+      "exp_1y_mean": 10.4,
+      "exp_1y": 10.5
+     }
+    },
+    "obicus": {
+     "2021-12": {
+      "cu": 72.4
+     },
+     "2022-03": {
+      "cu": 75.3
+     },
+     "2022-06": {
+      "cu": 72.4
+     },
+     "2022-09": {
+      "cu": 74.0
+     },
+     "2022-12": {
+      "cu": 74.3
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "21755",
+    "obicus": "21756"
+   }
+  },
+  "55822": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Jun 08, 2023",
+   "data": {
+    "iesh": {
+     "2022-05": {
+      "perception_mean": 10.3,
+      "perception": 10.1,
+      "exp_3m_mean": 11.4,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 11.1,
+      "exp_1y": 11.1
+     },
+     "2022-11": {
+      "perception_mean": 10.0,
+      "perception": 9.8,
+      "exp_3m_mean": 10.9,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.8
+     },
+     "2023-01": {
+      "perception_mean": 9.7,
+      "perception": 9.6,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.5,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.8
+     },
+     "2023-03": {
+      "perception_mean": 9.5,
+      "perception": 8.9,
+      "exp_3m_mean": 10.5,
+      "exp_3m": 10.2,
+      "exp_1y_mean": 10.4,
+      "exp_1y": 10.5
+     },
+     "2023-05": {
+      "perception_mean": 9.3,
+      "perception": 8.8,
+      "exp_3m_mean": 10.3,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 10.2,
+      "exp_1y": 10.4
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "21776"
+   }
+  },
+  "56181": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Aug 10, 2023",
+   "data": {
+    "iesh": {
+     "2022-07": {
+      "perception_mean": 9.8,
+      "perception": 9.3,
+      "exp_3m_mean": 10.7,
+      "exp_3m": 10.3,
+      "exp_1y_mean": 10.3,
+      "exp_1y": 10.5
+     },
+     "2023-01": {
+      "perception_mean": 9.7,
+      "perception": 9.6,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.5,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.8
+     },
+     "2023-03": {
+      "perception_mean": 9.5,
+      "perception": 8.9,
+      "exp_3m_mean": 10.5,
+      "exp_3m": 10.2,
+      "exp_1y_mean": 10.4,
+      "exp_1y": 10.5
+     },
+     "2023-05": {
+      "perception_mean": 9.3,
+      "perception": 8.8,
+      "exp_3m_mean": 10.3,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 10.2,
+      "exp_1y": 10.4
+     },
+     "2023-07": {
+      "perception_mean": 9.3,
+      "perception": 8.9,
+      "exp_3m_mean": 10.2,
+      "exp_3m": 10.0,
+      "exp_1y_mean": 10.0,
+      "exp_1y": 10.3
+     }
+    },
+    "obicus": {
+     "2022-03": {
+      "cu": 75.3
+     },
+     "2022-06": {
+      "cu": 72.4
+     },
+     "2022-09": {
+      "cu": 74.0
+     },
+     "2022-12": {
+      "cu": 74.3
+     },
+     "2023-03": {
+      "cu": 76.3
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "21795",
+    "obicus": "21796"
+   }
+  },
+  "56520": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Oct 06, 2023",
+   "data": {
+    "iesh": {
+     "2022-09": {
+      "perception_mean": 10.4,
+      "perception": 10.2,
+      "exp_3m_mean": 11.3,
+      "exp_3m": 10.8,
+      "exp_1y_mean": 11.1,
+      "exp_1y": 11.0
+     },
+     "2023-03": {
+      "perception_mean": 9.5,
+      "perception": 8.9,
+      "exp_3m_mean": 10.5,
+      "exp_3m": 10.2,
+      "exp_1y_mean": 10.4,
+      "exp_1y": 10.5
+     },
+     "2023-05": {
+      "perception_mean": 9.3,
+      "perception": 8.8,
+      "exp_3m_mean": 10.3,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 10.2,
+      "exp_1y": 10.4
+     },
+     "2023-07": {
+      "perception_mean": 9.3,
+      "perception": 8.9,
+      "exp_3m_mean": 10.2,
+      "exp_3m": 10.0,
+      "exp_1y_mean": 10.0,
+      "exp_1y": 10.3
+     },
+     "2023-09": {
+      "perception_mean": 9.0,
+      "perception": 8.4,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.3,
+      "exp_1y": 9.9
+     }
+    },
+    "obicus": {
+     "2022-06": {
+      "cu": 72.4
+     },
+     "2022-09": {
+      "cu": 74.0
+     },
+     "2022-12": {
+      "cu": 74.3
+     },
+     "2023-03": {
+      "cu": 76.3
+     },
+     "2023-06": {
+      "cu": 73.6
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "22052",
+    "obicus": "22053"
+   }
+  },
+  "56900": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Dec 08, 2023",
+   "data": {
+    "iesh": {
+     "2022-11": {
+      "perception_mean": 10.0,
+      "perception": 9.8,
+      "exp_3m_mean": 10.9,
+      "exp_3m": 10.4,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.8
+     },
+     "2023-05": {
+      "perception_mean": 9.3,
+      "perception": 8.8,
+      "exp_3m_mean": 10.3,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 10.2,
+      "exp_1y": 10.4
+     },
+     "2023-07": {
+      "perception_mean": 9.3,
+      "perception": 8.9,
+      "exp_3m_mean": 10.2,
+      "exp_3m": 10.0,
+      "exp_1y_mean": 10.0,
+      "exp_1y": 10.3
+     },
+     "2023-09": {
+      "perception_mean": 9.0,
+      "perception": 8.4,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.3,
+      "exp_1y": 9.9
+     },
+     "2023-11": {
+      "perception_mean": 8.9,
+      "perception": 8.2,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.1
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "22241"
+   }
+  },
+  "57280": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Feb 08, 2024",
+   "data": {
+    "iesh": {
+     "2023-01": {
+      "perception_mean": 9.7,
+      "perception": 9.6,
+      "exp_3m_mean": 10.8,
+      "exp_3m": 10.5,
+      "exp_1y_mean": 10.8,
+      "exp_1y": 10.8
+     },
+     "2023-07": {
+      "perception_mean": 9.3,
+      "perception": 8.9,
+      "exp_3m_mean": 10.2,
+      "exp_3m": 10.0,
+      "exp_1y_mean": 10.0,
+      "exp_1y": 10.3
+     },
+     "2023-09": {
+      "perception_mean": 9.0,
+      "perception": 8.4,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.3,
+      "exp_1y": 9.9
+     },
+     "2023-11": {
+      "perception_mean": 8.9,
+      "perception": 8.2,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.1
+     },
+     "2024-01": {
+      "perception_mean": 8.8,
+      "perception": 8.1,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.0
+     }
+    },
+    "obicus": {
+     "2022-09": {
+      "cu": 74.0
+     },
+     "2022-12": {
+      "cu": 74.3
+     },
+     "2023-03": {
+      "cu": 76.3
+     },
+     "2023-06": {
+      "cu": 73.6
+     },
+     "2023-09": {
+      "cu": 74.0
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "22422",
+    "obicus": "22423"
+   }
+  },
+  "57646": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Apr 05, 2024",
+   "data": {
+    "iesh": {
+     "2023-03": {
+      "perception_mean": 9.5,
+      "perception": 8.9,
+      "exp_3m_mean": 10.5,
+      "exp_3m": 10.2,
+      "exp_1y_mean": 10.4,
+      "exp_1y": 10.5
+     },
+     "2023-09": {
+      "perception_mean": 9.0,
+      "perception": 8.4,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.3,
+      "exp_1y": 9.9
+     },
+     "2023-11": {
+      "perception_mean": 8.9,
+      "perception": 8.2,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.1
+     },
+     "2024-01": {
+      "perception_mean": 8.8,
+      "perception": 8.1,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.0
+     },
+     "2024-03": {
+      "perception_mean": 8.7,
+      "perception": 8.1,
+      "exp_3m_mean": 9.6,
+      "exp_3m": 9.0,
+      "exp_1y_mean": 9.5,
+      "exp_1y": 9.8
+     }
+    },
+    "obicus": {
+     "2022-12": {
+      "cu": 74.3
+     },
+     "2023-03": {
+      "cu": 76.3
+     },
+     "2023-06": {
+      "cu": 73.6
+     },
+     "2023-09": {
+      "cu": 74.0
+     },
+     "2023-12": {
+      "cu": 74.7
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "22437",
+    "obicus": "22438"
+   }
+  },
+  "58056": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Jun 07, 2024",
+   "data": {
+    "iesh": {
+     "2023-05": {
+      "perception_mean": 9.3,
+      "perception": 8.8,
+      "exp_3m_mean": 10.3,
+      "exp_3m": 10.1,
+      "exp_1y_mean": 10.2,
+      "exp_1y": 10.4
+     },
+     "2023-11": {
+      "perception_mean": 8.9,
+      "perception": 8.2,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.1
+     },
+     "2024-01": {
+      "perception_mean": 8.8,
+      "perception": 8.1,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.0
+     },
+     "2024-03": {
+      "perception_mean": 8.7,
+      "perception": 8.1,
+      "exp_3m_mean": 9.6,
+      "exp_3m": 9.0,
+      "exp_1y_mean": 9.5,
+      "exp_1y": 9.8
+     },
+     "2024-05": {
+      "perception_mean": 8.7,
+      "perception": 8.0,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 9.9
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "22449"
+   }
+  },
+  "58455": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Aug 08, 2024",
+   "data": {
+    "iesh": {
+     "2023-07": {
+      "perception_mean": 9.3,
+      "perception": 8.9,
+      "exp_3m_mean": 10.2,
+      "exp_3m": 10.0,
+      "exp_1y_mean": 10.0,
+      "exp_1y": 10.3
+     },
+     "2024-01": {
+      "perception_mean": 8.8,
+      "perception": 8.1,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.0
+     },
+     "2024-03": {
+      "perception_mean": 8.7,
+      "perception": 8.1,
+      "exp_3m_mean": 9.6,
+      "exp_3m": 9.0,
+      "exp_1y_mean": 9.5,
+      "exp_1y": 9.8
+     },
+     "2024-05": {
+      "perception_mean": 8.7,
+      "perception": 8.0,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 9.9
+     },
+     "2024-07": {
+      "perception_mean": 8.9,
+      "perception": 8.2,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.4,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.1
+     }
+    },
+    "obicus": {
+     "2023-03": {
+      "cu": 76.3,
+      "cu_sa": 74.1
+     },
+     "2023-06": {
+      "cu": 73.6,
+      "cu_sa": 75.4
+     },
+     "2023-09": {
+      "cu": 74.0,
+      "cu_sa": 74.5
+     },
+     "2023-12": {
+      "cu": 74.7,
+      "cu_sa": 74.6
+     },
+     "2024-03": {
+      "cu": 76.8,
+      "cu_sa": 74.6
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "22466",
+    "obicus": "22468"
+   }
+  },
+  "58854": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Oct 09, 2024",
+   "data": {
+    "iesh": {
+     "2023-09": {
+      "perception_mean": 9.0,
+      "perception": 8.4,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.3,
+      "exp_1y": 9.9
+     },
+     "2024-03": {
+      "perception_mean": 8.7,
+      "perception": 8.1,
+      "exp_3m_mean": 9.6,
+      "exp_3m": 9.0,
+      "exp_1y_mean": 9.5,
+      "exp_1y": 9.8
+     },
+     "2024-05": {
+      "perception_mean": 8.7,
+      "perception": 8.0,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 9.9
+     },
+     "2024-07": {
+      "perception_mean": 8.9,
+      "perception": 8.2,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.4,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.1
+     },
+     "2024-09": {
+      "perception_mean": 8.6,
+      "perception": 8.1,
+      "exp_3m_mean": 9.6,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.0
+     }
+    },
+    "obicus": {
+     "2023-06": {
+      "cu": 73.6,
+      "cu_sa": 75.4
+     },
+     "2023-09": {
+      "cu": 74.0,
+      "cu_sa": 74.5
+     },
+     "2023-12": {
+      "cu": 74.7,
+      "cu_sa": 74.6
+     },
+     "2024-03": {
+      "cu": 76.8,
+      "cu_sa": 74.6
+     },
+     "2024-06": {
+      "cu": 74.0,
+      "cu_sa": 75.8
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "22728",
+    "obicus": "22730"
+   }
+  },
+  "59251": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Dec 06, 2024",
+   "data": {
+    "iesh": {
+     "2023-11": {
+      "perception_mean": 8.9,
+      "perception": 8.2,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.1
+     },
+     "2024-05": {
+      "perception_mean": 8.7,
+      "perception": 8.0,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 9.9
+     },
+     "2024-07": {
+      "perception_mean": 8.9,
+      "perception": 8.2,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.4,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.1
+     },
+     "2024-09": {
+      "perception_mean": 8.6,
+      "perception": 8.1,
+      "exp_3m_mean": 9.6,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.0
+     },
+     "2024-11": {
+      "perception_mean": 8.9,
+      "perception": 8.4,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.1
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "22785"
+   }
+  },
+  "59702": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Feb 07, 2025",
+   "data": {
+    "iesh": {
+     "2024-01": {
+      "perception_mean": 8.8,
+      "perception": 8.1,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.0
+     },
+     "2024-07": {
+      "perception_mean": 8.9,
+      "perception": 8.2,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.4,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.1
+     },
+     "2024-09": {
+      "perception_mean": 8.6,
+      "perception": 8.1,
+      "exp_3m_mean": 9.6,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.0
+     },
+     "2024-11": {
+      "perception_mean": 8.9,
+      "perception": 8.4,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.1
+     },
+     "2025-01": {
+      "perception_mean": 8.8,
+      "perception": 8.3,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.9,
+      "exp_1y": 10.2
+     }
+    },
+    "obicus": {
+     "2023-09": {
+      "cu": 74.0,
+      "cu_sa": 74.5
+     },
+     "2023-12": {
+      "cu": 74.7,
+      "cu_sa": 74.6
+     },
+     "2024-03": {
+      "cu": 76.8,
+      "cu_sa": 74.6
+     },
+     "2024-06": {
+      "cu": 74.0,
+      "cu_sa": 75.8
+     },
+     "2024-09": {
+      "cu": 74.2,
+      "cu_sa": 74.7
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "23130",
+    "obicus": "23134"
+   }
+  },
+  "60189": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Apr 09, 2025",
+   "data": {
+    "iesh": {
+     "2024-03": {
+      "perception_mean": 8.7,
+      "perception": 8.1,
+      "exp_3m_mean": 9.6,
+      "exp_3m": 9.0,
+      "exp_1y_mean": 9.5,
+      "exp_1y": 9.8
+     },
+     "2024-09": {
+      "perception_mean": 8.6,
+      "perception": 8.1,
+      "exp_3m_mean": 9.6,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.0
+     },
+     "2024-11": {
+      "perception_mean": 8.9,
+      "perception": 8.4,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.1
+     },
+     "2025-01": {
+      "perception_mean": 8.8,
+      "perception": 8.3,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.9,
+      "exp_1y": 10.2
+     },
+     "2025-03": {
+      "perception_mean": 8.5,
+      "perception": 7.8,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.9,
+      "exp_1y_mean": 9.4,
+      "exp_1y": 9.7
+     }
+    },
+    "obicus": {
+     "2023-12": {
+      "cu": 74.7,
+      "cu_sa": 74.6
+     },
+     "2024-03": {
+      "cu": 76.8,
+      "cu_sa": 74.6
+     },
+     "2024-06": {
+      "cu": 74.0,
+      "cu_sa": 75.8
+     },
+     "2024-09": {
+      "cu": 74.2,
+      "cu_sa": 74.7
+     },
+     "2024-12": {
+      "cu": 75.4,
+      "cu_sa": 75.3
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "23147",
+    "obicus": "23142"
+   }
+  },
+  "60615": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Jun 06, 2025",
+   "data": {
+    "iesh": {
+     "2024-05": {
+      "perception_mean": 8.7,
+      "perception": 8.0,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 9.9
+     },
+     "2024-11": {
+      "perception_mean": 8.9,
+      "perception": 8.4,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.1
+     },
+     "2025-01": {
+      "perception_mean": 8.8,
+      "perception": 8.3,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.9,
+      "exp_1y": 10.2
+     },
+     "2025-03": {
+      "perception_mean": 8.5,
+      "perception": 7.8,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.9,
+      "exp_1y_mean": 9.4,
+      "exp_1y": 9.7
+     },
+     "2025-05": {
+      "perception_mean": 8.4,
+      "perception": 7.7,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.9,
+      "exp_1y_mean": 9.4,
+      "exp_1y": 9.5
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "23157"
+   }
+  },
+  "60965": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Aug 06, 2025",
+   "data": {
+    "iesh": {
+     "2024-07": {
+      "perception_mean": 8.9,
+      "perception": 8.2,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.4,
+      "exp_1y_mean": 9.8,
+      "exp_1y": 10.1
+     },
+     "2025-01": {
+      "perception_mean": 8.8,
+      "perception": 8.3,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.9,
+      "exp_1y": 10.2
+     },
+     "2025-03": {
+      "perception_mean": 8.5,
+      "perception": 7.8,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.9,
+      "exp_1y_mean": 9.4,
+      "exp_1y": 9.7
+     },
+     "2025-05": {
+      "perception_mean": 8.4,
+      "perception": 7.7,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.9,
+      "exp_1y_mean": 9.4,
+      "exp_1y": 9.5
+     },
+     "2025-07": {
+      "perception_mean": 8.1,
+      "perception": 7.2,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 8.3,
+      "exp_1y_mean": 8.7,
+      "exp_1y": 9.0
+     }
+    },
+    "obicus": {
+     "2024-03": {
+      "cu": 76.8,
+      "cu_sa": 74.6
+     },
+     "2024-06": {
+      "cu": 74.0,
+      "cu_sa": 75.8
+     },
+     "2024-09": {
+      "cu": 74.2,
+      "cu_sa": 74.7
+     },
+     "2024-12": {
+      "cu": 75.4,
+      "cu_sa": 75.3
+     },
+     "2025-03": {
+      "cu": 77.7,
+      "cu_sa": 75.5
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "23164",
+    "obicus": "23167"
+   }
+  },
+  "61339": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Oct 01, 2025",
+   "data": {
+    "iesh": {
+     "2024-09": {
+      "perception_mean": 8.6,
+      "perception": 8.1,
+      "exp_3m_mean": 9.6,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.6,
+      "exp_1y": 10.0
+     },
+     "2025-03": {
+      "perception_mean": 8.5,
+      "perception": 7.8,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.9,
+      "exp_1y_mean": 9.4,
+      "exp_1y": 9.7
+     },
+     "2025-05": {
+      "perception_mean": 8.4,
+      "perception": 7.7,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.9,
+      "exp_1y_mean": 9.4,
+      "exp_1y": 9.5
+     },
+     "2025-07": {
+      "perception_mean": 8.1,
+      "perception": 7.2,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 8.3,
+      "exp_1y_mean": 8.7,
+      "exp_1y": 9.0
+     },
+     "2025-09": {
+      "perception_mean": 8.4,
+      "perception": 7.4,
+      "exp_3m_mean": 9.0,
+      "exp_3m": 8.1,
+      "exp_1y_mean": 8.8,
+      "exp_1y": 8.7
+     }
+    },
+    "obicus": {
+     "2024-06": {
+      "cu": 74.0,
+      "cu_sa": 75.7
+     },
+     "2024-09": {
+      "cu": 74.2,
+      "cu_sa": 74.7
+     },
+     "2024-12": {
+      "cu": 75.4,
+      "cu_sa": 75.3
+     },
+     "2025-03": {
+      "cu": 77.7,
+      "cu_sa": 75.5
+     },
+     "2025-06": {
+      "cu": 74.1,
+      "cu_sa": 75.8
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "23431",
+    "obicus": "23432"
+   }
+  },
+  "61758": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Dec 05, 2025",
+   "data": {
+    "iesh": {
+     "2024-11": {
+      "perception_mean": 8.9,
+      "perception": 8.4,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.1,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.1
+     },
+     "2025-05": {
+      "perception_mean": 8.4,
+      "perception": 7.7,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.9,
+      "exp_1y_mean": 9.4,
+      "exp_1y": 9.5
+     },
+     "2025-07": {
+      "perception_mean": 8.1,
+      "perception": 7.2,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 8.3,
+      "exp_1y_mean": 8.7,
+      "exp_1y": 9.0
+     },
+     "2025-09": {
+      "perception_mean": 8.4,
+      "perception": 7.4,
+      "exp_3m_mean": 9.0,
+      "exp_3m": 8.1,
+      "exp_1y_mean": 8.8,
+      "exp_1y": 8.7
+     },
+     "2025-11": {
+      "perception_mean": 7.7,
+      "perception": 6.6,
+      "exp_3m_mean": 8.4,
+      "exp_3m": 7.6,
+      "exp_1y_mean": 8.1,
+      "exp_1y": 8.0
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "23443"
+   }
+  },
+  "62175": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Feb 06, 2026",
+   "data": {
+    "iesh": {
+     "2025-01": {
+      "perception_mean": 8.8,
+      "perception": 8.3,
+      "exp_3m_mean": 9.8,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.9,
+      "exp_1y": 10.2
+     },
+     "2025-07": {
+      "perception_mean": 8.1,
+      "perception": 7.2,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 8.3,
+      "exp_1y_mean": 8.7,
+      "exp_1y": 9.0
+     },
+     "2025-09": {
+      "perception_mean": 8.4,
+      "perception": 7.4,
+      "exp_3m_mean": 9.0,
+      "exp_3m": 8.1,
+      "exp_1y_mean": 8.8,
+      "exp_1y": 8.7
+     },
+     "2025-11": {
+      "perception_mean": 7.7,
+      "perception": 6.6,
+      "exp_3m_mean": 8.4,
+      "exp_3m": 7.6,
+      "exp_1y_mean": 8.1,
+      "exp_1y": 8.0
+     },
+     "2026-01": {
+      "perception_mean": 7.8,
+      "perception": 6.9,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 7.9,
+      "exp_1y_mean": 8.9,
+      "exp_1y": 8.6
+     }
+    },
+    "obicus": {
+     "2024-09": {
+      "cu": 74.2,
+      "cu_sa": 74.7
+     },
+     "2024-12": {
+      "cu": 75.4,
+      "cu_sa": 75.3
+     },
+     "2025-03": {
+      "cu": 77.7,
+      "cu_sa": 75.5
+     },
+     "2025-06": {
+      "cu": 74.1,
+      "cu_sa": 75.8
+     },
+     "2025-09": {
+      "cu": 74.3,
+      "cu_sa": 74.8
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "23787",
+    "obicus": "23793"
+   }
+  },
+  "62524": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Apr 08, 2026",
+   "data": {
+    "iesh": {
+     "2025-03": {
+      "perception_mean": 8.5,
+      "perception": 7.8,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.9,
+      "exp_1y_mean": 9.4,
+      "exp_1y": 9.7
+     },
+     "2025-05": {
+      "perception_mean": 8.4,
+      "perception": 7.7,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.9,
+      "exp_1y_mean": 9.4,
+      "exp_1y": 9.5
+     },
+     "2025-07": {
+      "perception_mean": 8.1,
+      "perception": 7.2,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 8.3,
+      "exp_1y_mean": 8.7,
+      "exp_1y": 9.0
+     },
+     "2025-09": {
+      "perception_mean": 8.4,
+      "perception": 7.4,
+      "exp_3m_mean": 9.0,
+      "exp_3m": 8.1,
+      "exp_1y_mean": 8.8,
+      "exp_1y": 8.7
+     },
+     "2025-11": {
+      "perception_mean": 7.7,
+      "perception": 6.6,
+      "exp_3m_mean": 8.4,
+      "exp_3m": 7.6,
+      "exp_1y_mean": 8.1,
+      "exp_1y": 8.0
+     },
+     "2026-01": {
+      "perception_mean": 7.8,
+      "perception": 6.9,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 7.9,
+      "exp_1y_mean": 8.9,
+      "exp_1y": 8.6
+     },
+     "2026-03": {
+      "perception_mean": 8.2,
+      "perception": 7.2,
+      "exp_3m_mean": 9.3,
+      "exp_3m": 8.5,
+      "exp_1y_mean": 9.1,
+      "exp_1y": 8.8
+     }
+    },
+    "obicus": {
+     "2024-12": {
+      "cu": 75.4,
+      "cu_sa": 75.3
+     },
+     "2025-03": {
+      "cu": 77.7,
+      "cu_sa": 75.5
+     },
+     "2025-06": {
+      "cu": 74.1,
+      "cu_sa": 75.8
+     },
+     "2025-09": {
+      "cu": 74.3,
+      "cu_sa": 74.9
+     },
+     "2025-12": {
+      "cu": 75.6,
+      "cu_sa": 75.5
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "23805",
+    "obicus": "23808"
+   }
+  },
+  "62869": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Jun 05, 2026",
+   "data": {
+    "iesh": {
+     "2025-05": {
+      "perception_mean": 8.4,
+      "perception": 7.7,
+      "exp_3m_mean": 9.5,
+      "exp_3m": 8.9,
+      "exp_1y_mean": 9.4,
+      "exp_1y": 9.5
+     },
+     "2025-07": {
+      "perception_mean": 8.1,
+      "perception": 7.2,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 8.3,
+      "exp_1y_mean": 8.7,
+      "exp_1y": 9.0
+     },
+     "2025-09": {
+      "perception_mean": 8.4,
+      "perception": 7.4,
+      "exp_3m_mean": 9.0,
+      "exp_3m": 8.1,
+      "exp_1y_mean": 8.8,
+      "exp_1y": 8.7
+     },
+     "2025-11": {
+      "perception_mean": 7.7,
+      "perception": 6.6,
+      "exp_3m_mean": 8.4,
+      "exp_3m": 7.6,
+      "exp_1y_mean": 8.1,
+      "exp_1y": 8.0
+     },
+     "2026-01": {
+      "perception_mean": 7.8,
+      "perception": 6.9,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 7.9,
+      "exp_1y_mean": 8.9,
+      "exp_1y": 8.6
+     },
+     "2026-03": {
+      "perception_mean": 8.2,
+      "perception": 7.2,
+      "exp_3m_mean": 9.3,
+      "exp_3m": 8.5,
+      "exp_1y_mean": 9.1,
+      "exp_1y": 8.8
+     },
+     "2026-05": {
+      "perception_mean": 8.5,
+      "perception": 7.8,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.2,
+      "exp_1y": 9.3
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "23815"
+   }
+  },
+  "63292": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Aug 05, 2026",
+   "data": {
+    "iesh": {
+     "2025-07": {
+      "perception_mean": 8.1,
+      "perception": 7.2,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 8.3,
+      "exp_1y_mean": 8.7,
+      "exp_1y": 9.0
+     },
+     "2025-09": {
+      "perception_mean": 8.4,
+      "perception": 7.4,
+      "exp_3m_mean": 9.0,
+      "exp_3m": 8.1,
+      "exp_1y_mean": 8.8,
+      "exp_1y": 8.7
+     },
+     "2025-11": {
+      "perception_mean": 7.7,
+      "perception": 6.6,
+      "exp_3m_mean": 8.4,
+      "exp_3m": 7.6,
+      "exp_1y_mean": 8.1,
+      "exp_1y": 8.0
+     },
+     "2026-01": {
+      "perception_mean": 7.8,
+      "perception": 6.9,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 7.9,
+      "exp_1y_mean": 8.9,
+      "exp_1y": 8.6
+     },
+     "2026-03": {
+      "perception_mean": 8.2,
+      "perception": 7.2,
+      "exp_3m_mean": 9.3,
+      "exp_3m": 8.5,
+      "exp_1y_mean": 9.1,
+      "exp_1y": 8.8
+     },
+     "2026-05": {
+      "perception_mean": 8.5,
+      "perception": 7.8,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.2,
+      "exp_1y": 9.3
+     },
+     "2026-07": {
+      "perception_mean": 8.6,
+      "perception": 7.8,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.3,
+      "exp_1y": 9.4
+     }
+    },
+    "obicus": {
+     "2025-03": {
+      "cu": 77.7,
+      "cu_sa": 75.5
+     },
+     "2025-06": {
+      "cu": 74.1,
+      "cu_sa": 75.8
+     },
+     "2025-09": {
+      "cu": 74.3,
+      "cu_sa": 74.9
+     },
+     "2025-12": {
+      "cu": 75.6,
+      "cu_sa": 75.5
+     },
+     "2026-03": {
+      "cu": 77.4,
+      "cu_sa": 75.2
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "24077",
+    "obicus": "24075"
+   }
+  },
+  "63748": {
+   "kind": "surveys",
+   "title": "RBI releases the results of Forward Looking Surveys",
+   "date": "Oct 07, 2026",
+   "data": {
+    "iesh": {
+     "2025-09": {
+      "perception_mean": 8.4,
+      "perception": 7.4,
+      "exp_3m_mean": 9.0,
+      "exp_3m": 8.1,
+      "exp_1y_mean": 8.8,
+      "exp_1y": 8.7
+     },
+     "2025-11": {
+      "perception_mean": 7.7,
+      "perception": 6.6,
+      "exp_3m_mean": 8.4,
+      "exp_3m": 7.6,
+      "exp_1y_mean": 8.1,
+      "exp_1y": 8.0
+     },
+     "2026-01": {
+      "perception_mean": 7.8,
+      "perception": 6.9,
+      "exp_3m_mean": 8.9,
+      "exp_3m": 7.9,
+      "exp_1y_mean": 8.9,
+      "exp_1y": 8.6
+     },
+     "2026-03": {
+      "perception_mean": 8.2,
+      "perception": 7.2,
+      "exp_3m_mean": 9.3,
+      "exp_3m": 8.5,
+      "exp_1y_mean": 9.1,
+      "exp_1y": 8.8
+     },
+     "2026-05": {
+      "perception_mean": 8.5,
+      "perception": 7.8,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.3,
+      "exp_1y_mean": 9.2,
+      "exp_1y": 9.3
+     },
+     "2026-07": {
+      "perception_mean": 8.6,
+      "perception": 7.8,
+      "exp_3m_mean": 9.7,
+      "exp_3m": 9.2,
+      "exp_1y_mean": 9.3,
+      "exp_1y": 9.4
+     },
+     "2026-09": {
+      "perception_mean": 9.1,
+      "perception": 8.4,
+      "exp_3m_mean": 10.1,
+      "exp_3m": 9.9,
+      "exp_1y_mean": 9.7,
+      "exp_1y": 10.0
+     }
+    },
+    "obicus": {
+     "2025-06": {
+      "cu": 74.1,
+      "cu_sa": 75.8
+     },
+     "2025-09": {
+      "cu": 74.3,
+      "cu_sa": 74.8
+     },
+     "2025-12": {
+      "cu": 75.6,
+      "cu_sa": 75.5
+     },
+     "2026-03": {
+      "cu": 77.4,
+      "cu_sa": 75.2
+     },
+     "2026-06": {
+      "cu": 74.6,
+      "cu_sa": 76.3
+     }
+    }
+   },
+   "pubs": {
+    "iesh": "24089",
+    "obicus": "24087"
+   }
   }
  },
  "fetched_at": "2026-11-09"

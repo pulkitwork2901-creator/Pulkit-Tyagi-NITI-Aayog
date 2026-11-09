@@ -15,6 +15,13 @@ server, rbidocs, answers scripts with a browser check, so it is not used):
     agriculture, industry, services and personal loans, from the highlights.
   * "Developments in India's Balance of Payments for the Month of ..."
     (monthly, from April 2026): the same items for one month.
+  * "RBI releases the results of Forward Looking Surveys" (with each
+    monetary policy statement, six a year): the links lead to the
+    Inflation Expectations Survey of Households (Table 3: median and mean
+    current perception, three months and one year ahead; seven rounds a
+    page) and, every other quarter-end, the Order Books, Inventories and
+    Capacity Utilisation Survey (Table 1: capacity utilisation, seasonally
+    adjusted from Q4 2022-23). History goes back to late 2018.
 
 Each release is parsed once and kept in data/rbi_releases.json, so a daily
 run fetches only releases it has not seen. Values from a later release
@@ -237,6 +244,108 @@ def parse_sectoral(page: str, title: str) -> dict[str, dict]:
     return {month: vals} if vals else {}
 
 
+MON3 = [m[:3] for m in MONTHS]
+
+
+def parse_iesh(page: str) -> dict[str, dict]:
+    """Inflation Expectations Survey of Households, Table 3: for each survey
+    round, mean and median current inflation perception and expectations three
+    months and one year ahead (per cent). Each row reads 'Sep-26' and then six
+    estimate / standard error pairs."""
+    t = _clean(page)
+    # "Table 3:" (or "Table 3(a):" in rounds that also had an extension survey)
+    h = re.search(r"Table 3\s*(?:\(a\))?\s*:\s*Household", t)
+    if not h:
+        return {}
+    a = h.start()
+    b = re.compile(r"Table (?:3\s*\(b\)|4)\s*:").search(t, a + 10)
+    seg = t[a:b.start() if b else a + 4000]
+    out = {}
+    for m in re.finditer(r"\b([A-Z][a-z]{2})-(\d{2})((?:\s+-?\d+(?:\.\d+)?){12})", seg):
+        mon = m.group(1).lower()
+        if mon not in MON3:
+            continue
+        v = [float(x) for x in m.group(3).split()]
+        k = f"20{m.group(2)}-{MON3.index(mon) + 1:02d}"
+        out[k] = {"perception_mean": v[0], "perception": v[2], "exp_3m_mean": v[4], "exp_3m": v[6],
+                  "exp_1y_mean": v[8], "exp_1y": v[10]}
+    return out
+
+
+def _fy_quarter(label: str) -> str | None:
+    """'Q1:2026-27' -> '2026-06' (end month of the quarter)."""
+    m = re.match(r"\s*Q([1-4])\s*:\s*(\d{4})-\d{2}", label)
+    if not m:
+        return None
+    y0, q = int(m.group(2)), int(m.group(1))
+    return {1: f"{y0}-06", 2: f"{y0}-09", 3: f"{y0}-12", 4: f"{y0 + 1}-03"}[q]
+
+
+def parse_obicus(page: str) -> dict[str, dict]:
+    """Order Books, Inventories and Capacity Utilisation Survey, Table 1:
+    capacity utilisation in manufacturing (per cent) by quarter, and the
+    seasonally adjusted figure where RBI publishes it. Columns are found by
+    their headers, since the table's layout has changed over the years."""
+    rows = _rows(page)
+    out = {}
+    for i, r in enumerate(rows):
+        heads = [c.lower() for c in r]
+        cu = next((j for j, c in enumerate(heads) if c.startswith("capacity utilisation")), None)
+        if cu is None or not heads or not heads[0].startswith("quarter"):
+            continue
+        sa = next((j for j, c in enumerate(heads) if c.startswith("seasonally adjusted")), None)
+        for r2 in rows[i + 1:]:
+            k = _fy_quarter(r2[0]) if r2 else None
+            if not k:
+                break
+            v = {"cu": _num(r2[cu]) if cu < len(r2) else None}
+            if sa is not None and sa < len(r2):
+                v["cu_sa"] = _num(r2[sa])
+            out[k] = {x: y for x, y in v.items() if y is not None}
+        break
+    return out
+
+
+SURVEYS = {"iesh": (r"Inflation Expectations", parse_iesh),
+           "obicus": (r"Capacity Utili[sz]ation|OBICUS", parse_obicus)}
+
+
+def parse_surveys(s: requests.Session, page: str) -> dict:
+    """'RBI releases the results of Forward Looking Surveys': follow the links
+    to the household inflation expectations and capacity utilisation results.
+    Links are matched by their text; if that fails, by the linked page's title."""
+    links = [(i, _clean(t)) for i, t in re.findall(r'<a[^>]*PublicationsView\.aspx\?id=(\d+)[^>]*>(.*?)</a>', page, re.S | re.I)]
+    data, pubs = {}, {}
+    for key, (pat, parser) in SURVEYS.items():
+        pid = next((i for i, t in links if re.search(pat, t, re.I)), None)
+        pg = None
+        if pid is None:  # older releases: look inside each linked page
+            for i, _ in links:
+                if i in pubs.values():
+                    continue
+                try:
+                    cand = s.get(f"{BASE}/PublicationsView.aspx?id={i}", timeout=40).text
+                except requests.RequestException:
+                    continue
+                head = re.search(r"Date\s*:\s*\w{3} \d{1,2}, \d{4}(.{0,200})", _clean(cand))
+                if head and re.search(pat, head.group(1), re.I):
+                    pid, pg = i, cand
+                    break
+                time.sleep(0.3)
+        if pid is None:
+            continue
+        if pg is None:
+            try:
+                pg = s.get(f"{BASE}/PublicationsView.aspx?id={pid}", timeout=40).text
+            except requests.RequestException as e:
+                print(f"  survey {key} {pid}: {e}")
+                continue
+            time.sleep(0.3)
+        pubs[key] = pid
+        data[key] = parser(pg)
+    return {"data": data, "pubs": pubs}
+
+
 def refresh(full: bool = False) -> dict:
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {"releases": {}}
     rel = cache["releases"]
@@ -250,15 +359,19 @@ def refresh(full: bool = False) -> dict:
     months = [(y, m) for y in years for m in range(1, 13) if date(y, m, 1) <= today]
     if not full and rel:
         months = months[-4:]
-    bop = _listing(s, f"{BASE}/BS_PressReleaseDisplay.aspx", months)
-    bop = {p: t for p, t in bop.items() if re.search(r"Developments in India.s Balance of Payments", t, re.I)}
+    if not any(r["kind"] == "surveys" for r in rel.values()):  # first run of the survey reader: go back to 2020
+        months = [(y, m) for y in range(FIRST_YEAR, today.year + 1) for m in range(1, 13) if date(y, m, 1) <= today]
+    press = _listing(s, f"{BASE}/BS_PressReleaseDisplay.aspx", months)
+    bop = {p: t for p, t in press.items() if re.search(r"Developments in India.s Balance of Payments", t, re.I)}
+    surveys = {p: t for p, t in press.items() if re.search(r"results of forward looking surveys", t, re.I)}
 
     sec_years = range(2025, today.year + 1) if full or not any(r["kind"] == "sectoral" for r in rel.values()) else range(today.year - 1, today.year + 1)
     sectoral = _listing(s, f"{BASE}/Pr_DataRelease.aspx?SectionID=348", [(y, 0) for y in sec_years])
     sectoral = {p: t for p, t in sectoral.items() if "sectoral deployment of bank credit" in t.lower()}
     todo = [(p, "sectoral", t) for p, t in sectoral.items()] + \
            [(p, "services", t) for p, t in services.items()] + \
-           [(p, "bop_month" if "for the month" in t.lower() else "bop_quarter", t) for p, t in bop.items()]
+           [(p, "bop_month" if "for the month" in t.lower() else "bop_quarter", t) for p, t in bop.items()] + \
+           [(p, "surveys", t) for p, t in surveys.items()]
     for p, kind, title in sorted(todo):
         if p in rel:
             continue
@@ -267,10 +380,19 @@ def refresh(full: bool = False) -> dict:
         except requests.RequestException as e:
             print(f"  {p}: {e}")
             continue
+        d = re.search(r"Date\s*:\s*([A-Za-z]{3} \d{1,2}, \d{4})", _clean(page))
+        if kind == "surveys":
+            got = parse_surveys(s, page)
+            if not got["data"]:  # links not readable this time: try again on the next run
+                print(f"  {p} surveys: no survey tables found")
+                continue
+            rel[p] = {"kind": kind, "title": title, "date": d.group(1) if d else None, **got}
+            print(f"  {p} surveys: " + ", ".join(f"{k} {len(v)} periods" for k, v in got["data"].items()))
+            time.sleep(0.4)
+            continue
         parser = {"services": parse_services, "bop_quarter": parse_bop_quarter, "bop_month": parse_bop_month,
                   "sectoral": lambda pg: parse_sectoral(pg, title)}[kind]
         data = parser(page)
-        d = re.search(r"Date\s*:\s*([A-Za-z]{3} \d{1,2}, \d{4})", _clean(page))
         rel[p] = {"kind": kind, "title": title, "date": d.group(1) if d else None, "data": data}
         print(f"  {p} {kind}: {len(data)} periods  {title[:70]}")
         time.sleep(0.4)
@@ -282,9 +404,14 @@ def refresh(full: bool = False) -> dict:
 def merged(cache: dict | None = None) -> dict[str, dict]:
     """kind -> period -> values, later releases overriding earlier ones."""
     cache = cache or (json.loads(CACHE.read_text()) if CACHE.exists() else {"releases": {}})
-    out = {"services": {}, "bop_quarter": {}, "bop_month": {}, "sectoral": {}}
+    out = {"services": {}, "bop_quarter": {}, "bop_month": {}, "sectoral": {}, "iesh": {}, "obicus": {}}
     for p in sorted(cache["releases"], key=int):
         r = cache["releases"][p]
+        if r["kind"] == "surveys":  # one bundle, several surveys
+            for key, periods in r["data"].items():
+                for period, vals in periods.items():
+                    out[key].setdefault(period, {}).update(vals)
+            continue
         for period, vals in r["data"].items():
             out[r["kind"]].setdefault(period, {}).update(vals)
     return out

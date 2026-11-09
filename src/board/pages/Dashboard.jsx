@@ -15,7 +15,7 @@ import { formatDateTime, formatValue, signed, tipFor } from '../format.js';
 
 const RANGES = [['1Y', 1], ['3Y', 3], ['5Y', 5]];
 const TILES = ['gdp', 'cpi', 'wpi', 'repo', 'unemployment', 'credit_nonfood'];
-const SHORT = { crude_basket: 'Indian basket', real_repo: 'Real repo rate', cpi_rural: 'Rural CPI', iip: 'IIP', credit_services: 'Credit to services', fiscal_deficit: 'Fiscal deficit', services_net: 'Services surplus', ca_usd: 'Current account', remittances: 'Remittances', gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI', unemployment: 'Unemployment', fx_reserves: 'Reserves', inr_usd: '₹ per US$' };
+const SHORT = { infl_exp_1y: 'Household expectations', capacity_util_sa: 'Capacity use', capacity_util: 'Capacity use', crude_basket: 'Indian basket', real_repo: 'Real repo rate', cpi_rural: 'Rural CPI', iip: 'IIP', credit_services: 'Credit to services', fiscal_deficit: 'Fiscal deficit', services_net: 'Services surplus', ca_usd: 'Current account', remittances: 'Remittances', gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI', unemployment: 'Unemployment', fx_reserves: 'Reserves', inr_usd: '₹ per US$' };
 const S1 = 'var(--eb-s1)';
 const S2 = 'var(--eb-s2)';
 const S3 = 'var(--eb-s3)';
@@ -180,6 +180,14 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
               { key: 'wpi', label: 'WPI', color: S3, points: h('wpi') },
             ]} />
         )}
+        {has('infl_exp_1y', 'cpi') && (
+          <MultiChart title="Inflation: what households expect" icon="prices" headline={head('infl_exp_1y')} note="Median % from RBI's bi-monthly survey of urban households in 19 cities, against measured CPI inflation. Households' numbers run above CPI; their direction is the signal. RBI, MoSPI." start={start} fmt={pct(1)}
+            series={[
+              { key: 'infl_exp_1y', label: 'Expected, a year ahead', color: S1, points: h('infl_exp_1y') },
+              { key: 'infl_perception', label: 'Perceived now', color: S2, points: h('infl_perception') },
+              { key: 'cpi', label: 'CPI inflation', color: S3, points: h('cpi') },
+            ]} />
+        )}
         {has('crude_basket') && (
           <MultiChart title="Oil price" icon="wholesale" headline={head('crude_basket')} note="Indian basket crude, US$ a barrel, monthly average (latest month to date). PPAC publishes no monthly figures for 2022-23. PPAC." start={start} fmt={(v) => '$' + formatValue(v, 0)}
             series={[{ key: 'crude_basket', label: 'Indian basket crude', color: S1, points: h('crude_basket') }]} />
@@ -217,6 +225,13 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
         {has('iip') && (
           <MultiChart title="Industrial output" icon="wholesale" headline={head('iip')} note="IIP, % year on year, base 2022-23. MoSPI has not published June 2023 to March 2024 on this base. MoSPI." kind="bar" start={start} fmt={pct(1)}
             series={[{ key: 'iip', label: 'IIP growth', color: S1, points: h('iip') }]} />
+        )}
+        {has('capacity_util') && (
+          <MultiChart title="Factory capacity in use" icon="wholesale" headline={head('capacity_util_sa') || head('capacity_util')} note="Capacity utilisation in manufacturing, %, by quarter, about 1,000 companies. The unadjusted figure peaks every January to March. RBI OBICUS." start={start} fmt={pct(1)}
+            series={[
+              { key: 'capacity_util', label: 'As reported', color: S1, points: h('capacity_util') },
+              { key: 'capacity_util_sa', label: 'Seasonally adjusted', color: S2, points: h('capacity_util_sa') },
+            ]} />
         )}
         {has('credit_industry', 'credit_services') && (
           <MultiChart title="Credit by sector" icon="credit" headline={head('credit_services')} note="% year on year, as first published each month. RBI sectoral deployment of bank credit." start={start} fmt={pct(1)}

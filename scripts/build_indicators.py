@@ -48,9 +48,14 @@ META = {
     "gdp_deflator":   {"label": "GDP deflator inflation", "group": "Growth and prices", "decimals": 1, "up_is_good": None,  "change_unit": "pts"},
     "cpi_rural":      {"label": "CPI inflation, rural", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
     "cpi_urban":      {"label": "CPI inflation, urban", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
+    "infl_exp_1y":    {"label": "Households' inflation expectations, one year ahead", "group": "Growth and prices", "decimals": 1, "up_is_good": False, "change_unit": "pts"},
+    "infl_exp_3m":    {"label": "Households' inflation expectations, three months ahead", "group": "Growth and prices", "decimals": 1, "up_is_good": False, "change_unit": "pts"},
+    "infl_perception": {"label": "Households' perception of current inflation", "group": "Growth and prices", "decimals": 1, "up_is_good": False, "change_unit": "pts"},
     "iip":            {"label": "IIP growth", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "wpi":            {"label": "WPI inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
     "wpi_food":       {"label": "WPI food inflation", "group": "Growth and prices", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
+    "capacity_util":  {"label": "Capacity utilisation in manufacturing", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
+    "capacity_util_sa": {"label": "Capacity utilisation in manufacturing, seasonally adjusted", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "pmi_mfg":        {"label": "Manufacturing PMI (HSBC)", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "pmi_services":   {"label": "Services PMI (HSBC)", "group": "Growth and prices", "decimals": 1, "up_is_good": True,  "change_unit": "pts"},
     "crude_basket":   {"label": "Crude oil price (Indian basket)", "group": "Growth and prices", "decimals": 1, "up_is_good": False, "change_unit": "$"},
@@ -481,6 +486,25 @@ def shape_manual(path: Path) -> list[dict]:
 
 RBI_SERVICES_URL = "https://www.rbi.org.in/Scripts/Pr_DataRelease.aspx?SectionID=352"
 RBI_PR_URL = "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid={}"
+RBI_PUB_URL = "https://www.rbi.org.in/Scripts/PublicationsView.aspx?id={}"
+
+
+def _prev_item(ind_id, hist, unit, source, url, compare_label, note=None):
+    """Indicator compared with the previous reading (previous survey round or quarter)."""
+    hist = [h for h in hist if h["value"] is not None]
+    if not hist:
+        return None
+    last, prev = hist[-1], (hist[-2] if len(hist) > 1 else None)
+    item = {
+        "id": ind_id, "mode": "rbi", "value": last["value"], "unit": unit, "period": last["label"],
+        "compare_value": prev["value"] if prev else None,
+        "compare_period": f'{compare_label} ({prev["label"]})' if prev else None,
+        "change": _change(last["value"], prev["value"] if prev else None),
+        "source": source, "source_url": url, "released": None, "history": hist,
+    }
+    if note:
+        item["note"] = note
+    return item
 
 
 def _year_ago_item(ind_id, hist, unit, source, url, note=None):
@@ -574,6 +598,37 @@ def rbi_release_items() -> dict[str, dict]:
                     "compare_value": ya, "compare_period": f"Growth a year earlier ({MONTHS[mo - 1][:3]} {y - 1}), as restated by RBI" if ya is not None else None,
                     "change": _change(last["value"], ya), "source": "RBI, Sectoral Deployment of Bank Credit (monthly release)",
                     "source_url": url_c, "released": None, "history": hist}
+
+    # RBI's forward-looking surveys, released with each monetary policy statement.
+    surveys = [r for p, r in sorted(cache["releases"].items(), key=lambda x: int(x[0])) if r["kind"] == "surveys"]
+    def pub_url(key):
+        pid = next((r["pubs"][key] for r in reversed(surveys) if key in r.get("pubs", {})), None)
+        return RBI_PUB_URL.format(pid) if pid else None
+
+    ie = m.get("iesh") or {}
+    src_i = "RBI, Inflation Expectations Survey of Households (bi-monthly)"
+    note_i = ("Median of what urban households in 19 cities say inflation is now and expect it to be, in the survey round "
+              "named (about 6,000 responses a round). Households' figures run well above measured CPI inflation; "
+              "RBI reads them for direction rather than level.")
+    for key, field in (("infl_exp_1y", "exp_1y"), ("infl_exp_3m", "exp_3m"), ("infl_perception", "perception")):
+        hist = [month_pt(k, v[field]) for k, v in sorted(ie.items()) if v.get(field) is not None]
+        item = _prev_item(key, hist, "% (median)", src_i, pub_url("iesh"), "the previous round", note_i)
+        if item:
+            out[key] = item
+
+    ob = m.get("obicus") or {}
+    src_o = "RBI, Order Books, Inventories and Capacity Utilisation Survey (OBICUS, quarterly)"
+    hist = [quarter_pt(k, v["cu"]) for k, v in sorted(ob.items()) if v.get("cu") is not None]
+    item = _year_ago_item("capacity_util", hist, "%", src_o, pub_url("obicus"),
+                          "Share of installed capacity in use, from about 1,000 manufacturing companies. It peaks every January to March, "
+                          "so it is compared with the same quarter a year earlier. Results come out about three months after the quarter ends.")
+    if item:
+        out["capacity_util"] = item
+    hist = [quarter_pt(k, v["cu_sa"]) for k, v in sorted(ob.items()) if v.get("cu_sa") is not None]
+    item = _prev_item("capacity_util_sa", hist, "%", src_o, pub_url("obicus"), "the previous quarter",
+                      "Seasonally adjusted by RBI (X-13 ARIMA-SEATS), so one quarter can be compared with the next. RBI publishes it from Q4 2022-23.")
+    if item:
+        out["capacity_util_sa"] = item
 
     bm = m["bop_month"]
     nri = [month_pt(k, v["nri_deposits"]) for k, v in sorted(bm.items()) if v.get("nri_deposits") is not None]

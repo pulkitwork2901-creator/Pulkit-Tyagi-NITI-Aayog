@@ -16,13 +16,16 @@ const yearAgo = (i) => {
 };
 
 function growth(b) {
-  const { gdp, iip, pmi_mfg: pm, pmi_services: ps, cpi, wpi, cpi_rural: cr, cpi_urban: cu, unemployment: ur, cpi_core: core, crude_basket: oil, gdp_nominal: gn } = b;
+  const { gdp, iip, pmi_mfg: pm, pmi_services: ps, cpi, wpi, cpi_rural: cr, cpi_urban: cu, unemployment: ur, cpi_core: core, crude_basket: oil, gdp_nominal: gn,
+    infl_exp_1y: ie, capacity_util_sa: cusa, capacity_util: cuRaw } = b;
+  const cap = cusa || cuRaw;
   const expanding = pm && ps ? (pm.value > 50 && ps.value > 50 ? 'both above 50, so activity is expanding' : 'one or both below 50, so activity is slowing') : null;
   const s1 = gdp && (
     <>
       The economy grew {pct(gdp)} in {gdp.period}{gn ? <> ({pct(gn)} before adjusting for inflation)</> : null}
       {iip ? <>, industrial output rose {pct(iip)} in {iip.period}</> : null}
-      {expanding ? <>, and the business surveys (PMIs) are {expanding} (manufacturing {formatValue(pm.value, 1)}, services {formatValue(ps.value, 1)})</> : null}.
+      {expanding ? <>, and the business surveys (PMIs) are {expanding} (manufacturing {formatValue(pm.value, 1)}, services {formatValue(ps.value, 1)})</> : null}
+      {cap ? <>; factories were using <strong>{formatValue(cap.value, 1)}%</strong> of their capacity in {cap.period}{cap === cusa ? ' (seasonally adjusted)' : ''}</> : null}.
     </>
   );
   const dir = cpi && cpi.change != null ? (cpi.change > 0 ? 'rising' : cpi.change < 0 ? 'easing' : 'steady') : null;
@@ -35,7 +38,15 @@ function growth(b) {
       {ur ? <>, while unemployment is {pct(ur)}</> : null}.
     </>
   );
-  return [s1, s2];
+  const ieDir = ie && ie.change != null ? (ie.change > 0 ? 'up from' : ie.change < 0 ? 'down from' : 'the same as') : null;
+  const s3 = ie && (
+    <>
+      Households surveyed by RBI expect inflation of <strong>{formatValue(ie.value, 1)}%</strong> a year ahead ({ie.period} round)
+      {ieDir && ie.compare_value != null ? <>, {ieDir} {formatValue(ie.compare_value, 1)}% in the previous round</> : null}
+      ; their figures always run above measured inflation, so RBI watches the direction{ie.change > 0 ? ', and rising expectations can feed into wages and prices' : ''}.
+    </>
+  );
+  return [s1, s2, s3];
 }
 
 function external(b) {

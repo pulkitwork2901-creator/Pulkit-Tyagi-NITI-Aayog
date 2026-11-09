@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-09T16:26:35+00:00",
+ "generated_at": "2026-11-09T17:05:35+00:00",
  "sources": {
   "mospi": {
    "status": "ok",
-   "fetched_at": "2026-11-09T16:26:35+00:00",
+   "fetched_at": "2026-11-09T17:05:35+00:00",
    "message": null
   },
   "rbi": {
@@ -2414,6 +2414,918 @@
    "updated_at": "2026-11-09T14:08:24+00:00"
   },
   {
+   "label": "Households' inflation expectations, one year ahead",
+   "group": "Growth and prices",
+   "decimals": 1,
+   "up_is_good": false,
+   "change_unit": "pts",
+   "id": "infl_exp_1y",
+   "mode": "rbi",
+   "value": 10.0,
+   "unit": "% (median)",
+   "period": "Sep 2026",
+   "compare_value": 9.4,
+   "compare_period": "the previous round (Jul 2026)",
+   "change": 0.6,
+   "source": "RBI, Inflation Expectations Survey of Households (bi-monthly)",
+   "source_url": "https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=24089",
+   "released": null,
+   "history": [
+    {
+     "date": "2018-12-31",
+     "label": "Dec 2018",
+     "short": "Dec 18",
+     "value": 8.5
+    },
+    {
+     "date": "2019-03-31",
+     "label": "Mar 2019",
+     "short": "Mar 19",
+     "value": 8.1
+    },
+    {
+     "date": "2019-05-31",
+     "label": "May 2019",
+     "short": "May 19",
+     "value": 8.1
+    },
+    {
+     "date": "2019-07-31",
+     "label": "Jul 2019",
+     "short": "Jul 19",
+     "value": 7.9
+    },
+    {
+     "date": "2019-09-30",
+     "label": "Sep 2019",
+     "short": "Sep 19",
+     "value": 8.1
+    },
+    {
+     "date": "2019-11-30",
+     "label": "Nov 2019",
+     "short": "Nov 19",
+     "value": 9.9
+    },
+    {
+     "date": "2020-01-31",
+     "label": "Jan 2020",
+     "short": "Jan 20",
+     "value": 9.2
+    },
+    {
+     "date": "2020-03-31",
+     "label": "Mar 2020",
+     "short": "Mar 20",
+     "value": 9.0
+    },
+    {
+     "date": "2020-05-31",
+     "label": "May 2020",
+     "short": "May 20",
+     "value": 10.2
+    },
+    {
+     "date": "2020-07-31",
+     "label": "Jul 2020",
+     "short": "Jul 20",
+     "value": 10.3
+    },
+    {
+     "date": "2020-09-30",
+     "label": "Sep 2020",
+     "short": "Sep 20",
+     "value": 10.3
+    },
+    {
+     "date": "2020-11-30",
+     "label": "Nov 2020",
+     "short": "Nov 20",
+     "value": 10.1
+    },
+    {
+     "date": "2021-01-31",
+     "label": "Jan 2021",
+     "short": "Jan 21",
+     "value": 10.1
+    },
+    {
+     "date": "2021-03-31",
+     "label": "Mar 2021",
+     "short": "Mar 21",
+     "value": 10.2
+    },
+    {
+     "date": "2021-05-31",
+     "label": "May 2021",
+     "short": "May 21",
+     "value": 10.8
+    },
+    {
+     "date": "2021-07-31",
+     "label": "Jul 2021",
+     "short": "Jul 21",
+     "value": 11.5
+    },
+    {
+     "date": "2021-09-30",
+     "label": "Sep 2021",
+     "short": "Sep 21",
+     "value": 10.9
+    },
+    {
+     "date": "2021-11-30",
+     "label": "Nov 2021",
+     "short": "Nov 21",
+     "value": 12.7
+    },
+    {
+     "date": "2022-01-31",
+     "label": "Jan 2022",
+     "short": "Jan 22",
+     "value": 10.7
+    },
+    {
+     "date": "2022-03-31",
+     "label": "Mar 2022",
+     "short": "Mar 22",
+     "value": 10.8
+    },
+    {
+     "date": "2022-05-31",
+     "label": "May 2022",
+     "short": "May 22",
+     "value": 11.1
+    },
+    {
+     "date": "2022-07-31",
+     "label": "Jul 2022",
+     "short": "Jul 22",
+     "value": 10.5
+    },
+    {
+     "date": "2022-09-30",
+     "label": "Sep 2022",
+     "short": "Sep 22",
+     "value": 11.0
+    },
+    {
+     "date": "2022-11-30",
+     "label": "Nov 2022",
+     "short": "Nov 22",
+     "value": 10.8
+    },
+    {
+     "date": "2023-01-31",
+     "label": "Jan 2023",
+     "short": "Jan 23",
+     "value": 10.8
+    },
+    {
+     "date": "2023-03-31",
+     "label": "Mar 2023",
+     "short": "Mar 23",
+     "value": 10.5
+    },
+    {
+     "date": "2023-05-31",
+     "label": "May 2023",
+     "short": "May 23",
+     "value": 10.4
+    },
+    {
+     "date": "2023-07-31",
+     "label": "Jul 2023",
+     "short": "Jul 23",
+     "value": 10.3
+    },
+    {
+     "date": "2023-09-30",
+     "label": "Sep 2023",
+     "short": "Sep 23",
+     "value": 9.9
+    },
+    {
+     "date": "2023-11-30",
+     "label": "Nov 2023",
+     "short": "Nov 23",
+     "value": 10.1
+    },
+    {
+     "date": "2024-01-31",
+     "label": "Jan 2024",
+     "short": "Jan 24",
+     "value": 10.0
+    },
+    {
+     "date": "2024-03-31",
+     "label": "Mar 2024",
+     "short": "Mar 24",
+     "value": 9.8
+    },
+    {
+     "date": "2024-05-31",
+     "label": "May 2024",
+     "short": "May 24",
+     "value": 9.9
+    },
+    {
+     "date": "2024-07-31",
+     "label": "Jul 2024",
+     "short": "Jul 24",
+     "value": 10.1
+    },
+    {
+     "date": "2024-09-30",
+     "label": "Sep 2024",
+     "short": "Sep 24",
+     "value": 10.0
+    },
+    {
+     "date": "2024-11-30",
+     "label": "Nov 2024",
+     "short": "Nov 24",
+     "value": 10.1
+    },
+    {
+     "date": "2025-01-31",
+     "label": "Jan 2025",
+     "short": "Jan 25",
+     "value": 10.2
+    },
+    {
+     "date": "2025-03-31",
+     "label": "Mar 2025",
+     "short": "Mar 25",
+     "value": 9.7
+    },
+    {
+     "date": "2025-05-31",
+     "label": "May 2025",
+     "short": "May 25",
+     "value": 9.5
+    },
+    {
+     "date": "2025-07-31",
+     "label": "Jul 2025",
+     "short": "Jul 25",
+     "value": 9.0
+    },
+    {
+     "date": "2025-09-30",
+     "label": "Sep 2025",
+     "short": "Sep 25",
+     "value": 8.7
+    },
+    {
+     "date": "2025-11-30",
+     "label": "Nov 2025",
+     "short": "Nov 25",
+     "value": 8.0
+    },
+    {
+     "date": "2026-01-31",
+     "label": "Jan 2026",
+     "short": "Jan 26",
+     "value": 8.6
+    },
+    {
+     "date": "2026-03-31",
+     "label": "Mar 2026",
+     "short": "Mar 26",
+     "value": 8.8
+    },
+    {
+     "date": "2026-05-31",
+     "label": "May 2026",
+     "short": "May 26",
+     "value": 9.3
+    },
+    {
+     "date": "2026-07-31",
+     "label": "Jul 2026",
+     "short": "Jul 26",
+     "value": 9.4
+    },
+    {
+     "date": "2026-09-30",
+     "label": "Sep 2026",
+     "short": "Sep 26",
+     "value": 10.0
+    }
+   ],
+   "note": "Median of what urban households in 19 cities say inflation is now and expect it to be, in the survey round named (about 6,000 responses a round). Households' figures run well above measured CPI inflation; RBI reads them for direction rather than level.",
+   "updated_at": "2026-11-09T17:01:36+00:00"
+  },
+  {
+   "label": "Households' inflation expectations, three months ahead",
+   "group": "Growth and prices",
+   "decimals": 1,
+   "up_is_good": false,
+   "change_unit": "pts",
+   "id": "infl_exp_3m",
+   "mode": "rbi",
+   "value": 9.9,
+   "unit": "% (median)",
+   "period": "Sep 2026",
+   "compare_value": 9.2,
+   "compare_period": "the previous round (Jul 2026)",
+   "change": 0.7,
+   "source": "RBI, Inflation Expectations Survey of Households (bi-monthly)",
+   "source_url": "https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=24089",
+   "released": null,
+   "history": [
+    {
+     "date": "2018-12-31",
+     "label": "Dec 2018",
+     "short": "Dec 18",
+     "value": 8.2
+    },
+    {
+     "date": "2019-03-31",
+     "label": "Mar 2019",
+     "short": "Mar 19",
+     "value": 7.8
+    },
+    {
+     "date": "2019-05-31",
+     "label": "May 2019",
+     "short": "May 19",
+     "value": 7.6
+    },
+    {
+     "date": "2019-07-31",
+     "label": "Jul 2019",
+     "short": "Jul 19",
+     "value": 7.6
+    },
+    {
+     "date": "2019-09-30",
+     "label": "Sep 2019",
+     "short": "Sep 19",
+     "value": 8.0
+    },
+    {
+     "date": "2019-11-30",
+     "label": "Nov 2019",
+     "short": "Nov 19",
+     "value": 9.2
+    },
+    {
+     "date": "2020-01-31",
+     "label": "Jan 2020",
+     "short": "Jan 20",
+     "value": 8.6
+    },
+    {
+     "date": "2020-03-31",
+     "label": "Mar 2020",
+     "short": "Mar 20",
+     "value": 8.5
+    },
+    {
+     "date": "2020-05-31",
+     "label": "May 2020",
+     "short": "May 20",
+     "value": 10.4
+    },
+    {
+     "date": "2020-07-31",
+     "label": "Jul 2020",
+     "short": "Jul 20",
+     "value": 10.5
+    },
+    {
+     "date": "2020-09-30",
+     "label": "Sep 2020",
+     "short": "Sep 20",
+     "value": 10.4
+    },
+    {
+     "date": "2020-11-30",
+     "label": "Nov 2020",
+     "short": "Nov 20",
+     "value": 10.1
+    },
+    {
+     "date": "2021-01-31",
+     "label": "Jan 2021",
+     "short": "Jan 21",
+     "value": 9.3
+    },
+    {
+     "date": "2021-03-31",
+     "label": "Mar 2021",
+     "short": "Mar 21",
+     "value": 10.1
+    },
+    {
+     "date": "2021-05-31",
+     "label": "May 2021",
+     "short": "May 21",
+     "value": 10.8
+    },
+    {
+     "date": "2021-07-31",
+     "label": "Jul 2021",
+     "short": "Jul 21",
+     "value": 11.3
+    },
+    {
+     "date": "2021-09-30",
+     "label": "Sep 2021",
+     "short": "Sep 21",
+     "value": 10.8
+    },
+    {
+     "date": "2021-11-30",
+     "label": "Nov 2021",
+     "short": "Nov 21",
+     "value": 12.3
+    },
+    {
+     "date": "2022-01-31",
+     "label": "Jan 2022",
+     "short": "Jan 22",
+     "value": 10.6
+    },
+    {
+     "date": "2022-03-31",
+     "label": "Mar 2022",
+     "short": "Mar 22",
+     "value": 10.7
+    },
+    {
+     "date": "2022-05-31",
+     "label": "May 2022",
+     "short": "May 22",
+     "value": 10.8
+    },
+    {
+     "date": "2022-07-31",
+     "label": "Jul 2022",
+     "short": "Jul 22",
+     "value": 10.3
+    },
+    {
+     "date": "2022-09-30",
+     "label": "Sep 2022",
+     "short": "Sep 22",
+     "value": 10.8
+    },
+    {
+     "date": "2022-11-30",
+     "label": "Nov 2022",
+     "short": "Nov 22",
+     "value": 10.4
+    },
+    {
+     "date": "2023-01-31",
+     "label": "Jan 2023",
+     "short": "Jan 23",
+     "value": 10.5
+    },
+    {
+     "date": "2023-03-31",
+     "label": "Mar 2023",
+     "short": "Mar 23",
+     "value": 10.2
+    },
+    {
+     "date": "2023-05-31",
+     "label": "May 2023",
+     "short": "May 23",
+     "value": 10.1
+    },
+    {
+     "date": "2023-07-31",
+     "label": "Jul 2023",
+     "short": "Jul 23",
+     "value": 10.0
+    },
+    {
+     "date": "2023-09-30",
+     "label": "Sep 2023",
+     "short": "Sep 23",
+     "value": 9.1
+    },
+    {
+     "date": "2023-11-30",
+     "label": "Nov 2023",
+     "short": "Nov 23",
+     "value": 9.1
+    },
+    {
+     "date": "2024-01-31",
+     "label": "Jan 2024",
+     "short": "Jan 24",
+     "value": 9.2
+    },
+    {
+     "date": "2024-03-31",
+     "label": "Mar 2024",
+     "short": "Mar 24",
+     "value": 9.0
+    },
+    {
+     "date": "2024-05-31",
+     "label": "May 2024",
+     "short": "May 24",
+     "value": 9.2
+    },
+    {
+     "date": "2024-07-31",
+     "label": "Jul 2024",
+     "short": "Jul 24",
+     "value": 9.4
+    },
+    {
+     "date": "2024-09-30",
+     "label": "Sep 2024",
+     "short": "Sep 24",
+     "value": 9.2
+    },
+    {
+     "date": "2024-11-30",
+     "label": "Nov 2024",
+     "short": "Nov 24",
+     "value": 9.1
+    },
+    {
+     "date": "2025-01-31",
+     "label": "Jan 2025",
+     "short": "Jan 25",
+     "value": 9.3
+    },
+    {
+     "date": "2025-03-31",
+     "label": "Mar 2025",
+     "short": "Mar 25",
+     "value": 8.9
+    },
+    {
+     "date": "2025-05-31",
+     "label": "May 2025",
+     "short": "May 25",
+     "value": 8.9
+    },
+    {
+     "date": "2025-07-31",
+     "label": "Jul 2025",
+     "short": "Jul 25",
+     "value": 8.3
+    },
+    {
+     "date": "2025-09-30",
+     "label": "Sep 2025",
+     "short": "Sep 25",
+     "value": 8.1
+    },
+    {
+     "date": "2025-11-30",
+     "label": "Nov 2025",
+     "short": "Nov 25",
+     "value": 7.6
+    },
+    {
+     "date": "2026-01-31",
+     "label": "Jan 2026",
+     "short": "Jan 26",
+     "value": 7.9
+    },
+    {
+     "date": "2026-03-31",
+     "label": "Mar 2026",
+     "short": "Mar 26",
+     "value": 8.5
+    },
+    {
+     "date": "2026-05-31",
+     "label": "May 2026",
+     "short": "May 26",
+     "value": 9.3
+    },
+    {
+     "date": "2026-07-31",
+     "label": "Jul 2026",
+     "short": "Jul 26",
+     "value": 9.2
+    },
+    {
+     "date": "2026-09-30",
+     "label": "Sep 2026",
+     "short": "Sep 26",
+     "value": 9.9
+    }
+   ],
+   "note": "Median of what urban households in 19 cities say inflation is now and expect it to be, in the survey round named (about 6,000 responses a round). Households' figures run well above measured CPI inflation; RBI reads them for direction rather than level.",
+   "updated_at": "2026-11-09T17:01:36+00:00"
+  },
+  {
+   "label": "Households' perception of current inflation",
+   "group": "Growth and prices",
+   "decimals": 1,
+   "up_is_good": false,
+   "change_unit": "pts",
+   "id": "infl_perception",
+   "mode": "rbi",
+   "value": 8.4,
+   "unit": "% (median)",
+   "period": "Sep 2026",
+   "compare_value": 7.8,
+   "compare_period": "the previous round (Jul 2026)",
+   "change": 0.6,
+   "source": "RBI, Inflation Expectations Survey of Households (bi-monthly)",
+   "source_url": "https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=24089",
+   "released": null,
+   "history": [
+    {
+     "date": "2018-12-31",
+     "label": "Dec 2018",
+     "short": "Dec 18",
+     "value": 7.1
+    },
+    {
+     "date": "2019-03-31",
+     "label": "Mar 2019",
+     "short": "Mar 19",
+     "value": 6.9
+    },
+    {
+     "date": "2019-05-31",
+     "label": "May 2019",
+     "short": "May 19",
+     "value": 6.6
+    },
+    {
+     "date": "2019-07-31",
+     "label": "Jul 2019",
+     "short": "Jul 19",
+     "value": 6.6
+    },
+    {
+     "date": "2019-09-30",
+     "label": "Sep 2019",
+     "short": "Sep 19",
+     "value": 7.1
+    },
+    {
+     "date": "2019-11-30",
+     "label": "Nov 2019",
+     "short": "Nov 19",
+     "value": 8.2
+    },
+    {
+     "date": "2020-01-31",
+     "label": "Jan 2020",
+     "short": "Jan 20",
+     "value": 7.6
+    },
+    {
+     "date": "2020-03-31",
+     "label": "Mar 2020",
+     "short": "Mar 20",
+     "value": 7.6
+    },
+    {
+     "date": "2020-05-31",
+     "label": "May 2020",
+     "short": "May 20",
+     "value": 9.3
+    },
+    {
+     "date": "2020-07-31",
+     "label": "Jul 2020",
+     "short": "Jul 20",
+     "value": 9.9
+    },
+    {
+     "date": "2020-09-30",
+     "label": "Sep 2020",
+     "short": "Sep 20",
+     "value": 9.8
+    },
+    {
+     "date": "2020-11-30",
+     "label": "Nov 2020",
+     "short": "Nov 20",
+     "value": 8.8
+    },
+    {
+     "date": "2021-01-31",
+     "label": "Jan 2021",
+     "short": "Jan 21",
+     "value": 8.2
+    },
+    {
+     "date": "2021-03-31",
+     "label": "Mar 2021",
+     "short": "Mar 21",
+     "value": 8.8
+    },
+    {
+     "date": "2021-05-31",
+     "label": "May 2021",
+     "short": "May 21",
+     "value": 10.2
+    },
+    {
+     "date": "2021-07-31",
+     "label": "Jul 2021",
+     "short": "Jul 21",
+     "value": 10.3
+    },
+    {
+     "date": "2021-09-30",
+     "label": "Sep 2021",
+     "short": "Sep 21",
+     "value": 10.2
+    },
+    {
+     "date": "2021-11-30",
+     "label": "Nov 2021",
+     "short": "Nov 21",
+     "value": 10.4
+    },
+    {
+     "date": "2022-01-31",
+     "label": "Jan 2022",
+     "short": "Jan 22",
+     "value": 9.7
+    },
+    {
+     "date": "2022-03-31",
+     "label": "Mar 2022",
+     "short": "Mar 22",
+     "value": 9.7
+    },
+    {
+     "date": "2022-05-31",
+     "label": "May 2022",
+     "short": "May 22",
+     "value": 10.1
+    },
+    {
+     "date": "2022-07-31",
+     "label": "Jul 2022",
+     "short": "Jul 22",
+     "value": 9.3
+    },
+    {
+     "date": "2022-09-30",
+     "label": "Sep 2022",
+     "short": "Sep 22",
+     "value": 10.2
+    },
+    {
+     "date": "2022-11-30",
+     "label": "Nov 2022",
+     "short": "Nov 22",
+     "value": 9.8
+    },
+    {
+     "date": "2023-01-31",
+     "label": "Jan 2023",
+     "short": "Jan 23",
+     "value": 9.6
+    },
+    {
+     "date": "2023-03-31",
+     "label": "Mar 2023",
+     "short": "Mar 23",
+     "value": 8.9
+    },
+    {
+     "date": "2023-05-31",
+     "label": "May 2023",
+     "short": "May 23",
+     "value": 8.8
+    },
+    {
+     "date": "2023-07-31",
+     "label": "Jul 2023",
+     "short": "Jul 23",
+     "value": 8.9
+    },
+    {
+     "date": "2023-09-30",
+     "label": "Sep 2023",
+     "short": "Sep 23",
+     "value": 8.4
+    },
+    {
+     "date": "2023-11-30",
+     "label": "Nov 2023",
+     "short": "Nov 23",
+     "value": 8.2
+    },
+    {
+     "date": "2024-01-31",
+     "label": "Jan 2024",
+     "short": "Jan 24",
+     "value": 8.1
+    },
+    {
+     "date": "2024-03-31",
+     "label": "Mar 2024",
+     "short": "Mar 24",
+     "value": 8.1
+    },
+    {
+     "date": "2024-05-31",
+     "label": "May 2024",
+     "short": "May 24",
+     "value": 8.0
+    },
+    {
+     "date": "2024-07-31",
+     "label": "Jul 2024",
+     "short": "Jul 24",
+     "value": 8.2
+    },
+    {
+     "date": "2024-09-30",
+     "label": "Sep 2024",
+     "short": "Sep 24",
+     "value": 8.1
+    },
+    {
+     "date": "2024-11-30",
+     "label": "Nov 2024",
+     "short": "Nov 24",
+     "value": 8.4
+    },
+    {
+     "date": "2025-01-31",
+     "label": "Jan 2025",
+     "short": "Jan 25",
+     "value": 8.3
+    },
+    {
+     "date": "2025-03-31",
+     "label": "Mar 2025",
+     "short": "Mar 25",
+     "value": 7.8
+    },
+    {
+     "date": "2025-05-31",
+     "label": "May 2025",
+     "short": "May 25",
+     "value": 7.7
+    },
+    {
+     "date": "2025-07-31",
+     "label": "Jul 2025",
+     "short": "Jul 25",
+     "value": 7.2
+    },
+    {
+     "date": "2025-09-30",
+     "label": "Sep 2025",
+     "short": "Sep 25",
+     "value": 7.4
+    },
+    {
+     "date": "2025-11-30",
+     "label": "Nov 2025",
+     "short": "Nov 25",
+     "value": 6.6
+    },
+    {
+     "date": "2026-01-31",
+     "label": "Jan 2026",
+     "short": "Jan 26",
+     "value": 6.9
+    },
+    {
+     "date": "2026-03-31",
+     "label": "Mar 2026",
+     "short": "Mar 26",
+     "value": 7.2
+    },
+    {
+     "date": "2026-05-31",
+     "label": "May 2026",
+     "short": "May 26",
+     "value": 7.8
+    },
+    {
+     "date": "2026-07-31",
+     "label": "Jul 2026",
+     "short": "Jul 26",
+     "value": 7.8
+    },
+    {
+     "date": "2026-09-30",
+     "label": "Sep 2026",
+     "short": "Sep 26",
+     "value": 8.4
+    }
+   ],
+   "note": "Median of what urban households in 19 cities say inflation is now and expect it to be, in the survey round named (about 6,000 responses a round). Households' figures run well above measured CPI inflation; RBI reads them for direction rather than level.",
+   "updated_at": "2026-11-09T17:01:36+00:00"
+  },
+  {
    "label": "IIP growth",
    "group": "Growth and prices",
    "decimals": 1,
@@ -3031,6 +3943,326 @@
    ],
    "note": "Year-on-year change in the WPI food index, 2022-23 base; the series starts in 2023, so inflation is available from 2024.",
    "updated_at": null
+  },
+  {
+   "label": "Capacity utilisation in manufacturing",
+   "group": "Growth and prices",
+   "decimals": 1,
+   "up_is_good": true,
+   "change_unit": "pts",
+   "id": "capacity_util",
+   "mode": "rbi",
+   "value": 74.6,
+   "unit": "%",
+   "period": "Q1 2026-27",
+   "compare_value": 74.1,
+   "compare_period": "Q1 2025-26",
+   "change": 0.5,
+   "source": "RBI, Order Books, Inventories and Capacity Utilisation Survey (OBICUS, quarterly)",
+   "source_url": "https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=24087",
+   "released": null,
+   "history": [
+    {
+     "date": "2018-09-30",
+     "label": "Q2 2018-19",
+     "short": "Q2 18",
+     "value": 74.8
+    },
+    {
+     "date": "2018-12-31",
+     "label": "Q3 2018-19",
+     "short": "Q3 18",
+     "value": 75.9
+    },
+    {
+     "date": "2019-03-31",
+     "label": "Q4 2018-19",
+     "short": "Q4 18",
+     "value": 76.1
+    },
+    {
+     "date": "2019-06-30",
+     "label": "Q1 2019-20",
+     "short": "Q1 19",
+     "value": 73.6
+    },
+    {
+     "date": "2019-09-30",
+     "label": "Q2 2019-20",
+     "short": "Q2 19",
+     "value": 69.1
+    },
+    {
+     "date": "2019-12-31",
+     "label": "Q3 2019-20",
+     "short": "Q3 19",
+     "value": 68.6
+    },
+    {
+     "date": "2020-03-31",
+     "label": "Q4 2019-20",
+     "short": "Q4 19",
+     "value": 69.9
+    },
+    {
+     "date": "2020-06-30",
+     "label": "Q1 2020-21",
+     "short": "Q1 20",
+     "value": 47.3
+    },
+    {
+     "date": "2020-09-30",
+     "label": "Q2 2020-21",
+     "short": "Q2 20",
+     "value": 63.3
+    },
+    {
+     "date": "2020-12-31",
+     "label": "Q3 2020-21",
+     "short": "Q3 20",
+     "value": 66.6
+    },
+    {
+     "date": "2021-03-31",
+     "label": "Q4 2020-21",
+     "short": "Q4 20",
+     "value": 69.4
+    },
+    {
+     "date": "2021-06-30",
+     "label": "Q1 2021-22",
+     "short": "Q1 21",
+     "value": 60.0
+    },
+    {
+     "date": "2021-09-30",
+     "label": "Q2 2021-22",
+     "short": "Q2 21",
+     "value": 68.3
+    },
+    {
+     "date": "2021-12-31",
+     "label": "Q3 2021-22",
+     "short": "Q3 21",
+     "value": 72.4
+    },
+    {
+     "date": "2022-03-31",
+     "label": "Q4 2021-22",
+     "short": "Q4 21",
+     "value": 75.3
+    },
+    {
+     "date": "2022-06-30",
+     "label": "Q1 2022-23",
+     "short": "Q1 22",
+     "value": 72.4
+    },
+    {
+     "date": "2022-09-30",
+     "label": "Q2 2022-23",
+     "short": "Q2 22",
+     "value": 74.0
+    },
+    {
+     "date": "2022-12-31",
+     "label": "Q3 2022-23",
+     "short": "Q3 22",
+     "value": 74.3
+    },
+    {
+     "date": "2023-03-31",
+     "label": "Q4 2022-23",
+     "short": "Q4 22",
+     "value": 76.3
+    },
+    {
+     "date": "2023-06-30",
+     "label": "Q1 2023-24",
+     "short": "Q1 23",
+     "value": 73.6
+    },
+    {
+     "date": "2023-09-30",
+     "label": "Q2 2023-24",
+     "short": "Q2 23",
+     "value": 74.0
+    },
+    {
+     "date": "2023-12-31",
+     "label": "Q3 2023-24",
+     "short": "Q3 23",
+     "value": 74.7
+    },
+    {
+     "date": "2024-03-31",
+     "label": "Q4 2023-24",
+     "short": "Q4 23",
+     "value": 76.8
+    },
+    {
+     "date": "2024-06-30",
+     "label": "Q1 2024-25",
+     "short": "Q1 24",
+     "value": 74.0
+    },
+    {
+     "date": "2024-09-30",
+     "label": "Q2 2024-25",
+     "short": "Q2 24",
+     "value": 74.2
+    },
+    {
+     "date": "2024-12-31",
+     "label": "Q3 2024-25",
+     "short": "Q3 24",
+     "value": 75.4
+    },
+    {
+     "date": "2025-03-31",
+     "label": "Q4 2024-25",
+     "short": "Q4 24",
+     "value": 77.7
+    },
+    {
+     "date": "2025-06-30",
+     "label": "Q1 2025-26",
+     "short": "Q1 25",
+     "value": 74.1
+    },
+    {
+     "date": "2025-09-30",
+     "label": "Q2 2025-26",
+     "short": "Q2 25",
+     "value": 74.3
+    },
+    {
+     "date": "2025-12-31",
+     "label": "Q3 2025-26",
+     "short": "Q3 25",
+     "value": 75.6
+    },
+    {
+     "date": "2026-03-31",
+     "label": "Q4 2025-26",
+     "short": "Q4 25",
+     "value": 77.4
+    },
+    {
+     "date": "2026-06-30",
+     "label": "Q1 2026-27",
+     "short": "Q1 26",
+     "value": 74.6
+    }
+   ],
+   "note": "Share of installed capacity in use, from about 1,000 manufacturing companies. It peaks every January to March, so it is compared with the same quarter a year earlier. Results come out about three months after the quarter ends.",
+   "updated_at": "2026-11-09T17:01:36+00:00"
+  },
+  {
+   "label": "Capacity utilisation in manufacturing, seasonally adjusted",
+   "group": "Growth and prices",
+   "decimals": 1,
+   "up_is_good": true,
+   "change_unit": "pts",
+   "id": "capacity_util_sa",
+   "mode": "rbi",
+   "value": 76.3,
+   "unit": "%",
+   "period": "Q1 2026-27",
+   "compare_value": 75.2,
+   "compare_period": "the previous quarter (Q4 2025-26)",
+   "change": 1.1,
+   "source": "RBI, Order Books, Inventories and Capacity Utilisation Survey (OBICUS, quarterly)",
+   "source_url": "https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=24087",
+   "released": null,
+   "history": [
+    {
+     "date": "2023-03-31",
+     "label": "Q4 2022-23",
+     "short": "Q4 22",
+     "value": 74.1
+    },
+    {
+     "date": "2023-06-30",
+     "label": "Q1 2023-24",
+     "short": "Q1 23",
+     "value": 75.4
+    },
+    {
+     "date": "2023-09-30",
+     "label": "Q2 2023-24",
+     "short": "Q2 23",
+     "value": 74.5
+    },
+    {
+     "date": "2023-12-31",
+     "label": "Q3 2023-24",
+     "short": "Q3 23",
+     "value": 74.6
+    },
+    {
+     "date": "2024-03-31",
+     "label": "Q4 2023-24",
+     "short": "Q4 23",
+     "value": 74.6
+    },
+    {
+     "date": "2024-06-30",
+     "label": "Q1 2024-25",
+     "short": "Q1 24",
+     "value": 75.7
+    },
+    {
+     "date": "2024-09-30",
+     "label": "Q2 2024-25",
+     "short": "Q2 24",
+     "value": 74.7
+    },
+    {
+     "date": "2024-12-31",
+     "label": "Q3 2024-25",
+     "short": "Q3 24",
+     "value": 75.3
+    },
+    {
+     "date": "2025-03-31",
+     "label": "Q4 2024-25",
+     "short": "Q4 24",
+     "value": 75.5
+    },
+    {
+     "date": "2025-06-30",
+     "label": "Q1 2025-26",
+     "short": "Q1 25",
+     "value": 75.8
+    },
+    {
+     "date": "2025-09-30",
+     "label": "Q2 2025-26",
+     "short": "Q2 25",
+     "value": 74.8
+    },
+    {
+     "date": "2025-12-31",
+     "label": "Q3 2025-26",
+     "short": "Q3 25",
+     "value": 75.5
+    },
+    {
+     "date": "2026-03-31",
+     "label": "Q4 2025-26",
+     "short": "Q4 25",
+     "value": 75.2
+    },
+    {
+     "date": "2026-06-30",
+     "label": "Q1 2026-27",
+     "short": "Q1 26",
+     "value": 76.3
+    }
+   ],
+   "note": "Seasonally adjusted by RBI (X-13 ARIMA-SEATS), so one quarter can be compared with the next. RBI publishes it from Q4 2022-23.",
+   "updated_at": "2026-11-09T17:01:36+00:00"
   },
   {
    "label": "Manufacturing PMI (HSBC)",

@@ -75,6 +75,15 @@ Where the team sheet has a newer figure from the same release (for example Comme
 
 `scripts/rbi_releases.py` reads three RBI press-release series from www.rbi.org.in: the monthly data on India's international trade in services, the quarterly "Developments in India's Balance of Payments" (with remittances from its text), and RBI's monthly balance of payments (from April 2026). Each release is parsed once and kept in `data/rbi_releases.json`; the daily workflow fetches only new ones, and later releases replace revised figures. Run it with `--full` to rebuild the whole history. RBI's document server (rbidocs) is not used: it answers scripts with a browser check.
 
+## Household inflation expectations and capacity utilisation (automatic)
+
+The same script reads RBI's "Forward Looking Surveys" bundle, released with each monetary policy statement, and follows its links to two surveys:
+
+- **Inflation Expectations Survey of Households (IESH)**, bi-monthly, about 6,000 urban households in 19 cities. The board shows the median current inflation perception and the median expectation three months and one year ahead (Table 3), compared with the previous round, as RBI does. Households' numbers run well above measured CPI inflation, so read the direction, not the level.
+- **Order Books, Inventories and Capacity Utilisation Survey (OBICUS)**, quarterly, about 1,000 manufacturing companies, published about three months after the quarter ends. The board shows capacity utilisation as reported (compared with the same quarter a year earlier, because it peaks every January to March) and RBI's seasonally adjusted figure (compared with the previous quarter; published from Q4 2022-23).
+
+History goes back to December 2018 for IESH and July-September 2018 for OBICUS. Columns are found by their headings, because the OBICUS table layout changed in 2023.
+
 ## Updating the trade data (DGCI&S, HS 8-digit by country)
 
 Three pages are built from DGCI&S data bank downloads (commodity at HS 8-digit by country, US$): Exports (`#/exports`), Imports (`#/imports`) and Trade balance by partner (`#/balance`). The raw .xls files are large and stay in Google Drive ("Export Data" and "Import Data"); only the summarised JSON in `public/data/trade/` is committed.
