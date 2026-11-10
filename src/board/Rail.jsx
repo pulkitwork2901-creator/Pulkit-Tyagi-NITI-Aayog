@@ -1,4 +1,5 @@
 import { formatDateTime, slug } from './format.js';
+import { LanguageToggle } from '../i18n.jsx';
 
 function NavLink({ href, current, children }) {
   return (
@@ -16,6 +17,7 @@ export default function Rail({ route, groups, data, error, onReload, skins = [],
       <div className="eb-brand">
         <p className="eb-brand-name">NITI Aayog</p>
         <p className="eb-brand-unit">Economics and Finance II Division</p>
+        <LanguageToggle />
       </div>
       <nav aria-label="Board sections">
         <NavLink href="#/" current={route.name === 'overview'}>Dashboard</NavLink>

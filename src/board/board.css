@@ -70,6 +70,20 @@
 }
 .eb-brand-name { font-family: var(--eb-serif); font-size: 24px; font-weight: 700; margin: 0; line-height: 1.15; }
 .eb-brand-unit { margin: 6px 0 0; color: var(--eb-rail-muted); font-size: 14px; line-height: 1.4; }
+.eb-language-switch {
+  display: inline-flex; gap: 2px; margin-top: 16px; padding: 3px;
+  border: 1px solid rgb(255 255 255 / 0.28); border-radius: 999px;
+  background: rgb(255 255 255 / 0.08); width: fit-content;
+}
+.eb-language-switch button {
+  font: 600 12.5px var(--eb-font); color: var(--eb-rail-muted); border: 0;
+  background: transparent; border-radius: 999px; padding: 6px 9px; cursor: pointer;
+}
+.eb-language-switch button:hover { color: #fff; background: rgb(255 255 255 / 0.12); }
+.eb-language-switch button[aria-pressed="true"] { color: var(--eb-navy); background: #fff; }
+.eb-language-switch button:first-letter { font-size: 14px; }
+.eb-hero .eb-language-switch { margin: 0; border-color: rgb(255 255 255 / 0.35); }
+.eb-hero .eb-language-switch button[aria-pressed="true"] { color: var(--eb-hero-pressed); }
 .eb-rail nav { display: flex; flex-direction: column; gap: 2px; }
 .eb-navhead { margin: 18px 0 4px; padding: 0 12px; color: var(--eb-rail-muted); font-size: 14px; }
 .eb-navlink {
@@ -214,6 +228,9 @@
   .eb-navlink { white-space: nowrap; border-left: 0; border-bottom: 3px solid transparent; }
   .eb-navlink[aria-current="page"] { border-bottom-color: var(--eb-saffron); }
   .eb-railstatus { margin-top: 0; padding-top: 10px; }
+  .eb-brand { display: flex; flex-wrap: wrap; align-items: center; gap: 0 16px; }
+  .eb-brand-unit { flex-basis: 100%; }
+  .eb-brand .eb-language-switch { margin-top: 0; }
   .eb-main { grid-row: 3; padding-top: 28px; }
   .eb-facts > div { grid-template-columns: 1fr; gap: 2px; }
 }
