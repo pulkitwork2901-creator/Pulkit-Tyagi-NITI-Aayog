@@ -100,6 +100,25 @@ The same script reads RBI's "Forward Looking Surveys" bundle, released with each
 
 History goes back to December 2018 for IESH and July-September 2018 for OBICUS. Columns are found by their headings, because the OBICUS table layout changed in 2023.
 
+## Exports by state of origin (DGCI&S)
+
+The page **Merchandise exports by state** (`#/states`, one page per state at `#/states/<state>`) is built from DGCI&S's "State of Origin" export data: HS 8-digit by state and country, calendar years 2021 to 2025 and 2026 Jan-Aug. The raw downloads (about 600 .xls files, 1.25 GB) stay in Google Drive (Archive.zip); only the summaries in `public/data/trade/states.json` and `public/data/trade/state/` are committed.
+
+To rebuild after adding a year: download the year from the DGCI&S data bank (State of Origin, all commodities, all countries, cumulative January to December) into its own folder next to the others, then run
+
+```bash
+pip install xlrd
+python3 scripts/build_state_trade.py path/to/folder-with-one-subfolder-per-year --partial "2026 Jan-Aug"
+```
+
+The `--partial` label is required for a year whose December column is empty; check it against Commerce or RBI cumulative exports (2026 Jan-Aug matched RBI to within 0.6%). The script refuses gaps in the file numbering and repeated rows, and prints how each year's state total compares with India's total from `public/data/trade/exports.json`.
+
+Things to know when reading the page:
+
+- **New tariff codes appear a year late.** DGCI&S's state database leaves out 8-digit codes in the year India creates them (smartphones in 2022, gold jewellery in 2023, rice in 2025), so those years fall US$ 9 to 12 bn short of India's total; other years agree within about 0.5%. The page lists the missing codes, marks affected growth rates "code revised", and names the states likely to be understated (for 2025: the rice-exporting states).
+- **State of origin** is the state exporters declare on the shipping bill as where the goods were produced, not the port of export. About 1% of exports have no state declared ("State not specified").
+- DGCI&S spells some states differently across years (for example "UTTARANCHAL", "CHATTISGARH", "DAMAN & DIU"); the script joins them under one name. Dadra and Nagar Haveli and Daman and Diu are combined throughout.
+
 ## Updating the trade data (DGCI&S, HS 8-digit by country)
 
 Three pages are built from DGCI&S data bank downloads (commodity at HS 8-digit by country, US$): Exports (`#/exports`), Imports (`#/imports`) and Trade balance by partner (`#/balance`). The raw .xls files are large and stay in Google Drive ("Export Data" and "Import Data"); only the summarised JSON in `public/data/trade/` is committed.

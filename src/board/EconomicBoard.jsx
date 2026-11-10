@@ -11,6 +11,7 @@ import ThemePage from './pages/ThemePage.jsx';
 import TradePage from './pages/TradePage.jsx';
 import BalancePage from './pages/BalancePage.jsx';
 import DirectTaxPage from './pages/DirectTaxPage.jsx';
+import StatePage from './pages/StatePage.jsx';
 
 // Colour schemes a viewer can pick; the choice is remembered in their browser.
 export const SKINS = [
@@ -80,6 +81,7 @@ export default function EconomicBoard({ source = '/data/indicators.json', title 
   else if (route.name === 'sources') page = <SourcesPage indicators={indicators} />;
   else if (route.name === 'exports' || route.name === 'imports') page = <TradePage base={tradeBase} flow={route.name} view={route.arg} arg={route.arg2} />;
   else if (route.name === 'balance') page = <BalancePage base={tradeBase} />;
+  else if (route.name === 'states') page = <StatePage base={tradeBase} id={route.arg} />;
   else page = <Dashboard data={data} title={title} byId={byId} groups={groups} csvUrl={source.replace(/\.json$/, '.csv')} tradeBase={tradeBase} />;
 
   return (

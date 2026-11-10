@@ -36,6 +36,7 @@ export default function Rail({ route, groups, data, error, onReload, skins = [],
           <NavLink href="#/exports" current={route.name === 'exports'}>Merchandise exports: partners and products</NavLink>
           <NavLink href="#/imports" current={route.name === 'imports'}>Merchandise imports: partners and products</NavLink>
           <NavLink href="#/balance" current={route.name === 'balance'}>Merchandise trade balance by partner</NavLink>
+          <NavLink href="#/states" current={route.name === 'states'}>Merchandise exports by state</NavLink>
         </div>
         <NavLink href="#/sources" current={route.name === 'sources'}>Sources and notes</NavLink>
       </nav>
