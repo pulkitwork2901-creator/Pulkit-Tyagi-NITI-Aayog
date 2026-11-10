@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-11-10T10:39:25+00:00",
+ "generated_at": "2026-11-10T13:37:00+00:00",
  "sources": {
   "mospi": {
-   "status": "stale",
-   "fetched_at": "2026-11-10T10:39:25+00:00",
-   "message": "MoSPI fetch failed: HTTPSConnectionPool(host='api.mospi.gov.in', port=443): Max retries exceeded with url: /api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=Quarterly&indicator_code=22&limit=100&Format=JSON&page=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)'))); Some MoSPI series kept their last good copy: WPI: HTTPSConnectionPool(host='api.mospi.gov.in', port=443): Max retries exceeded with url: /api/wpi/getWpiRecords?base_year=2022-23&year=2023%2C2024%2C2025%2C2026&major_group_code=1000000000%2C1400000000&limit=200&Format=JSON&page=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)'))); PLFS: HTTPSConnectionPool(host='api.mospi.gov.in', port=443): Max retries exceeded with url: /api/plfs/getData?frequency_code=3&indicator_code=3&year=2025%2C2026&state_code=99&gender_code=3&age_code=1&sector_code=3&limit=100&Format=JSON&page=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)'))); CPI rural/urban: HTTPSConnectionPool(host='api.mospi.gov.in', port=443): Max retries exceeded with url: /api/cpi/getCPIData?base_year=2024&series=Current&state_code=1&sector_code=1&division_code=0&year=2025%2C2026&limit=100&Format=JSON&page=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)'))); Core CPI: HTTPSConnectionPool(host='api.mospi.gov.in', port=443): Max retries exceeded with url: /api/cpi/getCPIData?base_year=2024&series=Current&state_code=1&sector_code=3&year=2025%2C2026&limit=100&Format=JSON&division_code=0&page=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)')))"
+   "status": "ok",
+   "fetched_at": "2026-11-10T13:37:00+00:00",
+   "message": null
   },
   "rbi": {
    "status": "ok",
@@ -113,8 +113,7 @@
      "value": 7.8
     }
    ],
-   "updated_at": null,
-   "stale": true
+   "updated_at": null
   },
   {
    "label": "CPI inflation",
@@ -134,210 +133,6 @@
    "source_url": "https://esankhyiki.mospi.gov.in",
    "released": null,
    "history": [
-    {
-     "date": "2018-10-31",
-     "label": "Oct 2018",
-     "short": "Oct 18",
-     "value": 3.38
-    },
-    {
-     "date": "2018-11-30",
-     "label": "Nov 2018",
-     "short": "Nov 18",
-     "value": 2.33
-    },
-    {
-     "date": "2018-12-31",
-     "label": "Dec 2018",
-     "short": "Dec 18",
-     "value": 2.11
-    },
-    {
-     "date": "2019-01-31",
-     "label": "Jan 2019",
-     "short": "Jan 19",
-     "value": 1.97
-    },
-    {
-     "date": "2019-02-28",
-     "label": "Feb 2019",
-     "short": "Feb 19",
-     "value": 2.57
-    },
-    {
-     "date": "2019-03-31",
-     "label": "Mar 2019",
-     "short": "Mar 19",
-     "value": 2.86
-    },
-    {
-     "date": "2019-04-30",
-     "label": "Apr 2019",
-     "short": "Apr 19",
-     "value": 2.99
-    },
-    {
-     "date": "2019-05-31",
-     "label": "May 2019",
-     "short": "May 19",
-     "value": 3.05
-    },
-    {
-     "date": "2019-07-31",
-     "label": "Jul 2019",
-     "short": "Jul 19",
-     "value": 3.15
-    },
-    {
-     "date": "2019-08-31",
-     "label": "Aug 2019",
-     "short": "Aug 19",
-     "value": 3.28
-    },
-    {
-     "date": "2019-09-30",
-     "label": "Sep 2019",
-     "short": "Sep 19",
-     "value": 3.99
-    },
-    {
-     "date": "2019-10-31",
-     "label": "Oct 2019",
-     "short": "Oct 19",
-     "value": 4.62
-    },
-    {
-     "date": "2019-11-30",
-     "label": "Nov 2019",
-     "short": "Nov 19",
-     "value": 5.54
-    },
-    {
-     "date": "2019-12-31",
-     "label": "Dec 2019",
-     "short": "Dec 19",
-     "value": 7.35
-    },
-    {
-     "date": "2020-01-31",
-     "label": "Jan 2020",
-     "short": "Jan 20",
-     "value": 7.59
-    },
-    {
-     "date": "2020-02-29",
-     "label": "Feb 2020",
-     "short": "Feb 20",
-     "value": 6.58
-    },
-    {
-     "date": "2020-03-31",
-     "label": "Mar 2020",
-     "short": "Mar 20",
-     "value": 5.84
-    },
-    {
-     "date": "2020-04-30",
-     "label": "Apr 2020",
-     "short": "Apr 20",
-     "value": 7.22
-    },
-    {
-     "date": "2020-05-31",
-     "label": "May 2020",
-     "short": "May 20",
-     "value": 6.27
-    },
-    {
-     "date": "2020-07-31",
-     "label": "Jul 2020",
-     "short": "Jul 20",
-     "value": 6.73
-    },
-    {
-     "date": "2020-08-31",
-     "label": "Aug 2020",
-     "short": "Aug 20",
-     "value": 6.69
-    },
-    {
-     "date": "2020-09-30",
-     "label": "Sep 2020",
-     "short": "Sep 20",
-     "value": 7.27
-    },
-    {
-     "date": "2020-10-31",
-     "label": "Oct 2020",
-     "short": "Oct 20",
-     "value": 7.61
-    },
-    {
-     "date": "2020-11-30",
-     "label": "Nov 2020",
-     "short": "Nov 20",
-     "value": 6.93
-    },
-    {
-     "date": "2020-12-31",
-     "label": "Dec 2020",
-     "short": "Dec 20",
-     "value": 4.59
-    },
-    {
-     "date": "2021-01-31",
-     "label": "Jan 2021",
-     "short": "Jan 21",
-     "value": 4.06
-    },
-    {
-     "date": "2021-02-28",
-     "label": "Feb 2021",
-     "short": "Feb 21",
-     "value": 5.03
-    },
-    {
-     "date": "2021-03-31",
-     "label": "Mar 2021",
-     "short": "Mar 21",
-     "value": 5.52
-    },
-    {
-     "date": "2021-04-30",
-     "label": "Apr 2021",
-     "short": "Apr 21",
-     "value": 4.23
-    },
-    {
-     "date": "2021-05-31",
-     "label": "May 2021",
-     "short": "May 21",
-     "value": 6.3
-    },
-    {
-     "date": "2021-06-30",
-     "label": "Jun 2021",
-     "short": "Jun 21",
-     "value": 6.26
-    },
-    {
-     "date": "2021-07-31",
-     "label": "Jul 2021",
-     "short": "Jul 21",
-     "value": 5.59
-    },
-    {
-     "date": "2021-08-31",
-     "label": "Aug 2021",
-     "short": "Aug 21",
-     "value": 5.3
-    },
-    {
-     "date": "2021-09-30",
-     "label": "Sep 2021",
-     "short": "Sep 21",
-     "value": 4.35
-    },
     {
      "date": "2021-10-31",
      "label": "Oct 2021",
@@ -700,8 +495,7 @@
     }
    ],
    "note": "From January 2026: MoSPI's CPI on the 2024 base. Earlier months: CPI inflation as published on the 2012 base (RBI DBIE). The two series agree within about 0.1 point where they overlap.",
-   "updated_at": null,
-   "stale": true
+   "updated_at": null
   },
   {
    "label": "Core CPI inflation (excluding food and fuel)",
@@ -1281,8 +1075,7 @@
     }
    ],
    "note": "CPI excluding food and beverages and household fuel (electricity, gas and other fuels), All India combined. Computed from MoSPI's published indices with MoSPI's basket weights (2024 base: food 36.75%, fuel 5.49%; 2012 base: food 45.86%, fuel and light 6.84%). Petrol and diesel for vehicles stay in, as in the usual Indian measure. Not an official MoSPI series.",
-   "updated_at": "2026-11-09T15:41:35+00:00",
-   "stale": true
+   "updated_at": "2026-11-09T15:41:35+00:00"
   },
   {
    "label": "Nominal GDP growth",
@@ -1382,8 +1175,7 @@
     }
    ],
    "note": "GDP growth at current prices, before adjusting for inflation.",
-   "updated_at": "2026-11-09T15:41:35+00:00",
-   "stale": true
+   "updated_at": "2026-11-09T15:41:35+00:00"
   },
   {
    "label": "GDP deflator inflation",
@@ -1483,8 +1275,7 @@
     }
    ],
    "note": "Implied GDP deflator inflation: (1 + nominal growth) / (1 + real growth) - 1. The broadest measure of inflation across everything the economy produces.",
-   "updated_at": "2026-11-09T15:41:35+00:00",
-   "stale": true
+   "updated_at": "2026-11-09T15:41:35+00:00"
   },
   {
    "label": "CPI inflation, rural",
@@ -2052,8 +1843,7 @@
     }
    ],
    "note": "All India rural CPI inflation. From January 2026 MoSPI's 2024-base series; earlier months as published on the 2012 base.",
-   "updated_at": "2026-11-09T14:08:24+00:00",
-   "stale": true
+   "updated_at": "2026-11-09T14:08:24+00:00"
   },
   {
    "label": "CPI inflation, urban",
@@ -2621,8 +2411,7 @@
     }
    ],
    "note": "All India urban CPI inflation. From January 2026 MoSPI's 2024-base series; earlier months as published on the 2012 base.",
-   "updated_at": "2026-11-09T14:08:24+00:00",
-   "stale": true
+   "updated_at": "2026-11-09T14:08:24+00:00"
   },
   {
    "label": "Households' inflation expectations, one year ahead",
@@ -3951,8 +3740,7 @@
     }
    ],
    "note": "Year-on-year change in the WPI headline index, 2022-23 base; the series starts in 2023, so inflation is available from 2024.",
-   "updated_at": null,
-   "stale": true
+   "updated_at": null
   },
   {
    "label": "WPI food inflation",
@@ -4154,8 +3942,7 @@
     }
    ],
    "note": "Year-on-year change in the WPI food index, 2022-23 base; the series starts in 2023, so inflation is available from 2024.",
-   "updated_at": null,
-   "stale": true
+   "updated_at": null
   },
   {
    "label": "Capacity utilisation in manufacturing",
@@ -5407,8 +5194,7 @@
     }
    ],
    "note": "Current weekly status, persons aged 15 and above, rural and urban combined. Monthly estimates start in April 2025; March 2026 was not published.",
-   "updated_at": null,
-   "stale": true
+   "updated_at": null
   },
   {
    "label": "Merchandise exports",
