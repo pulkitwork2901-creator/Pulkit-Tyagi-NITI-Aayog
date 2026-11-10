@@ -32,6 +32,9 @@ const EXACT = {
   'Jan Vishwas': 'जन विश्वास',
   'NITI Aayog · Economics and Finance II Division': 'नीति आयोग · आर्थिक एवं वित्तीय कार्य प्रभाग II',
   'NITI Aayog · Governance and Reforms Division': 'नीति आयोग · शासन एवं सुधार प्रभाग',
+  'E&F-II Economic Monitor': 'ई एंड एफ-II आर्थिक मॉनिटर',
+  'Economics and Finance II Division': 'आर्थिक एवं वित्तीय कार्य प्रभाग II',
+  'Governance and Reforms Division': 'शासन एवं सुधार प्रभाग',
   'Position as on': 'स्थिति',
   'refreshed daily from official sources': 'आधिकारिक स्रोतों से प्रतिदिन अपडेट',
   'Growth and prices': 'वृद्धि और कीमतें',
@@ -55,6 +58,29 @@ const EXACT = {
   'Source of each indicator': 'प्रत्येक संकेतक का स्रोत',
   'Notes on the data': 'डेटा पर टिप्पणियाँ',
   'This year so far': 'इस वर्ष अब तक',
+  'Real GDP grew': 'वास्तविक GDP वृद्धि',
+  'CPI inflation was': 'CPI मुद्रास्फीति',
+  'against a policy repo rate of': 'नीतिगत रेपो दर',
+  'Wholesale (WPI) inflation was': 'थोक (WPI) मुद्रास्फीति',
+  'the unemployment rate was': 'बेरोजगारी दर',
+  'The unemployment rate was': 'बेरोजगारी दर',
+  'The merchandise trade balance was': 'वस्तु व्यापार संतुलन',
+  'partly offset by a services surplus of': 'जिसकी आंशिक भरपाई सेवा अधिशेष',
+  'Forex reserves stand at': 'विदेशी मुद्रा भंडार',
+  'the rupee closed at': 'रुपया बंद हुआ',
+  'per US$': 'प्रति US$',
+  'year on year': 'वर्ष-दर-वर्ष',
+  'by quarter': 'तिमाही के अनुसार',
+  'Every partner country and the top 300 products each way.': 'हर साझेदार देश और दोनों दिशाओं के शीर्ष 300 उत्पाद।',
+  'Every partner country and the top 300 products each way': 'हर साझेदार देश और दोनों दिशाओं के शीर्ष 300 उत्पाद',
+  'exports': 'निर्यात',
+  'imports': 'आयात',
+  'deficit': 'घाटा',
+  'bank credit growth': 'बैंक ऋण वृद्धि',
+  'lakh crore': 'लाख करोड़',
+  'lakh cr': 'लाख करोड़',
+  'pts': 'अंक',
+  'bn': 'अरब',
   Collections: 'संग्रह',
   'How tax is paid': 'कर कैसे चुकाया जाता है',
   'Taxes and the economy': 'कर और अर्थव्यवस्था',
@@ -235,10 +261,20 @@ function useTranslatedDom(language) {
       const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
       let node;
       while ((node = walker.nextNode())) {
-        if (!originals.current.has(node)) originals.current.set(node, node.nodeValue);
-        const original = originals.current.get(node);
-        const next = language === 'hi' ? translate(original) : original;
-        if (node.nodeValue !== next) node.nodeValue = next;
+        const saved = originals.current.get(node);
+        if (language === 'hi') {
+          // React-owned text may change after the observer runs (for example
+          // animated figures). Never preserve the initial loading placeholder
+          // as the source text for a later render.
+          const original = saved && node.nodeValue === translate(saved) ? saved : node.nodeValue;
+          originals.current.set(node, original);
+          const next = translate(original);
+          if (node.nodeValue !== next) node.nodeValue = next;
+        } else if (saved && node.nodeValue === translate(saved) && node.nodeValue !== saved) {
+          // Restore only text translated by this observer. Fresh English text
+          // rendered by React must be left untouched.
+          node.nodeValue = saved;
+        }
       }
       root.querySelectorAll('[aria-label],[title],[placeholder]').forEach((el) => {
         let saved = attributes.current.get(el);

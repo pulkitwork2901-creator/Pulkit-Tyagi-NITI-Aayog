@@ -88,7 +88,9 @@ function WhatsNew({ indicators, now }) {
           {fresh.slice(0, 8).map((i) => (
             <li key={i.id}>
               <a href={`#/indicator/${i.id}`}>{i.label}</a>
+              {' '}
               <b>{signed(formatValue(i.value, i.decimals))}{i.unit.startsWith('%') ? '%' : ` ${i.unit}`}</b>
+              {' '}
               <span className="eb-new-period">{i.period}</span>
               <Chip item={i} />
             </li>
