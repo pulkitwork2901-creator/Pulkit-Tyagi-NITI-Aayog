@@ -74,7 +74,8 @@ function external(b) {
 }
 
 function fiscal(b) {
-  const { repo, cpi, gsec10: g, fiscal_deficit: fd, capex_centre: cx, gst_gross: gst, gst_imports: gi, gst_domestic: gd } = b;
+  const { repo, cpi, gsec10: g, fiscal_deficit: fd, capex_centre: cx, gst_gross: gst, gst_imports: gi, gst_domestic: gd,
+    dt_net: dt, dt_gdp: dg, dt_corporate: dc, dt_noncorporate: dn, itr_filers: filers } = b;
   const move = repo && repo.change ? `after a ${Math.round(Math.abs(repo.change) * 100)} basis point ${repo.change > 0 ? 'hike' : 'cut'}` : 'unchanged';
   const real = repo && cpi ? repo.value - cpi.value : null;
   const s1 = repo && (
@@ -94,7 +95,17 @@ function fiscal(b) {
       {gi && gd && gi.compare_value && gd.compare_value && gi.period === gst.period ? <> (GST on imports up {((gi.value / gi.compare_value - 1) * 100).toFixed(0)}%, on domestic transactions {((gd.value / gd.compare_value - 1) * 100).toFixed(0)}%)</> : null}.
     </>
   );
-  return [s1, s2];
+  const dtg = dt && dt.compare_value ? (dt.value / dt.compare_value - 1) * 100 : null;
+  const dgPeak = dg && (dg.history || []).every((p) => p.value == null || p.value <= dg.value);
+  const s3 = dt && (
+    <>
+      Direct taxes brought in <strong>₹{formatValue(dt.value, 2)} lakh crore</strong> in {dt.period}{dtg != null ? <>, {Math.abs(dtg).toFixed(1)}% {dtg >= 0 ? 'more' : 'less'} than a year earlier</> : null}
+      {dg ? <>, or {pct(dg, 2)} of GDP{dgPeak ? ', the highest since the series began in 2000-01' : ''}</> : null}
+      {dc && dn ? <>; {dn.value > dc.value ? 'personal and other non-corporate income tax now brings in more than corporate tax' : 'corporate tax still brings in more than personal and other income tax'} (₹{formatValue(dn.value, 2)} against ₹{formatValue(dc.value, 2)} lakh crore)</> : null}
+      {filers ? <>; <strong>{formatValue(filers.value, 2)} crore</strong> individuals and entities filed income-tax returns in {filers.period}</> : null}.
+    </>
+  );
+  return [s1, s2, s3];
 }
 
 function money(b) {

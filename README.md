@@ -1,4 +1,4 @@
-# E&F-II Dashboard (React)
+# E&F-II Economic Monitor (React)
 
 A React 19 dashboard of India's top economic indicators for the Economics and Finance II Division. GDP growth and CPI inflation are pulled from MoSPI's official API; the other indicators come from a sheet the team updates after each official release.
 
@@ -66,6 +66,20 @@ Where the team sheet has a newer figure from the same release (for example Comme
 - `scripts/gst_reports.py` reads the GST portal's news feed, downloads each new GSTN monthly revenue report (PDF) and takes gross, domestic and import GST with the year-ago figures.
 - Bank credit by sector is read from RBI's monthly "Sectoral Deployment of Bank Credit" release by `scripts/rbi_releases.py`.
 - Core CPI (excluding food and household fuel) is computed in `build_indicators.py` from MoSPI's component indices and MoSPI's basket weights (2024 base: food and beverages 36.75%, electricity, gas and other fuels 5.489%; 2012 base: 45.863% and 6.843%). Nominal GDP growth and the implied GDP deflator come from MoSPI's quarterly national accounts. Real interest rates are the repo rate and 10-year G-sec yield minus CPI inflation.
+
+## Direct taxes (CBDT Time Series Data, updated once a year by hand)
+
+`scripts/direct_taxes.py` reads CBDT's "Income Tax Department Time Series Data" PDF and writes `data/direct_taxes.json`. The board shows, by financial year from 2000-01: net collections (corporate, non-corporate and total), gross collections before refunds, direct tax to GDP, direct taxes' share of total tax revenue, buoyancy and the cost of collection; and from 2013-14: return filers, returns filed and taxpayers. The net collections page also has the state and UT break-up (table 1.2).
+
+The script checks the PDF against itself before using it: the three parts of collections must add to the total, the totals in tables 1.1, 1.3, 1.4 and 1.6 must agree, the direct tax to GDP ratio must match its own numbers, and the states must add to the state sub-total. If a check fails, the board keeps the last good figures. One small inconsistency in CBDT's own table 1.5 (2017-18, Rs 257 crore) is recorded in the JSON rather than treated as an error.
+
+**Updating it.** CBDT publishes a new edition each year at https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090. That site refuses automated downloads, so:
+
+1. Download the new PDF in your browser.
+2. On GitHub, open `data/uploads/direct-taxes/`, choose Add file, Upload files, and commit. Any file name works; keep the old file.
+3. The site rebuilds in about two minutes. The script picks the edition whose cover reads the latest "Financial Year 2000-01 to YYYY-YY".
+
+Things to know: the latest year is provisional; states are assigned by the taxpayer's address on record, so states with large head offices dominate; "non-corporate" tax is mainly personal income tax but also includes firms, trusts and securities transaction tax; taxpayers are counted by assessment year.
 
 ## The division's indicators workbook
 
@@ -142,7 +156,7 @@ Note that a GitHub Pages site on a free account is public. Keep internal or pre-
 
 ## Reform Evidence Board (`reform.html`)
 
-A second, separate board for the Governance and Reforms Division: outcome evidence for regulatory and governance reform. Once deployed it is at `<site>/reform.html`. It covers rule-making (regulator consultations), ease of living (public grievances), doing business (MSME registrations), governance scores, and justice and dispute resolution (courts, insolvency); the E&F-II Dashboard is unchanged. It complements the Samiksha portal (which tracks reform implementation) and does not duplicate it.
+A second, separate board for the Governance and Reforms Division: outcome evidence for regulatory and governance reform. Once deployed it is at `<site>/reform.html`. It covers rule-making (regulator consultations), ease of living (public grievances), doing business (MSME registrations), governance scores, and justice and dispute resolution (courts, insolvency); the E&F-II Economic Monitor is unchanged. It complements the Samiksha portal (which tracks reform implementation) and does not duplicate it.
 
 | Section | Source | How it updates |
 |---|---|---|

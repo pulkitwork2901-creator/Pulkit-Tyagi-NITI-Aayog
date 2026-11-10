@@ -86,6 +86,17 @@ META = {
     "gst_domestic":   {"label": "GST on domestic transactions (gross)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
     "gst_imports":    {"label": "GST on imports (gross)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "lakh cr"},
     "gst_gross":      {"label": "Gross GST collections", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
+    "dt_net":         {"label": "Net direct tax collections", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
+    "dt_corporate":   {"label": "Corporate tax collections", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
+    "dt_noncorporate": {"label": "Non-corporate tax collections (mainly personal income tax)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
+    "dt_gross":       {"label": "Gross direct tax collections (before refunds)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
+    "dt_gdp":         {"label": "Direct tax to GDP ratio", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "pts"},
+    "dt_share":       {"label": "Direct taxes' share of total tax revenue", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
+    "dt_buoyancy":    {"label": "Direct tax buoyancy", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": ""},
+    "dt_cost":        {"label": "Cost of collecting direct taxes", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
+    "itr_filers":     {"label": "Persons filing income-tax returns", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "crore"},
+    "itr_filed":      {"label": "Income-tax returns filed", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "crore"},
+    "taxpayers":      {"label": "Taxpayers (return filers plus those with tax deducted at source)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "crore"},
     "sdl_borrowing":  {"label": "State government market borrowing", "group": "Fiscal and monetary", "decimals": 1, "up_is_good": None,  "change_unit": "'000 cr"},
     "repo":           {"label": "Policy repo rate", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
     "sdf_rate":       {"label": "Standing deposit facility rate", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
@@ -736,6 +747,84 @@ def gst_items() -> dict[str, dict]:
 
 
 
+def direct_tax_items() -> dict[str, dict]:
+    """Annual direct tax series from data/direct_taxes.json (written by
+    scripts/direct_taxes.py from CBDT's Time Series Data PDF)."""
+    path = ROOT_DIR / "data" / "direct_taxes.json"
+    if not path.exists():
+        return {}
+    d = json.loads(path.read_text())
+    fy = d.get("fy") or {}
+    src = f"CBDT, Income Tax Department Time Series Data (annual, to {d.get('covers_to')})"
+    url = d.get("source_url")
+    prov = [y for y, v in fy.items() if v.get("provisional")]
+    prov_note = f" {', '.join(prov)} provisional." if prov else ""
+
+    def fy_pt(y, v, prefix=""):
+        y0 = int(y[:4])
+        return {"date": f"{y0 + 1}-03-31", "label": f"{prefix}{y}", "short": f"{prefix}{y[2:]}", "value": v}
+
+    def series(field, scale=1.0, nd=2):
+        return [fy_pt(y, round(v[field] / scale, nd)) for y, v in sorted(fy.items()) if v.get(field) is not None]
+
+    out = {}
+    specs = [
+        ("dt_net", series("net", 1e5), "₹ lakh crore",
+         "Collections net of refunds: corporate tax, non-corporate tax and other direct taxes. CBDT publishes this series once a year." + prov_note),
+        ("dt_corporate", series("corporate", 1e5), "₹ lakh crore",
+         "Tax on company profits, net of refunds. Fell in 2019-20 after the September 2019 cut in the corporate tax rate." + prov_note),
+        ("dt_noncorporate", series("non_corporate", 1e5), "₹ lakh crore",
+         "Income tax paid by individuals, Hindu undivided families, firms, associations of persons and other non-company taxpayers, plus securities transaction tax." + prov_note),
+        ("dt_gross", series("gross", 1e5), "₹ lakh crore",
+         "Before refunds, by mode of payment (TDS, advance tax, self-assessment, regular assessment, other receipts). The gap to net collections roughly equals refunds paid, though the two come from different CBDT systems."),
+        ("dt_gdp", series("dt_gdp", 1, 2), "% of GDP",
+         "Net direct taxes as a share of GDP at current prices, using the GDP estimate CBDT cites from MoSPI for each year."),
+        ("dt_share", series("direct_share", 1, 2), "% of total tax revenue",
+         "Direct taxes as a share of the Centre's gross direct plus indirect tax collections (indirect taxes from CBIC)."),
+        ("dt_buoyancy", series("buoyancy", 1, 2), "times nominal GDP growth",
+         "Growth in direct tax collections divided by growth in nominal GDP. Above 1 means taxes grew faster than the economy. CBDT does not compute it for 2020-21, when both fell."),
+        ("dt_cost", series("cost_pct", 1, 2), "% of collections",
+         "The Income Tax Department's spending as a share of what it collects."),
+    ]
+    for key, hist, unit, note in specs:
+        item = _year_ago_item(key, hist, unit, src, url, note)
+        if item:
+            item["mode"] = "cbdt"
+            out[key] = item
+
+    for key, table, prefix, note in (
+        ("itr_filers", "return_filers", "",
+         "Persons (by PAN) who filed at least one income-tax return during the financial year."),
+        ("itr_filed", "returns_filed", "",
+         "Returns filed during the financial year, including revised returns. Until 2017-18 a belated return for the previous year could also be filed, so 2018-19 dips."),
+        ("taxpayers", "taxpayers_by_ay", "AY ",
+         "By assessment year: persons who filed a return for the year, or had tax deducted at source in the relevant financial year without filing a return."),
+    ):
+        tot = (d.get(table) or {}).get("TOTAL") or {}
+        hist = [fy_pt(y, round(v / 1e7, 2), prefix) for y, v in sorted(tot.items())]
+        item = _year_ago_item(key, hist, "crore", src, url, note)
+        if item:
+            item["mode"] = "cbdt"
+            out[key] = item
+
+    # State and UT break-up for the latest year, shown on the net collections page.
+    st = d.get("by_state") or {}
+    yrs = st.get("years") or []
+    if "dt_net" in out and len(yrs) >= 2:
+        y1, y0 = yrs[-1], yrs[-2]
+        rows = []
+        for kind in ("states", "uts"):
+            for name, v in (st.get(kind) or {}).items():
+                if v.get(y1) is None:
+                    continue
+                rows.append({"name": name, "kind": "state" if kind == "states" else "ut", "value": v[y1], "prev": v.get(y0)})
+        grand = (st.get("totals") or {}).get("grand", {}).get(y1)
+        rows.sort(key=lambda r: -r["value"])
+        other = {k: v.get(y1) for k, v in (st.get("totals") or {}).items() if k not in ("states", "uts", "grand") and v.get(y1) is not None}
+        out["dt_net"]["by_state"] = {"year": y1, "prev_year": y0, "rows": rows, "grand_total": grand, "other": other}
+    return out
+
+
 def merge_series(base: dict, other: dict, other_wins_ties: bool) -> dict:
     """Join two versions of one indicator: history by date, the newest reading on top.
 
@@ -833,6 +922,10 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
         releases.update(gst_items())
     except Exception as exc:
         print(f"GST reports skipped: {exc}")
+    try:
+        releases.update(direct_tax_items())
+    except Exception as exc:
+        print(f"Direct taxes skipped: {exc}")
     by_id = {**{i["id"]: i for i in manual}, **rbi, **releases, **live}
     # The division's workbook gives history for series otherwise typed in one
     # reading at a time. A newer (or same-date, more precise) manual reading

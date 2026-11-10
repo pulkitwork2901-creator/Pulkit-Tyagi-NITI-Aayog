@@ -7,3 +7,5 @@ openpyxl>=3.1
 cryptography>=42
 # reads GSTN's monthly GST revenue report PDFs (scripts/gst_reports.py)
 pypdf>=4.0
+# reads the tables in CBDT's direct tax Time Series Data PDF (scripts/direct_taxes.py)
+pdfplumber>=0.11

@@ -26,7 +26,7 @@ function readSkin() {
   }
 }
 
-export default function EconomicBoard({ source = '/data/indicators.json', title = 'E&F-II Dashboard' }) {
+export default function EconomicBoard({ source = '/data/indicators.json', title = 'E&F-II Economic Monitor' }) {
   const { status, data, error, reload } = useIndicators(source);
   const route = useHashRoute();
   const [skin, setSkin] = useState(readSkin);

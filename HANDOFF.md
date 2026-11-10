@@ -1,4 +1,4 @@
-# E&F-II Dashboard: handoff for a new Claude session
+# E&F-II Economic Monitor (formerly "E&F-II Dashboard"): handoff for a new Claude session
 
 Last updated: 9 November 2026. Read this first, then README.md.
 
@@ -11,23 +11,27 @@ Last updated: 9 November 2026. Read this first, then README.md.
 
 ## Where things are
 
+- Name: "E&F-II Economic Monitor" (renamed from "E&F-II Dashboard" on 10 Nov 2026; the web address did not change).
 - Live dashboard: https://pulkitwork2901-creator.github.io/Pulkit-Tyagi-NITI-Aayog/ (add ?v=N to bust cache; hash routes like #/exports)
 - Repo: pulkitwork2901-creator/Pulkit-Tyagi-NITI-Aayog (public, branch main). The old URL redirects; local clone was at /home/user/econ-board.
 - Analysis document (Claude Docs): https://claude.ai/artifact/J9FRkWTt9qQ96cwwzjWFYG ("How the E&F-II Dashboard figures fit together"; doc id 8ad232bb-0085-4df1-ba25-a8e267195055, tab file 940c4223-7199, body node 57552ea6-e099; system-map widget 234d928f-15fa, WPI/CPI chart widget e639fae5-d96e).
 - Google Drive (connected account pulkitwork2901@gmail.com): folders "Export Data" and "Import Data" hold the raw DGCI&S .xls files.
-- Cloud environment: "Pulkit-Tyagi-NITI-Aayog" (personal). Allowed hosts include api.mospi.gov.in, www.rbi.org.in, ppac.gov.in, www.ppac.gov.in, www.gst.gov.in, services.gst.gov.in, tutorial.gst.gov.in, www.pib.gov.in. rbidocs.rbi.org.in was added but is useless (browser check blocks scripts); it can be removed.
+- Cloud environment: "Pulkit-Tyagi-NITI-Aayog" (personal). Allowed hosts include api.mospi.gov.in, www.rbi.org.in, ppac.gov.in, www.ppac.gov.in, www.gst.gov.in, services.gst.gov.in, tutorial.gst.gov.in, www.pib.gov.in. rbidocs.rbi.org.in was added but is useless (browser check blocks scripts); it can be removed. Added 9-10 Nov 2026: pulkitwork2901-creator.github.io (to check the live site) and www.incometaxindia.gov.in (but its Akamai filter answers 403 to every script, so it is of no use either).
 
 ## Stack and pipeline
 
 - React 19 + Vite, hash router, hand-drawn SVG charts (no chart library). GitHub Pages via .github/workflows/refresh-and-deploy.yml: daily 18:00 IST refresh, bot commits "Refresh indicators", BASE_PATH ./ (relative, survives repo renames).
-- Workflow order: rbi_releases.py, ppac_crude.py, gst_reports.py, build_indicators.py, build_reform.py (a separate "Reform Evidence Board" another session added; leave it alone), then build and deploy. Each fetcher keeps its last good copy if a source fails.
-- scripts/build_indicators.py writes public/data/indicators.json (+ .csv); 66 indicators. META dict at the top defines labels and groups (Growth and prices; External sector; Fiscal and monetary; Money, credit and capital flows).
-- Sources merged in build: MoSPI API live (GDP real and nominal, deflator derived, CPI headline/rural/urban/core, WPI, PLFS unemployment); RBI DBIE workbook data/rbi/macro-indicators.xlsx (rbi_dbie.py); RBI press releases cached in data/rbi_releases.json (rbi_releases.py: services trade monthly, quarterly and monthly balance of payments incl. remittances, NRI deposits, revisions, CA % of GDP, sectoral credit; household inflation expectations (IESH) and manufacturing capacity utilisation (OBICUS) from the "Forward Looking Surveys" bundle, kind `surveys`); PPAC crude data/ppac_crude.json; GSTN GST data/gst_reports.json; the division's workbook data/uploads/india-economic-indicators.xlsx (econ_workbook.py: credit by sector, GST, fiscal deficit and capex % of BE, IIP 2022-23 base, PMI, CA % GDP); manual sheet data/manual-indicators.csv; derived real rates and crude in rupees.
+- Workflow order: rbi_releases.py, ppac_crude.py, gst_reports.py, direct_taxes.py, build_indicators.py, build_reform.py (a separate "Reform Evidence Board" another session added; leave it alone), then build and deploy. Each fetcher keeps its last good copy if a source fails.
+- scripts/build_indicators.py writes public/data/indicators.json (+ .csv); 77 indicators. META dict at the top defines labels and groups (Growth and prices; External sector; Fiscal and monetary; Money, credit and capital flows).
+- Sources merged in build: MoSPI API live (GDP real and nominal, deflator derived, CPI headline/rural/urban/core, WPI, PLFS unemployment); RBI DBIE workbook data/rbi/macro-indicators.xlsx (rbi_dbie.py); RBI press releases cached in data/rbi_releases.json (rbi_releases.py: services trade monthly, quarterly and monthly balance of payments incl. remittances, NRI deposits, revisions, CA % of GDP, sectoral credit; household inflation expectations (IESH) and manufacturing capacity utilisation (OBICUS) from the "Forward Looking Surveys" bundle, kind `surveys`); PPAC crude data/ppac_crude.json; GSTN GST data/gst_reports.json; the division's workbook data/uploads/india-economic-indicators.xlsx (econ_workbook.py: credit by sector, GST, fiscal deficit and capex % of BE, IIP 2022-23 base, PMI, CA % GDP); manual sheet data/manual-indicators.csv; derived real rates and crude in rupees; CBDT direct taxes data/direct_taxes.json (direct_taxes.py, pdfplumber, from the newest PDF in data/uploads/direct-taxes/; mode "cbdt"; annual FY points dated 31 March; state table attached to dt_net as by_state).
 - Merge precedence: manual < RBI workbook < RBI releases < live MoSPI; workbook supplies history via merge_series; newer manual or release readings take the latest point.
 - Trade section: scripts/trade_combine.py and scripts/build_trade.py produce public/data/trade/{exports,imports}.json plus per-country and per-product files. Data 2021 to 2025 plus 2026 Jan-Aug, HS 8-digit by country, verified against RBI totals. Pages: #/exports, #/imports, #/balance (labelled "Merchandise ..." in the sidebar).
 - Frontend: src/board/EconomicBoard.jsx (routes), Rail.jsx, pages/Dashboard.jsx (hero, tiles, 18 MultiChart panels, signal table), pages/ThemePage.jsx + ThemeBrief.jsx (two-sentence data-driven summary per theme), pages/IndicatorPage.jsx (rural vs urban CPI section on CPI pages), pages/TradePage.jsx, pages/BalancePage.jsx, trade/tradeKit.jsx, board.css (skins teal/saffron/dark).
 
 ## Gotchas learned the hard way
+
+- incometaxindia.gov.in (CBDT) refuses scripts (Akamai 403 even on the home page); do not spoof a browser. The user downloads the annual Time Series PDF and uploads it. CBDT stopped issuing direct tax collection press releases on PIB (none in 2025-26), so PIB is not a substitute. In-year monthly corporate and income tax would need CGA monthly accounts (cga.nic.in, host not yet allowed).
+- CBDT PDF quirks handled in direct_taxes.py: J&K is in the state sub-total for 2018-19 and a UT after; Daman and Diu and Dadra and Nagar Haveli cells are merged after 2020 (pdfplumber gives None); '4,73, 179' has a stray space; 2020-21 buoyancy is '--**'; the serial-number column must not be read as data in tables 1.7 to 1.9.
 
 - A fresh cloud container can come with certifi 2026.10.18, which lacks MoSPI's root (emSign Root CA G1): every MoSPI series goes "stale" with "self-signed certificate in certificate chain". Run `pip install -r requirements.txt` first; never fall back to MOSPI_INSECURE.
 - RBI survey bundles link OBICUS as "OBICUS Survey on manufacturing sector" in 2020-2024 and by full name later; the Nov 2021 IESH table is "Table 3(a)" (extension survey). Both handled. To re-parse surveys, delete the `surveys` entries from data/rbi_releases.json and rerun rbi_releases.py (it backfills from 2020 when none exist).
@@ -53,6 +57,7 @@ Last updated: 9 November 2026. Read this first, then README.md.
 - NRI deposit inflows US$ 119 bn Apr-Aug 2026 after RBI's 5 June measures; reserves 728 (Feb) to 667 (Jun) to 748 (Sep) to 717 bn (end Oct).
 - GST +23% in Oct 2026, imports +42%, domestic +16%.
 - Fiscal deficit 42.1% of BE by Sep (36.5% a year earlier).
+- Direct taxes 2024-25 (provisional): net Rs 22.26 lakh crore, +13.6%; 6.73% of GDP, highest since 2000-01 (rising every year since 4.78% in 2020-21; the pre-2021 high was 6.3% in 2007-08); 58.8% of total tax revenue; non-corporate 12.35 vs corporate 9.87 lakh crore (non-corporate ahead in every year since 2022-23 and in 2020-21); buoyancy 1.39; cost of collection 0.41%; 8.56 crore return filers, 9.18 crore returns, 12.13 crore taxpayers (AY 2024-25, +16.5%); Maharashtra 40% of collections by address.
 - Households' median inflation expectation one year ahead 10.0% (Sep 2026 round), up from 9.4%, having risen in every round since Nov 2025 (8.0%); three months ahead 9.9%, current perception 8.4%.
 - Manufacturing capacity utilisation 74.6% in Q1 2026-27 (74.1% a year earlier); seasonally adjusted 76.3%, up 110 bps on the quarter and the highest in RBI's adjusted series (from Q4 2022-23).
 
@@ -64,6 +69,7 @@ Last updated: 9 November 2026. Read this first, then README.md.
 
 ## Recent fixes worth knowing
 
+- 10 Nov 2026: renamed to "E&F-II Economic Monitor"; added 11 direct tax indicators from CBDT's Time Series PDF (2000-01 to 2024-25), three dashboard panels (collections by type, direct tax to GDP, tax base), a direct tax sentence in the Fiscal and monetary summary, and the state-wise table on the net collections page.
 - 9 Nov 2026 (later session): added IESH (infl_exp_1y, infl_exp_3m, infl_perception) and OBICUS (capacity_util, capacity_util_sa); dashboard panels "Inflation: what households expect" and "Factory capacity in use"; a third sentence on expectations in the Growth and prices theme summary. The Claude Docs analysis document does not yet mention these.
 
 - The analysis doc's "swing factors" sentence was reworded (oil up = weaker rupee, higher inflation); the user printed an older copy.

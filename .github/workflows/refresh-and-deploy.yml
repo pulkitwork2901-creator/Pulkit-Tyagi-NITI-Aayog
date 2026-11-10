@@ -43,6 +43,10 @@ jobs:
         run: python scripts/gst_reports.py
         continue-on-error: true   # keeps data/gst_reports.json as it was
 
+      - name: Read CBDT's direct tax time series (newest PDF in data/uploads/direct-taxes/)
+        run: python scripts/direct_taxes.py
+        continue-on-error: true   # keeps data/direct_taxes.json as it was if a new PDF fails its checks
+
       - name: Pull MoSPI data and merge the manual sheet
         run: python scripts/build_indicators.py
         continue-on-error: true   # keeps last good GDP/CPI if MoSPI is down
@@ -55,7 +59,7 @@ jobs:
         run: |
           git config user.name "board-bot"
           git config user.email "board-bot@users.noreply.github.com"
-          git add public/data/indicators.json public/data/indicators.csv data/rbi_releases.json data/ppac_crude.json data/gst_reports.json public/data/reform/evidence.json data/reform/njdg-snapshots.csv data/reform/msme-snapshots.csv
+          git add public/data/indicators.json public/data/indicators.csv data/rbi_releases.json data/ppac_crude.json data/gst_reports.json data/direct_taxes.json public/data/reform/evidence.json data/reform/njdg-snapshots.csv data/reform/msme-snapshots.csv
           git diff --cached --quiet || git commit -m "Refresh indicators $(date -u +%F)"
           git push
 

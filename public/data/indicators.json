@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-09T17:24:56+00:00",
+ "generated_at": "2026-11-10T04:41:59+00:00",
  "sources": {
   "mospi": {
    "status": "ok",
-   "fetched_at": "2026-11-09T17:24:56+00:00",
+   "fetched_at": "2026-11-10T04:41:59+00:00",
    "message": null
   },
   "rbi": {
@@ -12,7 +12,7 @@
    "message": null,
    "skipped": [],
    "latest_reading": "2026-10-31",
-   "age_days": 9
+   "age_days": 10
   }
  },
  "indicators": [
@@ -11849,6 +11849,1886 @@
    ],
    "note": "Published gross collections. Up to October 2025 they include compensation cess; from November 2025 they do not, so the change against a year earlier is measured on the excluding-cess series.",
    "updated_at": "2026-11-09T15:51:36+00:00"
+  },
+  {
+   "label": "Net direct tax collections",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "lakh cr",
+   "id": "dt_net",
+   "mode": "cbdt",
+   "value": 22.26,
+   "unit": "₹ lakh crore",
+   "period": "2024-25",
+   "compare_value": 19.6,
+   "compare_period": "2023-24",
+   "change": 2.66,
+   "source": "CBDT, Income Tax Department Time Series Data (annual, to 2024-25)",
+   "source_url": "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090",
+   "released": null,
+   "history": [
+    {
+     "date": "2001-03-31",
+     "label": "2000-01",
+     "short": "00-01",
+     "value": 0.68
+    },
+    {
+     "date": "2002-03-31",
+     "label": "2001-02",
+     "short": "01-02",
+     "value": 0.69
+    },
+    {
+     "date": "2003-03-31",
+     "label": "2002-03",
+     "short": "02-03",
+     "value": 0.83
+    },
+    {
+     "date": "2004-03-31",
+     "label": "2003-04",
+     "short": "03-04",
+     "value": 1.05
+    },
+    {
+     "date": "2005-03-31",
+     "label": "2004-05",
+     "short": "04-05",
+     "value": 1.33
+    },
+    {
+     "date": "2006-03-31",
+     "label": "2005-06",
+     "short": "05-06",
+     "value": 1.65
+    },
+    {
+     "date": "2007-03-31",
+     "label": "2006-07",
+     "short": "06-07",
+     "value": 2.3
+    },
+    {
+     "date": "2008-03-31",
+     "label": "2007-08",
+     "short": "07-08",
+     "value": 3.14
+    },
+    {
+     "date": "2009-03-31",
+     "label": "2008-09",
+     "short": "08-09",
+     "value": 3.34
+    },
+    {
+     "date": "2010-03-31",
+     "label": "2009-10",
+     "short": "09-10",
+     "value": 3.78
+    },
+    {
+     "date": "2011-03-31",
+     "label": "2010-11",
+     "short": "10-11",
+     "value": 4.46
+    },
+    {
+     "date": "2012-03-31",
+     "label": "2011-12",
+     "short": "11-12",
+     "value": 4.94
+    },
+    {
+     "date": "2013-03-31",
+     "label": "2012-13",
+     "short": "12-13",
+     "value": 5.59
+    },
+    {
+     "date": "2014-03-31",
+     "label": "2013-14",
+     "short": "13-14",
+     "value": 6.39
+    },
+    {
+     "date": "2015-03-31",
+     "label": "2014-15",
+     "short": "14-15",
+     "value": 6.96
+    },
+    {
+     "date": "2016-03-31",
+     "label": "2015-16",
+     "short": "15-16",
+     "value": 7.42
+    },
+    {
+     "date": "2017-03-31",
+     "label": "2016-17",
+     "short": "16-17",
+     "value": 8.5
+    },
+    {
+     "date": "2018-03-31",
+     "label": "2017-18",
+     "short": "17-18",
+     "value": 10.03
+    },
+    {
+     "date": "2019-03-31",
+     "label": "2018-19",
+     "short": "18-19",
+     "value": 11.38
+    },
+    {
+     "date": "2020-03-31",
+     "label": "2019-20",
+     "short": "19-20",
+     "value": 10.51
+    },
+    {
+     "date": "2021-03-31",
+     "label": "2020-21",
+     "short": "20-21",
+     "value": 9.47
+    },
+    {
+     "date": "2022-03-31",
+     "label": "2021-22",
+     "short": "21-22",
+     "value": 14.12
+    },
+    {
+     "date": "2023-03-31",
+     "label": "2022-23",
+     "short": "22-23",
+     "value": 16.64
+    },
+    {
+     "date": "2024-03-31",
+     "label": "2023-24",
+     "short": "23-24",
+     "value": 19.6
+    },
+    {
+     "date": "2025-03-31",
+     "label": "2024-25",
+     "short": "24-25",
+     "value": 22.26
+    }
+   ],
+   "note": "Collections net of refunds: corporate tax, non-corporate tax and other direct taxes. CBDT publishes this series once a year. 2024-25 provisional.",
+   "by_state": {
+    "year": "2024-25",
+    "prev_year": "2023-24",
+    "rows": [
+     {
+      "name": "Maharashtra",
+      "kind": "state",
+      "value": 897425.86,
+      "prev": 761716.3
+     },
+     {
+      "name": "Karnataka",
+      "kind": "state",
+      "value": 261528.83,
+      "prev": 234098.39
+     },
+     {
+      "name": "Delhi",
+      "kind": "state",
+      "value": 229250.33,
+      "prev": 203197.06
+     },
+     {
+      "name": "Tamil Nadu",
+      "kind": "state",
+      "value": 132368.09,
+      "prev": 127067.17
+     },
+     {
+      "name": "Gujarat",
+      "kind": "state",
+      "value": 107241.41,
+      "prev": 93300.72
+     },
+     {
+      "name": "Telangana",
+      "kind": "state",
+      "value": 97860.86,
+      "prev": 84439.24
+     },
+     {
+      "name": "Haryana",
+      "kind": "state",
+      "value": 79731.48,
+      "prev": 70947.31
+     },
+     {
+      "name": "Uttar Pradesh",
+      "kind": "state",
+      "value": 69011.21,
+      "prev": 48333.44
+     },
+     {
+      "name": "West Bengal",
+      "kind": "state",
+      "value": 63075.47,
+      "prev": 60374.64
+     },
+     {
+      "name": "Rajasthan",
+      "kind": "state",
+      "value": 34382.78,
+      "prev": 30551.42
+     },
+     {
+      "name": "Kerala",
+      "kind": "state",
+      "value": 27974.6,
+      "prev": 23966.92
+     },
+     {
+      "name": "Odisha",
+      "kind": "state",
+      "value": 25444.08,
+      "prev": 20865.54
+     },
+     {
+      "name": "Andhra Pradesh",
+      "kind": "state",
+      "value": 23804.85,
+      "prev": 26066.46
+     },
+     {
+      "name": "Punjab",
+      "kind": "state",
+      "value": 19656.65,
+      "prev": 17215.0
+     },
+     {
+      "name": "Madhya Pradesh",
+      "kind": "state",
+      "value": 19639.22,
+      "prev": 20086.99
+     },
+     {
+      "name": "Chhattisgarh",
+      "kind": "state",
+      "value": 12518.1,
+      "prev": 13534.13
+     },
+     {
+      "name": "Jharkhand",
+      "kind": "state",
+      "value": 10712.95,
+      "prev": 10500.59
+     },
+     {
+      "name": "Bihar",
+      "kind": "state",
+      "value": 6904.99,
+      "prev": 6692.73
+     },
+     {
+      "name": "Assam",
+      "kind": "state",
+      "value": 6819.31,
+      "prev": 7510.93
+     },
+     {
+      "name": "Chandigarh",
+      "kind": "ut",
+      "value": 4741.55,
+      "prev": 3972.8
+     },
+     {
+      "name": "Goa",
+      "kind": "state",
+      "value": 4515.85,
+      "prev": 3867.43
+     },
+     {
+      "name": "Himachal Pradesh",
+      "kind": "state",
+      "value": 3076.54,
+      "prev": 3150.17
+     },
+     {
+      "name": "Jammu and Kashmir",
+      "kind": "ut",
+      "value": 2708.95,
+      "prev": 1965.17
+     },
+     {
+      "name": "Uttarakhand",
+      "kind": "state",
+      "value": 2629.65,
+      "prev": 15861.49
+     },
+     {
+      "name": "Meghalaya",
+      "kind": "state",
+      "value": 2174.48,
+      "prev": 1800.73
+     },
+     {
+      "name": "Puducherry",
+      "kind": "ut",
+      "value": 1299.72,
+      "prev": 1273.44
+     },
+     {
+      "name": "Dadra and Nagar Haveli and Daman and Diu",
+      "kind": "ut",
+      "value": 998.03,
+      "prev": 958.98
+     },
+     {
+      "name": "Tripura",
+      "kind": "state",
+      "value": 387.29,
+      "prev": 417.38
+     },
+     {
+      "name": "Manipur",
+      "kind": "state",
+      "value": 368.17,
+      "prev": 323.12
+     },
+     {
+      "name": "Sikkim",
+      "kind": "state",
+      "value": 292.17,
+      "prev": 287.83
+     },
+     {
+      "name": "Nagaland",
+      "kind": "state",
+      "value": 225.27,
+      "prev": 344.1
+     },
+     {
+      "name": "Arunachal Pradesh",
+      "kind": "state",
+      "value": 150.6,
+      "prev": 233.98
+     },
+     {
+      "name": "Mizoram",
+      "kind": "state",
+      "value": 74.46,
+      "prev": 81.78
+     },
+     {
+      "name": "Andaman and Nicobar Islands",
+      "kind": "ut",
+      "value": 66.33,
+      "prev": 79.88
+     },
+     {
+      "name": "Lakshadweep",
+      "kind": "ut",
+      "value": 28.79,
+      "prev": 39.79
+     },
+     {
+      "name": "Ladakh",
+      "kind": "ut",
+      "value": -0.68,
+      "prev": -1.54
+     }
+    ],
+    "grand_total": 2226374.94,
+    "other": {
+     "C.T.D.S": 41723.25,
+     "Foreign": 35715.47,
+     "Unapportioned": -152.02
+    }
+   },
+   "updated_at": "2026-11-10T04:41:59+00:00"
+  },
+  {
+   "label": "Corporate tax collections",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "lakh cr",
+   "id": "dt_corporate",
+   "mode": "cbdt",
+   "value": 9.87,
+   "unit": "₹ lakh crore",
+   "period": "2024-25",
+   "compare_value": 9.11,
+   "compare_period": "2023-24",
+   "change": 0.76,
+   "source": "CBDT, Income Tax Department Time Series Data (annual, to 2024-25)",
+   "source_url": "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090",
+   "released": null,
+   "history": [
+    {
+     "date": "2001-03-31",
+     "label": "2000-01",
+     "short": "00-01",
+     "value": 0.36
+    },
+    {
+     "date": "2002-03-31",
+     "label": "2001-02",
+     "short": "01-02",
+     "value": 0.37
+    },
+    {
+     "date": "2003-03-31",
+     "label": "2002-03",
+     "short": "02-03",
+     "value": 0.46
+    },
+    {
+     "date": "2004-03-31",
+     "label": "2003-04",
+     "short": "03-04",
+     "value": 0.64
+    },
+    {
+     "date": "2005-03-31",
+     "label": "2004-05",
+     "short": "04-05",
+     "value": 0.83
+    },
+    {
+     "date": "2006-03-31",
+     "label": "2005-06",
+     "short": "05-06",
+     "value": 1.01
+    },
+    {
+     "date": "2007-03-31",
+     "label": "2006-07",
+     "short": "06-07",
+     "value": 1.44
+    },
+    {
+     "date": "2008-03-31",
+     "label": "2007-08",
+     "short": "07-08",
+     "value": 1.94
+    },
+    {
+     "date": "2009-03-31",
+     "label": "2008-09",
+     "short": "08-09",
+     "value": 2.13
+    },
+    {
+     "date": "2010-03-31",
+     "label": "2009-10",
+     "short": "09-10",
+     "value": 2.45
+    },
+    {
+     "date": "2011-03-31",
+     "label": "2010-11",
+     "short": "10-11",
+     "value": 2.99
+    },
+    {
+     "date": "2012-03-31",
+     "label": "2011-12",
+     "short": "11-12",
+     "value": 3.23
+    },
+    {
+     "date": "2013-03-31",
+     "label": "2012-13",
+     "short": "12-13",
+     "value": 3.56
+    },
+    {
+     "date": "2014-03-31",
+     "label": "2013-14",
+     "short": "13-14",
+     "value": 3.95
+    },
+    {
+     "date": "2015-03-31",
+     "label": "2014-15",
+     "short": "14-15",
+     "value": 4.29
+    },
+    {
+     "date": "2016-03-31",
+     "label": "2015-16",
+     "short": "15-16",
+     "value": 4.53
+    },
+    {
+     "date": "2017-03-31",
+     "label": "2016-17",
+     "short": "16-17",
+     "value": 4.85
+    },
+    {
+     "date": "2018-03-31",
+     "label": "2017-18",
+     "short": "17-18",
+     "value": 5.71
+    },
+    {
+     "date": "2019-03-31",
+     "label": "2018-19",
+     "short": "18-19",
+     "value": 6.64
+    },
+    {
+     "date": "2020-03-31",
+     "label": "2019-20",
+     "short": "19-20",
+     "value": 5.57
+    },
+    {
+     "date": "2021-03-31",
+     "label": "2020-21",
+     "short": "20-21",
+     "value": 4.58
+    },
+    {
+     "date": "2022-03-31",
+     "label": "2021-22",
+     "short": "21-22",
+     "value": 7.12
+    },
+    {
+     "date": "2023-03-31",
+     "label": "2022-23",
+     "short": "22-23",
+     "value": 8.26
+    },
+    {
+     "date": "2024-03-31",
+     "label": "2023-24",
+     "short": "23-24",
+     "value": 9.11
+    },
+    {
+     "date": "2025-03-31",
+     "label": "2024-25",
+     "short": "24-25",
+     "value": 9.87
+    }
+   ],
+   "note": "Tax on company profits, net of refunds. Fell in 2019-20 after the September 2019 cut in the corporate tax rate. 2024-25 provisional.",
+   "updated_at": "2026-11-10T04:41:59+00:00"
+  },
+  {
+   "label": "Non-corporate tax collections (mainly personal income tax)",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "lakh cr",
+   "id": "dt_noncorporate",
+   "mode": "cbdt",
+   "value": 12.35,
+   "unit": "₹ lakh crore",
+   "period": "2024-25",
+   "compare_value": 10.45,
+   "compare_period": "2023-24",
+   "change": 1.9,
+   "source": "CBDT, Income Tax Department Time Series Data (annual, to 2024-25)",
+   "source_url": "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090",
+   "released": null,
+   "history": [
+    {
+     "date": "2001-03-31",
+     "label": "2000-01",
+     "short": "00-01",
+     "value": 0.32
+    },
+    {
+     "date": "2002-03-31",
+     "label": "2001-02",
+     "short": "01-02",
+     "value": 0.32
+    },
+    {
+     "date": "2003-03-31",
+     "label": "2002-03",
+     "short": "02-03",
+     "value": 0.37
+    },
+    {
+     "date": "2004-03-31",
+     "label": "2003-04",
+     "short": "03-04",
+     "value": 0.41
+    },
+    {
+     "date": "2005-03-31",
+     "label": "2004-05",
+     "short": "04-05",
+     "value": 0.49
+    },
+    {
+     "date": "2006-03-31",
+     "label": "2005-06",
+     "short": "05-06",
+     "value": 0.64
+    },
+    {
+     "date": "2007-03-31",
+     "label": "2006-07",
+     "short": "06-07",
+     "value": 0.86
+    },
+    {
+     "date": "2008-03-31",
+     "label": "2007-08",
+     "short": "07-08",
+     "value": 1.2
+    },
+    {
+     "date": "2009-03-31",
+     "label": "2008-09",
+     "short": "08-09",
+     "value": 1.2
+    },
+    {
+     "date": "2010-03-31",
+     "label": "2009-10",
+     "short": "09-10",
+     "value": 1.33
+    },
+    {
+     "date": "2011-03-31",
+     "label": "2010-11",
+     "short": "10-11",
+     "value": 1.46
+    },
+    {
+     "date": "2012-03-31",
+     "label": "2011-12",
+     "short": "11-12",
+     "value": 1.7
+    },
+    {
+     "date": "2013-03-31",
+     "label": "2012-13",
+     "short": "12-13",
+     "value": 2.02
+    },
+    {
+     "date": "2014-03-31",
+     "label": "2013-14",
+     "short": "13-14",
+     "value": 2.43
+    },
+    {
+     "date": "2015-03-31",
+     "label": "2014-15",
+     "short": "14-15",
+     "value": 2.66
+    },
+    {
+     "date": "2016-03-31",
+     "label": "2015-16",
+     "short": "15-16",
+     "value": 2.88
+    },
+    {
+     "date": "2017-03-31",
+     "label": "2016-17",
+     "short": "16-17",
+     "value": 3.5
+    },
+    {
+     "date": "2018-03-31",
+     "label": "2017-18",
+     "short": "17-18",
+     "value": 4.2
+    },
+    {
+     "date": "2019-03-31",
+     "label": "2018-19",
+     "short": "18-19",
+     "value": 4.73
+    },
+    {
+     "date": "2020-03-31",
+     "label": "2019-20",
+     "short": "19-20",
+     "value": 4.93
+    },
+    {
+     "date": "2021-03-31",
+     "label": "2020-21",
+     "short": "20-21",
+     "value": 4.88
+    },
+    {
+     "date": "2022-03-31",
+     "label": "2021-22",
+     "short": "21-22",
+     "value": 6.97
+    },
+    {
+     "date": "2023-03-31",
+     "label": "2022-23",
+     "short": "22-23",
+     "value": 8.33
+    },
+    {
+     "date": "2024-03-31",
+     "label": "2023-24",
+     "short": "23-24",
+     "value": 10.45
+    },
+    {
+     "date": "2025-03-31",
+     "label": "2024-25",
+     "short": "24-25",
+     "value": 12.35
+    }
+   ],
+   "note": "Income tax paid by individuals, Hindu undivided families, firms, associations of persons and other non-company taxpayers, plus securities transaction tax. 2024-25 provisional.",
+   "updated_at": "2026-11-10T04:41:59+00:00"
+  },
+  {
+   "label": "Gross direct tax collections (before refunds)",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "lakh cr",
+   "id": "dt_gross",
+   "mode": "cbdt",
+   "value": 27.03,
+   "unit": "₹ lakh crore",
+   "period": "2024-25",
+   "compare_value": 23.38,
+   "compare_period": "2023-24",
+   "change": 3.65,
+   "source": "CBDT, Income Tax Department Time Series Data (annual, to 2024-25)",
+   "source_url": "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090",
+   "released": null,
+   "history": [
+    {
+     "date": "2001-03-31",
+     "label": "2000-01",
+     "short": "00-01",
+     "value": 0.8
+    },
+    {
+     "date": "2002-03-31",
+     "label": "2001-02",
+     "short": "01-02",
+     "value": 0.86
+    },
+    {
+     "date": "2003-03-31",
+     "label": "2002-03",
+     "short": "02-03",
+     "value": 1.05
+    },
+    {
+     "date": "2004-03-31",
+     "label": "2003-04",
+     "short": "03-04",
+     "value": 1.31
+    },
+    {
+     "date": "2005-03-31",
+     "label": "2004-05",
+     "short": "04-05",
+     "value": 1.6
+    },
+    {
+     "date": "2006-03-31",
+     "label": "2005-06",
+     "short": "05-06",
+     "value": 1.87
+    },
+    {
+     "date": "2007-03-31",
+     "label": "2006-07",
+     "short": "06-07",
+     "value": 2.57
+    },
+    {
+     "date": "2008-03-31",
+     "label": "2007-08",
+     "short": "07-08",
+     "value": 3.55
+    },
+    {
+     "date": "2009-03-31",
+     "label": "2008-09",
+     "short": "08-09",
+     "value": 3.73
+    },
+    {
+     "date": "2010-03-31",
+     "label": "2009-10",
+     "short": "09-10",
+     "value": 4.35
+    },
+    {
+     "date": "2011-03-31",
+     "label": "2010-11",
+     "short": "10-11",
+     "value": 5.14
+    },
+    {
+     "date": "2012-03-31",
+     "label": "2011-12",
+     "short": "11-12",
+     "value": 5.79
+    },
+    {
+     "date": "2013-03-31",
+     "label": "2012-13",
+     "short": "12-13",
+     "value": 6.37
+    },
+    {
+     "date": "2014-03-31",
+     "label": "2013-14",
+     "short": "13-14",
+     "value": 7.22
+    },
+    {
+     "date": "2015-03-31",
+     "label": "2014-15",
+     "short": "14-15",
+     "value": 7.99
+    },
+    {
+     "date": "2016-03-31",
+     "label": "2015-16",
+     "short": "15-16",
+     "value": 8.64
+    },
+    {
+     "date": "2017-03-31",
+     "label": "2016-17",
+     "short": "16-17",
+     "value": 10.12
+    },
+    {
+     "date": "2018-03-31",
+     "label": "2017-18",
+     "short": "17-18",
+     "value": 11.55
+    },
+    {
+     "date": "2019-03-31",
+     "label": "2018-19",
+     "short": "18-19",
+     "value": 12.99
+    },
+    {
+     "date": "2020-03-31",
+     "label": "2019-20",
+     "short": "19-20",
+     "value": 12.34
+    },
+    {
+     "date": "2021-03-31",
+     "label": "2020-21",
+     "short": "20-21",
+     "value": 12.07
+    },
+    {
+     "date": "2022-03-31",
+     "label": "2021-22",
+     "short": "21-22",
+     "value": 16.36
+    },
+    {
+     "date": "2023-03-31",
+     "label": "2022-23",
+     "short": "22-23",
+     "value": 19.72
+    },
+    {
+     "date": "2024-03-31",
+     "label": "2023-24",
+     "short": "23-24",
+     "value": 23.38
+    },
+    {
+     "date": "2025-03-31",
+     "label": "2024-25",
+     "short": "24-25",
+     "value": 27.03
+    }
+   ],
+   "note": "Before refunds, by mode of payment (TDS, advance tax, self-assessment, regular assessment, other receipts). The gap to net collections roughly equals refunds paid, though the two come from different CBDT systems.",
+   "updated_at": "2026-11-10T04:41:59+00:00"
+  },
+  {
+   "label": "Direct tax to GDP ratio",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "pts",
+   "id": "dt_gdp",
+   "mode": "cbdt",
+   "value": 6.73,
+   "unit": "% of GDP",
+   "period": "2024-25",
+   "compare_value": 6.51,
+   "compare_period": "2023-24",
+   "change": 0.22,
+   "source": "CBDT, Income Tax Department Time Series Data (annual, to 2024-25)",
+   "source_url": "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090",
+   "released": null,
+   "history": [
+    {
+     "date": "2001-03-31",
+     "label": "2000-01",
+     "short": "00-01",
+     "value": 3.25
+    },
+    {
+     "date": "2002-03-31",
+     "label": "2001-02",
+     "short": "01-02",
+     "value": 3.03
+    },
+    {
+     "date": "2003-03-31",
+     "label": "2002-03",
+     "short": "02-03",
+     "value": 3.38
+    },
+    {
+     "date": "2004-03-31",
+     "label": "2003-04",
+     "short": "03-04",
+     "value": 3.81
+    },
+    {
+     "date": "2005-03-31",
+     "label": "2004-05",
+     "short": "04-05",
+     "value": 4.1
+    },
+    {
+     "date": "2006-03-31",
+     "label": "2005-06",
+     "short": "05-06",
+     "value": 4.47
+    },
+    {
+     "date": "2007-03-31",
+     "label": "2006-07",
+     "short": "06-07",
+     "value": 5.36
+    },
+    {
+     "date": "2008-03-31",
+     "label": "2007-08",
+     "short": "07-08",
+     "value": 6.3
+    },
+    {
+     "date": "2009-03-31",
+     "label": "2008-09",
+     "short": "08-09",
+     "value": 5.93
+    },
+    {
+     "date": "2010-03-31",
+     "label": "2009-10",
+     "short": "09-10",
+     "value": 5.85
+    },
+    {
+     "date": "2011-03-31",
+     "label": "2010-11",
+     "short": "10-11",
+     "value": 5.81
+    },
+    {
+     "date": "2012-03-31",
+     "label": "2011-12",
+     "short": "11-12",
+     "value": 5.48
+    },
+    {
+     "date": "2013-03-31",
+     "label": "2012-13",
+     "short": "12-13",
+     "value": 5.53
+    },
+    {
+     "date": "2014-03-31",
+     "label": "2013-14",
+     "short": "13-14",
+     "value": 5.62
+    },
+    {
+     "date": "2015-03-31",
+     "label": "2014-15",
+     "short": "14-15",
+     "value": 5.55
+    },
+    {
+     "date": "2016-03-31",
+     "label": "2015-16",
+     "short": "15-16",
+     "value": 5.47
+    },
+    {
+     "date": "2017-03-31",
+     "label": "2016-17",
+     "short": "16-17",
+     "value": 5.53
+    },
+    {
+     "date": "2018-03-31",
+     "label": "2017-18",
+     "short": "17-18",
+     "value": 5.86
+    },
+    {
+     "date": "2019-03-31",
+     "label": "2018-19",
+     "short": "18-19",
+     "value": 6.02
+    },
+    {
+     "date": "2020-03-31",
+     "label": "2019-20",
+     "short": "19-20",
+     "value": 5.23
+    },
+    {
+     "date": "2021-03-31",
+     "label": "2020-21",
+     "short": "20-21",
+     "value": 4.78
+    },
+    {
+     "date": "2022-03-31",
+     "label": "2021-22",
+     "short": "21-22",
+     "value": 5.97
+    },
+    {
+     "date": "2023-03-31",
+     "label": "2022-23",
+     "short": "22-23",
+     "value": 6.19
+    },
+    {
+     "date": "2024-03-31",
+     "label": "2023-24",
+     "short": "23-24",
+     "value": 6.51
+    },
+    {
+     "date": "2025-03-31",
+     "label": "2024-25",
+     "short": "24-25",
+     "value": 6.73
+    }
+   ],
+   "note": "Net direct taxes as a share of GDP at current prices, using the GDP estimate CBDT cites from MoSPI for each year.",
+   "updated_at": "2026-11-10T04:41:59+00:00"
+  },
+  {
+   "label": "Direct taxes' share of total tax revenue",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": null,
+   "change_unit": "pts",
+   "id": "dt_share",
+   "mode": "cbdt",
+   "value": 58.81,
+   "unit": "% of total tax revenue",
+   "period": "2024-25",
+   "compare_value": 56.71,
+   "compare_period": "2023-24",
+   "change": 2.1,
+   "source": "CBDT, Income Tax Department Time Series Data (annual, to 2024-25)",
+   "source_url": "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090",
+   "released": null,
+   "history": [
+    {
+     "date": "2001-03-31",
+     "label": "2000-01",
+     "short": "00-01",
+     "value": 36.31
+    },
+    {
+     "date": "2002-03-31",
+     "label": "2001-02",
+     "short": "01-02",
+     "value": 37.1
+    },
+    {
+     "date": "2003-03-31",
+     "label": "2002-03",
+     "short": "02-03",
+     "value": 38.52
+    },
+    {
+     "date": "2004-03-31",
+     "label": "2003-04",
+     "short": "03-04",
+     "value": 41.42
+    },
+    {
+     "date": "2005-03-31",
+     "label": "2004-05",
+     "short": "04-05",
+     "value": 43.72
+    },
+    {
+     "date": "2006-03-31",
+     "label": "2005-06",
+     "short": "05-06",
+     "value": 45.32
+    },
+    {
+     "date": "2007-03-31",
+     "label": "2006-07",
+     "short": "06-07",
+     "value": 48.8
+    },
+    {
+     "date": "2008-03-31",
+     "label": "2007-08",
+     "short": "07-08",
+     "value": 52.97
+    },
+    {
+     "date": "2009-03-31",
+     "label": "2008-09",
+     "short": "08-09",
+     "value": 55.34
+    },
+    {
+     "date": "2010-03-31",
+     "label": "2009-10",
+     "short": "09-10",
+     "value": 60.78
+    },
+    {
+     "date": "2011-03-31",
+     "label": "2010-11",
+     "short": "10-11",
+     "value": 56.48
+    },
+    {
+     "date": "2012-03-31",
+     "label": "2011-12",
+     "short": "11-12",
+     "value": 55.82
+    },
+    {
+     "date": "2013-03-31",
+     "label": "2012-13",
+     "short": "12-13",
+     "value": 54.17
+    },
+    {
+     "date": "2014-03-31",
+     "label": "2013-14",
+     "short": "13-14",
+     "value": 56.32
+    },
+    {
+     "date": "2015-03-31",
+     "label": "2014-15",
+     "short": "14-15",
+     "value": 56.16
+    },
+    {
+     "date": "2016-03-31",
+     "label": "2015-16",
+     "short": "15-16",
+     "value": 51.03
+    },
+    {
+     "date": "2017-03-31",
+     "label": "2016-17",
+     "short": "16-17",
+     "value": 49.65
+    },
+    {
+     "date": "2018-03-31",
+     "label": "2017-18",
+     "short": "17-18",
+     "value": 52.28
+    },
+    {
+     "date": "2019-03-31",
+     "label": "2018-19",
+     "short": "18-19",
+     "value": 54.83
+    },
+    {
+     "date": "2020-03-31",
+     "label": "2019-20",
+     "short": "19-20",
+     "value": 52.42
+    },
+    {
+     "date": "2021-03-31",
+     "label": "2020-21",
+     "short": "20-21",
+     "value": 46.84
+    },
+    {
+     "date": "2022-03-31",
+     "label": "2021-22",
+     "short": "21-22",
+     "value": 52.27
+    },
+    {
+     "date": "2023-03-31",
+     "label": "2022-23",
+     "short": "22-23",
+     "value": 54.63
+    },
+    {
+     "date": "2024-03-31",
+     "label": "2023-24",
+     "short": "23-24",
+     "value": 56.71
+    },
+    {
+     "date": "2025-03-31",
+     "label": "2024-25",
+     "short": "24-25",
+     "value": 58.81
+    }
+   ],
+   "note": "Direct taxes as a share of the Centre's gross direct plus indirect tax collections (indirect taxes from CBIC).",
+   "updated_at": "2026-11-10T04:41:59+00:00"
+  },
+  {
+   "label": "Direct tax buoyancy",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "",
+   "id": "dt_buoyancy",
+   "mode": "cbdt",
+   "value": 1.39,
+   "unit": "times nominal GDP growth",
+   "period": "2024-25",
+   "compare_value": 1.48,
+   "compare_period": "2023-24",
+   "change": -0.09,
+   "source": "CBDT, Income Tax Department Time Series Data (annual, to 2024-25)",
+   "source_url": "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090",
+   "released": null,
+   "history": [
+    {
+     "date": "2001-03-31",
+     "label": "2000-01",
+     "short": "00-01",
+     "value": 2.32
+    },
+    {
+     "date": "2002-03-31",
+     "label": "2001-02",
+     "short": "01-02",
+     "value": 0.15
+    },
+    {
+     "date": "2003-03-31",
+     "label": "2002-03",
+     "short": "02-03",
+     "value": 2.59
+    },
+    {
+     "date": "2004-03-31",
+     "label": "2003-04",
+     "short": "03-04",
+     "value": 2.19
+    },
+    {
+     "date": "2005-03-31",
+     "label": "2004-05",
+     "short": "04-05",
+     "value": 1.49
+    },
+    {
+     "date": "2006-03-31",
+     "label": "2005-06",
+     "short": "05-06",
+     "value": 1.76
+    },
+    {
+     "date": "2007-03-31",
+     "label": "2006-07",
+     "short": "06-07",
+     "value": 2.42
+    },
+    {
+     "date": "2008-03-31",
+     "label": "2007-08",
+     "short": "07-08",
+     "value": 2.27
+    },
+    {
+     "date": "2009-03-31",
+     "label": "2008-09",
+     "short": "08-09",
+     "value": 0.48
+    },
+    {
+     "date": "2010-03-31",
+     "label": "2009-10",
+     "short": "09-10",
+     "value": 0.9
+    },
+    {
+     "date": "2011-03-31",
+     "label": "2010-11",
+     "short": "10-11",
+     "value": 0.95
+    },
+    {
+     "date": "2012-03-31",
+     "label": "2011-12",
+     "short": "11-12",
+     "value": 0.62
+    },
+    {
+     "date": "2013-03-31",
+     "label": "2012-13",
+     "short": "12-13",
+     "value": 1.07
+    },
+    {
+     "date": "2014-03-31",
+     "label": "2013-14",
+     "short": "13-14",
+     "value": 1.16
+    },
+    {
+     "date": "2015-03-31",
+     "label": "2014-15",
+     "short": "14-15",
+     "value": 0.86
+    },
+    {
+     "date": "2016-03-31",
+     "label": "2015-16",
+     "short": "15-16",
+     "value": 0.8
+    },
+    {
+     "date": "2017-03-31",
+     "label": "2016-17",
+     "short": "16-17",
+     "value": 1.1
+    },
+    {
+     "date": "2018-03-31",
+     "label": "2017-18",
+     "short": "17-18",
+     "value": 1.59
+    },
+    {
+     "date": "2019-03-31",
+     "label": "2018-19",
+     "short": "18-19",
+     "value": 1.29
+    },
+    {
+     "date": "2020-03-31",
+     "label": "2019-20",
+     "short": "19-20",
+     "value": -1.21
+    },
+    {
+     "date": "2022-03-31",
+     "label": "2021-22",
+     "short": "21-22",
+     "value": 2.54
+    },
+    {
+     "date": "2023-03-31",
+     "label": "2022-23",
+     "short": "22-23",
+     "value": 1.27
+    },
+    {
+     "date": "2024-03-31",
+     "label": "2023-24",
+     "short": "23-24",
+     "value": 1.48
+    },
+    {
+     "date": "2025-03-31",
+     "label": "2024-25",
+     "short": "24-25",
+     "value": 1.39
+    }
+   ],
+   "note": "Growth in direct tax collections divided by growth in nominal GDP. Above 1 means taxes grew faster than the economy. CBDT does not compute it for 2020-21, when both fell.",
+   "updated_at": "2026-11-10T04:41:59+00:00"
+  },
+  {
+   "label": "Cost of collecting direct taxes",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": false,
+   "change_unit": "pts",
+   "id": "dt_cost",
+   "mode": "cbdt",
+   "value": 0.41,
+   "unit": "% of collections",
+   "period": "2024-25",
+   "compare_value": 0.44,
+   "compare_period": "2023-24",
+   "change": -0.03,
+   "source": "CBDT, Income Tax Department Time Series Data (annual, to 2024-25)",
+   "source_url": "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090",
+   "released": null,
+   "history": [
+    {
+     "date": "2001-03-31",
+     "label": "2000-01",
+     "short": "00-01",
+     "value": 1.36
+    },
+    {
+     "date": "2002-03-31",
+     "label": "2001-02",
+     "short": "01-02",
+     "value": 1.35
+    },
+    {
+     "date": "2003-03-31",
+     "label": "2002-03",
+     "short": "02-03",
+     "value": 1.18
+    },
+    {
+     "date": "2004-03-31",
+     "label": "2003-04",
+     "short": "03-04",
+     "value": 1.0
+    },
+    {
+     "date": "2005-03-31",
+     "label": "2004-05",
+     "short": "04-05",
+     "value": 0.86
+    },
+    {
+     "date": "2006-03-31",
+     "label": "2005-06",
+     "short": "05-06",
+     "value": 0.72
+    },
+    {
+     "date": "2007-03-31",
+     "label": "2006-07",
+     "short": "06-07",
+     "value": 0.59
+    },
+    {
+     "date": "2008-03-31",
+     "label": "2007-08",
+     "short": "07-08",
+     "value": 0.54
+    },
+    {
+     "date": "2009-03-31",
+     "label": "2008-09",
+     "short": "08-09",
+     "value": 0.67
+    },
+    {
+     "date": "2010-03-31",
+     "label": "2009-10",
+     "short": "09-10",
+     "value": 0.72
+    },
+    {
+     "date": "2011-03-31",
+     "label": "2010-11",
+     "short": "10-11",
+     "value": 0.6
+    },
+    {
+     "date": "2012-03-31",
+     "label": "2011-12",
+     "short": "11-12",
+     "value": 0.6
+    },
+    {
+     "date": "2013-03-31",
+     "label": "2012-13",
+     "short": "12-13",
+     "value": 0.59
+    },
+    {
+     "date": "2014-03-31",
+     "label": "2013-14",
+     "short": "13-14",
+     "value": 0.57
+    },
+    {
+     "date": "2015-03-31",
+     "label": "2014-15",
+     "short": "14-15",
+     "value": 0.59
+    },
+    {
+     "date": "2016-03-31",
+     "label": "2015-16",
+     "short": "15-16",
+     "value": 0.61
+    },
+    {
+     "date": "2017-03-31",
+     "label": "2016-17",
+     "short": "16-17",
+     "value": 0.66
+    },
+    {
+     "date": "2018-03-31",
+     "label": "2017-18",
+     "short": "17-18",
+     "value": 0.61
+    },
+    {
+     "date": "2019-03-31",
+     "label": "2018-19",
+     "short": "18-19",
+     "value": 0.62
+    },
+    {
+     "date": "2020-03-31",
+     "label": "2019-20",
+     "short": "19-20",
+     "value": 0.66
+    },
+    {
+     "date": "2021-03-31",
+     "label": "2020-21",
+     "short": "20-21",
+     "value": 0.76
+    },
+    {
+     "date": "2022-03-31",
+     "label": "2021-22",
+     "short": "21-22",
+     "value": 0.53
+    },
+    {
+     "date": "2023-03-31",
+     "label": "2022-23",
+     "short": "22-23",
+     "value": 0.51
+    },
+    {
+     "date": "2024-03-31",
+     "label": "2023-24",
+     "short": "23-24",
+     "value": 0.44
+    },
+    {
+     "date": "2025-03-31",
+     "label": "2024-25",
+     "short": "24-25",
+     "value": 0.41
+    }
+   ],
+   "note": "The Income Tax Department's spending as a share of what it collects.",
+   "updated_at": "2026-11-10T04:41:59+00:00"
+  },
+  {
+   "label": "Persons filing income-tax returns",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "crore",
+   "id": "itr_filers",
+   "mode": "cbdt",
+   "value": 8.56,
+   "unit": "crore",
+   "period": "2024-25",
+   "compare_value": 8.09,
+   "compare_period": "2023-24",
+   "change": 0.47,
+   "source": "CBDT, Income Tax Department Time Series Data (annual, to 2024-25)",
+   "source_url": "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090",
+   "released": null,
+   "history": [
+    {
+     "date": "2014-03-31",
+     "label": "2013-14",
+     "short": "13-14",
+     "value": 3.31
+    },
+    {
+     "date": "2015-03-31",
+     "label": "2014-15",
+     "short": "14-15",
+     "value": 3.51
+    },
+    {
+     "date": "2016-03-31",
+     "label": "2015-16",
+     "short": "15-16",
+     "value": 3.91
+    },
+    {
+     "date": "2017-03-31",
+     "label": "2016-17",
+     "short": "16-17",
+     "value": 4.47
+    },
+    {
+     "date": "2018-03-31",
+     "label": "2017-18",
+     "short": "17-18",
+     "value": 5.45
+    },
+    {
+     "date": "2019-03-31",
+     "label": "2018-19",
+     "short": "18-19",
+     "value": 6.33
+    },
+    {
+     "date": "2020-03-31",
+     "label": "2019-20",
+     "short": "19-20",
+     "value": 6.49
+    },
+    {
+     "date": "2021-03-31",
+     "label": "2020-21",
+     "short": "20-21",
+     "value": 6.72
+    },
+    {
+     "date": "2022-03-31",
+     "label": "2021-22",
+     "short": "21-22",
+     "value": 6.96
+    },
+    {
+     "date": "2023-03-31",
+     "label": "2022-23",
+     "short": "22-23",
+     "value": 7.4
+    },
+    {
+     "date": "2024-03-31",
+     "label": "2023-24",
+     "short": "23-24",
+     "value": 8.09
+    },
+    {
+     "date": "2025-03-31",
+     "label": "2024-25",
+     "short": "24-25",
+     "value": 8.56
+    }
+   ],
+   "note": "Persons (by PAN) who filed at least one income-tax return during the financial year.",
+   "updated_at": "2026-11-10T04:41:59+00:00"
+  },
+  {
+   "label": "Income-tax returns filed",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "crore",
+   "id": "itr_filed",
+   "mode": "cbdt",
+   "value": 9.18,
+   "unit": "crore",
+   "period": "2024-25",
+   "compare_value": 8.61,
+   "compare_period": "2023-24",
+   "change": 0.57,
+   "source": "CBDT, Income Tax Department Time Series Data (annual, to 2024-25)",
+   "source_url": "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090",
+   "released": null,
+   "history": [
+    {
+     "date": "2014-03-31",
+     "label": "2013-14",
+     "short": "13-14",
+     "value": 3.8
+    },
+    {
+     "date": "2015-03-31",
+     "label": "2014-15",
+     "short": "14-15",
+     "value": 4.04
+    },
+    {
+     "date": "2016-03-31",
+     "label": "2015-16",
+     "short": "15-16",
+     "value": 4.63
+    },
+    {
+     "date": "2017-03-31",
+     "label": "2016-17",
+     "short": "16-17",
+     "value": 5.58
+    },
+    {
+     "date": "2018-03-31",
+     "label": "2017-18",
+     "short": "17-18",
+     "value": 6.87
+    },
+    {
+     "date": "2019-03-31",
+     "label": "2018-19",
+     "short": "18-19",
+     "value": 6.74
+    },
+    {
+     "date": "2020-03-31",
+     "label": "2019-20",
+     "short": "19-20",
+     "value": 6.79
+    },
+    {
+     "date": "2021-03-31",
+     "label": "2020-21",
+     "short": "20-21",
+     "value": 7.39
+    },
+    {
+     "date": "2022-03-31",
+     "label": "2021-22",
+     "short": "21-22",
+     "value": 7.3
+    },
+    {
+     "date": "2023-03-31",
+     "label": "2022-23",
+     "short": "22-23",
+     "value": 7.78
+    },
+    {
+     "date": "2024-03-31",
+     "label": "2023-24",
+     "short": "23-24",
+     "value": 8.61
+    },
+    {
+     "date": "2025-03-31",
+     "label": "2024-25",
+     "short": "24-25",
+     "value": 9.18
+    }
+   ],
+   "note": "Returns filed during the financial year, including revised returns. Until 2017-18 a belated return for the previous year could also be filed, so 2018-19 dips.",
+   "updated_at": "2026-11-10T04:41:59+00:00"
+  },
+  {
+   "label": "Taxpayers (return filers plus those with tax deducted at source)",
+   "group": "Fiscal and monetary",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "crore",
+   "id": "taxpayers",
+   "mode": "cbdt",
+   "value": 12.13,
+   "unit": "crore",
+   "period": "AY 2024-25",
+   "compare_value": 10.41,
+   "compare_period": "AY 2023-24",
+   "change": 1.72,
+   "source": "CBDT, Income Tax Department Time Series Data (annual, to 2024-25)",
+   "source_url": "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090",
+   "released": null,
+   "history": [
+    {
+     "date": "2014-03-31",
+     "label": "AY 2013-14",
+     "short": "AY 13-14",
+     "value": 5.26
+    },
+    {
+     "date": "2015-03-31",
+     "label": "AY 2014-15",
+     "short": "AY 14-15",
+     "value": 5.7
+    },
+    {
+     "date": "2016-03-31",
+     "label": "AY 2015-16",
+     "short": "AY 15-16",
+     "value": 6.14
+    },
+    {
+     "date": "2017-03-31",
+     "label": "AY 2016-17",
+     "short": "AY 16-17",
+     "value": 6.92
+    },
+    {
+     "date": "2018-03-31",
+     "label": "AY 2017-18",
+     "short": "AY 17-18",
+     "value": 7.42
+    },
+    {
+     "date": "2019-03-31",
+     "label": "AY 2018-19",
+     "short": "AY 18-19",
+     "value": 8.45
+    },
+    {
+     "date": "2020-03-31",
+     "label": "AY 2019-20",
+     "short": "AY 19-20",
+     "value": 8.98
+    },
+    {
+     "date": "2021-03-31",
+     "label": "AY 2020-21",
+     "short": "AY 20-21",
+     "value": 8.23
+    },
+    {
+     "date": "2022-03-31",
+     "label": "AY 2021-22",
+     "short": "AY 21-22",
+     "value": 8.7
+    },
+    {
+     "date": "2023-03-31",
+     "label": "AY 2022-23",
+     "short": "AY 22-23",
+     "value": 9.38
+    },
+    {
+     "date": "2024-03-31",
+     "label": "AY 2023-24",
+     "short": "AY 23-24",
+     "value": 10.41
+    },
+    {
+     "date": "2025-03-31",
+     "label": "AY 2024-25",
+     "short": "AY 24-25",
+     "value": 12.13
+    }
+   ],
+   "note": "By assessment year: persons who filed a return for the year, or had tax deducted at source in the relevant financial year without filing a return.",
+   "updated_at": "2026-11-10T04:41:59+00:00"
   },
   {
    "label": "State government market borrowing",

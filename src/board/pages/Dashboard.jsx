@@ -15,12 +15,13 @@ import { formatDateTime, formatValue, signed, tipFor } from '../format.js';
 
 const RANGES = [['1Y', 1], ['3Y', 3], ['5Y', 5]];
 const TILES = ['gdp', 'cpi', 'wpi', 'repo', 'unemployment', 'credit_nonfood'];
-const SHORT = { infl_exp_1y: 'Household expectations', capacity_util_sa: 'Capacity use', capacity_util: 'Capacity use', crude_basket: 'Indian basket', real_repo: 'Real repo rate', cpi_rural: 'Rural CPI', iip: 'IIP', credit_services: 'Credit to services', fiscal_deficit: 'Fiscal deficit', services_net: 'Services surplus', ca_usd: 'Current account', remittances: 'Remittances', gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI', unemployment: 'Unemployment', fx_reserves: 'Reserves', inr_usd: '₹ per US$' };
+const SHORT = { dt_net: 'Net direct taxes', dt_gdp: 'Direct tax to GDP', itr_filers: 'Return filers', infl_exp_1y: 'Household expectations', capacity_util_sa: 'Capacity use', capacity_util: 'Capacity use', crude_basket: 'Indian basket', real_repo: 'Real repo rate', cpi_rural: 'Rural CPI', iip: 'IIP', credit_services: 'Credit to services', fiscal_deficit: 'Fiscal deficit', services_net: 'Services surplus', ca_usd: 'Current account', remittances: 'Remittances', gdp: 'GDP', cpi: 'CPI', gsec10: '10-yr G-sec', credit_nonfood: 'Credit', trade_balance: 'Trade balance', fdi_net: 'Net FDI', unemployment: 'Unemployment', fx_reserves: 'Reserves', inr_usd: '₹ per US$' };
 const S1 = 'var(--eb-s1)';
 const S2 = 'var(--eb-s2)';
 const S3 = 'var(--eb-s3)';
 const pct = (d) => (v) => `${signed(formatValue(v, d))}%`;
 const bn = (v) => `${signed(formatValue(v, 1))} bn`;
+const lakhCr = (v) => `₹${formatValue(v, 1)} lakh cr`;
 
 const NEW_DAYS = 10;
 const TILE_LABEL = { gdp: 'Real GDP growth', cpi: 'CPI inflation', wpi: 'WPI inflation', repo: 'Repo rate', unemployment: 'Unemployment', credit_nonfood: 'Bank credit growth' };
@@ -129,9 +130,11 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
   };
   const latest = Math.max(...(data.indicators || []).flatMap((i) => (i.history || []).map((p) => (p.date ? Date.parse(p.date) : 0))));
   const start = latest - years * 365.25 * 86400000;
+  // Annual series (direct taxes) always show about ten financial years, whatever the range.
+  const annualStart = Math.min(start, latest - 12 * 365.25 * 86400000);
   const h = (id) => byId[id]?.history || [];
   const has = (...ids) => ids.some((id) => byId[id]);
-  const head = (id) => byId[id] && { value: (byId[id].unit.startsWith('%') ? `${signed(formatValue(byId[id].value, byId[id].decimals))}%` : byId[id].unit.startsWith('US$ bn') ? `US$ ${signed(formatValue(byId[id].value, 1))} bn` : byId[id].unit === 'US$ per barrel' ? `$${formatValue(byId[id].value, 1)}` : byId[id].unit.startsWith('₹ per US$') ? `₹${formatValue(byId[id].value, 2)}` : `${signed(formatValue(byId[id].value, byId[id].decimals))} ${byId[id].unit}`), sub: `${SHORT[id] || byId[id].label} · ${byId[id].period.replace(/^(Week|Fortnight) to /, '')}` };
+  const head = (id) => byId[id] && { value: (byId[id].unit.startsWith('%') ? `${signed(formatValue(byId[id].value, byId[id].decimals))}%` : byId[id].unit.startsWith('US$ bn') ? `US$ ${signed(formatValue(byId[id].value, 1))} bn` : byId[id].unit === 'US$ per barrel' ? `$${formatValue(byId[id].value, 1)}` : byId[id].unit.startsWith('₹ per US$') ? `₹${formatValue(byId[id].value, 2)}` : byId[id].unit === '₹ lakh crore' ? `₹${formatValue(byId[id].value, 2)} lakh cr` : `${signed(formatValue(byId[id].value, byId[id].decimals))} ${byId[id].unit}`), sub: `${SHORT[id] || byId[id].label} · ${byId[id].period.replace(/^(Week|Fortnight) to /, '')}` };
 
   return (
     <div className="eb-dash">
@@ -239,6 +242,24 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
               { key: 'credit_industry', label: 'Industry', color: S1, points: h('credit_industry') },
               { key: 'credit_services', label: 'Services', color: S2, points: h('credit_services') },
               { key: 'credit_personal', label: 'Personal loans', color: S3, points: h('credit_personal') },
+            ]} />
+        )}
+        {has('dt_corporate', 'dt_noncorporate') && (
+          <MultiChart title="Direct tax collections" icon="money" headline={head('dt_net')} note="Net of refunds, ₹ lakh crore, by financial year (bars at March, year end). Non-corporate is mainly personal income tax. Latest year provisional. Always about ten years. CBDT." kind="bar" start={annualStart} fmt={lakhCr}
+            series={[
+              { key: 'dt_corporate', label: 'Corporate tax', color: S1, points: h('dt_corporate') },
+              { key: 'dt_noncorporate', label: 'Non-corporate tax', color: S2, points: h('dt_noncorporate') },
+            ]} />
+        )}
+        {has('dt_gdp') && (
+          <MultiChart title="Direct taxes as a share of GDP" icon="growth" headline={head('dt_gdp')} note="Net direct tax collections, % of GDP at current prices, by financial year. Always about ten years. CBDT, MoSPI." start={annualStart} fmt={pct(2)}
+            series={[{ key: 'dt_gdp', label: 'Direct tax to GDP', color: S1, points: h('dt_gdp') }]} />
+        )}
+        {has('itr_filers', 'taxpayers') && (
+          <MultiChart title="The income-tax base" icon="jobs" headline={head('itr_filers')} note="Crore persons. Taxpayers include those with tax deducted at source who did not file a return; taxpayers are by assessment year. CBDT." start={annualStart} fmt={(v) => `${formatValue(v, 1)} cr`}
+            series={[
+              { key: 'taxpayers', label: 'Taxpayers', color: S1, points: h('taxpayers') },
+              { key: 'itr_filers', label: 'Return filers', color: S2, points: h('itr_filers') },
             ]} />
         )}
         {has('fiscal_deficit', 'capex_centre') && (
