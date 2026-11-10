@@ -10,6 +10,7 @@ import SourcesPage from './pages/SourcesPage.jsx';
 import ThemePage from './pages/ThemePage.jsx';
 import TradePage from './pages/TradePage.jsx';
 import BalancePage from './pages/BalancePage.jsx';
+import DirectTaxPage from './pages/DirectTaxPage.jsx';
 
 // Colour schemes a viewer can pick; the choice is remembered in their browser.
 export const SKINS = [
@@ -69,9 +70,12 @@ export default function EconomicBoard({ source = '/data/indicators.json', title 
   const group = route.name === 'theme' ? groups.find((g) => slug(g) === route.arg) : null;
   const railRoute = { ...route, group: item?.group };
   const tradeBase = source.replace(/[^/]*$/, 'trade/');
+  const dataBase = source.replace(/[^/]*$/, '');
+  const DT = 'Direct taxes';
 
   let page;
-  if (route.name === 'indicator') page = <IndicatorPage item={item} byId={byId} />;
+  if (route.name === 'direct-taxes' || (route.name === 'theme' && route.arg === slug(DT))) page = <DirectTaxPage base={dataBase} items={indicators.filter((i) => i.group === DT)} />;
+  else if (route.name === 'indicator') page = <IndicatorPage item={item} byId={byId} />;
   else if (route.name === 'theme') page = <ThemePage group={group} items={indicators.filter((i) => i.group === group)} byId={byId} />;
   else if (route.name === 'sources') page = <SourcesPage indicators={indicators} />;
   else if (route.name === 'exports' || route.name === 'imports') page = <TradePage base={tradeBase} flow={route.name} view={route.arg} arg={route.arg2} />;

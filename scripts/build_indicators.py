@@ -86,17 +86,17 @@ META = {
     "gst_domestic":   {"label": "GST on domestic transactions (gross)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
     "gst_imports":    {"label": "GST on imports (gross)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "lakh cr"},
     "gst_gross":      {"label": "Gross GST collections", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
-    "dt_net":         {"label": "Net direct tax collections", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
-    "dt_corporate":   {"label": "Corporate tax collections", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
-    "dt_noncorporate": {"label": "Non-corporate tax collections (mainly personal income tax)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
-    "dt_gross":       {"label": "Gross direct tax collections (before refunds)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
-    "dt_gdp":         {"label": "Direct tax to GDP ratio", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "pts"},
-    "dt_share":       {"label": "Direct taxes' share of total tax revenue", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
-    "dt_buoyancy":    {"label": "Direct tax buoyancy", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": ""},
-    "dt_cost":        {"label": "Cost of collecting direct taxes", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
-    "itr_filers":     {"label": "Persons filing income-tax returns", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "crore"},
-    "itr_filed":      {"label": "Income-tax returns filed", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "crore"},
-    "taxpayers":      {"label": "Taxpayers (return filers plus those with tax deducted at source)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "crore"},
+    "dt_net":         {"label": "Net direct tax collections", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
+    "dt_corporate":   {"label": "Corporate tax collections", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
+    "dt_noncorporate": {"label": "Non-corporate tax collections (mainly personal income tax)", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
+    "dt_gross":       {"label": "Gross direct tax collections (before refunds)", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
+    "dt_gdp":         {"label": "Direct tax to GDP ratio", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": "pts"},
+    "dt_share":       {"label": "Direct taxes' share of total tax revenue", "group": "Direct taxes", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
+    "dt_buoyancy":    {"label": "Direct tax buoyancy", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": ""},
+    "dt_cost":        {"label": "Cost of collecting direct taxes", "group": "Direct taxes", "decimals": 2, "up_is_good": False, "change_unit": "pts"},
+    "itr_filers":     {"label": "Persons filing income-tax returns", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": "crore"},
+    "itr_filed":      {"label": "Income-tax returns filed", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": "crore"},
+    "taxpayers":      {"label": "Taxpayers (return filers plus those with tax deducted at source)", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": "crore"},
     "sdl_borrowing":  {"label": "State government market borrowing", "group": "Fiscal and monetary", "decimals": 1, "up_is_good": None,  "change_unit": "'000 cr"},
     "repo":           {"label": "Policy repo rate", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
     "sdf_rate":       {"label": "Standing deposit facility rate", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "pts"},
@@ -807,21 +807,8 @@ def direct_tax_items() -> dict[str, dict]:
             item["mode"] = "cbdt"
             out[key] = item
 
-    # State and UT break-up for the latest year, shown on the net collections page.
-    st = d.get("by_state") or {}
-    yrs = st.get("years") or []
-    if "dt_net" in out and len(yrs) >= 2:
-        y1, y0 = yrs[-1], yrs[-2]
-        rows = []
-        for kind in ("states", "uts"):
-            for name, v in (st.get(kind) or {}).items():
-                if v.get(y1) is None:
-                    continue
-                rows.append({"name": name, "kind": "state" if kind == "states" else "ut", "value": v[y1], "prev": v.get(y0)})
-        grand = (st.get("totals") or {}).get("grand", {}).get(y1)
-        rows.sort(key=lambda r: -r["value"])
-        other = {k: v.get(y1) for k, v in (st.get("totals") or {}).items() if k not in ("states", "uts", "grand") and v.get(y1) is not None}
-        out["dt_net"]["by_state"] = {"year": y1, "prev_year": y0, "rows": rows, "grand_total": grand, "other": other}
+    # The Direct taxes page reads the full tables (modes of payment, categories, states).
+    (ROOT_DIR / "public" / "data" / "direct-taxes.json").write_text(json.dumps(d, ensure_ascii=False, separators=(",", ":")))
     return out
 
 

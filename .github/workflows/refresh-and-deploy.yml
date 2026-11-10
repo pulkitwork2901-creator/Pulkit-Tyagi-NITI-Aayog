@@ -59,7 +59,7 @@ jobs:
         run: |
           git config user.name "board-bot"
           git config user.email "board-bot@users.noreply.github.com"
-          git add public/data/indicators.json public/data/indicators.csv data/rbi_releases.json data/ppac_crude.json data/gst_reports.json data/direct_taxes.json public/data/reform/evidence.json data/reform/njdg-snapshots.csv data/reform/msme-snapshots.csv
+          git add public/data/indicators.json public/data/indicators.csv data/rbi_releases.json data/ppac_crude.json data/gst_reports.json data/direct_taxes.json public/data/direct-taxes.json public/data/reform/evidence.json data/reform/njdg-snapshots.csv data/reform/msme-snapshots.csv
           git diff --cached --quiet || git commit -m "Refresh indicators $(date -u +%F)"
           git push
 

@@ -21,9 +21,13 @@ export default function Rail({ route, groups, data, error, onReload, skins = [],
         <NavLink href="#/" current={route.name === 'overview'}>Dashboard</NavLink>
         <p className="eb-navhead" id="eb-themes">Themes</p>
         <div role="group" aria-labelledby="eb-themes">
-          {groups.map((g) => (
+          {groups.filter((g) => g !== 'Direct taxes').map((g) => (
             <NavLink key={g} href={`#/theme/${slug(g)}`} current={(route.name === 'theme' && route.arg === slug(g)) || active === g}>{g}</NavLink>
           ))}
+        </div>
+        <p className="eb-navhead" id="eb-dtax">Direct taxes</p>
+        <div role="group" aria-labelledby="eb-dtax">
+          <NavLink href="#/direct-taxes" current={route.name === 'direct-taxes' || (route.name === 'theme' && route.arg === 'direct-taxes') || active === 'Direct taxes'}>Collections, taxpayers and states</NavLink>
         </div>
         <p className="eb-navhead" id="eb-trade">Merchandise trade</p>
         <div role="group" aria-labelledby="eb-trade">

@@ -65,6 +65,16 @@ export default function MultiChart({ title, icon, note, series, kind = 'line', b
       }
     }
 
+    // Long spans (25 financial years) would print a label every year on top of
+    // each other: keep every k-th label so they stay about 44px apart.
+    const room = Math.max(2, Math.floor(plotW / 44));
+    if (xTicks.length > room) {
+      const k = Math.ceil(xTicks.length / room);
+      const keep = xTicks.filter((_, i) => (xTicks.length - 1 - i) % k === 0);
+      xTicks.length = 0;
+      xTicks.push(...keep);
+    }
+
     const onMove = (e) => {
       const r = e.currentTarget.getBoundingClientRect();
       const mx = ((e.clientX - r.left) / r.width) * W;

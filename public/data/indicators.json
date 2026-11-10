@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-10T04:44:13+00:00",
+ "generated_at": "2026-11-10T04:53:50+00:00",
  "sources": {
   "mospi": {
    "status": "ok",
-   "fetched_at": "2026-11-10T04:44:13+00:00",
+   "fetched_at": "2026-11-10T04:53:50+00:00",
    "message": null
   },
   "rbi": {
@@ -11852,7 +11852,7 @@
   },
   {
    "label": "Net direct tax collections",
-   "group": "Fiscal and monetary",
+   "group": "Direct taxes",
    "decimals": 2,
    "up_is_good": true,
    "change_unit": "lakh cr",
@@ -12020,239 +12020,11 @@
     }
    ],
    "note": "Collections net of refunds: corporate tax, non-corporate tax and other direct taxes. CBDT publishes this series once a year. 2024-25 provisional.",
-   "by_state": {
-    "year": "2024-25",
-    "prev_year": "2023-24",
-    "rows": [
-     {
-      "name": "Maharashtra",
-      "kind": "state",
-      "value": 897425.86,
-      "prev": 761716.3
-     },
-     {
-      "name": "Karnataka",
-      "kind": "state",
-      "value": 261528.83,
-      "prev": 234098.39
-     },
-     {
-      "name": "Delhi",
-      "kind": "state",
-      "value": 229250.33,
-      "prev": 203197.06
-     },
-     {
-      "name": "Tamil Nadu",
-      "kind": "state",
-      "value": 132368.09,
-      "prev": 127067.17
-     },
-     {
-      "name": "Gujarat",
-      "kind": "state",
-      "value": 107241.41,
-      "prev": 93300.72
-     },
-     {
-      "name": "Telangana",
-      "kind": "state",
-      "value": 97860.86,
-      "prev": 84439.24
-     },
-     {
-      "name": "Haryana",
-      "kind": "state",
-      "value": 79731.48,
-      "prev": 70947.31
-     },
-     {
-      "name": "Uttar Pradesh",
-      "kind": "state",
-      "value": 69011.21,
-      "prev": 48333.44
-     },
-     {
-      "name": "West Bengal",
-      "kind": "state",
-      "value": 63075.47,
-      "prev": 60374.64
-     },
-     {
-      "name": "Rajasthan",
-      "kind": "state",
-      "value": 34382.78,
-      "prev": 30551.42
-     },
-     {
-      "name": "Kerala",
-      "kind": "state",
-      "value": 27974.6,
-      "prev": 23966.92
-     },
-     {
-      "name": "Odisha",
-      "kind": "state",
-      "value": 25444.08,
-      "prev": 20865.54
-     },
-     {
-      "name": "Andhra Pradesh",
-      "kind": "state",
-      "value": 23804.85,
-      "prev": 26066.46
-     },
-     {
-      "name": "Punjab",
-      "kind": "state",
-      "value": 19656.65,
-      "prev": 17215.0
-     },
-     {
-      "name": "Madhya Pradesh",
-      "kind": "state",
-      "value": 19639.22,
-      "prev": 20086.99
-     },
-     {
-      "name": "Chhattisgarh",
-      "kind": "state",
-      "value": 12518.1,
-      "prev": 13534.13
-     },
-     {
-      "name": "Jharkhand",
-      "kind": "state",
-      "value": 10712.95,
-      "prev": 10500.59
-     },
-     {
-      "name": "Bihar",
-      "kind": "state",
-      "value": 6904.99,
-      "prev": 6692.73
-     },
-     {
-      "name": "Assam",
-      "kind": "state",
-      "value": 6819.31,
-      "prev": 7510.93
-     },
-     {
-      "name": "Chandigarh",
-      "kind": "ut",
-      "value": 4741.55,
-      "prev": 3972.8
-     },
-     {
-      "name": "Goa",
-      "kind": "state",
-      "value": 4515.85,
-      "prev": 3867.43
-     },
-     {
-      "name": "Himachal Pradesh",
-      "kind": "state",
-      "value": 3076.54,
-      "prev": 3150.17
-     },
-     {
-      "name": "Jammu and Kashmir",
-      "kind": "ut",
-      "value": 2708.95,
-      "prev": 1965.17
-     },
-     {
-      "name": "Uttarakhand",
-      "kind": "state",
-      "value": 2629.65,
-      "prev": 15861.49
-     },
-     {
-      "name": "Meghalaya",
-      "kind": "state",
-      "value": 2174.48,
-      "prev": 1800.73
-     },
-     {
-      "name": "Puducherry",
-      "kind": "ut",
-      "value": 1299.72,
-      "prev": 1273.44
-     },
-     {
-      "name": "Dadra and Nagar Haveli and Daman and Diu",
-      "kind": "ut",
-      "value": 998.03,
-      "prev": 958.98
-     },
-     {
-      "name": "Tripura",
-      "kind": "state",
-      "value": 387.29,
-      "prev": 417.38
-     },
-     {
-      "name": "Manipur",
-      "kind": "state",
-      "value": 368.17,
-      "prev": 323.12
-     },
-     {
-      "name": "Sikkim",
-      "kind": "state",
-      "value": 292.17,
-      "prev": 287.83
-     },
-     {
-      "name": "Nagaland",
-      "kind": "state",
-      "value": 225.27,
-      "prev": 344.1
-     },
-     {
-      "name": "Arunachal Pradesh",
-      "kind": "state",
-      "value": 150.6,
-      "prev": 233.98
-     },
-     {
-      "name": "Mizoram",
-      "kind": "state",
-      "value": 74.46,
-      "prev": 81.78
-     },
-     {
-      "name": "Andaman and Nicobar Islands",
-      "kind": "ut",
-      "value": 66.33,
-      "prev": 79.88
-     },
-     {
-      "name": "Lakshadweep",
-      "kind": "ut",
-      "value": 28.79,
-      "prev": 39.79
-     },
-     {
-      "name": "Ladakh",
-      "kind": "ut",
-      "value": -0.68,
-      "prev": -1.54
-     }
-    ],
-    "grand_total": 2226374.94,
-    "other": {
-     "C.T.D.S": 41723.25,
-     "Foreign": 35715.47,
-     "Unapportioned": -152.02
-    }
-   },
    "updated_at": "2026-11-10T04:41:59+00:00"
   },
   {
    "label": "Corporate tax collections",
-   "group": "Fiscal and monetary",
+   "group": "Direct taxes",
    "decimals": 2,
    "up_is_good": true,
    "change_unit": "lakh cr",
@@ -12424,7 +12196,7 @@
   },
   {
    "label": "Non-corporate tax collections (mainly personal income tax)",
-   "group": "Fiscal and monetary",
+   "group": "Direct taxes",
    "decimals": 2,
    "up_is_good": true,
    "change_unit": "lakh cr",
@@ -12596,7 +12368,7 @@
   },
   {
    "label": "Gross direct tax collections (before refunds)",
-   "group": "Fiscal and monetary",
+   "group": "Direct taxes",
    "decimals": 2,
    "up_is_good": true,
    "change_unit": "lakh cr",
@@ -12768,7 +12540,7 @@
   },
   {
    "label": "Direct tax to GDP ratio",
-   "group": "Fiscal and monetary",
+   "group": "Direct taxes",
    "decimals": 2,
    "up_is_good": true,
    "change_unit": "pts",
@@ -12940,7 +12712,7 @@
   },
   {
    "label": "Direct taxes' share of total tax revenue",
-   "group": "Fiscal and monetary",
+   "group": "Direct taxes",
    "decimals": 2,
    "up_is_good": null,
    "change_unit": "pts",
@@ -13112,7 +12884,7 @@
   },
   {
    "label": "Direct tax buoyancy",
-   "group": "Fiscal and monetary",
+   "group": "Direct taxes",
    "decimals": 2,
    "up_is_good": true,
    "change_unit": "",
@@ -13278,7 +13050,7 @@
   },
   {
    "label": "Cost of collecting direct taxes",
-   "group": "Fiscal and monetary",
+   "group": "Direct taxes",
    "decimals": 2,
    "up_is_good": false,
    "change_unit": "pts",
@@ -13450,7 +13222,7 @@
   },
   {
    "label": "Persons filing income-tax returns",
-   "group": "Fiscal and monetary",
+   "group": "Direct taxes",
    "decimals": 2,
    "up_is_good": true,
    "change_unit": "crore",
@@ -13544,7 +13316,7 @@
   },
   {
    "label": "Income-tax returns filed",
-   "group": "Fiscal and monetary",
+   "group": "Direct taxes",
    "decimals": 2,
    "up_is_good": true,
    "change_unit": "crore",
@@ -13638,7 +13410,7 @@
   },
   {
    "label": "Taxpayers (return filers plus those with tax deducted at source)",
-   "group": "Fiscal and monetary",
+   "group": "Direct taxes",
    "decimals": 2,
    "up_is_good": true,
    "change_unit": "crore",

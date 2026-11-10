@@ -41,6 +41,16 @@ SOURCE_URL = "https://www.incometaxindia.gov.in/en/miscellaneous-communications?
 FY = re.compile(r"^\s*(\d{4})-(\d{2})")
 
 
+def _inr(v: float) -> str:
+    """Indian digit grouping: 1154436 -> '11,54,436'."""
+    s = f"{abs(v):.0f}"
+    head, tail = s[:-3], s[-3:]
+    while len(head) > 2:
+        tail = head[-2:] + "," + tail
+        head = head[:-2]
+    return ("-" if v < 0 else "") + (head + "," + tail if head else tail)
+
+
 def _num(cell) -> float | None:
     """'9,86,767#' -> 986767.0, '58.81%' -> 58.81, '4,73, 179' -> 473179.0; '-', '', '--**' -> None."""
     if cell is None:
@@ -233,7 +243,7 @@ def parse(path: Path) -> dict:
         if abs(gap) > 0.001 * gross:  # more than rounding: a misread
             problems.append(f"1.5 {y}: modes add to {tds + adv + sat + rat + oth}, total {gross}")
         elif abs(gap) > 5:  # the PDF's own small inconsistency (2017-18: 257 crore)
-            notes.append(f"Table 1.5, {y}: the components add up to Rs {tds + adv + sat + rat + oth:,.0f} crore against a printed total of Rs {gross:,.0f} crore.")
+            notes.append(f"Table 1.5, {y}: the components add up to ₹{_inr(tds + adv + sat + rat + oth)} crore against a printed total of ₹{_inr(gross)} crore.")
         fy.setdefault(y, {}).update({"tds": tds, "advance_tax": adv, "self_assessment": sat, "regular_assessment": rat,
                                      "other_receipts": oth, "gross": gross})
     for y, r in t16.items():

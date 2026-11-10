@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Chip from '../Chip.jsx';
 import TrendChart from '../TrendChart.jsx';
 import MultiChart from '../dashboard/MultiChart.jsx';
@@ -32,53 +31,6 @@ function RuralUrban({ byId }) {
           { key: 'cpi_rural', label: 'Rural', color: 'var(--eb-s1)', points: r.history },
           { key: 'cpi_urban', label: 'Urban', color: 'var(--eb-s2)', points: u.history },
         ]} />
-    </section>
-  );
-}
-
-// Direct tax collections by state and UT (CBDT Time Series, table 1.2), on the net collections page.
-function StateBreakup({ data }) {
-  const [all, setAll] = useState(false);
-  if (!data?.rows?.length) return null;
-  const total = data.grand_total || data.rows.reduce((s, r) => s + r.value, 0);
-  const lakh = (v) => formatValue(v / 1e5, 2);
-  const top3 = data.rows.slice(0, 3);
-  const top3share = top3.reduce((s, r) => s + r.value, 0) / total * 100;
-  const shown = all ? data.rows : data.rows.slice(0, 12);
-  const o = data.other || {};
-  return (
-    <section className="eb-section" aria-labelledby="eb-in-states">
-      <h2 id="eb-in-states">By state and union territory, {data.year}</h2>
-      <p className="eb-ru-lead">
-        {top3.map((r) => r.name).join(', ').replace(/, ([^,]*)$/, ' and $1')} together account for <strong>{formatValue(top3share, 0)}%</strong> of collections.
-        {' '}CBDT assigns tax to the state in the taxpayer's address on record, so collections lean towards the states where large companies have their head offices and where
-        employers deduct TDS. Read this as where tax is paid from, not where the income is earned.
-      </p>
-      <div className="eb-tablewrap">
-        <table className="eb-table">
-          <caption className="eb-sr">Net direct tax collections by state and UT, {data.year}</caption>
-          <thead>
-            <tr><th scope="col">State or UT</th><th scope="col" className="eb-num">{data.year} (₹ lakh crore)</th><th scope="col" className="eb-num">Share</th><th scope="col" className="eb-num">Change on {data.prev_year}</th></tr>
-          </thead>
-          <tbody>
-            {shown.map((r) => (
-              <tr key={r.name}>
-                <th scope="row">{r.name}{r.kind === 'ut' ? ' (UT)' : ''}</th>
-                <td className="eb-num">{lakh(r.value)}</td>
-                <td className="eb-num">{formatValue(r.value / total * 100, 1)}%</td>
-                <td className="eb-num eb-muted">{r.prev > 0 ? `${signed(formatValue((r.value / r.prev - 1) * 100, 1))}%` : 'n.a.'}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      {data.rows.length > 12 && (
-        <p><button type="button" className="eb-btn eb-noprint" onClick={() => setAll(!all)}>{all ? 'Show the top 12' : `Show all ${data.rows.length}`}</button></p>
-      )}
-      <p className="eb-muted">
-        Not assigned to a state: central TDS ₹{lakh(o['C.T.D.S'] || 0)} lakh crore{o.Foreign ? <>, taxpayers with an address outside India ₹{lakh(o.Foreign)} lakh crore</> : null}.
-        {' '}A large one-year swing for a single state can come from changes in recorded addresses rather than in the economy. CBDT, Time Series Data, table 1.2.
-      </p>
     </section>
   );
 }
@@ -126,7 +78,9 @@ export default function IndicatorPage({ item, byId }) {
       </section>
 
       {['cpi', 'cpi_rural', 'cpi_urban'].includes(item.id) && <RuralUrban byId={byId} />}
-      {item.by_state && <StateBreakup data={item.by_state} />}
+      {item.mode === 'cbdt' && (
+        <p className="eb-ru-lead">Part of the <a href="#/direct-taxes">Direct taxes</a> section, with collections by mode of payment, taxpayers by category and the state-wise table.</p>
+      )}
 
       <section className="eb-section" aria-labelledby="eb-in-hist">
         <h2 id="eb-in-hist">Release history</h2>

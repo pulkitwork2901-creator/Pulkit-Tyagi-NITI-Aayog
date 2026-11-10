@@ -102,7 +102,7 @@ function fiscal(b) {
       Direct taxes brought in <strong>₹{formatValue(dt.value, 2)} lakh crore</strong> in {dt.period}{dtg != null ? <>, {Math.abs(dtg).toFixed(1)}% {dtg >= 0 ? 'more' : 'less'} than a year earlier</> : null}
       {dg ? <>, or {pct(dg, 2)} of GDP{dgPeak ? ', the highest since the series began in 2000-01' : ''}</> : null}
       {dc && dn ? <>; {dn.value > dc.value ? 'personal and other non-corporate income tax now brings in more than corporate tax' : 'corporate tax still brings in more than personal and other income tax'} (₹{formatValue(dn.value, 2)} against ₹{formatValue(dc.value, 2)} lakh crore)</> : null}
-      {filers ? <>; <strong>{formatValue(filers.value, 2)} crore</strong> individuals and entities filed income-tax returns in {filers.period}</> : null}.
+      {filers ? <>; <strong>{formatValue(filers.value, 2)} crore</strong> individuals and entities filed income-tax returns in {filers.period}</> : null}. <a href="#/direct-taxes">More in Direct taxes</a>.
     </>
   );
   return [s1, s2, s3];
