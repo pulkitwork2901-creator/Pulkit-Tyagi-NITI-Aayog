@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-10T10:02:43+00:00",
+ "generated_at": "2026-11-10T10:16:36+00:00",
  "sources": {
   "mospi": {
    "status": "stale",
-   "fetched_at": "2026-11-10T10:02:43+00:00",
+   "fetched_at": "2026-11-10T10:16:36+00:00",
    "message": "MoSPI fetch failed: HTTPSConnectionPool(host='api.mospi.gov.in', port=443): Max retries exceeded with url: /api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=Quarterly&indicator_code=22&limit=100&Format=JSON&page=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)'))); Some MoSPI series kept their last good copy: WPI: HTTPSConnectionPool(host='api.mospi.gov.in', port=443): Max retries exceeded with url: /api/wpi/getWpiRecords?base_year=2022-23&year=2023%2C2024%2C2025%2C2026&major_group_code=1000000000%2C1400000000&limit=200&Format=JSON&page=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)'))); PLFS: HTTPSConnectionPool(host='api.mospi.gov.in', port=443): Max retries exceeded with url: /api/plfs/getData?frequency_code=3&indicator_code=3&year=2025%2C2026&state_code=99&gender_code=3&age_code=1&sector_code=3&limit=100&Format=JSON&page=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)'))); CPI rural/urban: HTTPSConnectionPool(host='api.mospi.gov.in', port=443): Max retries exceeded with url: /api/cpi/getCPIData?base_year=2024&series=Current&state_code=1&sector_code=1&division_code=0&year=2025%2C2026&limit=100&Format=JSON&page=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)'))); Core CPI: HTTPSConnectionPool(host='api.mospi.gov.in', port=443): Max retries exceeded with url: /api/cpi/getCPIData?base_year=2024&series=Current&state_code=1&sector_code=3&year=2025%2C2026&limit=100&Format=JSON&division_code=0&page=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)')))"
   },
   "rbi": {
