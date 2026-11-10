@@ -729,3 +729,9 @@ a.eb-bar-row:hover .eb-bar-label { text-decoration: underline; }
 .eb-dt-total th, .eb-dt-total td { font-weight: 700; border-top: 2px solid var(--eb-rule); }
 .eb-dt-years { flex-wrap: wrap; margin: 4px 0 12px; }
 @media (max-width: 640px) { .eb-dt-years button { min-width: 0; padding: 7px 10px; font-size: 13px; } }
+.eb-dt-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; margin: 14px 0 18px; }
+.eb-dt-card { border: 1px solid var(--eb-rule); border-radius: 12px; padding: 14px 16px; background: var(--eb-paper); }
+.eb-dt-card-label { margin: 0; font: 600 13px var(--eb-font); color: var(--eb-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.eb-dt-card-value { margin: 6px 0 2px; font: 700 26px var(--eb-font); color: var(--eb-ink); }
+.eb-dt-card-value span { font-size: 14px; font-weight: 500; color: var(--eb-muted); }
+.eb-dt-card-sub { margin: 0; font-size: 13.5px; color: var(--eb-muted); }

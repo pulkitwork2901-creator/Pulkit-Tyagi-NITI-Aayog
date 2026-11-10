@@ -86,6 +86,7 @@ META = {
     "gst_domestic":   {"label": "GST on domestic transactions (gross)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
     "gst_imports":    {"label": "GST on imports (gross)", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": None,  "change_unit": "lakh cr"},
     "gst_gross":      {"label": "Gross GST collections", "group": "Fiscal and monetary", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
+    "dt_ytd_net":     {"label": "Net direct tax collections, this year so far", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
     "dt_net":         {"label": "Net direct tax collections", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
     "dt_corporate":   {"label": "Corporate tax collections", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
     "dt_noncorporate": {"label": "Non-corporate tax collections (mainly personal income tax)", "group": "Direct taxes", "decimals": 2, "up_is_good": True,  "change_unit": "lakh cr"},
@@ -806,6 +807,29 @@ def direct_tax_items() -> dict[str, dict]:
         if item:
             item["mode"] = "cbdt"
             out[key] = item
+
+    # In-year releases: net collections from 1 April to the 'as on' date, against
+    # the same date a year earlier (CBDT compares like with like).
+    snaps = d.get("in_year") or []
+    if snaps:
+        def lab(iso):
+            y, m, dd = iso.split("-")
+            return f"{int(dd)} {MONTHS[int(m) - 1][:3]} {y}"
+        sn = snaps[-1]
+        cur, prev = sn["cur"]["net"]["total"] / 1e5, sn["prev"]["net"]["total"] / 1e5
+        hist = [{"date": s["as_on"], "label": f"{s['fy']} to {lab(s['as_on'])}", "short": lab(s["as_on"]),
+                 "value": round(s["cur"]["net"]["total"] / 1e5, 2)} for s in snaps]
+        out["dt_ytd_net"] = {
+            "id": "dt_ytd_net", "mode": "cbdt", "value": round(cur, 2), "unit": "₹ lakh crore",
+            "period": f"{sn['fy']}, 1 April to {lab(sn['as_on'])}",
+            "compare_value": round(prev, 2), "compare_period": f"{sn['prev']['fy']} to {lab(sn['prev']['as_on'])}",
+            "change": round(cur - prev, 2),
+            "source": "CBDT, Direct Tax Collections (provisional, from TINMIS)", "source_url": url, "released": None,
+            "history": hist,
+            "note": ("Collections from 1 April to the date shown, after refunds, as CBDT releases them during the year. Provisional. "
+                     "Here securities transaction tax is shown on its own; in the annual series it is part of non-corporate tax. "
+                     "Values are cumulative within each financial year, so compare only with the same date a year earlier."),
+        }
 
     # The Direct taxes page reads the full tables (modes of payment, categories, states).
     (ROOT_DIR / "public" / "data" / "direct-taxes.json").write_text(json.dumps(d, ensure_ascii=False, separators=(",", ":")))

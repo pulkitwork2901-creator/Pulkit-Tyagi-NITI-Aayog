@@ -79,6 +79,8 @@ The script checks the PDF against itself before using it: the three parts of col
 2. On GitHub, open `data/uploads/direct-taxes/`, choose Add file, Upload files, and commit. Any file name works; keep the old file.
 3. The site rebuilds in about two minutes. The script picks the edition whose cover reads the latest "Financial Year 2000-01 to YYYY-YY".
 
+**This year so far (CBDT's in-year releases).** CBDT also releases "Direct Tax Collections for F.Y. ... (as on DD.MM.YYYY)" several times a year (for example https://www.incometaxindia.gov.in/documents/d/guest/direct_tax_data_14_10_2026-pdf): gross collections, refunds and net collections by corporate tax, non-corporate tax, securities transaction tax and other taxes, against the same date a year earlier. Download each one in your browser and upload it to `data/uploads/direct-taxes/collections/` (any file name). The script reads every file there, keeps one snapshot per date, and checks that the parts add up, that net equals gross minus refunds, and that CBDT's printed growth rates match. The newest appears at the top of the Direct taxes page and as the indicator "Net direct tax collections, this year so far". In these releases securities transaction tax is shown on its own; the annual series counts it within non-corporate tax.
+
 Things to know: the latest year is provisional; states are assigned by the taxpayer's address on record, so states with large head offices dominate; "non-corporate" tax is mainly personal income tax but also includes firms, trusts and securities transaction tax; taxpayers are counted by assessment year.
 
 ## The division's indicators workbook

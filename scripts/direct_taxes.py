@@ -22,7 +22,15 @@ totals in 1.1, 1.3, 1.4 and 1.6 must agree; the state sub-total must equal the
 sum of the states. If a check fails, nothing is written, so the board keeps
 the last good copy.
 
-Usage: python3 scripts/direct_taxes.py [path/to/file.pdf]
+It also reads CBDT's in-year releases, "Direct Tax Collections for F.Y. ...
+(as on DD.MM.YYYY)" (one-page PDFs, issued several times a year), saved in
+data/uploads/direct-taxes/collections/. Each gives gross collections, refunds
+and net collections (corporate tax, non-corporate tax, securities transaction
+tax, other taxes) for the current year to date and the same date a year
+earlier. Checks: the parts add to each total, net = gross - refunds, and
+CBDT's printed growth rates match. A release that fails is skipped.
+
+Usage: python3 scripts/direct_taxes.py [path/to/time-series.pdf]
 """
 
 from __future__ import annotations
@@ -35,6 +43,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PDF_DIR = ROOT / "data" / "uploads" / "direct-taxes"
+COLL_DIR = PDF_DIR / "collections"
 OUT = ROOT / "data" / "direct_taxes.json"
 SOURCE_URL = "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090"
 
@@ -287,20 +296,128 @@ def parse(path: Path) -> dict:
     }
 
 
+PARTS = {"ct": "corporate tax", "nct": "non-corporate tax", "stt": "securities transaction tax", "ot": "other taxes"}
+
+
+def _col_key(head: str) -> str | None:
+    h = re.sub(r"\s+", " ", head or "").lower()
+    if "growth" in h:
+        return "growth"
+    if "non" in h and "corporate" in h:
+        return "nct"
+    if "corporate" in h:
+        return "ct"
+    if "securities" in h:
+        return "stt"
+    if "other" in h:
+        return "ot"
+    if "total" in h:
+        return "total"
+    return None
+
+
+def _dmy(s: str) -> str:
+    d, m, y = s.split(".")
+    return f"{y}-{m}-{d}"
+
+
+def parse_collections(path: Path) -> dict:
+    """One in-year release: {as_on, fy, prev: {...}, cur: {...}, growth_printed}."""
+    import pdfplumber
+    with pdfplumber.open(path) as pdf:
+        page = pdf.pages[0]
+        text = page.extract_text() or ""
+        tables = page.extract_tables()
+    periods = re.findall(r"FY\s*(\d{4}-\d{2})\s*\(as on\s*(\d{2}\.\d{2}\.\d{4})\)", text)
+    if len(periods) < 2:
+        raise ValueError("the two 'FY ... (as on ...)' headings were not found")
+    (fy0, d0), (fy1, d1) = periods[0], periods[1]
+    rows = next((t for t in tables if any(r and r[0] and "Gross" in str(r[0]) for r in t)), None)
+    if not rows:
+        raise ValueError("no table with a Gross Collection row")
+    head = next(r for r in rows if any(c and "Corporate" in str(c) for c in r))
+    keys = [_col_key(c) for c in head]
+    # The first group of columns (up to the first Total) is the earlier year.
+    first_total = keys.index("total")
+    out = {"prev": {"fy": fy0, "as_on": _dmy(d0)}, "cur": {"fy": fy1, "as_on": _dmy(d1)}, "growth_printed": {}}
+    labels = {"gross": "Gross", "refunds": "Refund", "net": "Net"}
+    for r in rows:
+        name = next((k for k, lab in labels.items() if r and r[0] and str(r[0]).strip().startswith(lab)), None)
+        if not name:
+            continue
+        for i, k in enumerate(keys):
+            if k is None or i >= len(r):
+                continue
+            v = _num(r[i])
+            if v is None:
+                continue
+            if k == "growth":
+                out["growth_printed"][name] = v
+            else:
+                side = "prev" if i <= first_total else "cur"
+                out[side].setdefault(name, {})[k] = v
+    problems = []
+    for side in ("prev", "cur"):
+        for name in labels:
+            row = out[side].get(name)
+            if not row or "total" not in row:
+                problems.append(f"{side} {name}: row missing")
+                continue
+            parts = sum(row.get(k, 0) for k in PARTS)
+            if abs(parts - row["total"]) > 1:
+                problems.append(f"{side} {name}: parts add to {parts:.2f}, total {row['total']}")
+        for k in list(PARTS) + ["total"]:
+            g, rf, n = (out[side].get(x, {}).get(k) for x in ("gross", "refunds", "net"))
+            if None not in (g, rf, n) and abs(g - rf - n) > 1:
+                problems.append(f"{side} {k}: gross {g} - refunds {rf} != net {n}")
+    for name, pr in out["growth_printed"].items():
+        a, b = out["cur"].get(name, {}).get("total"), out["prev"].get(name, {}).get("total")
+        if a and b and abs((a / b - 1) * 100 - pr) > 0.02:
+            problems.append(f"{name}: printed growth {pr}% but figures give {(a / b - 1) * 100:.2f}%")
+    if problems:
+        raise ValueError("checks failed: " + "; ".join(problems))
+    return {"as_on": out["cur"]["as_on"], "fy": fy1, "file": path.name, "source": "CBDT, Direct Tax Collections (TINMIS)", **out}
+
+
 def main(argv: list[str]) -> int:
+    old = json.loads(OUT.read_text()) if OUT.exists() else {}
+    status = 0
     path = Path(argv[1]) if len(argv) > 1 else newest_pdf()
-    if not path:
+    data = None
+    if path:
+        try:
+            data = parse(path)
+            last = max(data["fy"])
+            print(f"Direct taxes: {path.name}, {min(data['fy'])} to {last}; net {data['fy'][last]['net']:,.0f} crore in {last}")
+        except Exception as e:
+            print(f"Direct taxes: kept the last good time series. {path.name}: {e}")
+            status = 1
+    else:
         print(f"No CBDT time series PDF in {PDF_DIR}")
-        return 1
-    try:
-        data = parse(path)
-    except Exception as e:
-        print(f"Direct taxes: kept the last good copy. {path.name}: {e}")
-        return 1
+        status = 1
+    if data is None:
+        data = {k: v for k, v in old.items() if k != "in_year"}
+        if not data.get("fy"):
+            return 1
+
+    # In-year releases: every file in collections/, one snapshot per 'as on' date.
+    kept = {s["file"]: s for s in old.get("in_year", [])}
+    snaps = {}
+    for p in sorted(COLL_DIR.glob("*.pdf")) if COLL_DIR.exists() else []:
+        try:
+            sn = parse_collections(p)
+        except Exception as e:
+            print(f"  in-year release {p.name} skipped: {e}")
+            sn = kept.get(p.name)
+            if not sn:
+                continue
+        snaps[sn["as_on"]] = sn
+    data["in_year"] = [snaps[k] for k in sorted(snaps)]
+    if data["in_year"]:
+        sn = data["in_year"][-1]
+        print(f"  in-year: {len(snaps)} release(s), latest as on {sn['as_on']}: net {sn['cur']['net']['total']:,.2f} crore")
     OUT.write_text(json.dumps(data, indent=1, ensure_ascii=False))
-    last = max(data["fy"])
-    print(f"Direct taxes: {path.name}, {min(data['fy'])} to {last}; net {data['fy'][last]['net']:,.0f} crore in {last}")
-    return 0
+    return status
 
 
 if __name__ == "__main__":

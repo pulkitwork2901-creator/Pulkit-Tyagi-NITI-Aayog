@@ -31,6 +31,7 @@ function tableSeries(tab, prefix = '') {
 }
 
 const SECTIONS = [
+  ['dt-inyear', 'This year so far'],
   ['dt-collections', 'Collections'],
   ['dt-paid', 'How tax is paid'],
   ['dt-economy', 'Taxes and the economy'],
@@ -79,6 +80,98 @@ function Summary({ fy, d }) {
         {tpY.length ? <> The tax base reached <strong>{formatValue(tp[tpY.at(-1)] / CRORE, 2)} crore taxpayers</strong> (AY {tpY.at(-1)}), and {formatValue(fl[flY.at(-1)] / CRORE, 2)} crore individuals and entities filed returns during {flY.at(-1)}.</> : null}
       </p>
     </div>
+  );
+}
+
+const MONTH = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const longDate = (iso) => { const [y, m, d] = iso.split('-'); return `${Number(d)} ${MONTH[Number(m) - 1]} ${y}`; };
+const PART = [['ct', 'Corporate tax'], ['nct', 'Non-corporate tax'], ['stt', 'Securities transaction tax'], ['ot', 'Other taxes']];
+// Growth only where both figures are positive; otherwise 'n.m.' (not meaningful).
+const gr = (a, b) => (a > 0 && b > 0 ? (a / b - 1) * 100 : null);
+const gtxt = (v) => (v == null ? 'n.m.' : `${signed(formatValue(v, 1))}%`);
+const updown = (v) => (v == null ? 'not comparable' : `${v >= 0 ? 'up' : 'down'} ${formatValue(Math.abs(v), 1)}%`);
+
+// CBDT's in-year release: collections from 1 April to the 'as on' date, against the same date a year earlier.
+function InYear({ snaps }) {
+  if (!snaps?.length) return null;
+  const sn = snaps.at(-1);
+  const c = sn.cur;
+  const p = sn.prev;
+  const L = (v) => formatValue(v / LAKH, 2);
+  const gNet = gr(c.net.total, p.net.total);
+  const gGross = gr(c.gross.total, p.gross.total);
+  const gRef = gr(c.refunds.total, p.refunds.total);
+  // Which tax's refunds rose most, in rupees?
+  const refMover = PART.map(([k, label]) => ({ k, label, d: c.refunds[k] - p.refunds[k] })).sort((a, b) => b.d - a.d)[0];
+  const sameFy = snaps.filter((x) => x.fy === sn.fy);
+  const card = (label, cur, prev) => (
+    <div className="eb-dt-card">
+      <p className="eb-dt-card-label">{label}</p>
+      <p className="eb-dt-card-value">₹{L(cur)} <span>lakh crore</span></p>
+      <p className="eb-dt-card-sub">{updown(gr(cur, prev))} on ₹{L(prev)} lakh crore a year earlier</p>
+    </div>
+  );
+  return (
+    <section className="eb-section" id="dt-inyear" aria-labelledby="dt-inyear-h">
+      <h2 id="dt-inyear-h">This year so far: {sn.fy}, 1 April to {longDate(sn.as_on)}</h2>
+      <p className="eb-ru-lead">
+        Net direct tax collections reached <strong>₹{L(c.net.total)} lakh crore</strong>, {updown(gNet)} on the same date in {p.fy}.
+        {' '}By tax, net corporate tax is {updown(gr(c.net.ct, p.net.ct))}, non-corporate tax {updown(gr(c.net.nct, p.net.nct))} and securities transaction tax {updown(gr(c.net.stt, p.net.stt))}.
+        {gRef != null && gGross != null && gRef > gGross ? (
+          <> Refunds have grown faster than gross collections ({formatValue(gRef, 1)}% against {formatValue(gGross, 1)}%), most of all in {refMover.label.toLowerCase()} (₹{L(p.refunds[refMover.k])} to ₹{L(c.refunds[refMover.k])} lakh crore), which holds net growth below gross growth.</>
+        ) : null}
+      </p>
+      <div className="eb-dt-cards">
+        {card('Net collections', c.net.total, p.net.total)}
+        {card('Gross collections', c.gross.total, p.gross.total)}
+        {card('Refunds', c.refunds.total, p.refunds.total)}
+      </div>
+      <div className="eb-tablewrap">
+        <table className="eb-table">
+          <caption className="eb-sr">Direct tax collections, {sn.fy} to {longDate(sn.as_on)}, ₹ crore</caption>
+          <thead>
+            <tr>
+              <th scope="col">₹ crore</th><th scope="col" className="eb-num">Gross</th><th scope="col" className="eb-num">Refunds</th>
+              <th scope="col" className="eb-num">Net</th><th scope="col" className="eb-num">Net, {longDate(p.as_on)}</th><th scope="col" className="eb-num">Net growth</th>
+            </tr>
+          </thead>
+          <tbody>
+            {PART.map(([k, label]) => (
+              <tr key={k}>
+                <th scope="row">{label}</th>
+                <td className="eb-num">{formatValue(c.gross[k], 0)}</td>
+                <td className="eb-num">{formatValue(c.refunds[k], 0)}</td>
+                <td className="eb-num">{signed(formatValue(c.net[k], 0))}</td>
+                <td className="eb-num eb-muted">{formatValue(p.net[k], 0)}</td>
+                <td className="eb-num eb-muted">{gtxt(gr(c.net[k], p.net[k]))}</td>
+              </tr>
+            ))}
+            <tr className="eb-dt-total">
+              <th scope="row">Total</th>
+              <td className="eb-num">{formatValue(c.gross.total, 0)}</td>
+              <td className="eb-num">{formatValue(c.refunds.total, 0)}</td>
+              <td className="eb-num">{formatValue(c.net.total, 0)}</td>
+              <td className="eb-num eb-muted">{formatValue(p.net.total, 0)}</td>
+              <td className="eb-num eb-muted">{gtxt(gNet)}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      {sameFy.length > 1 && (
+        <div className="eb-dt-split">
+          <MultiChart title={`Net collections through ${sn.fy}`} icon="money" headline={{ value: lakh(c.net.total / LAKH), sub: `To ${longDate(sn.as_on)}` }}
+            note={`₹ lakh crore from 1 April, at each CBDT release in ${sn.fy}, with the same dates a year earlier.`} start={ALL} fmt={lakh}
+            series={[
+              { key: 'c', label: sn.fy, color: S1, points: sameFy.map((x) => ({ date: x.as_on, label: longDate(x.as_on), value: x.cur.net.total / LAKH })) },
+              { key: 'p', label: `${p.fy}, same dates`, color: S2, points: sameFy.map((x) => ({ date: x.as_on, label: longDate(x.prev.as_on), value: x.prev.net.total / LAKH })) },
+            ]} />
+        </div>
+      )}
+      <p className="eb-muted">
+        Provisional figures from CBDT's release of {longDate(sn.as_on)} (source: TINMIS). Securities transaction tax is shown on its own here; the annual series below counts it within non-corporate tax.
+        {' '}Other taxes are tiny and can turn negative when refunds exceed receipts, as they do here. CBDT issues these releases several times a year; each new one is uploaded to data/uploads/direct-taxes/collections/ and appears here within minutes.
+      </p>
+    </section>
   );
 }
 
@@ -370,13 +463,15 @@ export default function DirectTaxPage({ base, items }) {
         <Jump />
       </header>
 
+      {err && <p className="eb-muted">The detailed direct tax tables could not be loaded ({err}). The headline figures below are unaffected.</p>}
+      {!d && !err && <p className="eb-muted" role="status">Loading the detailed tables…</p>}
+      {d && <InYear snaps={d.in_year} />}
+
       <section className="eb-section" aria-labelledby="dt-latest-h">
-        <h2 id="dt-latest-h">Latest figures</h2>
+        <h2 id="dt-latest-h">Headline figures</h2>
         <Ledger caption="Direct taxes" items={items} />
       </section>
 
-      {err && <p className="eb-muted">The detailed direct tax tables could not be loaded ({err}). The figures above are unaffected.</p>}
-      {!d && !err && <p className="eb-muted" role="status">Loading the detailed tables…</p>}
       {d && (
         <>
           <Collections fy={d.fy} />

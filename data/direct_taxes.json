@@ -1391,5 +1391,68 @@
  },
  "source_inconsistencies": [
   "Table 1.5, 2017-18: the components add up to ₹11,54,436 crore against a printed total of ₹11,54,693 crore."
+ ],
+ "in_year": [
+  {
+   "as_on": "2026-10-14",
+   "fy": "2026-27",
+   "file": "direct-tax-data-2026-10-14.pdf",
+   "source": "CBDT, Direct Tax Collections (TINMIS)",
+   "prev": {
+    "fy": "2025-26",
+    "as_on": "2025-10-14",
+    "gross": {
+     "ct": 643721.45,
+     "nct": 720353.91,
+     "stt": 30901.81,
+     "ot": 301.22,
+     "total": 1395278.39
+    },
+    "refunds": {
+     "ct": 146922.83,
+     "nct": 66549.75,
+     "stt": 0.0,
+     "ot": 18.83,
+     "total": 213491.41
+    },
+    "net": {
+     "ct": 496798.62,
+     "nct": 653804.16,
+     "stt": 30901.81,
+     "ot": 282.39,
+     "total": 1181786.98
+    }
+   },
+   "cur": {
+    "fy": "2026-27",
+    "as_on": "2026-10-14",
+    "gross": {
+     "ct": 752961.56,
+     "nct": 803245.26,
+     "stt": 46840.43,
+     "ot": 18.87,
+     "total": 1603066.12
+    },
+    "refunds": {
+     "ct": 153899.08,
+     "nct": 111279.55,
+     "stt": 0.0,
+     "ot": 20.51,
+     "total": 265199.14
+    },
+    "net": {
+     "ct": 599062.48,
+     "nct": 691965.71,
+     "stt": 46840.43,
+     "ot": -1.64,
+     "total": 1337866.98
+    }
+   },
+   "growth_printed": {
+    "gross": 14.89,
+    "refunds": 24.22,
+    "net": 13.21
+   }
+  }
  ]
 }

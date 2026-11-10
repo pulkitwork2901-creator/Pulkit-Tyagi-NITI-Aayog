@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-10T04:55:47+00:00",
+ "generated_at": "2026-11-10T05:05:39+00:00",
  "sources": {
   "mospi": {
    "status": "ok",
-   "fetched_at": "2026-11-10T04:55:47+00:00",
+   "fetched_at": "2026-11-10T05:05:39+00:00",
    "message": null
   },
   "rbi": {
@@ -11849,6 +11849,34 @@
    ],
    "note": "Published gross collections. Up to October 2025 they include compensation cess; from November 2025 they do not, so the change against a year earlier is measured on the excluding-cess series.",
    "updated_at": "2026-11-09T15:51:36+00:00"
+  },
+  {
+   "label": "Net direct tax collections, this year so far",
+   "group": "Direct taxes",
+   "decimals": 2,
+   "up_is_good": true,
+   "change_unit": "lakh cr",
+   "id": "dt_ytd_net",
+   "mode": "cbdt",
+   "value": 13.38,
+   "unit": "₹ lakh crore",
+   "period": "2026-27, 1 April to 14 Oct 2026",
+   "compare_value": 11.82,
+   "compare_period": "2025-26 to 14 Oct 2025",
+   "change": 1.56,
+   "source": "CBDT, Direct Tax Collections (provisional, from TINMIS)",
+   "source_url": "https://www.incometaxindia.gov.in/en/miscellaneous-communications?categoryId=13540090",
+   "released": null,
+   "history": [
+    {
+     "date": "2026-10-14",
+     "label": "2026-27 to 14 Oct 2026",
+     "short": "14 Oct 2026",
+     "value": 13.38
+    }
+   ],
+   "note": "Collections from 1 April to the date shown, after refunds, as CBDT releases them during the year. Provisional. Here securities transaction tax is shown on its own; in the annual series it is part of non-corporate tax. Values are cumulative within each financial year, so compare only with the same date a year earlier.",
+   "updated_at": "2026-11-10T05:04:43+00:00"
   },
   {
    "label": "Net direct tax collections",

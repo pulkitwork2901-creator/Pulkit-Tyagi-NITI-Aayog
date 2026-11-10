@@ -1815,6 +1815,7 @@ gst_gross,Gross GST collections,Fiscal and monetary,Jul 2026,2026-07-31,2.112,�
 gst_gross,Gross GST collections,Fiscal and monetary,Aug 2026,2026-08-31,1.9985,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
 gst_gross,Gross GST collections,Fiscal and monetary,Sep 2026,2026-09-30,2.0352,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
 gst_gross,Gross GST collections,Fiscal and monetary,Oct 2026,2026-10-31,2.3129,₹ lakh crore,"GSTN, monthly GST revenue report (provisional)"
+dt_ytd_net,"Net direct tax collections, this year so far",Direct taxes,2026-27 to 14 Oct 2026,2026-10-14,13.38,₹ lakh crore,"CBDT, Direct Tax Collections (provisional, from TINMIS)"
 dt_net,Net direct tax collections,Direct taxes,2000-01,2001-03-31,0.68,₹ lakh crore,"CBDT, Income Tax Department Time Series Data (annual, to 2024-25)"
 dt_net,Net direct tax collections,Direct taxes,2001-02,2002-03-31,0.69,₹ lakh crore,"CBDT, Income Tax Department Time Series Data (annual, to 2024-25)"
 dt_net,Net direct tax collections,Direct taxes,2002-03,2003-03-31,0.83,₹ lakh crore,"CBDT, Income Tax Department Time Series Data (annual, to 2024-25)"
