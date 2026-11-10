@@ -248,7 +248,10 @@ function useTranslatedDom(language) {
         }
         ['aria-label', 'title', 'placeholder'].forEach((name) => {
           if (el.hasAttribute(name) && saved[name] == null) saved[name] = el.getAttribute(name);
-          if (saved[name] != null) el.setAttribute(name, language === 'hi' ? translate(saved[name]) : saved[name]);
+          if (saved[name] != null) {
+            const next = language === 'hi' ? translate(saved[name]) : saved[name];
+            if (el.getAttribute(name) !== next) el.setAttribute(name, next);
+          }
         });
       });
       updating = false;
