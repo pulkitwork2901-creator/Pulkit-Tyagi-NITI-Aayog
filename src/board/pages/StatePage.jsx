@@ -68,6 +68,110 @@ function understatedText(u) {
   return ys.map((y) => `${y} (${u[y].join(', ').toLowerCase()})`).join('; ');
 }
 
+const bn = (mn) => `US$ ${(mn / 1000).toFixed(1)} bn`;
+const listAnd = (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`);
+// Group names contain commas ('Gems, jewellery, precious metals'), so groups are separated by semicolons.
+const groupList = (gs) => (gs || []).map((g) => g.toLowerCase()).join('; ');
+
+// Why exports by state do not add up to India's total in some years: the
+// findings of scripts/build_state_trade.py, written out for readers.
+function MismatchNote({ d }) {
+  const affected = d.reconciliation.filter((r) => r.missing_value > 500 && r.evidence);
+  const latest = affected[affected.length - 1]?.period;
+  const short = d.reconciliation.filter((r) => r.gap_pct != null && r.gap_pct <= -1);
+  const gaps = short.map((r) => (r.india_total - r.states_sum) / 1000);
+  const range = gaps.length ? `US$ ${Math.floor(Math.min(...gaps))} to ${Math.ceil(Math.max(...gaps))} bn` : '';
+  return (
+    <Card title="Why the state figures do not match India's total" icon="reserves" wide>
+      <div className="eb-st-note">
+        <p>
+          <strong>They should match.</strong> Both come from the same shipping bills filed at customs. Each bill records the product, the destination
+          and the state where the goods were produced. DGCI&S adds the bills up by country for India's total and by state for these figures; bills with
+          no state declared appear as "State not specified". So all states together should equal India's total.
+        </p>
+        <p>
+          <strong>In most years they do</strong> (within about half a per cent).{short.length ? <> In {listAnd(short.map((r) => r.period))} they fall short by {range}.</> : null}{' '}
+          The shortfall is not spread across the data: it sits in <strong>8-digit tariff codes India created that year</strong>. The state-wise data has
+          nothing under those codes in their first year, in any state, while India's total carries their full value. From the next year the same codes
+          match India's figures almost exactly. Every downloaded file is present, with none missing or repeated; whether the codes were left out by DGCI&S's
+          database or by the download query is discussed at the end of this note.
+        </p>
+      </div>
+      <div className="eb-tablewrap">
+        <table className="eb-table">
+          <caption className="eb-sr">Exports by state against India's total</caption>
+          <thead><tr><th scope="col">Year</th><th scope="col" className="eb-num">All states</th><th scope="col" className="eb-num">India</th><th scope="col" className="eb-num">Gap</th><th scope="col">New codes missing from the state data</th></tr></thead>
+          <tbody>
+            {d.reconciliation.map((r) => (
+              <tr key={r.period}>
+                <th scope="row">{nice(r.period)}</th>
+                <td className="eb-num">{money(r.states_sum)}</td>
+                <td className="eb-num">{money(r.india_total)}</td>
+                <td className="eb-num">{r.gap_pct == null ? '–' : Math.abs(r.gap_pct) < 0.05 ? '0.0%' : `${r.gap_pct < 0 ? '−' : '+'}${Math.abs(r.gap_pct).toFixed(1)}%`}</td>
+                <td className="eb-muted">{r.missing_value > 500 ? `${money(r.missing_value)}: ${groupList(r.missing_groups)}` : '–'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {affected.map((r) => {
+        const e = r.evidence;
+        const home = r.likely_home?.states || [];
+        return (
+          <details key={r.period} className="eb-st-year" open={r.period === latest}>
+            <summary><strong>{r.period}:</strong> {money(r.missing_value)} under {e.new_codes} new codes ({groupList(r.missing_groups)})</summary>
+            <ul>
+              <li><strong>Missing everywhere, not moved.</strong> The new codes show {e.in_any_state < 0.05 ? 'nothing' : money(e.in_any_state)} in any state in the state data, against {money(r.missing_value)} in India's total.</li>
+              {e.groups.map((g) => (
+                <li key={g.chapter}><strong>{g.name}:</strong> {bn(g.new_codes_india)} under the new codes is missing; the rest of the group is close to India's figures ({bn(g.rest_state_data)} in the state data against {bn(g.rest_india)}).</li>
+              ))}
+              {e.not_specified_prev != null && (
+                <li><strong>Not filed as "State not specified" either:</strong> that category {e.not_specified < e.not_specified_prev ? 'fell' : 'moved'} from {bn(e.not_specified_prev)} to {bn(e.not_specified)}.</li>
+              )}
+              {home.length > 0 && (
+                <li>
+                  <strong>Where it most likely belongs</strong> (an estimate, using each state's share of the same codes in {nice(r.likely_home.basis)}):{' '}
+                  {listAnd(home.slice(0, 7).map((h) => `${h.name} about ${bn(h.value)}`))}. These states' {r.period} figures, and their growth around {r.period}, are understated.
+                </li>
+              )}
+            </ul>
+          </details>
+        );
+      })}
+      <p className="eb-mc-note eb-tr-note">
+        <strong>What is not yet known</strong> is whether DGCI&S's state-wise database adds new codes a year late, or whether the "all commodities" list used for
+        the download did not yet include them. A test: download one missing code for its first year from the DGCI&S State of Origin query (for example rice,
+        HS 10063019, for 2025). If figures come back, the gap can be filled exactly; if not, it is in DGCI&S's data. The board does not fill the gap with estimates:
+        the figures shown are DGCI&S's, and affected growth rates are marked "code revised".
+      </p>
+    </Card>
+  );
+}
+
+// On a state's page: how much of its exports the state-wise data likely misses, by year.
+function StateNote({ s }) {
+  const est = s.missing_estimate || {};
+  const ys = Object.keys(est);
+  if (!ys.length) return null;
+  return (
+    <Card title={`Note: ${s.name}'s figures for ${listAnd(ys)} are understated`} icon="reserves" wide>
+      <ul className="eb-st-list">
+        {ys.map((y) => (
+          <li key={y}>
+            <strong>{y}:</strong> about <strong>{bn(est[y].value)}</strong>
+            {est[y].pct_of_reported != null ? ` (${est[y].pct_of_reported.toFixed(1)}% of the reported figure)` : ''} is missing, mainly in {groupList(est[y].groups)}.
+            {' '}These are exports under tariff codes India created in {y}, which the state-wise data leaves out in their first year. Estimated from {s.name}'s share of the same codes in {nice(est[y].basis)}.
+          </li>
+        ))}
+      </ul>
+      <p className="eb-mc-note eb-tr-note">
+        The figures above are DGCI&S's as published, not adjusted. Growth in {ys.length > 1 ? 'these years and the year after each' : `${ys[0]} and the year after`} is marked "code revised" because it is not like for like.
+        {' '}<a href="#/states">Why the state figures do not match India's total</a>.
+      </p>
+    </Card>
+  );
+}
+
 function Overview({ d }) {
   const [period, setPeriod] = usePeriod(d);
   const i = d.periods.indexOf(period);
@@ -126,26 +230,7 @@ function Overview({ d }) {
         </div>
       </div>
 
-        <Card title="State figures against India's total" icon="reserves" wide
-          note="DGCI&S's state-wise database adds newly created 8-digit tariff codes a year late, so the years India revised codes fall short of the national total. Other years agree within about half a per cent.">
-          <div className="eb-tablewrap">
-            <table className="eb-table">
-              <caption className="eb-sr">Exports by state against India's total</caption>
-              <thead><tr><th scope="col">Year</th><th scope="col" className="eb-num">All states</th><th scope="col" className="eb-num">India</th><th scope="col" className="eb-num">Gap</th><th scope="col">New codes missing from the state data</th></tr></thead>
-              <tbody>
-                {d.reconciliation.map((r) => (
-                  <tr key={r.period}>
-                    <th scope="row">{nice(r.period)}</th>
-                    <td className="eb-num">{money(r.states_sum)}</td>
-                    <td className="eb-num">{money(r.india_total)}</td>
-                    <td className="eb-num">{r.gap_pct == null ? '–' : Math.abs(r.gap_pct) < 0.05 ? '0.0%' : `${r.gap_pct < 0 ? '−' : '+'}${Math.abs(r.gap_pct).toFixed(1)}%`}</td>
-                    <td className="eb-muted">{r.missing_value > 500 ? `${money(r.missing_value)}: ${(r.missing_groups || []).join(', ').toLowerCase()}` : '–'}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Card>
+        <MismatchNote d={d} />
 
       <Card title={`Where India's leading products come from, ${nice(leaderPeriod)}`} icon="wholesale" wide
         note="The 20 largest export lines (HS 8-digit) in the state data, with the states that produce most of each.">
@@ -211,7 +296,7 @@ function StateView({ d, base, id }) {
         {products[0] && !s.understated?.[period] ? <> and the largest product line <strong>{products[0].desc.split(',')[0].toLowerCase()}</strong> ({money(products[0].v[i])}).</> : '.'}
         {!partial && cagr != null && <> Since {full[0]}, exports have {cagr >= 0 ? 'grown' : 'fallen'} {Math.abs(cagr).toFixed(1)}% a year on average.</>}
         {partial && <span className="eb-tr-flag"> Part year only: not compared with full years.</span>}
-        {u && <span className="eb-tr-flag"> Likely understated in {u}: codes India introduced that year are missing from the state data, so growth around those years is not like for like.</span>}
+        {u && <span className="eb-tr-flag"> Understated in {listAnd(Object.keys(s.understated))}: see the note below.</span>}
       </Hero>
 
       <h2 className="eb-eyebrow" id="eb-sv-kpi">At a glance, {nice(period)}</h2>
@@ -222,6 +307,8 @@ function StateView({ d, base, id }) {
         {chapters[0] && <Stat icon="wholesale" label="Largest product group" value={chapters[0].name} sub={`${money(chapters[0].v[i])} · ${pct(chapters[0].v[i], total).toFixed(1)}%`} />}
         <Stat icon="reserves" label="Top 10 products" value={`${pct(top10, total).toFixed(1)}%`} sub="share, HS 8-digit lines" />
       </ul>
+
+      <StateNote s={s} />
 
       <div className="eb-tr-grid">
         <Card title="Exports by year" icon="trade" note={`US$. Hatched: part year.${s.breaks.length ? ` ${s.breaks.join(' and ')}: not like for like with the year before.` : ''}`}>

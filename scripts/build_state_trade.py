@@ -200,7 +200,9 @@ def main(argv=None) -> int:
 
     # States likely understated in such a year: those that export the missing
     # codes in the next period the state data carries them.
-    understated = collections.defaultdict(dict)  # state -> period -> products
+    understated = collections.defaultdict(dict)  # state -> period -> product groups
+    estimates = {}                                 # period -> likely home of the missing value, by state
+    est_by_state = collections.defaultdict(dict)   # state -> period -> {value, basis, groups}
     for p, rows in missing.items():
         if not rows:
             continue
@@ -215,8 +217,15 @@ def main(argv=None) -> int:
             for st in states:
                 share = prod.get((nxt, st, r["hs8"]), 0) / tot_next
                 est[st] += share * r["india"]
+        miss_total = sum(r["india"] for r in rows) or 1
+        estimates[p] = {"basis": nxt, "states": [
+            {"name": st, "slug": slug(st), "value": round(e, 1), "share": round(e / miss_total * 100, 1)}
+            for st, e in sorted(est.items(), key=lambda x: -x[1]) if e >= 10][:8]}
         for st, e in est.items():
-            if e >= max(50, 0.02 * total.get((p, st), 0) / 1e6):
+            # Flag a state when the likely missing value is large in money (US$ 500 mn or more)
+            # or large for that state (2% of its exports and at least US$ 50 mn).
+            own = total.get((p, st), 0) / 1e6
+            if e >= 500 or (e >= 50 and e >= 0.02 * own):
                 hit = sorted((r for r in rows if prod.get((nxt, st, r["hs8"]))), key=lambda r: -prod.get((nxt, st, r["hs8"]), 0))
                 groups = []
                 for r in hit:  # product groups (HS chapters) of the missing codes this state exports, largest first
@@ -224,6 +233,28 @@ def main(argv=None) -> int:
                     if g not in groups:
                         groups.append(g)
                 understated[st][p] = groups[:3]
+                est_by_state[st][p] = {"value": round(e, 1), "basis": nxt, "groups": groups[:3],
+                                       "pct_of_reported": round(e / own * 100, 1) if own else None}
+
+    def evidence(p):
+        rows = missing[p]
+        if not rows:
+            return None
+        new = {r["hs8"] for r in rows}
+        groups = []
+        for ch in dict.fromkeys(r["hs8"][:2] for r in rows):
+            india_ch = nat_chap.get((p, ch))
+            if india_ch is None:
+                continue
+            new_india = sum(r["india"] for r in rows if r["hs8"][:2] == ch)
+            state_ch = sum(v for (pp, _, c), v in chap.items() if pp == p and c == ch) / 1e6
+            groups.append({"chapter": ch, "name": chapter_names.get(ch, ch), "new_codes_india": round(new_india, 1),
+                           "rest_state_data": round(state_ch, 1), "rest_india": round(india_ch - new_india, 1)})
+        prev = periods[pi[p] - 1] if pi[p] > 0 else None
+        return {"new_codes": len(new), "in_any_state": round(sum(st_prod_period.get((p, h), 0) for h in new) / 1e6, 1),
+                "groups": sorted(groups, key=lambda g: -g["new_codes_india"])[:3],
+                "not_specified": m(total.get((p, "State not specified"), 0)),
+                "not_specified_prev": m(total.get((prev, "State not specified"), 0)) if prev else None}
 
     recon = []
     for p in periods:
@@ -234,6 +265,8 @@ def main(argv=None) -> int:
                       "not_specified": m(total.get((p, "State not specified"), 0)),
                       "missing_new_codes": missing[p][:8],
                       "missing_groups": list(dict.fromkeys(chapter_names.get(r["hs8"][:2], r["hs8"][:2]) for r in missing[p]))[:3],
+                      "evidence": evidence(p),
+                      "likely_home": estimates.get(p),
                       "missing_value": round(sum(r["india"] for r in missing[p]), 1)})
 
     def arr(fn):
@@ -275,6 +308,7 @@ def main(argv=None) -> int:
         detail = {"name": st, "slug": slug(st), "ut": st in UTS, "periods": periods, "partial": partial, "latest_full": latest_full,
                   "v": arr(lambda p: m(total.get((p, st), 0))), "india": arr(lambda p: nat_total.get(p)),
                   "breaks": breaks_for(st), "understated": understated.get(st, {}),
+                  "missing_estimate": est_by_state.get(st, {}),
                   "products": sorted(prods, key=lambda r: -r["v"][pi[latest_full]]),
                   "countries": sorted(ctry, key=lambda r: -r["v"][pi[latest_full]]),
                   "chapters": sorted(chs, key=lambda r: -r["v"][pi[latest_full]])}

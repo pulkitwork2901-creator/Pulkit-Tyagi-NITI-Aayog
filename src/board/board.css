@@ -764,3 +764,10 @@ a.eb-bar-row:hover .eb-bar-label { text-decoration: underline; }
 .eb-dt-card-value { margin: 6px 0 2px; font: 700 26px var(--eb-font); color: var(--eb-ink); }
 .eb-dt-card-value span { font-size: 14px; font-weight: 500; color: var(--eb-muted); }
 .eb-dt-card-sub { margin: 0; font-size: 13.5px; color: var(--eb-muted); }
+
+/* State exports: the note on why state figures differ from India's total */
+.eb-st-note p { margin: 0 0 10px; font-size: 14.5px; line-height: 1.6; max-width: 100ch; }
+.eb-st-year { border-top: 1px solid var(--eb-rule); padding: 10px 0 4px; }
+.eb-st-year summary { cursor: pointer; font-size: 14.5px; padding: 4px 0; }
+.eb-st-year ul, .eb-st-list { margin: 6px 0 8px; padding-left: 20px; font-size: 14px; line-height: 1.6; max-width: 100ch; }
+.eb-st-year li, .eb-st-list li { margin-bottom: 4px; }

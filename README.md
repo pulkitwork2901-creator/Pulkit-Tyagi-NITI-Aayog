@@ -115,6 +115,7 @@ The `--partial` label is required for a year whose December column is empty; che
 
 Things to know when reading the page:
 
+- **Why the state figures do not match India's total** is explained on the page itself, in a note with the evidence for each affected year (the new codes are zero in every state; the rest of each product group is close to India's figures; "State not specified" did not absorb the gap) and an estimate of which states the missing value belongs to. Each affected state's page carries its own note with its estimated missing amount. These estimates are shown as notes only; the figures themselves are DGCI&S's, unadjusted.
 - **New tariff codes appear a year late.** DGCI&S's state database leaves out 8-digit codes in the year India creates them (smartphones in 2022, gold jewellery in 2023, rice in 2025), so those years fall US$ 9 to 12 bn short of India's total; other years agree within about 0.5%. The page lists the missing codes, marks affected growth rates "code revised", and names the states likely to be understated (for 2025: the rice-exporting states).
 - **State of origin** is the state exporters declare on the shipping bill as where the goods were produced, not the port of export. About 1% of exports have no state declared ("State not specified").
 - DGCI&S spells some states differently across years (for example "UTTARANCHAL", "CHATTISGARH", "DAMAN & DIU"); the script joins them under one name. Dadra and Nagar Haveli and Daman and Diu are combined throughout.
