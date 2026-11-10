@@ -9,3 +9,5 @@ cryptography>=42
 pypdf>=4.0
 # reads the tables in CBDT's direct tax Time Series Data PDF (scripts/direct_taxes.py)
 pdfplumber>=0.11
+# reads DGCI&S legacy .xls downloads (scripts/trade_combine.py)
+xlrd>=2.0

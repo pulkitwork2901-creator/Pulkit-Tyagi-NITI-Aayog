@@ -24,37 +24,72 @@ raw, out = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
 ytd_label = sys.argv[3] if len(sys.argv) > 3 else None
 
 
-def num(x):
+def num(x, path, row_number, column):
     try:
-        return float(str(x).replace(",", "")) if str(x).strip() not in ("", "-") else 0.0
+        text = str(x).strip()
+        if text in ("", "-"):
+            return 0.0
+        return float(text.replace(",", ""))
     except ValueError:
-        return 0.0
+        raise ValueError(f"{path.name}: row {row_number}, {column} is not numeric: {x!r}") from None
 
 
 n = 0
+files = sorted(raw.glob("*.xls"))
+if not files:
+    sys.exit(f"No .xls files found in {raw}")
+seen = set()
 with gzip.open(out, "wt", newline="", encoding="utf-8") as f:
     w = csv.writer(f)
     w.writerow(["period", "country", "hs8", "description", "unit", "quantity", "value_usd"])
-    for p in sorted(raw.glob("*.xls")):
+    for p in files:
+        if p.stat().st_size == 0:
+            sys.exit(f"Empty DGCI&S download: {p}")
         sh = xlrd.open_workbook(p).sheet_by_index(0)
         cells = [[str(c.value).strip() for c in sh.row(r)] for r in range(sh.nrows)]
-        hi = next(i for i, r in enumerate(cells) if any(x.upper() in ("HS CODE", "COUNTRY OF DESTINATION", "COUNTRY OF CONSIGNMENT") for x in r))
+        try:
+            hi = next(i for i, r in enumerate(cells) if any(
+                x.upper() in ("HS CODE", "COUNTRY OF DESTINATION", "COUNTRY OF CONSIGNMENT") for x in r
+            ))
+        except StopIteration:
+            sys.exit(f"{p.name}: could not find a DGCI&S header row")
         hdr = cells[hi]
         if "yearlytimeseries" in p.name:
             if not ytd_label:
                 sys.exit("Year-to-date files found: pass their period label, e.g. \"2026 Jan-Aug\"")
             period = ytd_label
-            for r in cells[hi + 1:]:
+            for row_number, r in enumerate(cells[hi + 1:], hi + 2):
                 if not any(r):
                     continue
-                w.writerow([period, r[0], r[1].split(".")[0].zfill(8), r[2], r[3], num(r[4]), num(r[5])])
+                if len(r) < 6:
+                    sys.exit(f"{p.name}: row {row_number} has {len(r)} columns; expected at least 6")
+                hs8 = r[1].split(".")[0].zfill(8)
+                key = (period, r[0], hs8)
+                if key in seen:
+                    sys.exit(f"Duplicate DGCI&S slice row: {p.name}, {key}")
+                seen.add(key)
+                w.writerow([period, r[0], hs8, r[2], r[3], num(r[4], p, row_number, "quantity"),
+                            num(r[5], p, row_number, "value")])
                 n += 1
         else:
-            yy = re.search(r"December, (\d\d)", hdr[4]).group(1)
+            match = re.search(r"December, (\d\d)", " ".join(hdr))
+            if not match:
+                sys.exit(f"{p.name}: could not determine calendar year from the header")
+            yy = match.group(1)
             period = f"20{yy}"
-            for r in cells[hi + 1:]:
+            for row_number, r in enumerate(cells[hi + 1:], hi + 2):
                 if not any(r):
                     continue
-                w.writerow([period, r[2], r[0].split(".")[0].zfill(8), r[1], r[3], num(r[6]), num(r[7])])
+                if len(r) < 8:
+                    sys.exit(f"{p.name}: row {row_number} has {len(r)} columns; expected at least 8")
+                hs8 = r[0].split(".")[0].zfill(8)
+                key = (period, r[2], hs8)
+                if key in seen:
+                    sys.exit(f"Duplicate DGCI&S slice row: {p.name}, {key}")
+                seen.add(key)
+                w.writerow([period, r[2], hs8, r[1], r[3], num(r[6], p, row_number, "quantity"),
+                            num(r[7], p, row_number, "value")])
                 n += 1
+if not n:
+    sys.exit(f"No data rows found in {raw}")
 print("rows written", n)
