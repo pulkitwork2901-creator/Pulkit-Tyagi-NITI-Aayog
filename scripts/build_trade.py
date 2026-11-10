@@ -230,10 +230,10 @@ def mn(x: float) -> float:
     return round(x / 1e6, 3)
 
 
-def main(src: str, flow: str) -> None:
+def main(src: str, flow: str, out_root: Path = OUT) -> None:
     if flow not in SOURCES:
         sys.exit(f"flow must be one of {sorted(SOURCES)}")
-    out = OUT / flow
+    out = out_root / flow
     by_cty = defaultdict(lambda: defaultdict(float))       # country -> period -> US$
     by_ch = defaultdict(lambda: defaultdict(float))        # hs2 -> period
     by_prod = defaultdict(lambda: defaultdict(float))      # hs8 -> period
@@ -260,6 +260,8 @@ def main(src: str, flow: str) -> None:
     desc = {h: label(h, clean(d)) for h, d in desc.items()}
 
     years = sorted(p for p in periods if len(p) == 4)
+    if not years:
+        raise ValueError("trade input must contain at least one full calendar year")
     missing = [str(y) for y in range(int(years[0]), int(years[-1]) + 1) if str(y) not in periods]
     periods |= set(missing)
     order = sorted(periods, key=lambda p: (p[:4], len(p)))      # "2026 Jan-Aug" after "2025"
@@ -301,7 +303,7 @@ def main(src: str, flow: str) -> None:
     (out / "product").mkdir(parents=True, exist_ok=True)
     for old in list((out / "country").glob("*.json")) + list((out / "product").glob("*.json")):
         old.unlink()
-    (OUT / f"{flow}.json").write_text(json.dumps(summary, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    (out_root / f"{flow}.json").write_text(json.dumps(summary, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
     for c in countries:
         prods = sorted(cty_prod[c], key=lambda h: -sum(cty_prod[c][h].values()))[:COUNTRY_PRODUCTS]
@@ -330,7 +332,7 @@ def main(src: str, flow: str) -> None:
         }
         (out / "product" / f"{h}.json").write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
-    with open(OUT / f"{flow}_summary.csv", "w", newline="", encoding="utf-8-sig") as f:
+    with open(out_root / f"{flow}_summary.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
         w.writerow(["country", "dgcis_name", *[f"{p} (US$ mn)" for p in order]])
         for c in countries:
@@ -340,4 +342,5 @@ def main(src: str, flow: str) -> None:
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else "exports")
+    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else "exports",
+         Path(sys.argv[3]) if len(sys.argv) > 3 else OUT)

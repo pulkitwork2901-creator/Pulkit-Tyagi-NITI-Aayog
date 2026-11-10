@@ -104,21 +104,27 @@ History goes back to December 2018 for IESH and July-September 2018 for OBICUS. 
 
 Three pages are built from DGCI&S data bank downloads (commodity at HS 8-digit by country, US$): Exports (`#/exports`), Imports (`#/imports`) and Trade balance by partner (`#/balance`). The raw .xls files are large and stay in Google Drive ("Export Data" and "Import Data"); only the summarised JSON in `public/data/trade/` is committed.
 
-1. Download the slices from DGCI&S (each query is capped at 10,000 rows, so a year comes in many files) into one folder per flow.
-2. Combine each flow into one long file. The last argument names the part year, so it is never mistaken for a full year:
+1. Keep each release in a new dated folder under `data/trade/raw/`, with separate `exports/` and `imports/` subfolders. Preserve old folders when DGCI&S revises a figure. Add `metadata.json` with the exact covered period and official totals:
+
+   ```json
+   {
+     "period": "2026 Jan-Aug",
+     "official_totals": {
+       "exports": {"2026 Jan-Aug": 278000000000},
+       "imports": {"2026 Jan-Aug": 470000000000}
+     }
+   }
+   ```
+
+2. Download the slices from DGCI&S (each query is capped at 10,000 rows, so a year comes in many files) into those flow folders. The raw download itself is still manual until DGCI&S provides a stable unattended endpoint or approved credentials.
+3. Run the validated pipeline. It checks nonempty files, headers, numeric columns, duplicate rows, and reconciliation against the official totals before replacing the published JSON:
 
    ```bash
-   pip install xlrd
-   python3 scripts/trade_combine.py path/to/export_xls exports.csv.gz "2026 Jan-Aug"
-   python3 scripts/trade_combine.py path/to/import_xls imports.csv.gz "2026 Jan-Aug"
+   pip install -r requirements.txt
+   python3 scripts/trade_pipeline.py --release-dir 2026-11-10
    ```
-3. Build the page data (summary, one file per country, the top 300 products), once per flow:
 
-   ```bash
-   python3 scripts/build_trade.py exports.csv.gz exports
-   python3 scripts/build_trade.py imports.csv.gz imports
-   ```
-4. Commit `public/data/trade/` and push. The site redeploys on its own.
+4. Commit the new raw snapshot and `public/data/trade/`. The workflow also runs this pipeline on a manual Actions run; enter the release folder and period label when needed. A failed validation leaves the previous published JSON untouched.
 
 Check the printed totals against RBI's monthly exports and imports before committing: they match RBI to the decimal for every full year.
 

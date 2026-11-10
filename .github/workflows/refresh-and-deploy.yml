@@ -1,4 +1,4 @@
-# Rebuilds the board's data every day from MoSPI and the manual sheet,
+# Rebuilds the board's data every day from official sources and the manual sheet,
 # then publishes the site to GitHub Pages. Also runs when you push a change
 # to data/manual-indicators.csv, or on demand from the Actions tab.
 name: Refresh data and deploy board
@@ -10,6 +10,15 @@ on:
     branches: [main]
     paths: ["data/**", "public/data/trade/**", "src/**", "scripts/**", "index.html", "reform.html", "package.json", "vite.config.js", ".github/workflows/**"]
   workflow_dispatch:
+    inputs:
+      trade_release:
+        description: "Optional DGCI&S release folder under data/trade/raw/"
+        required: false
+        type: string
+      trade_period:
+        description: "Optional exact DGCI&S period label, for example 2026 Jan-Aug"
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -22,6 +31,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.actor != 'board-bot'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -55,11 +65,28 @@ jobs:
         run: python scripts/build_reform.py
         continue-on-error: true   # keeps the last good copy of any source that fails
 
+      - name: Validate and build DGCI&S trade data
+        env:
+          TRADE_RELEASE: ${{ inputs.trade_release }}
+          TRADE_PERIOD: ${{ inputs.trade_period }}
+        run: |
+          if [ -n "$TRADE_RELEASE" ]; then
+            if [ -n "$TRADE_PERIOD" ]; then
+              python scripts/trade_pipeline.py --release-dir "$TRADE_RELEASE" --period "$TRADE_PERIOD"
+            else
+              python scripts/trade_pipeline.py --release-dir "$TRADE_RELEASE"
+            fi
+          elif find data/trade/raw -mindepth 1 -maxdepth 1 -type d -print -quit | grep -q .; then
+            python scripts/trade_pipeline.py
+          else
+            echo "No committed DGCI&S release snapshot; keeping existing trade JSON."
+          fi
+
       - name: Save refreshed data back to the repo
         run: |
           git config user.name "board-bot"
           git config user.email "board-bot@users.noreply.github.com"
-          git add public/data/indicators.json public/data/indicators.csv data/rbi_releases.json data/ppac_crude.json data/gst_reports.json data/direct_taxes.json public/data/direct-taxes.json public/data/reform/evidence.json data/reform/njdg-snapshots.csv data/reform/msme-snapshots.csv
+          git add public/data/indicators.json public/data/indicators.csv data/rbi_releases.json data/ppac_crude.json data/gst_reports.json data/direct_taxes.json public/data/direct-taxes.json public/data/reform/evidence.json data/reform/njdg-snapshots.csv data/reform/msme-snapshots.csv public/data/trade
           git diff --cached --quiet || git commit -m "Refresh indicators $(date -u +%F)"
           git push
 

@@ -4,6 +4,7 @@ import './reform.css';
 import useIndicators from '../board/useIndicators.js';
 import { formatDate, formatDateTime } from '../board/format.js';
 import { AgeBar, PairBars, PeerDots, ScoreChart } from './charts.jsx';
+import { LanguageToggle } from '../i18n.jsx';
 
 // Reform Evidence Board: outcome evidence for regulatory and governance reform.
 // Reads public/data/reform/evidence.json, built by scripts/build_reform.py.
@@ -511,6 +512,7 @@ export default function ReformBoard({ source }) {
               <p className="eb-hero-asof">Position as on {formatDateTime(data.generated_at)} · refreshed daily from official sources</p>
             </div>
             <div className="eb-range" role="group" aria-label="Colour scheme">
+              <LanguageToggle />
               {SKINS.map((s) => <button key={s.id} type="button" aria-pressed={skin === s.id} onClick={() => choose(s.id)}>{s.label}</button>)}
             </div>
           </div>
