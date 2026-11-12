@@ -64,6 +64,7 @@ jobs:
       - name: Pull data for the Reform Evidence Board (World Bank, NJDG, IBBI, CPGRAMS, MSME, regulators)
         run: python scripts/build_reform.py
         continue-on-error: true   # keeps the last good copy of any source that fails
+        timeout-minutes: 10       # a source that hangs must not hold up the rest of the board (normally under a minute)
 
       - name: Validate and build DGCI&S trade data
         env:
