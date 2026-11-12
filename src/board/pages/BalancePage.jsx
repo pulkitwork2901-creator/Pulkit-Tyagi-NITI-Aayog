@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import Icon from '../dashboard/Icon.jsx';
-import { PairColumns, PeriodSwitch, money, useTradeFile } from '../trade/tradeKit.jsx';
+import { FyTotals, PairColumns, PeriodSwitch, money, useTradeFile } from '../trade/tradeKit.jsx';
 
 // Merchandise trade balance by partner: DGCI&S exports minus imports, joined
 // on the board's country ids. Only periods present in both flows are shown;
@@ -141,11 +141,13 @@ export default function BalancePage({ base }) {
         <Stat icon="reserves" label="Largest deficit" value={deficit[0]?.name} sub={deficit[0] && `−${money(Math.abs(deficit[0].b))}`} />
       </ul>
 
-      <Card title="Exports and imports by year" icon="trade"
+      <Card title="Exports and imports by calendar year" icon="trade"
         note={`US$. Left bar exports, right bar imports; the figure above each pair is the balance. Hatched: part year.${missing.length ? ` Outline: ${missing.join(', ')}, not yet uploaded.` : ''}`}>
         <div className="eb-pair-legend" aria-hidden="true"><span><i className="eb-pair-x" />Exports</span><span><i className="eb-pair-m" />Imports</span></div>
         <PairColumns periods={periods} x={xs} m={ms} partial={periods.filter((p) => p.length > 4)} missing={missing} height={200} />
       </Card>
+
+      <FyTotals base={base} />
 
       <div className="eb-tr-grid">
         <Card title="Largest deficits" icon="wholesale" note={`${nice(period)}. Partners India buys more from than it sells to.`}>

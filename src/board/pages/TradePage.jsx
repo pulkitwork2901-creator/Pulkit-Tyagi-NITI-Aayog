@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import Icon from '../dashboard/Icon.jsx';
-import { BarList, GrowthPill, PeriodSwitch, YearColumns, growth, money, useTradeFile } from '../trade/tradeKit.jsx';
+import { BarList, FyTotals, GrowthPill, PeriodSwitch, YearColumns, growth, money, useTradeFile } from '../trade/tradeKit.jsx';
 
 // Exports or imports by partner and product from DGCI&S HS 8-digit country
 // data. Three views share one period switch: overview, one country, one
@@ -211,7 +211,7 @@ function Overview({ d, base, F }) {
       </ul>
 
       <div className="eb-tr-grid">
-        <Card title={`${F.Noun} by year`} icon="trade" note={`US$. Hatched: ${d.partial.map(nice).join(', ') || 'none'}, part year.${missing.length ? ` Outline: ${missing.join(', ')}, not yet uploaded.` : ''}`}>
+        <Card title={`${F.Noun} by calendar year`} icon="trade" note={`US$. Hatched: ${d.partial.map(nice).join(', ') || 'none'}, part year.${missing.length ? ` Outline: ${missing.join(', ')}, not yet uploaded.` : ''}`}>
           <YearColumns periods={d.periods} v={d.total} partial={d.partial} missing={missing} height={190} />
         </Card>
         <Card title="By product group" icon="wholesale" note={`HS 2-digit chapters, ${nice(period)}. Top 10 of ${d.chapters.length}.`}>
@@ -227,6 +227,8 @@ function Overview({ d, base, F }) {
           <BarList rows={pRows.slice(0, TOP)} periods={d.periods} index={i} fullYears={full} caption="Top products" neutral={F.neutral} />
         </Card>
       </div>
+
+      <FyTotals base={base} />
 
       <Card title={`${F.key === 'exports' ? 'Who gained and lost' : 'Biggest changes'}${partial || prevMissing ? '' : `, ${period} vs ${d.periods[i - 1]}`}`} icon="growth" wide>
         {partial || prevMissing || i < 1 ? (

@@ -1,0 +1,60 @@
+{
+ "source": "Ministry of Commerce and Industry (DGCI&S), monthly exports and imports via RBI DBIE; latest month from Commerce's release",
+ "unit": "US$ million",
+ "basis": "financial year, April to March",
+ "periods": [
+  "2018-19",
+  "2019-20",
+  "2020-21",
+  "2021-22",
+  "2022-23",
+  "2023-24",
+  "2024-25",
+  "2025-26",
+  "2026-27 Apr-Sep"
+ ],
+ "partial": [
+  "2026-27 Apr-Sep"
+ ],
+ "exports": [
+  330079.7,
+  313287.7,
+  291808.5,
+  422004.3,
+  451070.0,
+  437071.9,
+  437704.5,
+  441452.3,
+  259882.9
+ ],
+ "imports": [
+  514050.5,
+  474709.3,
+  394436.0,
+  613052.2,
+  715968.9,
+  673992.0,
+  721131.4,
+  775713.2,
+  437531.2
+ ],
+ "balance": [
+  -183970.8,
+  -161421.6,
+  -102627.5,
+  -191047.9,
+  -264898.9,
+  -236920.1,
+  -283426.9,
+  -334260.9,
+  -177648.3
+ ],
+ "latest_month": "2026-09",
+ "same_months_last_year": {
+  "2026-27 Apr-Sep": {
+   "period": "2025-26 Apr-Sep",
+   "exports": 219296.5,
+   "imports": 376172.9
+  }
+ }
+}

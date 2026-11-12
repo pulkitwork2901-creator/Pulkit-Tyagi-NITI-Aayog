@@ -836,6 +836,66 @@ def direct_tax_items() -> dict[str, dict]:
     return out
 
 
+def write_fy_trade(by_id: dict, rbi_path: Path) -> None:
+    """India's merchandise exports, imports and balance by financial year
+    (April to March), summed from the monthly series: the RBI workbook's full
+    history (the board's charts keep only five years) with the board's newer
+    months (Commerce's release, via the manual sheet) on top. Written to
+    public/data/trade/fy_totals.json in US$ million, like the trade pages.
+    The trade pages' partner and product detail stays calendar-year, because
+    the DGCI&S downloads only give January-to-December totals."""
+    import rbi_dbie
+    saved = rbi_dbie.HISTORY_MONTHS
+    rbi_dbie.HISTORY_MONTHS = 100000
+    try:
+        full, _ = rbi_dbie.load(rbi_path, {})
+    finally:
+        rbi_dbie.HISTORY_MONTHS = saved
+    monthly = {}
+    for key in ("exports", "imports"):
+        m = {h["date"][:7]: h["value"] for h in (full.get(key) or {}).get("history", []) if h.get("value") is not None}
+        m.update({h["date"][:7]: h["value"] for h in (by_id.get(key) or {}).get("history", []) if h.get("value") is not None})
+        monthly[key] = m
+    months = sorted(set(monthly["exports"]) & set(monthly["imports"]))
+    if not months:
+        return
+    fy = {}
+    for mo in months:
+        y, mm = int(mo[:4]), int(mo[5:7])
+        y0 = y if mm >= 4 else y - 1
+        fy.setdefault(y0, []).append(mo)
+    names = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    periods, partial, ex, im = [], [], [], []
+    same_months = {}  # a part year against the same months of the year before
+    for y0 in sorted(fy):
+        ms = fy[y0]
+        complete = len(ms) == 12
+        if not complete and y0 != max(fy):
+            continue  # an incomplete year at the start of the series is left out
+        label = f"{y0}-{str(y0 + 1)[2:]}"
+        if not complete:
+            label += f" Apr-{names[int(ms[-1][5:7]) - 1]}"
+            partial.append(label)
+            prev = [f"{int(m_[:4]) - 1}{m_[4:]}" for m_ in ms]
+            if all(m_ in monthly["exports"] and m_ in monthly["imports"] for m_ in prev):
+                same_months[label] = {"period": f"{y0 - 1}-{str(y0)[2:]} Apr-{names[int(ms[-1][5:7]) - 1]}",
+                                      "exports": round(sum(monthly["exports"][m_] for m_ in prev) * 1000, 1),
+                                      "imports": round(sum(monthly["imports"][m_] for m_ in prev) * 1000, 1)}
+        periods.append(label)
+        ex.append(round(sum(monthly["exports"][m_] for m_ in ms) * 1000, 1))
+        im.append(round(sum(monthly["imports"][m_] for m_ in ms) * 1000, 1))
+    out = {
+        "source": "Ministry of Commerce and Industry (DGCI&S), monthly exports and imports via RBI DBIE; latest month from Commerce's release",
+        "unit": "US$ million", "basis": "financial year, April to March",
+        "periods": periods, "partial": partial, "exports": ex, "imports": im,
+        "balance": [round(a - b, 1) for a, b in zip(ex, im)],
+        "latest_month": months[-1], "same_months_last_year": same_months,
+    }
+    path = ROOT_DIR / "public" / "data" / "trade" / "fy_totals.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(out, ensure_ascii=False, indent=1))
+
+
 def merge_series(base: dict, other: dict, other_wins_ties: bool) -> dict:
     """Join two versions of one indicator: history by date, the newest reading on top.
 
@@ -970,6 +1030,10 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
         by_id.update(ppac_items(by_id))
     except Exception as exc:
         print(f"PPAC crude skipped: {exc}")
+    try:
+        write_fy_trade(by_id, rbi_path)
+    except Exception as exc:  # the FY table must never stop the board
+        print(f"FY trade totals skipped: {exc}")
     indicators = []
     for ind_id, meta in META.items():
         if ind_id in by_id:

@@ -175,3 +175,59 @@ export function PeriodSwitch({ periods, value, onChange, label = 'Period', missi
     </div>
   );
 }
+
+// India's exports and imports by financial year (April to March), from the
+// monthly series (scripts/build_indicators.py writes fy_totals.json). The
+// partner and product detail on the trade pages stays calendar-year.
+export function FyTotals({ base }) {
+  const { data: f } = useTradeFile(`${base}fy_totals.json`);
+  if (!f?.periods?.length) return null;
+  const show = (p) => p.replace(' Apr-', '\nApr–');
+  const periods = f.periods.map(show);
+  const partial = f.partial.map(show);
+  const same = f.same_months_last_year || {};
+  const g = (arr, i, key) => {
+    const p = f.periods[i];
+    if (f.partial.includes(p)) {  // a part year against the same months a year earlier
+      const prev = same[p]?.[key];
+      return prev ? ((arr[i] - prev) / prev) * 100 : null;
+    }
+    if (i < 1 || f.partial.includes(f.periods[i - 1]) || !arr[i - 1]) return null;
+    return ((arr[i] - arr[i - 1]) / arr[i - 1]) * 100;
+  };
+  const MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const latest = f.latest_month ? `${MON[Number(f.latest_month.slice(5, 7)) - 1]} ${f.latest_month.slice(0, 4)}` : '';
+  const rows = f.periods.map((p, i) => ({ p, i })).reverse();
+  return (
+    <section className="eb-mc eb-tr-card eb-tr-wide" aria-labelledby="eb-fy-h">
+      <div className="eb-tr-cardhead"><h3 className="eb-mc-title" id="eb-fy-h">India's exports and imports by financial year (April to March)</h3></div>
+      <p className="eb-mc-note eb-tr-note">
+        US$, all countries and products. Left bar exports, right bar imports; the figure above each pair is the balance. Hatched: part year
+        ({f.partial.join(', ') || 'none'}), compared with the same months a year earlier, not with full years. Summed from the monthly figures; the partner and product detail on this page is by calendar year.
+      </p>
+      <div className="eb-pair-legend" aria-hidden="true"><span><i className="eb-pair-x" />Exports</span><span><i className="eb-pair-m" />Imports</span></div>
+      <PairColumns periods={periods} x={f.exports} m={f.imports} partial={partial} height={200} />
+      <div className="eb-tablewrap">
+        <table className="eb-table">
+          <caption className="eb-sr">India's merchandise exports and imports by financial year, US$</caption>
+          <thead>
+            <tr><th scope="col">Financial year</th><th scope="col" className="eb-num">Exports</th><th scope="col">Change</th><th scope="col" className="eb-num">Imports</th><th scope="col">Change</th><th scope="col" className="eb-num">Balance</th></tr>
+          </thead>
+          <tbody>
+            {rows.map(({ p, i }) => (
+              <tr key={p}>
+                <th scope="row">{p.replace(' Apr-', ' (Apr–') + (p.includes(' Apr-') ? ')' : '')}{same[p] && <span className="eb-rowmeta">vs {same[p].period.replace(' Apr-', ' Apr–')}: {money(same[p].exports)} and {money(same[p].imports)}</span>}</th>
+                <td className="eb-num">{money(f.exports[i])}</td>
+                <td><GrowthPill value={g(f.exports, i, 'exports')} /></td>
+                <td className="eb-num">{money(f.imports[i])}</td>
+                <td><GrowthPill value={g(f.imports, i, 'imports')} neutral /></td>
+                <td className="eb-num">{f.balance[i] < 0 ? '−' : '+'}{money(Math.abs(f.balance[i]))}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="eb-mc-note eb-tr-note">Source: {f.source}. Latest month: {latest}.</p>
+    </section>
+  );
+}
