@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-12T07:49:21+00:00",
+ "generated_at": "2026-11-12T13:45:16+00:00",
  "sources": {
   "mospi": {
    "status": "ok",
-   "fetched_at": "2026-11-12T07:49:21+00:00",
+   "fetched_at": "2026-11-12T13:45:16+00:00",
    "message": null
   },
   "rbi": {
@@ -123,22 +123,16 @@
    "change_unit": "pts",
    "id": "cpi",
    "mode": "live",
-   "value": 5.54,
+   "value": 6.09,
    "unit": "% YoY",
-   "period": "Sep 2026",
-   "compare_value": 4.83,
-   "compare_period": "Aug 2026",
-   "change": 0.71,
+   "period": "Oct 2026",
+   "compare_value": 5.54,
+   "compare_period": "Sep 2026",
+   "change": 0.55,
    "source": "MoSPI CPI, base 2024, All India combined",
    "source_url": "https://esankhyiki.mospi.gov.in",
    "released": null,
    "history": [
-    {
-     "date": "2021-10-31",
-     "label": "Oct 2021",
-     "short": "Oct 21",
-     "value": 4.48
-    },
     {
      "date": "2021-11-30",
      "label": "Nov 2021",
@@ -492,10 +486,16 @@
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 5.54
+    },
+    {
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": 6.09
     }
    ],
    "note": "From January 2026: MoSPI's CPI on the 2024 base. Earlier months: CPI inflation as published on the 2012 base (RBI DBIE). The two series agree within about 0.1 point where they overlap.",
-   "updated_at": null
+   "updated_at": "2026-11-12T13:45:16+00:00"
   },
   {
    "label": "Core CPI inflation (excluding food and fuel)",
@@ -505,12 +505,12 @@
    "change_unit": "pts",
    "id": "cpi_core",
    "mode": "live",
-   "value": 4.6,
+   "value": 4.76,
    "unit": "% YoY",
-   "period": "Sep 2026",
-   "compare_value": 4.43,
-   "compare_period": "Aug 2026",
-   "change": 0.17,
+   "period": "Oct 2026",
+   "compare_value": 4.6,
+   "compare_period": "Sep 2026",
+   "change": 0.16,
    "source": "Computed from MoSPI CPI component indices and official weights",
    "source_url": "https://esankhyiki.mospi.gov.in",
    "released": null,
@@ -1072,10 +1072,16 @@
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 4.6
+    },
+    {
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": 4.76
     }
    ],
    "note": "CPI excluding food and beverages and household fuel (electricity, gas and other fuels), All India combined. Computed from MoSPI's published indices with MoSPI's basket weights (2024 base: food 36.75%, fuel 5.49%; 2012 base: food 45.86%, fuel and light 6.84%). Petrol and diesel for vehicles stay in, as in the usual Indian measure. Not an official MoSPI series.",
-   "updated_at": "2026-11-09T15:41:35+00:00"
+   "updated_at": "2026-11-12T13:45:16+00:00"
   },
   {
    "label": "Nominal GDP growth",
@@ -1285,12 +1291,12 @@
    "change_unit": "pts",
    "id": "cpi_rural",
    "mode": "live",
-   "value": 6.08,
+   "value": 6.63,
    "unit": "% YoY",
-   "period": "Sep 2026",
-   "compare_value": 5.24,
-   "compare_period": "Aug 2026",
-   "change": 0.84,
+   "period": "Oct 2026",
+   "compare_value": 6.08,
+   "compare_period": "Sep 2026",
+   "change": 0.55,
    "source": "MoSPI CPI, rural, base 2024 (2012 base before 2026)",
    "source_url": "https://esankhyiki.mospi.gov.in",
    "released": null,
@@ -1840,10 +1846,16 @@
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 6.08
+    },
+    {
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": 6.63
     }
    ],
    "note": "All India rural CPI inflation. From January 2026 MoSPI's 2024-base series; earlier months as published on the 2012 base.",
-   "updated_at": "2026-11-09T14:08:24+00:00"
+   "updated_at": "2026-11-12T13:45:16+00:00"
   },
   {
    "label": "CPI inflation, urban",
@@ -1853,12 +1865,12 @@
    "change_unit": "pts",
    "id": "cpi_urban",
    "mode": "live",
-   "value": 4.88,
+   "value": 5.41,
    "unit": "% YoY",
-   "period": "Sep 2026",
-   "compare_value": 4.31,
-   "compare_period": "Aug 2026",
-   "change": 0.57,
+   "period": "Oct 2026",
+   "compare_value": 4.88,
+   "compare_period": "Sep 2026",
+   "change": 0.53,
    "source": "MoSPI CPI, urban, base 2024 (2012 base before 2026)",
    "source_url": "https://esankhyiki.mospi.gov.in",
    "released": null,
@@ -2408,10 +2420,16 @@
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 4.88
+    },
+    {
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": 5.41
     }
    ],
    "note": "All India urban CPI inflation. From January 2026 MoSPI's 2024-base series; earlier months as published on the 2012 base.",
-   "updated_at": "2026-11-09T14:08:24+00:00"
+   "updated_at": "2026-11-12T13:45:16+00:00"
   },
   {
    "label": "Households' inflation expectations, one year ahead",
@@ -15413,12 +15431,12 @@
    "change_unit": "pts",
    "id": "real_repo",
    "mode": "derived",
-   "value": -0.29,
+   "value": -0.59,
    "unit": "%",
-   "period": "Sep 2026",
-   "compare_value": 0.42,
-   "compare_period": "Aug 2026",
-   "change": -0.71,
+   "period": "Oct 2026",
+   "compare_value": -0.29,
+   "compare_period": "Sep 2026",
+   "change": -0.3,
    "source": "Derived: RBI policy repo rate minus MoSPI CPI inflation",
    "source_url": "https://esankhyiki.mospi.gov.in",
    "released": null,
@@ -15776,10 +15794,16 @@
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": -0.29
+    },
+    {
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": -0.59
     }
    ],
    "note": "The policy repo rate at each month's end minus CPI inflation for that month. Near zero or below means borrowing is cheap once inflation is allowed for, so policy is not restraining demand.",
-   "updated_at": "2026-11-09T15:42:15+00:00"
+   "updated_at": "2026-11-12T13:45:16+00:00"
   },
   {
    "label": "Real 10-year yield (G-sec minus CPI inflation)",
@@ -15789,12 +15813,12 @@
    "change_unit": "pts",
    "id": "real_gsec10",
    "mode": "derived",
-   "value": 1.6,
+   "value": 1.36,
    "unit": "%",
-   "period": "Sep 2026",
-   "compare_value": 2.09,
-   "compare_period": "Aug 2026",
-   "change": -0.49,
+   "period": "Oct 2026",
+   "compare_value": 1.6,
+   "compare_period": "Sep 2026",
+   "change": -0.24,
    "source": "Derived: RBI 10-year G-sec yield minus MoSPI CPI inflation",
    "source_url": "https://esankhyiki.mospi.gov.in",
    "released": null,
@@ -16152,10 +16176,16 @@
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 1.6
+    },
+    {
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": 1.36
     }
    ],
    "note": "The 10-year G-sec yield at each month's end minus CPI inflation for that month. Near zero or below means borrowing is cheap once inflation is allowed for, so policy is not restraining demand.",
-   "updated_at": "2026-11-09T15:42:15+00:00"
+   "updated_at": "2026-11-12T13:45:16+00:00"
   },
   {
    "label": "91-day T-bill yield",
