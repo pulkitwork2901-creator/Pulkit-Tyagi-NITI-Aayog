@@ -130,11 +130,19 @@ function money(b) {
   return [s1, s2];
 }
 
+// One writer per category. Each reuses the sentences above that talk about its own figures.
 const WRITERS = {
-  'Growth and prices': growth,
-  'External sector': external,
-  'Fiscal and monetary': fiscal,
-  'Money, credit and capital flows': money,
+  'Growth and jobs': (b) => {
+    const [s1] = growth(b);
+    const ur = b.unemployment;
+    return [s1, ur && <>Unemployment was {pct(ur)} in {ur.period}{ur.compare_value != null ? <> (against {f(ur.compare_value)}% in {ur.compare_period})</> : null}.</>];
+  },
+  'Prices and inflation': (b) => growth({ ...b, unemployment: undefined }).slice(1),
+  'Interest rates and monetary policy': (b) => fiscal(b).slice(0, 1),
+  'Banking and credit': (b) => money(b).slice(0, 1),
+  'Government finances': (b) => fiscal(b).slice(1),
+  'Trade and current account': (b) => external(b).slice(0, 1),
+  'Capital flows, reserves and the rupee': (b) => [money(b)[1], external(b)[1]],
 };
 
 export default function ThemeBrief({ group, byId }) {

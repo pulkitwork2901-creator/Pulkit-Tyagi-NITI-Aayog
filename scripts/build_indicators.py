@@ -125,6 +125,28 @@ META = {
 }
 
 
+# Categories: one list drives the sidebar, the theme pages and the dashboard's
+# sections, in this order. Every indicator above must appear exactly once.
+THEMES = [
+    ("Growth and jobs", ["gdp", "gdp_nominal", "iip", "pmi_mfg", "pmi_services", "capacity_util", "capacity_util_sa", "unemployment"]),
+    ("Prices and inflation", ["cpi", "cpi_core", "cpi_rural", "cpi_urban", "wpi", "wpi_food", "gdp_deflator",
+                              "infl_exp_1y", "infl_exp_3m", "infl_perception", "crude_basket", "crude_basket_inr"]),
+    ("Interest rates and monetary policy", ["repo", "sdf_rate", "msf_rate", "crr", "tbill_91", "gsec10", "real_repo", "real_gsec10", "m3_growth"]),
+    ("Banking and credit", ["credit_nonfood", "credit_agri", "credit_industry", "credit_services", "credit_personal",
+                            "deposit_growth", "cd_ratio", "digital_payments"]),
+    ("Government finances", ["fiscal_deficit", "capex_centre", "gst_gross", "gst_domestic", "gst_imports", "sdl_borrowing"]),
+    ("Direct taxes", ["dt_ytd_net", "dt_net", "dt_corporate", "dt_noncorporate", "dt_gross", "dt_gdp", "dt_share",
+                      "dt_buoyancy", "dt_cost", "itr_filers", "itr_filed", "taxpayers"]),
+    ("Trade and current account", ["exports", "imports", "trade_balance", "services_exports", "services_imports", "services_net",
+                                   "remittances", "cad", "ca_usd", "ca_goods", "ca_services", "ca_primary", "ca_secondary"]),
+    ("Capital flows, reserves and the rupee", ["fdi_net", "fdi_gross", "fpi_net", "nri_deposits", "ecb_reg",
+                                               "fx_reserves", "inr_usd", "fwd_premia_3m", "ext_debt", "niip"]),
+]
+_listed = [i for _, ids in THEMES for i in ids]
+assert sorted(_listed) == sorted(META) and len(_listed) == len(set(_listed)), (
+    f"THEMES and META differ: missing {sorted(set(META) - set(_listed))}, extra {sorted(set(_listed) - set(META))}")
+META = {i: {**META[i], "group": name} for name, ids in THEMES for i in ids}
+
 # --------------------------------------------------------------------------
 # MoSPI access
 # --------------------------------------------------------------------------

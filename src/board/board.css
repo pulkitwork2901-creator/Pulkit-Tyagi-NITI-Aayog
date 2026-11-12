@@ -771,3 +771,25 @@ a.eb-bar-row:hover .eb-bar-label { text-decoration: underline; }
 .eb-st-year summary { cursor: pointer; font-size: 14.5px; padding: 4px 0; }
 .eb-st-year ul, .eb-st-list { margin: 6px 0 8px; padding-left: 20px; font-size: 14px; line-height: 1.6; max-width: 100ch; }
 .eb-st-year li, .eb-st-list li { margin-bottom: 4px; }
+
+/* Dashboard categories */
+.eb-cat-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 18px; }
+.eb-cat-nav a { font: 600 13.5px var(--eb-font); padding: 7px 13px; border: 1px solid var(--eb-rule); border-radius: 999px; color: var(--eb-ink); text-decoration: none; background: var(--eb-paper); }
+.eb-cat-nav a:hover { background: var(--eb-panel); }
+.eb-cat { margin: 0 0 34px; scroll-margin-top: 16px; }
+.eb-cat-head { display: flex; align-items: center; gap: 12px; padding: 12px 16px; margin-bottom: 12px; border-radius: 12px; background: var(--eb-panel); border-left: 4px solid var(--eb-s1); }
+.eb-cat-icon { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 9px; background: var(--eb-paper); color: var(--eb-s1); flex: none; }
+.eb-cat-text { flex: 1; min-width: 0; }
+.eb-cat-title { margin: 0; font: 700 19px var(--eb-serif, var(--eb-font)); color: var(--eb-ink); }
+.eb-cat-blurb { margin: 2px 0 0; font-size: 13.5px; color: var(--eb-muted); }
+.eb-cat-links { display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: flex-end; }
+.eb-cat .eb-xcard { margin-bottom: 12px; }
+@media (max-width: 640px) {
+  .eb-cat-head { flex-wrap: wrap; }
+  .eb-cat-links { width: 100%; justify-content: flex-start; }
+}
+.eb-all > summary { cursor: pointer; font: 600 14.5px var(--eb-font); padding: 12px 16px; border: 1px solid var(--eb-rule); border-radius: 10px; background: var(--eb-paper); margin-bottom: 10px; }
+.eb-all[open] > summary { margin-bottom: 14px; }
+.eb-linkbtn { background: none; border: 0; padding: 0; font: inherit; color: var(--eb-link, var(--eb-s1)); text-decoration: underline; cursor: pointer; }
+.eb-panels-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 860px) { .eb-panels-2 { grid-template-columns: minmax(0, 1fr); } }

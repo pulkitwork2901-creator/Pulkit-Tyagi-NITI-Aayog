@@ -75,6 +75,7 @@ function TradeCard({ base }) {
 
 // Indicators whose latest reading reached the board in the last NEW_DAYS days.
 function WhatsNew({ indicators, now }) {
+  const [all, setAll] = useState(false);
   const fresh = indicators
     .filter((i) => i.updated_at && now - Date.parse(i.updated_at) < NEW_DAYS * 86400000)
     .sort((a, b) => Date.parse(b.updated_at) - Date.parse(a.updated_at));
@@ -85,7 +86,7 @@ function WhatsNew({ indicators, now }) {
         <p className="eb-new-none">No new releases in the last {NEW_DAYS} days. Figures refresh daily at 6 pm IST.</p>
       ) : (
         <ul>
-          {fresh.slice(0, 8).map((i) => (
+          {fresh.slice(0, all ? fresh.length : 4).map((i) => (
             <li key={i.id}>
               <a href={`#/indicator/${i.id}`}>{i.label}</a>
               {' '}
@@ -95,9 +96,46 @@ function WhatsNew({ indicators, now }) {
               <Chip item={i} />
             </li>
           ))}
-          {fresh.length > 8 && <li className="eb-new-more">and {fresh.length - 8} more in the table below</li>}
+          {fresh.length > 4 && (
+            <li className="eb-new-more"><button type="button" className="eb-linkbtn" onClick={() => setAll(!all)}>{all ? 'Show fewer' : `Show all ${fresh.length} new releases`}</button></li>
+          )}
         </ul>
       )}
+    </section>
+  );
+}
+
+// Dashboard categories: same names and order as the sidebar themes.
+const CATEGORY_NAV = [
+  ['cat-growth', 'Growth and jobs'], ['cat-prices', 'Prices and inflation'], ['cat-rates', 'Interest rates and monetary policy'],
+  ['cat-banking', 'Banking and credit'], ['cat-fiscal', 'Government finances'], ['cat-trade', 'Trade and current account'],
+  ['cat-flows', 'Capital flows, reserves and the rupee'],
+];
+
+function CategoryNav() {
+  const go = (e, id) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  return (
+    <nav className="eb-cat-nav eb-noprint" aria-label="Jump to a category">
+      {CATEGORY_NAV.map(([id, label]) => <a key={id} href="#/" onClick={(e) => go(e, id)}>{label}</a>)}
+    </nav>
+  );
+}
+
+function Category({ id, title, icon, blurb, count, links, children }) {
+  return (
+    <section className="eb-cat" id={id} aria-labelledby={`${id}-h`}>
+      <div className="eb-cat-head">
+        <span className="eb-cat-icon" aria-hidden="true"><Icon name={icon} size={18} /></span>
+        <div className="eb-cat-text">
+          <h3 className="eb-cat-title" id={`${id}-h`}>{title}</h3>
+          <p className="eb-cat-blurb">{blurb}{count ? ` ${count} indicators.` : ''}</p>
+        </div>
+        {links}
+      </div>
+      {children}
     </section>
   );
 }
@@ -136,6 +174,7 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
   const annualStart = Math.min(start, latest - 12 * 365.25 * 86400000);
   const h = (id) => byId[id]?.history || [];
   const has = (...ids) => ids.some((id) => byId[id]);
+  const countOf = (g) => (data.indicators || []).filter((i) => i.group === g).length;
   const head = (id) => byId[id] && { value: (byId[id].unit.startsWith('%') ? `${signed(formatValue(byId[id].value, byId[id].decimals))}%` : byId[id].unit.startsWith('US$ bn') ? `US$ ${signed(formatValue(byId[id].value, 1))} bn` : byId[id].unit === 'US$ per barrel' ? `$${formatValue(byId[id].value, 1)}` : byId[id].unit.startsWith('₹ per US$') ? `₹${formatValue(byId[id].value, 2)}` : byId[id].unit === '₹ lakh crore' ? `₹${formatValue(byId[id].value, 2)} lakh cr` : `${signed(formatValue(byId[id].value, byId[id].decimals))} ${byId[id].unit}`), sub: `${SHORT[id] || byId[id].label} · ${byId[id].period.replace(/^(Week|Fortnight) to /, '')}` };
 
   return (
@@ -164,10 +203,11 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
 
       <WhatsNew indicators={data.indicators || []} now={Date.parse(data.generated_at)} />
 
-      <TradeCard base={tradeBase} />
-
-      <h2 className="eb-eyebrow" id="eb-panels-h">Trends</h2>
-      <section className="eb-panels" aria-labelledby="eb-panels-h">
+      <h2 className="eb-eyebrow" id="eb-panels-h">By category</h2>
+      <CategoryNav />
+      <Category id="cat-growth" title="Growth and jobs" icon="growth" blurb="How fast the economy and industry are growing, how busy factories are, and how many people are out of work." count={countOf('Growth and jobs')}
+        links={<span className="eb-cat-links"><a className="eb-more" href="#/theme/growth-and-jobs">All indicators</a></span>}>
+        <div className="eb-panels eb-panels-2">
         {has('gdp') && (
           <MultiChart title="Growth, real and nominal" icon="growth" headline={head('gdp')} note="% year on year, by quarter. Deflator: the inflation that turns real into nominal growth. MoSPI." kind="bar" start={start} fmt={pct(1)}
             series={[
@@ -176,6 +216,26 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
               { key: 'gdp_deflator', label: 'Deflator', color: S3, points: h('gdp_deflator') },
             ]} />
         )}
+        {has('iip') && (
+          <MultiChart title="Industrial output" icon="wholesale" headline={head('iip')} note="IIP, % year on year, base 2022-23. MoSPI has not published June 2023 to March 2024 on this base. MoSPI." kind="bar" start={start} fmt={pct(1)}
+            series={[{ key: 'iip', label: 'IIP growth', color: S1, points: h('iip') }]} />
+        )}
+        {has('capacity_util') && (
+          <MultiChart title="Factory capacity in use" icon="wholesale" headline={head('capacity_util_sa') || head('capacity_util')} note="Capacity utilisation in manufacturing, %, by quarter, about 1,000 companies. The unadjusted figure peaks every January to March. RBI OBICUS." start={start} fmt={pct(1)}
+            series={[
+              { key: 'capacity_util', label: 'As reported', color: S1, points: h('capacity_util') },
+              { key: 'capacity_util_sa', label: 'Seasonally adjusted', color: S2, points: h('capacity_util_sa') },
+            ]} />
+        )}
+        {has('unemployment') && (
+          <MultiChart title="Jobs" icon="jobs" headline={head('unemployment')} note="Unemployment rate, % of labour force, age 15+, monthly. MoSPI PLFS." start={start} fmt={pct(1)}
+            series={[{ key: 'unemployment', label: 'Unemployment rate', color: S1, points: h('unemployment') }]} />
+        )}
+        </div>
+      </Category>
+      <Category id="cat-prices" title="Prices and inflation" icon="prices" blurb="Retail and wholesale inflation, what households expect, and the oil price behind much of it." count={countOf('Prices and inflation')}
+        links={<span className="eb-cat-links"><a className="eb-more" href="#/theme/prices-and-inflation">All indicators</a></span>}>
+        <div className="eb-panels eb-panels-2">
         {has('cpi') && (
           <MultiChart title="Inflation" icon="prices" headline={head('cpi')} note="% year on year. Core excludes food and household fuel (computed from MoSPI indices and weights). Shaded: RBI's 2 to 6% band. MoSPI." start={start} fmt={pct(2)}
             band={{ lo: 2, hi: 6, label: '2–6% band' }}
@@ -193,17 +253,6 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
               { key: 'cpi', label: 'CPI inflation', color: S3, points: h('cpi') },
             ]} />
         )}
-        {has('crude_basket') && (
-          <MultiChart title="Oil price" icon="wholesale" headline={head('crude_basket')} note="Indian basket crude, US$ a barrel, monthly average (latest month to date). PPAC publishes no monthly figures for 2022-23. PPAC." start={start} fmt={(v) => '$' + formatValue(v, 0)}
-            series={[{ key: 'crude_basket', label: 'Indian basket crude', color: S1, points: h('crude_basket') }]} />
-        )}
-        {has('real_repo', 'real_gsec10') && (
-          <MultiChart title="Real interest rates" icon="rates" headline={head('real_repo')} note="Policy repo rate and 10-year G-sec yield minus CPI inflation, month end. Below zero means borrowing is cheap after inflation. RBI, MoSPI." start={start} fmt={pct(1)}
-            series={[
-              { key: 'real_repo', label: 'Real repo rate', color: S1, points: h('real_repo') },
-              { key: 'real_gsec10', label: 'Real 10-year yield', color: S2, points: h('real_gsec10') },
-            ]} />
-        )}
         {has('cpi_rural', 'cpi_urban') && (
           <MultiChart title="Rural and urban inflation" icon="prices" headline={head('cpi_rural')} note="CPI, % year on year, All India. 2024 base from January 2026, 2012 base before. MoSPI." start={start} fmt={pct(2)}
             series={[
@@ -211,6 +260,15 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
               { key: 'cpi_urban', label: 'Urban', color: S2, points: h('cpi_urban') },
             ]} />
         )}
+        {has('crude_basket') && (
+          <MultiChart title="Oil price" icon="wholesale" headline={head('crude_basket')} note="Indian basket crude, US$ a barrel, monthly average (latest month to date). PPAC publishes no monthly figures for 2022-23. PPAC." start={start} fmt={(v) => '$' + formatValue(v, 0)}
+            series={[{ key: 'crude_basket', label: 'Indian basket crude', color: S1, points: h('crude_basket') }]} />
+        )}
+        </div>
+      </Category>
+      <Category id="cat-rates" title="Interest rates and monetary policy" icon="rates" blurb="RBI's policy rate, market interest rates, and what they are worth after inflation." count={countOf('Interest rates and monetary policy')}
+        links={<span className="eb-cat-links"><a className="eb-more" href="#/theme/interest-rates-and-monetary-policy">All indicators</a></span>}>
+        <div className="eb-panels eb-panels-2">
         {has('tbill_91', 'gsec10') && (
           <MultiChart title="Interest rates" icon="rates" headline={head('gsec10')} note="%, month end. RBI DBIE (G-sec: FBIL)." start={start} fmt={pct(2)}
             series={[
@@ -219,23 +277,24 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
               { key: 'gsec10', label: '10-year G-sec', color: S3, points: h('gsec10') },
             ]} />
         )}
+        {has('real_repo', 'real_gsec10') && (
+          <MultiChart title="Real interest rates" icon="rates" headline={head('real_repo')} note="Policy repo rate and 10-year G-sec yield minus CPI inflation, month end. Below zero means borrowing is cheap after inflation. RBI, MoSPI." start={start} fmt={pct(1)}
+            series={[
+              { key: 'real_repo', label: 'Real repo rate', color: S1, points: h('real_repo') },
+              { key: 'real_gsec10', label: 'Real 10-year yield', color: S2, points: h('real_gsec10') },
+            ]} />
+        )}
+        </div>
+      </Category>
+      <Category id="cat-banking" title="Banking and credit" icon="credit" blurb="How fast bank lending, deposits and money are growing, and which sectors are borrowing." count={countOf('Banking and credit')}
+        links={<span className="eb-cat-links"><a className="eb-more" href="#/theme/banking-and-credit">All indicators</a></span>}>
+        <div className="eb-panels eb-panels-2">
         {has('credit_nonfood', 'deposit_growth', 'm3_growth') && (
           <MultiChart title="Money and credit" icon="money" headline={head('credit_nonfood')} note="% year on year. RBI DBIE." start={start} fmt={pct(1)}
             series={[
               { key: 'credit_nonfood', label: 'Non-food credit', color: S1, points: h('credit_nonfood') },
               { key: 'deposit_growth', label: 'Deposits', color: S2, points: h('deposit_growth') },
               { key: 'm3_growth', label: 'M3', color: S3, points: h('m3_growth') },
-            ]} />
-        )}
-        {has('iip') && (
-          <MultiChart title="Industrial output" icon="wholesale" headline={head('iip')} note="IIP, % year on year, base 2022-23. MoSPI has not published June 2023 to March 2024 on this base. MoSPI." kind="bar" start={start} fmt={pct(1)}
-            series={[{ key: 'iip', label: 'IIP growth', color: S1, points: h('iip') }]} />
-        )}
-        {has('capacity_util') && (
-          <MultiChart title="Factory capacity in use" icon="wholesale" headline={head('capacity_util_sa') || head('capacity_util')} note="Capacity utilisation in manufacturing, %, by quarter, about 1,000 companies. The unadjusted figure peaks every January to March. RBI OBICUS." start={start} fmt={pct(1)}
-            series={[
-              { key: 'capacity_util', label: 'As reported', color: S1, points: h('capacity_util') },
-              { key: 'capacity_util_sa', label: 'Seasonally adjusted', color: S2, points: h('capacity_util_sa') },
             ]} />
         )}
         {has('credit_industry', 'credit_services') && (
@@ -245,6 +304,22 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
               { key: 'credit_services', label: 'Services', color: S2, points: h('credit_services') },
               { key: 'credit_personal', label: 'Personal loans', color: S3, points: h('credit_personal') },
             ]} />
+        )}
+        </div>
+      </Category>
+      <Category id="cat-fiscal" title="Government finances" icon="money" blurb="The Centre's deficit and capital spending, GST collections and direct taxes." count={countOf('Government finances')}
+        links={<span className="eb-cat-links"><a className="eb-more" href="#/theme/government-finances">All indicators</a><a className="eb-more" href="#/direct-taxes">Direct taxes</a></span>}>
+        <div className="eb-panels eb-panels-2">
+        {has('fiscal_deficit', 'capex_centre') && (
+          <MultiChart title="Government finances" icon="money" headline={head('fiscal_deficit')} note="Centre, cumulative from April as % of the full-year budget estimate; resets each April. CGA." start={start} fmt={pct(0)}
+            series={[
+              { key: 'fiscal_deficit', label: 'Fiscal deficit', color: S2, points: h('fiscal_deficit') },
+              { key: 'capex_centre', label: 'Capital spending', color: S1, points: h('capex_centre') },
+            ]} />
+        )}
+        {has('gst_gross') && (
+          <MultiChart title="GST collections" icon="money" headline={head('gst_gross')} note="Gross GST collected each month, ₹ lakh crore, as reported by GSTN; the latest month is provisional. GSTN." start={start} fmt={lakhCr}
+            series={[{ key: 'gst_gross', label: 'Gross GST', color: S1, points: h('gst_gross') }]} />
         )}
         {has('dt_corporate', 'dt_noncorporate') && (
           <MultiChart title="Direct tax collections" icon="money" headline={head('dt_net')} note="Net of refunds, ₹ lakh crore, by financial year (bars at March, year end). Non-corporate is mainly personal income tax. Latest year provisional. Always about ten years. CBDT." kind="bar" start={annualStart} fmt={lakhCr}
@@ -257,20 +332,12 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
           <MultiChart title="Direct taxes as a share of GDP" icon="growth" headline={head('dt_gdp')} note="Net direct tax collections, % of GDP at current prices, by financial year. Always about ten years. CBDT, MoSPI." start={annualStart} fmt={pct(2)}
             series={[{ key: 'dt_gdp', label: 'Direct tax to GDP', color: S1, points: h('dt_gdp') }]} />
         )}
-        {has('itr_filers', 'taxpayers') && (
-          <MultiChart title="The income-tax base" icon="jobs" headline={head('itr_filers')} note="Crore persons. Taxpayers include those with tax deducted at source who did not file a return; taxpayers are by assessment year. CBDT." start={annualStart} fmt={(v) => `${formatValue(v, 1)} cr`}
-            series={[
-              { key: 'taxpayers', label: 'Taxpayers', color: S1, points: h('taxpayers') },
-              { key: 'itr_filers', label: 'Return filers', color: S2, points: h('itr_filers') },
-            ]} />
-        )}
-        {has('fiscal_deficit', 'capex_centre') && (
-          <MultiChart title="Government finances" icon="money" headline={head('fiscal_deficit')} note="Centre, cumulative from April as % of the full-year budget estimate; resets each April. CGA." start={start} fmt={pct(0)}
-            series={[
-              { key: 'fiscal_deficit', label: 'Fiscal deficit', color: S2, points: h('fiscal_deficit') },
-              { key: 'capex_centre', label: 'Capital spending', color: S1, points: h('capex_centre') },
-            ]} />
-        )}
+        </div>
+      </Category>
+      <Category id="cat-trade" title="Trade and current account" icon="trade" blurb="Goods and services trade, money sent home by Indians abroad, and the current account." count={countOf('Trade and current account')}
+        links={<span className="eb-cat-links"><a className="eb-more" href="#/theme/trade-and-current-account">All indicators</a><a className="eb-more" href="#/exports">Exports by partner and product</a></span>}>
+        <TradeCard base={tradeBase} />
+        <div className="eb-panels eb-panels-2">
         {has('exports', 'imports') && (
           <MultiChart title="Merchandise trade" icon="trade" headline={head('trade_balance')} note="US$ bn a month. RBI DBIE, latest month from Commerce." start={start} fmt={bn}
             series={[
@@ -299,16 +366,17 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
           <MultiChart title="Remittances" icon="money" headline={head('remittances')} note="US$ bn a quarter. Personal transfer receipts, mainly money sent home by Indians working abroad. RBI." kind="bar" start={start} fmt={bn}
             series={[{ key: 'remittances', label: 'Remittances', color: S1, points: h('remittances') }]} />
         )}
+        </div>
+      </Category>
+      <Category id="cat-flows" title="Capital flows, reserves and the rupee" icon="flows" blurb="Foreign investment, forex reserves and the exchange rate." count={countOf('Capital flows, reserves and the rupee')}
+        links={<span className="eb-cat-links"><a className="eb-more" href="#/theme/capital-flows-reserves-and-the-rupee">All indicators</a></span>}>
+        <div className="eb-panels">
         {has('fdi_net', 'fpi_net') && (
           <MultiChart title="Capital flows" icon="flows" headline={head('fdi_net')} note="US$ bn a month, net. RBI DBIE." kind="bar" start={start} fmt={bn}
             series={[
               { key: 'fdi_net', label: 'Net FDI', color: S1, points: h('fdi_net') },
               { key: 'fpi_net', label: 'Net portfolio', color: S2, points: h('fpi_net') },
             ]} />
-        )}
-        {has('unemployment') && (
-          <MultiChart title="Jobs" icon="jobs" headline={head('unemployment')} note="Unemployment rate, % of labour force, age 15+, monthly. MoSPI PLFS." start={start} fmt={pct(1)}
-            series={[{ key: 'unemployment', label: 'Unemployment rate', color: S1, points: h('unemployment') }]} />
         )}
         {has('fx_reserves') && (
           <MultiChart title="Forex reserves" icon="reserves" headline={head('fx_reserves')} note="US$ bn, last week of each month; latest week shown. RBI DBIE." start={start} fmt={bn}
@@ -318,7 +386,8 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
           <MultiChart title="Rupee per US dollar" icon="rupee" headline={head('inr_usd')} note="RBI reference rate, month end. A higher number means a weaker rupee. RBI DBIE." start={start} fmt={(v) => `₹${formatValue(v, 2)}`}
             series={[{ key: 'inr_usd', label: 'Rupee per US$', color: S1, points: h('inr_usd') }]} />
         )}
-      </section>
+        </div>
+      </Category>
 
       <section aria-labelledby="eb-signal-h">
         <div className="eb-eyebar">
@@ -328,7 +397,10 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
             <a className="eb-more" href="#/sources">Sources and notes</a>
           </span>
         </div>
-        <SignalTable indicators={data.indicators || []} groups={groups} />
+        <details className="eb-all">
+          <summary>Show all {(data.indicators || []).length} indicators in one table</summary>
+          <SignalTable indicators={data.indicators || []} groups={groups} />
+        </details>
       </section>
     </div>
   );

@@ -68,7 +68,11 @@ export default function EconomicBoard({ source = '/data/indicators.json', title 
   const byId = Object.fromEntries(indicators.map((i) => [i.id, i]));
   const groups = [...new Set(indicators.map((i) => i.group))];
   const item = route.name === 'indicator' ? byId[route.arg] : null;
-  const group = route.name === 'theme' ? groups.find((g) => slug(g) === route.arg) : null;
+  // Earlier theme addresses (before the categories were reorganised) still work.
+  const OLD_THEMES = { 'growth-and-prices': 'growth-and-jobs', 'external-sector': 'trade-and-current-account',
+    'fiscal-and-monetary': 'government-finances', 'money-credit-and-capital-flows': 'banking-and-credit' };
+  const themeArg = route.name === 'theme' ? OLD_THEMES[route.arg] || route.arg : null;
+  const group = route.name === 'theme' ? groups.find((g) => slug(g) === themeArg) : null;
   const railRoute = { ...route, group: item?.group };
   const tradeBase = source.replace(/[^/]*$/, 'trade/');
   const dataBase = source.replace(/[^/]*$/, '');
