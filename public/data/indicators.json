@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-13T05:49:55+00:00",
+ "generated_at": "2026-11-13T13:41:44+00:00",
  "sources": {
   "mospi": {
    "status": "ok",
-   "fetched_at": "2026-11-13T05:49:55+00:00",
+   "fetched_at": "2026-11-13T13:41:44+00:00",
    "message": null
   },
   "rbi": {
@@ -20297,14 +20297,14 @@
    "change_unit": "bn",
    "id": "nri_deposits",
    "mode": "rbi",
-   "value": 83.0,
+   "value": 3.7,
    "unit": "US$ bn",
-   "period": "Aug 2026",
-   "compare_value": 1.0,
-   "compare_period": "Aug 2025",
-   "change": 82.0,
+   "period": "Sep 2026",
+   "compare_value": 0.4,
+   "compare_period": "Sep 2025",
+   "change": 3.3,
    "source": "RBI, Developments in India's balance of payments (monthly, from April 2026)",
-   "source_url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63813",
+   "source_url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63974",
    "released": null,
    "history": [
     {
@@ -20332,6 +20332,12 @@
      "value": 1.0
     },
     {
+     "date": "2025-09-30",
+     "label": "Sep 2025",
+     "short": "Sep 25",
+     "value": 0.4
+    },
+    {
      "date": "2026-05-31",
      "label": "May 2026",
      "short": "May 26",
@@ -20354,10 +20360,16 @@
      "label": "Aug 2026",
      "short": "Aug 26",
      "value": 83.0
+    },
+    {
+     "date": "2026-09-30",
+     "label": "Sep 2026",
+     "short": "Sep 26",
+     "value": 3.7
     }
    ],
    "note": "Net inflow into NRI deposit accounts. RBI's 5 June 2026 measures on NRI deposits drew US$ 119 bn in April to August 2026, against US$ 6 bn a year earlier. Monthly figures exist only for April to August of 2025 and 2026.",
-   "updated_at": "2026-11-09T04:11:09+00:00"
+   "updated_at": "2026-11-13T13:41:44+00:00"
   },
   {
    "label": "External commercial borrowing registrations",

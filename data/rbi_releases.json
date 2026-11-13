@@ -7214,6 +7214,33 @@
     "iesh": "24089",
     "obicus": "24087"
    }
+  },
+  "63974": {
+   "kind": "bop_month",
+   "title": "Developments in India’s Balance of Payments for the Month of September 2026",
+   "date": "Nov 13, 2026",
+   "data": {
+    "2025-09": {
+     "current_account": -5.2,
+     "goods": -33.4,
+     "services": 18.8,
+     "transfers": 11.5,
+     "income": -2.2,
+     "fdi": -2.3,
+     "fpi": -0.6,
+     "nri_deposits": 0.4
+    },
+    "2026-09": {
+     "current_account": -7.4,
+     "goods": -30.0,
+     "services": 19.2,
+     "transfers": 10.9,
+     "income": -7.6,
+     "fdi": -4.9,
+     "fpi": -6.7,
+     "nri_deposits": 3.7
+    }
+   }
   }
  },
  "fetched_at": "2026-11-13"
