@@ -6,20 +6,23 @@ import { signed } from '../format.js';
 const cache = new Map();
 
 // Fetches a trade JSON file once per visit; components share the result.
+// The result is tied to its URL, so after a switch (calendar to financial year)
+// the previous file's data is never shown under the new address.
 export function useTradeFile(url) {
-  const [state, setState] = useState(() => (cache.has(url) ? { data: cache.get(url), error: null } : { data: null, error: null }));
+  const [state, setState] = useState(() => ({ url, data: cache.get(url) ?? null, error: null }));
   useEffect(() => {
     if (!url) return undefined;
-    if (cache.has(url)) { setState({ data: cache.get(url), error: null }); return undefined; }
+    if (cache.has(url)) { setState({ url, data: cache.get(url), error: null }); return undefined; }
     let live = true;
-    setState({ data: null, error: null });
+    setState({ url, data: null, error: null });
     fetch(url)
       .then((r) => { if (!r.ok) throw new Error(`${r.status}`); return r.json(); })
-      .then((d) => { cache.set(url, d); if (live) setState({ data: d, error: null }); })
-      .catch((e) => { if (live) setState({ data: null, error: e.message }); });
+      .then((d) => { cache.set(url, d); if (live) setState({ url, data: d, error: null }); })
+      .catch((e) => { if (live) setState({ url, data: null, error: e.message }); });
     return () => { live = false; };
   }, [url]);
-  return state;
+  if (state.url !== url) return { data: cache.get(url) ?? null, error: null };
+  return { data: state.data, error: state.error };
 }
 
 // US$ million in, readable money out: "US$ 92.3 bn", "US$ 415 mn", "US$ 0.8 mn".
@@ -184,7 +187,8 @@ export function PeriodSwitch({ periods, value, onChange, label = 'Period', missi
 // monthly series (scripts/build_indicators.py writes fy_totals.json). The
 // partner and product detail on the trade pages stays calendar-year.
 export function FyTotals({ base }) {
-  const { data: f } = useTradeFile(`${base}fy_totals.json`);
+  // fy_totals.json sits in the main trade folder, whichever year basis the page shows.
+  const { data: f } = useTradeFile(`${base.replace(/fy\/$/, '')}fy_totals.json`);
   if (!f?.periods?.length) return null;
   const show = (p) => p.replace(' Apr-', '\nApr–');
   const periods = f.periods.map(show);
