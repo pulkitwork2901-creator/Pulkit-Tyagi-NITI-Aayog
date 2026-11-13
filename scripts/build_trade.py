@@ -198,6 +198,15 @@ def label(h: str, d: str) -> str:
     return f"{d} ({head}, heading {h[:4]})" if head else f"{d} (heading {h[:4]})"
 
 
+# A full year is "2025" (calendar) or "2025-26" (financial); anything with more text,
+# such as "2026 Jan-Aug" or "2026-27 Apr-Aug", is a part year.
+FULL_YEAR = re.compile(r"\d{4}(-\d{2})?")
+
+
+def is_full(p: str) -> bool:
+    return bool(FULL_YEAR.fullmatch(p))
+
+
 def code_breaks(by_prod: dict, order: list, missing: list) -> dict:
     """Years in which an HS 8-digit line's change on the year before is not like for like.
 
@@ -206,7 +215,7 @@ def code_breaks(by_prod: dict, order: list, missing: list) -> dict:
     was born or retired that year, or if codes born or retired in the same 4-digit
     heading are worth at least a fifth of it.
     """
-    full = [p for p in order if len(p) == 4]
+    full = [p for p in order if is_full(p)]
     heads = defaultdict(list)
     for h in by_prod:
         heads[h[:4]].append(h)
@@ -259,13 +268,17 @@ def main(src: str, flow: str, out_root: Path = OUT) -> None:
                 desc[h] = r["description"].strip()
     desc = {h: label(h, clean(d)) for h, d in desc.items()}
 
-    years = sorted(p for p in periods if len(p) == 4)
+    years = sorted(p for p in periods if is_full(p))
     if not years:
-        raise ValueError("trade input must contain at least one full calendar year")
-    missing = [str(y) for y in range(int(years[0]), int(years[-1]) + 1) if str(y) not in periods]
+        raise ValueError("trade input must contain at least one full calendar or financial year")
+    fy = "-" in years[0]
+    if any(("-" in y) != fy for y in years):
+        raise ValueError("trade input mixes calendar and financial years; build them separately")
+    name = (lambda y: f"{y}-{str(y + 1)[2:]}") if fy else str
+    missing = [name(y) for y in range(int(years[0][:4]), int(years[-1][:4]) + 1) if name(y) not in periods]
     periods |= set(missing)
     order = sorted(periods, key=lambda p: (p[:4], len(p)))      # "2026 Jan-Aug" after "2025"
-    full = [p for p in order if len(p) == 4 and p not in missing]
+    full = [p for p in order if is_full(p) and p not in missing]
     latest_full = full[-1]
     vec = lambda d: [None if p in missing else mn(d.get(p, 0)) for p in order]
     breaks = code_breaks(by_prod, order, missing)
@@ -289,7 +302,7 @@ def main(src: str, flow: str, out_root: Path = OUT) -> None:
 
     summary = {
         "flow": flow, "unit": "US$ million", "source": SOURCES[flow],
-        "periods": order, "partial": [p for p in order if len(p) > 4], "missing": missing, "latest_full": latest_full,
+        "periods": order, "partial": [p for p in order if not is_full(p)], "missing": missing, "basis": "financial" if fy else "calendar", "latest_full": latest_full,
         "total": vec(total),
         "partners": [None if p in missing else sum(1 for c in by_cty if by_cty[c].get(p, 0) > 0) for p in order],
         "top10_partner_share": share_top(by_cty), "top10_product_share": share_top(by_prod),

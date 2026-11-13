@@ -29,7 +29,7 @@ export const FLOWS = {
     neutral: true, example: 'e.g. China, crude, gold, 8542',
   },
 };
-const nice = (p) => p.replace(' Jan-', ' Jan–');
+const nice = (p) => p.replace(' Jan-', ' Jan–').replace(' Apr-', ' Apr–');
 
 function readPeriod(periods, fallback) {
   try {
@@ -186,7 +186,7 @@ function Overview({ d, base, F }) {
   return (
     <div className="eb-dash">
       <Hero kicker={`Trade · DGCI&S ${F.bank}`} title={F.title} missing={missing}
-        sub={`Merchandise ${F.noun}, US$, HS 8-digit by country. Calendar years ${full[0]} to ${full[full.length - 1]}${d.partial.length ? ` and ${d.partial.map(nice).join(', ')}` : ''}.${missing.length ? ` ${missing.join(', ')} not yet uploaded.` : ''}`}
+        sub={`Merchandise ${F.noun}, US$, HS 8-digit by country. ${d.basis === 'financial' ? 'Financial years (April to March)' : 'Calendar years'} ${full[0]} to ${full[full.length - 1]}${d.partial.length ? ` and ${d.partial.map(nice).join(', ')}` : ''}.${missing.length ? ` ${missing.join(', ')} not yet uploaded.` : ''}`}
         periods={d.periods} period={period} onPeriod={setPeriod}>
         {partial ? (
           <>In <strong>{nice(period)}</strong> India {F.verb} <strong>{money(total)}</strong> of goods {F.dir} {d.partners[i]} {F.partners}. </>
@@ -196,7 +196,7 @@ function Overview({ d, base, F }) {
         {top && <><strong>{top.name}</strong> {F.key === 'exports' ? 'took' : 'supplied'} {(((top.v[i] || 0) / total) * 100).toFixed(1)}%, and the ten largest {F.key === 'exports' ? 'markets' : 'suppliers'} {d.top10_partner_share[i].toFixed(1)}% between them. </>}
         {topProd && <>The largest single product line was <strong>{topProd.desc.toLowerCase()}</strong> at {money(topProd.v[i])}. </>}
         {!partial && fi >= 0 && i > fi && <>Since {first}, {F.noun} have grown {(((total / d.total[fi]) ** (1 / (i - fi)) - 1) * 100).toFixed(1)}% a year on average.</>}
-        {partial && <span className="eb-tr-flag"> Eight months only: not comparable with full years.</span>}
+        {partial && <span className="eb-tr-flag"> Part year only: not comparable with full years.</span>}
         {prevMissing && <span className="eb-tr-flag"> {d.periods[i - 1]} not yet uploaded, so no change on the year before.</span>}
       </Hero>
 
@@ -211,7 +211,7 @@ function Overview({ d, base, F }) {
       </ul>
 
       <div className="eb-tr-grid">
-        <Card title={`${F.Noun} by calendar year`} icon="trade" note={`US$. Hatched: ${d.partial.map(nice).join(', ') || 'none'}, part year.${missing.length ? ` Outline: ${missing.join(', ')}, not yet uploaded.` : ''}`}>
+        <Card title={`${F.Noun} by ${d.basis === 'financial' ? 'financial year' : 'calendar year'}`} icon="trade" note={`US$.${d.partial.length ? ` Hatched: ${d.partial.map(nice).join(', ')}, part year.` : ''}${missing.length ? ` Outline: ${missing.join(', ')}, not yet uploaded.` : ''}`}>
           <YearColumns periods={d.periods} v={d.total} partial={d.partial} missing={missing} height={190} />
         </Card>
         <Card title="By product group" icon="wholesale" note={`HS 2-digit chapters, ${nice(period)}. Top 10 of ${d.chapters.length}.`}>
@@ -228,7 +228,7 @@ function Overview({ d, base, F }) {
         </Card>
       </div>
 
-      <FyTotals base={base} />
+      {d.basis !== 'financial' && <FyTotals base={base} />}
 
       <Card title={`${F.key === 'exports' ? 'Who gained and lost' : 'Biggest changes'}${partial || prevMissing ? '' : `, ${period} vs ${d.periods[i - 1]}`}`} icon="growth" wide>
         {partial || prevMissing || i < 1 ? (
@@ -377,11 +377,43 @@ function ProductView({ d, base, hs8, F }) {
   );
 }
 
+// Calendar year (DGCI&S January-December downloads) or financial year (April-March
+// downloads in trade/fy/); the choice is remembered for the visit.
+function readBasis() {
+  try { return sessionStorage.getItem('eb-trade-basis') === 'fy' ? 'fy' : 'cal'; } catch { return 'cal'; }
+}
+
+function BasisSwitch({ basis, onChange }) {
+  return (
+    <div className="eb-basis eb-noprint">
+      <span className="eb-basis-label">Show figures by</span>
+      <div className="eb-range" role="group" aria-label="Calendar or financial year">
+        <button type="button" aria-pressed={basis === 'cal'} onClick={() => onChange('cal')}>Calendar year</button>
+        <button type="button" aria-pressed={basis === 'fy'} onClick={() => onChange('fy')}>Financial year</button>
+      </div>
+    </div>
+  );
+}
+
 export default function TradePage({ base, flow = 'exports', view, arg }) {
   const F = FLOWS[flow] || FLOWS.exports;
-  const { data: d, error } = useTradeFile(`${base}${F.key}.json`);
-  if (!d) return <Waiting error={error} what={`${F.noun} data`} />;
-  if (view === 'country' && arg) return <CountryView key={`${flow}-${arg}`} d={d} base={base} id={arg} F={F} />;
-  if (view === 'product' && arg) return <ProductView key={`${flow}-${arg}`} d={d} base={base} hs8={arg} F={F} />;
-  return <Overview key={flow} d={d} base={base} F={F} />;
+  const [basis, setBasis] = useState(readBasis);
+  const choose = (b) => { setBasis(b); try { sessionStorage.setItem('eb-trade-basis', b); } catch { /* keep in memory */ } };
+  const src = basis === 'fy' ? `${base}fy/` : base;
+  const { data: d, error } = useTradeFile(`${src}${F.key}.json`);
+  const switcher = <BasisSwitch basis={basis} onChange={choose} />;
+  if (!d && error && basis === 'fy') {
+    return (
+      <>
+        {switcher}
+        <div className="eb-dash"><p className="eb-empty">Financial-year detail for {F.noun} has not been uploaded yet. India's total {F.noun} by financial year are on the calendar-year view, in the card "India's exports and imports by financial year".</p></div>
+      </>
+    );
+  }
+  if (!d) return <>{switcher}<Waiting error={error} what={`${F.noun} data`} /></>;
+  let page;
+  if (view === 'country' && arg) page = <CountryView key={`${flow}-${basis}-${arg}`} d={d} base={src} id={arg} F={F} />;
+  else if (view === 'product' && arg) page = <ProductView key={`${flow}-${basis}-${arg}`} d={d} base={src} hs8={arg} F={F} />;
+  else page = <Overview key={`${flow}-${basis}`} d={d} base={src} F={F} />;
+  return <>{switcher}{page}</>;
 }

@@ -72,11 +72,16 @@ with gzip.open(out, "wt", newline="", encoding="utf-8") as f:
                             num(r[5], p, row_number, "value")])
                 n += 1
         else:
+            # Calendar-year files run "January, YY To December, YY"; financial-year
+            # files run "April, YY To March, YY+1" and are labelled "20YY-YY+1".
+            fy = re.search(r"April, (\d\d) To March, (\d\d)", " ".join(hdr))
             match = re.search(r"December, (\d\d)", " ".join(hdr))
-            if not match:
-                sys.exit(f"{p.name}: could not determine calendar year from the header")
-            yy = match.group(1)
-            period = f"20{yy}"
+            if fy:
+                period = f"20{fy.group(1)}-{fy.group(2)}"
+            elif match:
+                period = f"20{match.group(1)}"
+            else:
+                sys.exit(f"{p.name}: could not determine the calendar or financial year from the header")
             for row_number, r in enumerate(cells[hi + 1:], hi + 2):
                 if not any(r):
                     continue

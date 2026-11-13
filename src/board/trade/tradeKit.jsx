@@ -35,8 +35,12 @@ export function money(mn, { short = false } = {}) {
 // Growth on the previous period, or null when it cannot be compared:
 // partial periods (e.g. "2026 Jan-Aug") are never compared with full years.
 // Returns NaN when the HS 8-digit code was revised that year (see build_trade.py).
+// A full year is "2025" (calendar) or "2025-26" (financial); "2026 Jan-Aug" or
+// "2026-27 Apr-Aug" is a part year.
+export const isFullYear = (p) => /^\d{4}(-\d{2})?$/.test(p);
+
 export function growth(v, i, periods, breaks) {
-  if (i < 1 || periods[i].length > 4 || periods[i - 1].length > 4) return null;
+  if (i < 1 || !isFullYear(periods[i]) || !isFullYear(periods[i - 1])) return null;
   if (breaks && breaks.includes(periods[i])) return NaN;
   const a = v[i - 1];
   const b = v[i];
@@ -133,7 +137,7 @@ export function YearColumns({ periods, v, partial = [], missing = [], height = 1
         <div key={p} className={`eb-col${partial.includes(p) ? ' eb-col-partial' : ''}`}>
           <span className="eb-col-val">{money(v[i], { short: true })}</span>
           <i style={{ height: `${((v[i] || 0) / max) * 100}%` }} />
-          <span className="eb-col-lab">{p.replace(' Jan-', '\nJan–')}</span>
+          <span className="eb-col-lab">{p.replace(' Jan-', '\nJan–').replace(' Apr-', '\nApr–')}</span>
         </div>
       )))}
     </div>
@@ -169,7 +173,7 @@ export function PeriodSwitch({ periods, value, onChange, label = 'Period', missi
       {periods.map((p) => (
         <button key={p} type="button" aria-pressed={value === p} onClick={() => onChange(p)}
           disabled={missing.includes(p)} title={missing.includes(p) ? `${p} data not uploaded yet` : undefined}>
-          {p.replace(' Jan-', ' Jan–')}
+          {p.replace(' Jan-', ' Jan–').replace(' Apr-', ' Apr–')}
         </button>
       ))}
     </div>

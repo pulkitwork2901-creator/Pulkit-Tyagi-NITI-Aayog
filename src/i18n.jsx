@@ -15,6 +15,8 @@ const EXACT = {
   "India's exports and imports by financial year (April to March)": 'वित्त वर्ष के अनुसार भारत का निर्यात और आयात (अप्रैल से मार्च)',
   'Exports and imports by calendar year': 'कैलेंडर वर्ष के अनुसार निर्यात और आयात',
   'Financial year': 'वित्त वर्ष',
+  'Calendar year': 'कैलेंडर वर्ष',
+  'Show figures by': 'आंकड़े दिखाएँ',
   'States and union territories': 'राज्य और केंद्र शासित प्रदेश',
   'Exports by year, all states': 'वर्षवार निर्यात, सभी राज्य',
   "State figures against India's total": 'राज्यों के आंकड़े बनाम भारत का कुल',

@@ -106,7 +106,16 @@ The partner, product and state detail on the trade pages is by **calendar year**
 
 **India's total exports, imports and balance by financial year** (April to March, from 2018-19) appear on the exports, imports and trade balance pages. `scripts/build_indicators.py` sums them from the monthly series (RBI DBIE's full history, with the newest month from Commerce's release) into `public/data/trade/fy_totals.json`. The current year is shown as a part year (for example "2026-27 Apr-Sep") and compared with the same months a year earlier. The sums match Commerce's published annual totals (for example exports of US$ 437.07 bn in 2023-24).
 
-Partner, product or state detail by financial year would need DGCI&S downloads for April-to-March periods.
+**Exports by partner and product are also available by financial year**: the trade pages have a "Calendar year / Financial year" switch. The financial-year files live in `public/data/trade/fy/` (2023-24 to 2025-26 so far), built from DGCI&S downloads for April-to-March periods. Their totals match the official financial-year exports exactly (US$ 437.07 bn, 437.70 bn and 441.45 bn). Imports and state-wise data by financial year are not uploaded yet; the switch says so on those pages.
+
+To add or refresh financial-year data, put every .xls file of the April-to-March downloads in one folder and run:
+
+```bash
+python3 scripts/trade_combine.py path/to/fy_xls exports_fy.csv.gz
+python3 scripts/build_trade.py exports_fy.csv.gz exports public/data/trade/fy
+```
+
+`trade_combine.py` reads "April, YY To March, YY" headings and labels the year "2023-24"; `build_trade.py` treats "2023-24" as a full year (and anything with more text, such as "2026-27 Apr-Aug", as a part year). Build calendar and financial years separately; the script refuses to mix them.
 
 ## Exports by state of origin (DGCI&S)
 
