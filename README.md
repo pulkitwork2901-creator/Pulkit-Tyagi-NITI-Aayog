@@ -106,7 +106,7 @@ The partner, product and state detail on the trade pages is by **calendar year**
 
 **India's total exports, imports and balance by financial year** (April to March, from 2018-19) appear on the exports, imports and trade balance pages. `scripts/build_indicators.py` sums them from the monthly series (RBI DBIE's full history, with the newest month from Commerce's release) into `public/data/trade/fy_totals.json`. The current year is shown as a part year (for example "2026-27 Apr-Sep") and compared with the same months a year earlier. The sums match Commerce's published annual totals (for example exports of US$ 437.07 bn in 2023-24).
 
-**Exports by partner and product are also available by financial year**: the trade pages have a "Calendar year / Financial year" switch. The financial-year files live in `public/data/trade/fy/` (2023-24 to 2025-26 so far), built from DGCI&S downloads for April-to-March periods. Their totals match the official financial-year exports exactly (US$ 437.07 bn, 437.70 bn and 441.45 bn). Imports and state-wise data by financial year are not uploaded yet; the switch says so on those pages.
+**Exports by partner and product are also available by financial year**: the trade pages have a "Calendar year / Financial year" switch. The financial-year files live in `public/data/trade/fy/` (2021-22 to 2025-26), built from DGCI&S downloads for April-to-March periods. Their totals match the official financial-year exports exactly (US$ 437.07 bn, 437.70 bn and 441.45 bn). Imports and state-wise data by financial year are not uploaded yet; the switch says so on those pages.
 
 To add or refresh financial-year data, put every .xls file of the April-to-March downloads in one folder and run:
 
