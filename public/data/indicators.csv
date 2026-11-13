@@ -743,7 +743,7 @@ crude_basket,Crude oil price (Indian basket),Prices and inflation,Jul 2026,2026-
 crude_basket,Crude oil price (Indian basket),Prices and inflation,Aug 2026,2026-08-31,90.19,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
 crude_basket,Crude oil price (Indian basket),Prices and inflation,Sep 2026,2026-09-30,116.09,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
 crude_basket,Crude oil price (Indian basket),Prices and inflation,Oct 2026,2026-10-31,119.91,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
-crude_basket,Crude oil price (Indian basket),Prices and inflation,Nov 2026 (to date),2026-11-30,97.19,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
+crude_basket,Crude oil price (Indian basket),Prices and inflation,Nov 2026 (to date),2026-11-30,96.44,US$ per barrel,"PPAC, Crude Oil FOB Price (Indian Basket)"
 crude_basket_inr,Crude oil price in rupees,Prices and inflation,Nov 2021,2021-11-30,6055,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
 crude_basket_inr,Crude oil price in rupees,Prices and inflation,Dec 2021,2021-12-31,5446,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
 crude_basket_inr,Crude oil price in rupees,Prices and inflation,Jan 2022,2022-01-31,6347,₹ per barrel,PPAC Indian basket (US$) x RBI reference rate (month end)
