@@ -235,3 +235,34 @@ export function FyTotals({ base }) {
     </section>
   );
 }
+
+// Calendar year (DGCI&S January-December downloads, in trade/) or financial year
+// (April-March downloads, in trade/fy/). One choice for the exports, imports and
+// trade balance pages, remembered for the visit.
+export function readBasis() {
+  try { return sessionStorage.getItem('eb-trade-basis') === 'fy' ? 'fy' : 'cal'; } catch { return 'cal'; }
+}
+export function saveBasis(b) {
+  try { sessionStorage.setItem('eb-trade-basis', b); } catch { /* keep in memory */ }
+}
+export function useBasis() {
+  const [basis, setBasis] = useState(readBasis);
+  return [basis, (b) => { setBasis(b); saveBasis(b); }];
+}
+
+export function YearBasis({ basis, onChange }) {
+  const opt = (key, title, sub) => (
+    <button type="button" className="eb-yb-opt" aria-pressed={basis === key} onClick={() => onChange(key)}>
+      <b>{title}</b><span>{sub}</span>
+    </button>
+  );
+  return (
+    <section className="eb-yb eb-noprint" aria-label="Year basis for the trade figures">
+      <p className="eb-yb-q">Show the trade figures by</p>
+      <div className="eb-yb-opts" role="group">
+        {opt('cal', 'Calendar year', 'January to December')}
+        {opt('fy', 'Financial year', 'April to March')}
+      </div>
+    </section>
+  );
+}

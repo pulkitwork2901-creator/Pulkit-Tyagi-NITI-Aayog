@@ -106,16 +106,16 @@ The partner, product and state detail on the trade pages is by **calendar year**
 
 **India's total exports, imports and balance by financial year** (April to March, from 2018-19) appear on the exports, imports and trade balance pages. `scripts/build_indicators.py` sums them from the monthly series (RBI DBIE's full history, with the newest month from Commerce's release) into `public/data/trade/fy_totals.json`. The current year is shown as a part year (for example "2026-27 Apr-Sep") and compared with the same months a year earlier. The sums match Commerce's published annual totals (for example exports of US$ 437.07 bn in 2023-24).
 
-**Exports by partner and product are also available by financial year**: the trade pages have a "Calendar year / Financial year" switch. The financial-year files live in `public/data/trade/fy/` (2021-22 to 2025-26), built from DGCI&S downloads for April-to-March periods. Their totals match the official financial-year exports exactly (US$ 437.07 bn, 437.70 bn and 441.45 bn). Imports and state-wise data by financial year are not uploaded yet; the switch says so on those pages.
+**Exports, imports and the trade balance are available by calendar year and by financial year.** Each of the three trade pages opens with a choice, "Calendar year (January to December)" or "Financial year (April to March)"; the choice carries across the three pages for the visit. Financial-year files live in `public/data/trade/fy/`: 2021-22 to 2025-26 and 2026-27 April to August for both exports and imports. Full years match India's official financial-year totals exactly (exports US$ 422.00 to 441.45 bn; imports US$ 613.05 to 775.71 bn), and April to August 2026 matches the monthly figures to within 0.1%. Exports by state are calendar-year only.
 
-To add or refresh financial-year data, put every .xls file of the April-to-March downloads in one folder and run:
+To add or refresh financial-year data, put every .xls file of the April-to-March downloads for one flow in one folder and run:
 
 ```bash
-python3 scripts/trade_combine.py path/to/fy_xls exports_fy.csv.gz
+python3 scripts/trade_combine.py path/to/fy_xls exports_fy.csv.gz "2026-27 Apr-Aug"
 python3 scripts/build_trade.py exports_fy.csv.gz exports public/data/trade/fy
 ```
 
-`trade_combine.py` reads "April, YY To March, YY" headings and labels the year "2023-24"; `build_trade.py` treats "2023-24" as a full year (and anything with more text, such as "2026-27 Apr-Aug", as a part year). Build calendar and financial years separately; the script refuses to mix them.
+`trade_combine.py` reads both kinds of DGCI&S download: "data query" files with "April, YY To March, YY" headings (one year each), and "yearly time series" files, which can hold several years side by side ("2022-23 Value($)", "2023-24 Value($)", ...). The last argument names the part year; check it against the monthly totals, because the yearly time series heading does not say which months it covers. `build_trade.py` treats "2023-24" as a full year and anything with more text as a part year. Build calendar and financial years separately; the script refuses to mix them.
 
 ## Exports by state of origin (DGCI&S)
 

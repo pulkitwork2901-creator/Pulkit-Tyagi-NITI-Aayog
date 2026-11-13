@@ -1,13 +1,13 @@
 import { useMemo, useState } from 'react';
 import Icon from '../dashboard/Icon.jsx';
-import { FyTotals, PairColumns, PeriodSwitch, money, useTradeFile } from '../trade/tradeKit.jsx';
+import { FyTotals, PairColumns, PeriodSwitch, YearBasis, isFullYear, money, useBasis, useTradeFile } from '../trade/tradeKit.jsx';
 
 // Merchandise trade balance by partner: DGCI&S exports minus imports, joined
 // on the board's country ids. Only periods present in both flows are shown;
 // a year missing from either flow is a gap, never zero.
 
 const TOP = 15;
-const nice = (p) => p.replace(' Jan-', ' Jan–');
+const nice = (p) => p.replace(' Jan-', ' Jan–').replace(' Apr-', ' Apr–');
 
 function Card({ title, icon, note, children, aside }) {
   return (
@@ -62,13 +62,16 @@ function readPeriod(periods, fallback) {
 }
 
 export default function BalancePage({ base }) {
-  const { data: ex, error: e1 } = useTradeFile(`${base}exports.json`);
-  const { data: im, error: e2 } = useTradeFile(`${base}imports.json`);
+  const [basis, chooseBasis] = useBasis();
+  const fy = basis === 'fy';
+  const src = fy ? `${base}fy/` : base;
+  const { data: ex, error: e1 } = useTradeFile(`${src}exports.json`);
+  const { data: im, error: e2 } = useTradeFile(`${src}imports.json`);
   const ready = ex && im;
   const periods = ready ? ex.periods.filter((p) => im.periods.includes(p)) : [];
   const missing = ready ? periods.filter((p) => (ex.missing || []).includes(p) || (im.missing || []).includes(p)) : [];
   const usable = periods.filter((p) => !missing.includes(p));
-  const latestFull = [...usable].reverse().find((p) => p.length === 4);
+  const latestFull = [...usable].reverse().find(isFullYear);
   const [chosen, setChosen] = useState(null);
   const period = chosen && usable.includes(chosen) ? chosen : (ready ? readPeriod(usable, latestFull) : null);
   const choose = (p) => {
@@ -90,10 +93,12 @@ export default function BalancePage({ base }) {
     return [...ids.values()].map((r) => ({ ...r, b: r.x - r.m }));
   }, [ready, ex, im, period]);
 
-  if (e1 || e2) return <div className="eb-dash"><p className="eb-empty">Could not load trade data ({e1 || e2}).</p></div>;
+  const switcher = <YearBasis basis={basis} onChange={chooseBasis} />;
+  if (e1 || e2) return <>{switcher}<div className="eb-dash"><p className="eb-empty">Could not load {fy ? 'financial-year ' : ''}trade data ({e1 || e2}).</p></div></>;
   if (!ready) {
     return (
       <div className="eb-dash" aria-busy="true">
+        {switcher}
         <div className="eb-skel-hero" />
         <div className="eb-skel-row">{[0, 1, 2, 3, 4, 5].map((i) => <div key={i} className="eb-skel-tile" />)}</div>
       </div>
@@ -108,19 +113,20 @@ export default function BalancePage({ base }) {
   const surplus = rows.filter((r) => r.b > 0).sort((a, b) => b.b - a.b);
   const deficit = rows.filter((r) => r.b < 0).sort((a, b) => a.b - b.b);
   const max = Math.max(...rows.map((r) => Math.abs(r.b)), 1);
-  const partial = period.length > 4;
+  const partial = !isFullYear(period);
   const top3def = deficit.slice(0, 3).reduce((s, r) => s + r.b, 0);
   const xs = periods.map((p) => (missing.includes(p) ? null : ex.total[ex.periods.indexOf(p)]));
   const ms = periods.map((p) => (missing.includes(p) ? null : im.total[im.periods.indexOf(p)]));
 
   return (
     <div className="eb-dash">
+      {switcher}
       <header className="eb-hero eb-tr-hero">
         <div className="eb-hero-top">
           <div>
             <p className="eb-hero-kicker">Trade · DGCI&amp;S export and import data banks</p>
             <h1>Merchandise trade balance by partner</h1>
-            <p className="eb-hero-asof">Merchandise exports minus imports, US$, by country.{missing.length ? ` ${missing.join(', ')}: import or export files not yet uploaded.` : ''}</p>
+            <p className="eb-hero-asof">Merchandise exports minus imports, US$, by country. {fy ? 'Financial years (April to March).' : 'Calendar years (January to December).'}{missing.length ? ` ${missing.join(', ')}: import or export files not yet uploaded.` : ''}</p>
           </div>
           <PeriodSwitch periods={periods} value={period} onChange={choose} label="Year shown" missing={missing} />
         </div>
@@ -128,7 +134,7 @@ export default function BalancePage({ base }) {
           In <strong>{nice(period)}</strong> India ran a merchandise trade {B >= 0 ? 'surplus' : 'deficit'} of <strong>{money(Math.abs(B))}</strong>: exports of {money(X)} against imports of {money(M)}.{' '}
           {deficit[0] && <>The largest deficit was with <strong>{deficit[0].name}</strong> ({money(Math.abs(deficit[0].b))}), and the three largest deficits together came to {money(Math.abs(top3def))}. </>}
           {surplus[0] && <>The largest surplus was with <strong>{surplus[0].name}</strong> ({money(surplus[0].b)}).</>}
-          {partial && <span className="eb-tr-flag"> Eight months only.</span>}
+          {partial && <span className="eb-tr-flag"> Part year only: not comparable with full years.</span>}
         </p>
       </header>
 
@@ -141,13 +147,13 @@ export default function BalancePage({ base }) {
         <Stat icon="reserves" label="Largest deficit" value={deficit[0]?.name} sub={deficit[0] && `−${money(Math.abs(deficit[0].b))}`} />
       </ul>
 
-      <Card title="Exports and imports by calendar year" icon="trade"
+      <Card title={`Exports and imports by ${fy ? 'financial' : 'calendar'} year`} icon="trade"
         note={`US$. Left bar exports, right bar imports; the figure above each pair is the balance. Hatched: part year.${missing.length ? ` Outline: ${missing.join(', ')}, not yet uploaded.` : ''}`}>
         <div className="eb-pair-legend" aria-hidden="true"><span><i className="eb-pair-x" />Exports</span><span><i className="eb-pair-m" />Imports</span></div>
-        <PairColumns periods={periods} x={xs} m={ms} partial={periods.filter((p) => p.length > 4)} missing={missing} height={200} />
+        <PairColumns periods={periods} x={xs} m={ms} partial={periods.filter((p) => !isFullYear(p))} missing={missing} height={200} />
       </Card>
 
-      <FyTotals base={base} />
+      {!fy && <FyTotals base={base} />}
 
       <div className="eb-tr-grid">
         <Card title="Largest deficits" icon="wholesale" note={`${nice(period)}. Partners India buys more from than it sells to.`}>

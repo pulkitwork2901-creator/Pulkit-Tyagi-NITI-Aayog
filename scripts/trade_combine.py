@@ -56,21 +56,36 @@ with gzip.open(out, "wt", newline="", encoding="utf-8") as f:
         hdr = cells[hi]
         if "yearlytimeseries" in p.name:
             if not ytd_label:
-                sys.exit("Year-to-date files found: pass their period label, e.g. \"2026 Jan-Aug\"")
-            period = ytd_label
+                sys.exit("Year-to-date files found: pass their period label, e.g. \"2026 Jan-Aug\" or \"2026-27 Apr-Aug\"")
+            # Yearly time series: country, HS code, description, then three columns per
+            # year ("2023-24 Unit", "2023-24 Qty", "2023-24 Value($)"). A file can hold
+            # several years. The year matching ytd_label is the part year; the others are
+            # full years. Older one-year downloads have no year in the heading.
+            years = []
+            for j, h in enumerate(hdr):
+                m = re.match(r"(\d{4}(?:-\d{2})?)\s+Value", h)
+                if m:
+                    years.append((m.group(1), j))
+            if not years:
+                years = [(None, 5)]
+            label = lambda y: ytd_label if y is None or ytd_label.split(" ")[0] == y else y
             for row_number, r in enumerate(cells[hi + 1:], hi + 2):
                 if not any(r):
                     continue
-                if len(r) < 6:
-                    sys.exit(f"{p.name}: row {row_number} has {len(r)} columns; expected at least 6")
+                if len(r) < max(vc for _, vc in years) + 1:
+                    sys.exit(f"{p.name}: row {row_number} has {len(r)} columns; expected {max(vc for _, vc in years) + 1}")
                 hs8 = r[1].split(".")[0].zfill(8)
-                key = (period, r[0], hs8)
-                if key in seen:
-                    sys.exit(f"Duplicate DGCI&S slice row: {p.name}, {key}")
-                seen.add(key)
-                w.writerow([period, r[0], hs8, r[2], r[3], num(r[4], p, row_number, "quantity"),
-                            num(r[5], p, row_number, "value")])
-                n += 1
+                for y, vc in years:
+                    value = num(r[vc], p, row_number, "value")
+                    if not value and len(years) > 1:
+                        continue  # a multi-year file lists every country-product pair in every year
+                    period = label(y)
+                    key = (period, r[0], hs8)
+                    if key in seen:
+                        sys.exit(f"Duplicate DGCI&S slice row: {p.name}, {key}")
+                    seen.add(key)
+                    w.writerow([period, r[0], hs8, r[2], r[vc - 2], num(r[vc - 1], p, row_number, "quantity"), value])
+                    n += 1
         else:
             # Calendar-year files run "January, YY To December, YY"; financial-year
             # files run "April, YY To March, YY+1" and are labelled "20YY-YY+1".

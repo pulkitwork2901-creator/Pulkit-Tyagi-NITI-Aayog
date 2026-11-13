@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import Icon from '../dashboard/Icon.jsx';
-import { BarList, FyTotals, GrowthPill, PeriodSwitch, YearColumns, growth, money, useTradeFile } from '../trade/tradeKit.jsx';
+import { BarList, FyTotals, GrowthPill, PeriodSwitch, YearBasis, YearColumns, growth, money, useBasis, useTradeFile } from '../trade/tradeKit.jsx';
 
 // Exports or imports by partner and product from DGCI&S HS 8-digit country
 // data. Three views share one period switch: overview, one country, one
@@ -377,31 +377,12 @@ function ProductView({ d, base, hs8, F }) {
   );
 }
 
-// Calendar year (DGCI&S January-December downloads) or financial year (April-March
-// downloads in trade/fy/); the choice is remembered for the visit.
-function readBasis() {
-  try { return sessionStorage.getItem('eb-trade-basis') === 'fy' ? 'fy' : 'cal'; } catch { return 'cal'; }
-}
-
-function BasisSwitch({ basis, onChange }) {
-  return (
-    <div className="eb-basis eb-noprint">
-      <span className="eb-basis-label">Show figures by</span>
-      <div className="eb-range" role="group" aria-label="Calendar or financial year">
-        <button type="button" aria-pressed={basis === 'cal'} onClick={() => onChange('cal')}>Calendar year</button>
-        <button type="button" aria-pressed={basis === 'fy'} onClick={() => onChange('fy')}>Financial year</button>
-      </div>
-    </div>
-  );
-}
-
 export default function TradePage({ base, flow = 'exports', view, arg }) {
   const F = FLOWS[flow] || FLOWS.exports;
-  const [basis, setBasis] = useState(readBasis);
-  const choose = (b) => { setBasis(b); try { sessionStorage.setItem('eb-trade-basis', b); } catch { /* keep in memory */ } };
+  const [basis, choose] = useBasis();
   const src = basis === 'fy' ? `${base}fy/` : base;
   const { data: d, error } = useTradeFile(`${src}${F.key}.json`);
-  const switcher = <BasisSwitch basis={basis} onChange={choose} />;
+  const switcher = <YearBasis basis={basis} onChange={choose} />;
   if (!d && error && basis === 'fy') {
     return (
       <>
