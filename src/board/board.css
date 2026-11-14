@@ -827,6 +827,7 @@ a.eb-bar-row:hover .eb-bar-label { text-decoration: underline; }
 .eb-an-verdict { margin: 4px 0 8px; font-size: 14.5px; line-height: 1.55; }
 .eb-an-sub { margin: 18px 0 6px; font: 700 17px var(--eb-serif); color: var(--eb-ink); }
 .eb-an-fctable td, .eb-an-fctable th { white-space: nowrap; }
+@media (max-width: 640px) { .eb-an-modelcol { display: none; } }
 .eb-an-heat td { min-width: 52px; }
 .eb-an-heat-h span { display: inline-block; max-width: 90px; white-space: normal; font-size: 12px; line-height: 1.2; }
 .eb-an-grid1 { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; margin-bottom: 18px; }

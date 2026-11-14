@@ -40,6 +40,15 @@ function ForecastChart({ f }) {
   for (let v = lo; v <= hi + step / 2; v += step) ticks.push(Number(v.toFixed(6)));
   const months = [...hist.map((p) => p.month), ...fc.map((p) => p.month)];
   const last = hist.length - 1;
+  // Label every 6 months, or every 12 or 24 when the chart is too narrow for
+  // "Jul 2024"-width labels to sit apart (about 60px each).
+  const perMonth = (W - M.l - M.r) / (n - 1);
+  let every = 6;
+  while (every * perMonth < 60 && every < 24) every *= 2;
+  const showMonth = (m) => {
+    const mi = (Number(m.slice(0, 4)) * 12 + Number(m.slice(5, 7)) - 1);
+    return mi % every === 0;
+  };
   const histPath = hist.map((p, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(p.value).toFixed(1)}`).join('');
   const fcPath = [`M${x(last).toFixed(1)},${y(hist[last].value).toFixed(1)}`, ...fc.map((p, i) => `L${x(last + 1 + i).toFixed(1)},${y(p.value).toFixed(1)}`)].join('');
   const band = [
@@ -58,7 +67,7 @@ function ForecastChart({ f }) {
             <text x={M.l - 6} y={y(t) + 4} className="eb-an-axis" textAnchor="end">{formatValue(t, step < 1 ? 1 : 0)}</text>
           </g>
         ))}
-        {months.map((m, i) => (m.endsWith('-01') || m.endsWith('-07') ? (
+        {months.map((m, i) => (showMonth(m) ? (
           <text key={m} x={x(i)} y={H - 8} className="eb-an-axis" textAnchor="middle">{monthLabel(m)}</text>
         ) : null))}
         <line x1={x(last)} x2={x(last)} y1={M.t} y2={H - M.b} className="eb-an-now" />
@@ -94,7 +103,7 @@ function SkillTable({ rows }) {
         <caption className="eb-sr">How each model did against a simple rule</caption>
         <thead>
           <tr>
-            <th scope="col">Series</th><th scope="col">Model</th>
+            <th scope="col">Series</th><th scope="col" className="eb-an-modelcol">Model</th>
             <th scope="col" className="eb-num">1 month ahead</th><th scope="col" className="eb-num">3 months</th><th scope="col" className="eb-num">6 months</th>
             <th scope="col">Shown?</th>
           </tr>
@@ -103,7 +112,7 @@ function SkillTable({ rows }) {
           {rows.map((r) => (
             <tr key={r.id}>
               <th scope="row">{r.title}</th>
-              <td className="eb-muted">{r.model || '–'}</td>
+              <td className="eb-muted eb-an-modelcol">{r.model || '–'}</td>
               {r.backtest ? <><SkillCell b={r.backtest['1']} /><SkillCell b={r.backtest['3']} /><SkillCell b={r.backtest['6']} /></> : <td colSpan={3} className="eb-muted">{r.reason}</td>}
               <td>{r.beats_simple_rule ? <b>Yes</b> : <span className="eb-muted">No</span>}</td>
             </tr>
