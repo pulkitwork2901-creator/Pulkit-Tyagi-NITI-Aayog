@@ -1,0 +1,3711 @@
+{
+ "generated_at": "2026-11-14T18:08:57+00:00",
+ "forecasts": [
+  {
+   "id": "gst_gross",
+   "title": "Gross GST collections",
+   "unit": "₹ lakh crore a month",
+   "kind": "seasonal",
+   "model": "Seasonal ARIMA(0, 1, 0)(0,1,1)[12] on logs",
+   "fit_from": "2021-01",
+   "fit_to": "2026-10",
+   "n": 70,
+   "history": [
+    {
+     "month": "2023-11",
+     "value": 1.68
+    },
+    {
+     "month": "2023-12",
+     "value": 1.65
+    },
+    {
+     "month": "2024-01",
+     "value": 1.74
+    },
+    {
+     "month": "2024-02",
+     "value": 1.68
+    },
+    {
+     "month": "2024-03",
+     "value": 1.78
+    },
+    {
+     "month": "2024-04",
+     "value": 2.1
+    },
+    {
+     "month": "2024-05",
+     "value": 1.73
+    },
+    {
+     "month": "2024-06",
+     "value": 1.74
+    },
+    {
+     "month": "2024-07",
+     "value": 1.82
+    },
+    {
+     "month": "2024-08",
+     "value": 1.75
+    },
+    {
+     "month": "2024-09",
+     "value": 1.73
+    },
+    {
+     "month": "2024-10",
+     "value": 1.87
+    },
+    {
+     "month": "2024-11",
+     "value": 1.82
+    },
+    {
+     "month": "2024-12",
+     "value": 1.77
+    },
+    {
+     "month": "2025-01",
+     "value": 1.96
+    },
+    {
+     "month": "2025-02",
+     "value": 1.84
+    },
+    {
+     "month": "2025-03",
+     "value": 1.96
+    },
+    {
+     "month": "2025-04",
+     "value": 2.37
+    },
+    {
+     "month": "2025-05",
+     "value": 2.01
+    },
+    {
+     "month": "2025-06",
+     "value": 1.85
+    },
+    {
+     "month": "2025-07",
+     "value": 1.96
+    },
+    {
+     "month": "2025-08",
+     "value": 1.86
+    },
+    {
+     "month": "2025-09",
+     "value": 1.89
+    },
+    {
+     "month": "2025-10",
+     "value": 1.96
+    },
+    {
+     "month": "2025-11",
+     "value": 1.7
+    },
+    {
+     "month": "2025-12",
+     "value": 1.75
+    },
+    {
+     "month": "2026-01",
+     "value": 1.93
+    },
+    {
+     "month": "2026-02",
+     "value": 1.84
+    },
+    {
+     "month": "2026-03",
+     "value": 2.0
+    },
+    {
+     "month": "2026-04",
+     "value": 2.43
+    },
+    {
+     "month": "2026-05",
+     "value": 1.94
+    },
+    {
+     "month": "2026-06",
+     "value": 1.95
+    },
+    {
+     "month": "2026-07",
+     "value": 2.112
+    },
+    {
+     "month": "2026-08",
+     "value": 1.998
+    },
+    {
+     "month": "2026-09",
+     "value": 2.035
+    },
+    {
+     "month": "2026-10",
+     "value": 2.313
+    }
+   ],
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 2.14,
+     "low": 2.011,
+     "high": 2.277
+    },
+    {
+     "month": "2026-12",
+     "value": 2.151,
+     "low": 1.97,
+     "high": 2.348
+    },
+    {
+     "month": "2027-01",
+     "value": 2.342,
+     "low": 2.104,
+     "high": 2.607
+    },
+    {
+     "month": "2027-02",
+     "value": 2.23,
+     "low": 1.97,
+     "high": 2.524
+    },
+    {
+     "month": "2027-03",
+     "value": 2.398,
+     "low": 2.088,
+     "high": 2.754
+    },
+    {
+     "month": "2027-04",
+     "value": 2.88,
+     "low": 2.474,
+     "high": 3.351
+    }
+   ],
+   "backtest": {
+    "1": {
+     "model_mae": 0.058,
+     "simple_mae": 0.086,
+     "skill_pct": 32.5,
+     "tests": 29
+    },
+    "3": {
+     "model_mae": 0.079,
+     "simple_mae": 0.095,
+     "skill_pct": 17.0,
+     "tests": 27
+    },
+    "6": {
+     "model_mae": 0.109,
+     "simple_mae": 0.103,
+     "skill_pct": -5.3,
+     "tests": 24
+    }
+   },
+   "beats_simple_rule": true,
+   "filled_months": []
+  }
+ ],
+ "tested_not_published": [
+  {
+   "id": "cpi",
+   "title": "CPI inflation",
+   "unit": "% year on year",
+   "kind": "rate",
+   "model": "ARIMA(2, 1, 0)",
+   "fit_from": "2018-10",
+   "fit_to": "2026-10",
+   "n": 97,
+   "history": [
+    {
+     "month": "2023-11",
+     "value": 5.55
+    },
+    {
+     "month": "2023-12",
+     "value": 5.69
+    },
+    {
+     "month": "2024-01",
+     "value": 5.1
+    },
+    {
+     "month": "2024-02",
+     "value": 5.09
+    },
+    {
+     "month": "2024-03",
+     "value": 4.85
+    },
+    {
+     "month": "2024-04",
+     "value": 4.83
+    },
+    {
+     "month": "2024-05",
+     "value": 4.8
+    },
+    {
+     "month": "2024-06",
+     "value": 5.08
+    },
+    {
+     "month": "2024-07",
+     "value": 3.6
+    },
+    {
+     "month": "2024-08",
+     "value": 3.65
+    },
+    {
+     "month": "2024-09",
+     "value": 5.49
+    },
+    {
+     "month": "2024-10",
+     "value": 6.21
+    },
+    {
+     "month": "2024-11",
+     "value": 5.48
+    },
+    {
+     "month": "2024-12",
+     "value": 5.22
+    },
+    {
+     "month": "2025-01",
+     "value": 4.26
+    },
+    {
+     "month": "2025-02",
+     "value": 3.61
+    },
+    {
+     "month": "2025-03",
+     "value": 3.34
+    },
+    {
+     "month": "2025-04",
+     "value": 3.16
+    },
+    {
+     "month": "2025-05",
+     "value": 2.82
+    },
+    {
+     "month": "2025-06",
+     "value": 2.1
+    },
+    {
+     "month": "2025-07",
+     "value": 1.61
+    },
+    {
+     "month": "2025-08",
+     "value": 2.07
+    },
+    {
+     "month": "2025-09",
+     "value": 1.44
+    },
+    {
+     "month": "2025-10",
+     "value": 0.25
+    },
+    {
+     "month": "2025-11",
+     "value": 0.71
+    },
+    {
+     "month": "2025-12",
+     "value": 1.33
+    },
+    {
+     "month": "2026-01",
+     "value": 2.74
+    },
+    {
+     "month": "2026-02",
+     "value": 3.21
+    },
+    {
+     "month": "2026-03",
+     "value": 3.4
+    },
+    {
+     "month": "2026-04",
+     "value": 3.48
+    },
+    {
+     "month": "2026-05",
+     "value": 3.93
+    },
+    {
+     "month": "2026-06",
+     "value": 4.38
+    },
+    {
+     "month": "2026-07",
+     "value": 4.45
+    },
+    {
+     "month": "2026-08",
+     "value": 4.83
+    },
+    {
+     "month": "2026-09",
+     "value": 5.54
+    },
+    {
+     "month": "2026-10",
+     "value": 6.09
+    }
+   ],
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 5.984,
+     "low": 5.033,
+     "high": 6.935
+    },
+    {
+     "month": "2026-12",
+     "value": 5.791,
+     "low": 4.3,
+     "high": 7.282
+    },
+    {
+     "month": "2027-01",
+     "value": 5.784,
+     "low": 4.044,
+     "high": 7.523
+    },
+    {
+     "month": "2027-02",
+     "value": 5.842,
+     "low": 3.936,
+     "high": 7.748
+    },
+    {
+     "month": "2027-03",
+     "value": 5.857,
+     "low": 3.775,
+     "high": 7.938
+    },
+    {
+     "month": "2027-04",
+     "value": 5.841,
+     "low": 3.581,
+     "high": 8.102
+    }
+   ],
+   "backtest": {
+    "1": {
+     "model_mae": 0.573,
+     "simple_mae": 0.589,
+     "skill_pct": 2.8,
+     "tests": 29
+    },
+    "3": {
+     "model_mae": 1.387,
+     "simple_mae": 1.299,
+     "skill_pct": -6.8,
+     "tests": 27
+    },
+    "6": {
+     "model_mae": 1.966,
+     "simple_mae": 1.925,
+     "skill_pct": -2.1,
+     "tests": 24
+    }
+   },
+   "beats_simple_rule": false,
+   "filled_months": [
+    "2019-06",
+    "2020-06"
+   ]
+  },
+  {
+   "id": "cpi_core",
+   "title": "Core CPI inflation",
+   "unit": "% year on year",
+   "kind": "rate",
+   "model": "ARIMA(0, 1, 0)",
+   "fit_from": "2019-01",
+   "fit_to": "2026-10",
+   "n": 94,
+   "history": [
+    {
+     "month": "2023-11",
+     "value": 4.05
+    },
+    {
+     "month": "2023-12",
+     "value": 3.76
+    },
+    {
+     "month": "2024-01",
+     "value": 3.53
+    },
+    {
+     "month": "2024-02",
+     "value": 3.37
+    },
+    {
+     "month": "2024-03",
+     "value": 3.27
+    },
+    {
+     "month": "2024-04",
+     "value": 3.19
+    },
+    {
+     "month": "2024-05",
+     "value": 3.07
+    },
+    {
+     "month": "2024-06",
+     "value": 3.12
+    },
+    {
+     "month": "2024-07",
+     "value": 3.42
+    },
+    {
+     "month": "2024-08",
+     "value": 3.28
+    },
+    {
+     "month": "2024-09",
+     "value": 3.54
+    },
+    {
+     "month": "2024-10",
+     "value": 3.77
+    },
+    {
+     "month": "2024-11",
+     "value": 3.71
+    },
+    {
+     "month": "2024-12",
+     "value": 3.64
+    },
+    {
+     "month": "2025-01",
+     "value": 3.64
+    },
+    {
+     "month": "2025-02",
+     "value": 4.08
+    },
+    {
+     "month": "2025-03",
+     "value": 4.06
+    },
+    {
+     "month": "2025-04",
+     "value": 4.23
+    },
+    {
+     "month": "2025-05",
+     "value": 4.17
+    },
+    {
+     "month": "2025-06",
+     "value": 4.39
+    },
+    {
+     "month": "2025-07",
+     "value": 4.06
+    },
+    {
+     "month": "2025-08",
+     "value": 4.18
+    },
+    {
+     "month": "2025-09",
+     "value": 4.36
+    },
+    {
+     "month": "2025-10",
+     "value": 4.33
+    },
+    {
+     "month": "2025-11",
+     "value": 4.25
+    },
+    {
+     "month": "2025-12",
+     "value": 4.62
+    },
+    {
+     "month": "2026-01",
+     "value": 3.37
+    },
+    {
+     "month": "2026-02",
+     "value": 3.4
+    },
+    {
+     "month": "2026-03",
+     "value": 3.38
+    },
+    {
+     "month": "2026-04",
+     "value": 3.42
+    },
+    {
+     "month": "2026-05",
+     "value": 3.85
+    },
+    {
+     "month": "2026-06",
+     "value": 4.2
+    },
+    {
+     "month": "2026-07",
+     "value": 4.17
+    },
+    {
+     "month": "2026-08",
+     "value": 4.43
+    },
+    {
+     "month": "2026-09",
+     "value": 4.6
+    },
+    {
+     "month": "2026-10",
+     "value": 4.76
+    }
+   ],
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 4.76,
+     "low": 4.298,
+     "high": 5.222
+    },
+    {
+     "month": "2026-12",
+     "value": 4.76,
+     "low": 4.107,
+     "high": 5.413
+    },
+    {
+     "month": "2027-01",
+     "value": 4.76,
+     "low": 3.96,
+     "high": 5.56
+    },
+    {
+     "month": "2027-02",
+     "value": 4.76,
+     "low": 3.836,
+     "high": 5.684
+    },
+    {
+     "month": "2027-03",
+     "value": 4.76,
+     "low": 3.727,
+     "high": 5.793
+    },
+    {
+     "month": "2027-04",
+     "value": 4.76,
+     "low": 3.628,
+     "high": 5.892
+    }
+   ],
+   "backtest": {
+    "1": {
+     "model_mae": 0.202,
+     "simple_mae": 0.202,
+     "skill_pct": 0.0,
+     "tests": 29
+    },
+    "3": {
+     "model_mae": 0.405,
+     "simple_mae": 0.405,
+     "skill_pct": 0.0,
+     "tests": 27
+    },
+    "6": {
+     "model_mae": 0.59,
+     "simple_mae": 0.59,
+     "skill_pct": 0.0,
+     "tests": 24
+    }
+   },
+   "beats_simple_rule": false,
+   "filled_months": []
+  },
+  {
+   "id": "credit_nonfood",
+   "title": "Non-food bank credit growth",
+   "unit": "% year on year",
+   "kind": "rate",
+   "model": "ARIMA(1, 1, 1)",
+   "fit_from": "2018-10",
+   "fit_to": "2026-10",
+   "n": 97,
+   "history": [
+    {
+     "month": "2023-11",
+     "value": 20.509
+    },
+    {
+     "month": "2023-12",
+     "value": 20.116
+    },
+    {
+     "month": "2024-01",
+     "value": 20.056
+    },
+    {
+     "month": "2024-02",
+     "value": 20.579
+    },
+    {
+     "month": "2024-03",
+     "value": 20.172
+    },
+    {
+     "month": "2024-04",
+     "value": 18.915
+    },
+    {
+     "month": "2024-05",
+     "value": 19.534
+    },
+    {
+     "month": "2024-06",
+     "value": 17.153
+    },
+    {
+     "month": "2024-07",
+     "value": 13.302
+    },
+    {
+     "month": "2024-08",
+     "value": 13.415
+    },
+    {
+     "month": "2024-09",
+     "value": 13.045
+    },
+    {
+     "month": "2024-10",
+     "value": 11.559
+    },
+    {
+     "month": "2024-11",
+     "value": 10.573
+    },
+    {
+     "month": "2024-12",
+     "value": 10.754
+    },
+    {
+     "month": "2025-01",
+     "value": 11.307
+    },
+    {
+     "month": "2025-02",
+     "value": 10.921
+    },
+    {
+     "month": "2025-03",
+     "value": 10.893
+    },
+    {
+     "month": "2025-04",
+     "value": 10.136
+    },
+    {
+     "month": "2025-05",
+     "value": 8.645
+    },
+    {
+     "month": "2025-06",
+     "value": 9.152
+    },
+    {
+     "month": "2025-07",
+     "value": 10.062
+    },
+    {
+     "month": "2025-08",
+     "value": 9.761
+    },
+    {
+     "month": "2025-09",
+     "value": 10.109
+    },
+    {
+     "month": "2025-10",
+     "value": 10.908
+    },
+    {
+     "month": "2025-11",
+     "value": 11.28
+    },
+    {
+     "month": "2025-12",
+     "value": 14.26
+    },
+    {
+     "month": "2026-01",
+     "value": 14.308
+    },
+    {
+     "month": "2026-02",
+     "value": 15.037
+    },
+    {
+     "month": "2026-03",
+     "value": 15.679
+    },
+    {
+     "month": "2026-04",
+     "value": 15.654
+    },
+    {
+     "month": "2026-05",
+     "value": 17.057
+    },
+    {
+     "month": "2026-06",
+     "value": 18.025
+    },
+    {
+     "month": "2026-07",
+     "value": 18.788
+    },
+    {
+     "month": "2026-08",
+     "value": 19.058
+    },
+    {
+     "month": "2026-09",
+     "value": 19.15
+    },
+    {
+     "month": "2026-10",
+     "value": 18.357
+    }
+   ],
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 18.381,
+     "low": 17.188,
+     "high": 19.574
+    },
+    {
+     "month": "2026-12",
+     "value": 18.401,
+     "low": 16.554,
+     "high": 20.249
+    },
+    {
+     "month": "2027-01",
+     "value": 18.419,
+     "low": 15.978,
+     "high": 20.859
+    },
+    {
+     "month": "2027-02",
+     "value": 18.433,
+     "low": 15.428,
+     "high": 21.438
+    },
+    {
+     "month": "2027-03",
+     "value": 18.446,
+     "low": 14.898,
+     "high": 21.993
+    },
+    {
+     "month": "2027-04",
+     "value": 18.456,
+     "low": 14.384,
+     "high": 22.529
+    }
+   ],
+   "backtest": {
+    "1": {
+     "model_mae": 0.86,
+     "simple_mae": 0.846,
+     "skill_pct": -1.7,
+     "tests": 29
+    },
+    "3": {
+     "model_mae": 1.799,
+     "simple_mae": 1.951,
+     "skill_pct": 7.8,
+     "tests": 27
+    },
+    "6": {
+     "model_mae": 2.896,
+     "simple_mae": 3.446,
+     "skill_pct": 16.0,
+     "tests": 24
+    }
+   },
+   "beats_simple_rule": false,
+   "filled_months": []
+  },
+  {
+   "id": "deposit_growth",
+   "title": "Bank deposit growth",
+   "unit": "% year on year",
+   "kind": "rate",
+   "model": "ARIMA(0, 1, 1)",
+   "fit_from": "2018-10",
+   "fit_to": "2026-10",
+   "n": 97,
+   "history": [
+    {
+     "month": "2023-11",
+     "value": 13.612
+    },
+    {
+     "month": "2023-12",
+     "value": 13.276
+    },
+    {
+     "month": "2024-01",
+     "value": 13.204
+    },
+    {
+     "month": "2024-02",
+     "value": 13.117
+    },
+    {
+     "month": "2024-03",
+     "value": 13.474
+    },
+    {
+     "month": "2024-04",
+     "value": 13.333
+    },
+    {
+     "month": "2024-05",
+     "value": 12.745
+    },
+    {
+     "month": "2024-06",
+     "value": 11.116
+    },
+    {
+     "month": "2024-07",
+     "value": 10.569
+    },
+    {
+     "month": "2024-08",
+     "value": 10.832
+    },
+    {
+     "month": "2024-09",
+     "value": 11.54
+    },
+    {
+     "month": "2024-10",
+     "value": 11.747
+    },
+    {
+     "month": "2024-11",
+     "value": 10.716
+    },
+    {
+     "month": "2024-12",
+     "value": 9.829
+    },
+    {
+     "month": "2025-01",
+     "value": 10.307
+    },
+    {
+     "month": "2025-02",
+     "value": 10.292
+    },
+    {
+     "month": "2025-03",
+     "value": 10.283
+    },
+    {
+     "month": "2025-04",
+     "value": 10.155
+    },
+    {
+     "month": "2025-05",
+     "value": 9.889
+    },
+    {
+     "month": "2025-06",
+     "value": 10.055
+    },
+    {
+     "month": "2025-07",
+     "value": 10.174
+    },
+    {
+     "month": "2025-08",
+     "value": 10.219
+    },
+    {
+     "month": "2025-09",
+     "value": 9.489
+    },
+    {
+     "month": "2025-10",
+     "value": 9.752
+    },
+    {
+     "month": "2025-11",
+     "value": 10.185
+    },
+    {
+     "month": "2025-12",
+     "value": 12.668
+    },
+    {
+     "month": "2026-01",
+     "value": 12.453
+    },
+    {
+     "month": "2026-02",
+     "value": 13.04
+    },
+    {
+     "month": "2026-03",
+     "value": 13.467
+    },
+    {
+     "month": "2026-04",
+     "value": 12.305
+    },
+    {
+     "month": "2026-05",
+     "value": 12.211
+    },
+    {
+     "month": "2026-06",
+     "value": 13.313
+    },
+    {
+     "month": "2026-07",
+     "value": 15.367
+    },
+    {
+     "month": "2026-08",
+     "value": 17.756
+    },
+    {
+     "month": "2026-09",
+     "value": 17.829
+    },
+    {
+     "month": "2026-10",
+     "value": 16.718
+    }
+   ],
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 16.539,
+     "low": 15.55,
+     "high": 17.527
+    },
+    {
+     "month": "2026-12",
+     "value": 16.539,
+     "low": 15.019,
+     "high": 18.058
+    },
+    {
+     "month": "2027-01",
+     "value": 16.539,
+     "low": 14.63,
+     "high": 18.447
+    },
+    {
+     "month": "2027-02",
+     "value": 16.539,
+     "low": 14.308,
+     "high": 18.769
+    },
+    {
+     "month": "2027-03",
+     "value": 16.539,
+     "low": 14.027,
+     "high": 19.05
+    },
+    {
+     "month": "2027-04",
+     "value": 16.539,
+     "low": 13.775,
+     "high": 19.303
+    }
+   ],
+   "backtest": {
+    "1": {
+     "model_mae": 0.686,
+     "simple_mae": 0.677,
+     "skill_pct": -1.4,
+     "tests": 29
+    },
+    "3": {
+     "model_mae": 1.286,
+     "simple_mae": 1.294,
+     "skill_pct": 0.6,
+     "tests": 27
+    },
+    "6": {
+     "model_mae": 1.795,
+     "simple_mae": 1.793,
+     "skill_pct": -0.1,
+     "tests": 24
+    }
+   },
+   "beats_simple_rule": false,
+   "filled_months": []
+  },
+  {
+   "id": "m3_growth",
+   "title": "Broad money (M3) growth",
+   "unit": "% year on year",
+   "kind": "rate",
+   "model": "ARIMA(0, 1, 0)",
+   "fit_from": "2018-10",
+   "fit_to": "2026-10",
+   "n": 97,
+   "history": [
+    {
+     "month": "2023-11",
+     "value": 11.846
+    },
+    {
+     "month": "2023-12",
+     "value": 11.519
+    },
+    {
+     "month": "2024-01",
+     "value": 11.522
+    },
+    {
+     "month": "2024-02",
+     "value": 11.377
+    },
+    {
+     "month": "2024-03",
+     "value": 11.667
+    },
+    {
+     "month": "2024-04",
+     "value": 11.36
+    },
+    {
+     "month": "2024-05",
+     "value": 11.306
+    },
+    {
+     "month": "2024-06",
+     "value": 10.102
+    },
+    {
+     "month": "2024-07",
+     "value": 9.669
+    },
+    {
+     "month": "2024-08",
+     "value": 9.843
+    },
+    {
+     "month": "2024-09",
+     "value": 10.424
+    },
+    {
+     "month": "2024-10",
+     "value": 10.739
+    },
+    {
+     "month": "2024-11",
+     "value": 9.733
+    },
+    {
+     "month": "2024-12",
+     "value": 9.034
+    },
+    {
+     "month": "2025-01",
+     "value": 9.318
+    },
+    {
+     "month": "2025-02",
+     "value": 9.373
+    },
+    {
+     "month": "2025-03",
+     "value": 9.363
+    },
+    {
+     "month": "2025-04",
+     "value": 9.385
+    },
+    {
+     "month": "2025-05",
+     "value": 9.293
+    },
+    {
+     "month": "2025-06",
+     "value": 9.458
+    },
+    {
+     "month": "2025-07",
+     "value": 9.607
+    },
+    {
+     "month": "2025-08",
+     "value": 9.795
+    },
+    {
+     "month": "2025-09",
+     "value": 9.231
+    },
+    {
+     "month": "2025-10",
+     "value": 9.289
+    },
+    {
+     "month": "2025-11",
+     "value": 9.878
+    },
+    {
+     "month": "2025-12",
+     "value": 12.111
+    },
+    {
+     "month": "2026-01",
+     "value": 12.035
+    },
+    {
+     "month": "2026-02",
+     "value": 12.585
+    },
+    {
+     "month": "2026-03",
+     "value": 12.963
+    },
+    {
+     "month": "2026-04",
+     "value": 12.001
+    },
+    {
+     "month": "2026-05",
+     "value": 12.048
+    },
+    {
+     "month": "2026-06",
+     "value": 12.975
+    },
+    {
+     "month": "2026-07",
+     "value": 14.705
+    },
+    {
+     "month": "2026-08",
+     "value": 16.666
+    },
+    {
+     "month": "2026-09",
+     "value": 16.87
+    },
+    {
+     "month": "2026-10",
+     "value": 15.971
+    }
+   ],
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 15.971,
+     "low": 15.094,
+     "high": 16.848
+    },
+    {
+     "month": "2026-12",
+     "value": 15.971,
+     "low": 14.73,
+     "high": 17.211
+    },
+    {
+     "month": "2027-01",
+     "value": 15.971,
+     "low": 14.451,
+     "high": 17.49
+    },
+    {
+     "month": "2027-02",
+     "value": 15.971,
+     "low": 14.216,
+     "high": 17.725
+    },
+    {
+     "month": "2027-03",
+     "value": 15.971,
+     "low": 14.009,
+     "high": 17.932
+    },
+    {
+     "month": "2027-04",
+     "value": 15.971,
+     "low": 13.822,
+     "high": 18.12
+    }
+   ],
+   "backtest": {
+    "1": {
+     "model_mae": 0.571,
+     "simple_mae": 0.571,
+     "skill_pct": 0.0,
+     "tests": 29
+    },
+    "3": {
+     "model_mae": 1.123,
+     "simple_mae": 1.123,
+     "skill_pct": 0.0,
+     "tests": 27
+    },
+    "6": {
+     "model_mae": 1.677,
+     "simple_mae": 1.677,
+     "skill_pct": 0.0,
+     "tests": 24
+    }
+   },
+   "beats_simple_rule": false,
+   "filled_months": []
+  },
+  {
+   "id": "exports",
+   "title": "Merchandise exports",
+   "unit": "US$ bn a month",
+   "kind": "seasonal",
+   "model": "Seasonal ARIMA(1, 1, 1)(0,1,1)[12] on logs",
+   "fit_from": "2017-10",
+   "fit_to": "2026-09",
+   "n": 108,
+   "history": [
+    {
+     "month": "2023-10",
+     "value": 33.434
+    },
+    {
+     "month": "2023-11",
+     "value": 33.746
+    },
+    {
+     "month": "2023-12",
+     "value": 38.391
+    },
+    {
+     "month": "2024-01",
+     "value": 37.324
+    },
+    {
+     "month": "2024-02",
+     "value": 41.406
+    },
+    {
+     "month": "2024-03",
+     "value": 41.693
+    },
+    {
+     "month": "2024-04",
+     "value": 39.803
+    },
+    {
+     "month": "2024-05",
+     "value": 38.781
+    },
+    {
+     "month": "2024-06",
+     "value": 35.446
+    },
+    {
+     "month": "2024-07",
+     "value": 32.679
+    },
+    {
+     "month": "2024-08",
+     "value": 32.89
+    },
+    {
+     "month": "2024-09",
+     "value": 34.079
+    },
+    {
+     "month": "2024-10",
+     "value": 38.983
+    },
+    {
+     "month": "2024-11",
+     "value": 31.942
+    },
+    {
+     "month": "2024-12",
+     "value": 37.804
+    },
+    {
+     "month": "2025-01",
+     "value": 36.339
+    },
+    {
+     "month": "2025-02",
+     "value": 36.911
+    },
+    {
+     "month": "2025-03",
+     "value": 42.048
+    },
+    {
+     "month": "2025-04",
+     "value": 38.239
+    },
+    {
+     "month": "2025-05",
+     "value": 38.288
+    },
+    {
+     "month": "2025-06",
+     "value": 34.964
+    },
+    {
+     "month": "2025-07",
+     "value": 36.984
+    },
+    {
+     "month": "2025-08",
+     "value": 34.737
+    },
+    {
+     "month": "2025-09",
+     "value": 36.085
+    },
+    {
+     "month": "2025-10",
+     "value": 34.105
+    },
+    {
+     "month": "2025-11",
+     "value": 37.845
+    },
+    {
+     "month": "2025-12",
+     "value": 38.205
+    },
+    {
+     "month": "2026-01",
+     "value": 36.474
+    },
+    {
+     "month": "2026-02",
+     "value": 36.592
+    },
+    {
+     "month": "2026-03",
+     "value": 38.934
+    },
+    {
+     "month": "2026-04",
+     "value": 42.534
+    },
+    {
+     "month": "2026-05",
+     "value": 44.843
+    },
+    {
+     "month": "2026-06",
+     "value": 40.009
+    },
+    {
+     "month": "2026-07",
+     "value": 44.287
+    },
+    {
+     "month": "2026-08",
+     "value": 43.81
+    },
+    {
+     "month": "2026-09",
+     "value": 44.4
+    }
+   ],
+   "forecast": [
+    {
+     "month": "2026-10",
+     "value": 42.646,
+     "low": 36.619,
+     "high": 49.665
+    },
+    {
+     "month": "2026-11",
+     "value": 41.988,
+     "low": 34.916,
+     "high": 50.492
+    },
+    {
+     "month": "2026-12",
+     "value": 46.328,
+     "low": 37.866,
+     "high": 56.681
+    },
+    {
+     "month": "2027-01",
+     "value": 43.924,
+     "low": 35.465,
+     "high": 54.401
+    },
+    {
+     "month": "2027-02",
+     "value": 45.491,
+     "low": 36.363,
+     "high": 56.912
+    },
+    {
+     "month": "2027-03",
+     "value": 49.731,
+     "low": 39.396,
+     "high": 62.777
+    }
+   ],
+   "backtest": {
+    "1": {
+     "model_mae": 2.685,
+     "simple_mae": 3.165,
+     "skill_pct": 15.2,
+     "tests": 29
+    },
+    "3": {
+     "model_mae": 3.408,
+     "simple_mae": 3.303,
+     "skill_pct": -3.2,
+     "tests": 27
+    },
+    "6": {
+     "model_mae": 3.242,
+     "simple_mae": 3.658,
+     "skill_pct": 11.4,
+     "tests": 24
+    }
+   },
+   "beats_simple_rule": false,
+   "filled_months": []
+  },
+  {
+   "id": "imports",
+   "title": "Merchandise imports",
+   "unit": "US$ bn a month",
+   "kind": "seasonal",
+   "model": "Seasonal ARIMA(0, 1, 1)(0,1,1)[12] on logs",
+   "fit_from": "2017-10",
+   "fit_to": "2026-09",
+   "n": 108,
+   "history": [
+    {
+     "month": "2023-10",
+     "value": 63.038
+    },
+    {
+     "month": "2023-11",
+     "value": 54.756
+    },
+    {
+     "month": "2023-12",
+     "value": 56.915
+    },
+    {
+     "month": "2024-01",
+     "value": 53.707
+    },
+    {
+     "month": "2024-02",
+     "value": 59.824
+    },
+    {
+     "month": "2024-03",
+     "value": 56.639
+    },
+    {
+     "month": "2024-04",
+     "value": 54.488
+    },
+    {
+     "month": "2024-05",
+     "value": 61.675
+    },
+    {
+     "month": "2024-06",
+     "value": 55.997
+    },
+    {
+     "month": "2024-07",
+     "value": 59.474
+    },
+    {
+     "month": "2024-08",
+     "value": 68.51
+    },
+    {
+     "month": "2024-09",
+     "value": 58.72
+    },
+    {
+     "month": "2024-10",
+     "value": 65.07
+    },
+    {
+     "month": "2024-11",
+     "value": 63.928
+    },
+    {
+     "month": "2024-12",
+     "value": 58.433
+    },
+    {
+     "month": "2025-01",
+     "value": 59.768
+    },
+    {
+     "month": "2025-02",
+     "value": 51.329
+    },
+    {
+     "month": "2025-03",
+     "value": 63.74
+    },
+    {
+     "month": "2025-04",
+     "value": 65.369
+    },
+    {
+     "month": "2025-05",
+     "value": 60.844
+    },
+    {
+     "month": "2025-06",
+     "value": 54.061
+    },
+    {
+     "month": "2025-07",
+     "value": 64.862
+    },
+    {
+     "month": "2025-08",
+     "value": 61.956
+    },
+    {
+     "month": "2025-09",
+     "value": 69.081
+    },
+    {
+     "month": "2025-10",
+     "value": 76.689
+    },
+    {
+     "month": "2025-11",
+     "value": 62.97
+    },
+    {
+     "month": "2025-12",
+     "value": 64.39
+    },
+    {
+     "month": "2026-01",
+     "value": 71.709
+    },
+    {
+     "month": "2026-02",
+     "value": 63.884
+    },
+    {
+     "month": "2026-03",
+     "value": 59.899
+    },
+    {
+     "month": "2026-04",
+     "value": 71.918
+    },
+    {
+     "month": "2026-05",
+     "value": 73.394
+    },
+    {
+     "month": "2026-06",
+     "value": 70.781
+    },
+    {
+     "month": "2026-07",
+     "value": 76.159
+    },
+    {
+     "month": "2026-08",
+     "value": 70.67
+    },
+    {
+     "month": "2026-09",
+     "value": 74.61
+    }
+   ],
+   "forecast": [
+    {
+     "month": "2026-10",
+     "value": 77.211,
+     "low": 66.263,
+     "high": 89.967
+    },
+    {
+     "month": "2026-11",
+     "value": 74.65,
+     "low": 61.803,
+     "high": 90.167
+    },
+    {
+     "month": "2026-12",
+     "value": 78.243,
+     "low": 62.856,
+     "high": 97.398
+    },
+    {
+     "month": "2027-01",
+     "value": 76.112,
+     "low": 59.547,
+     "high": 97.285
+    },
+    {
+     "month": "2027-02",
+     "value": 72.849,
+     "low": 55.65,
+     "high": 95.364
+    },
+    {
+     "month": "2027-03",
+     "value": 78.239,
+     "low": 58.471,
+     "high": 104.689
+    }
+   ],
+   "backtest": {
+    "1": {
+     "model_mae": 6.067,
+     "simple_mae": 5.859,
+     "skill_pct": -3.6,
+     "tests": 29
+    },
+    "3": {
+     "model_mae": 5.724,
+     "simple_mae": 5.945,
+     "skill_pct": 3.7,
+     "tests": 27
+    },
+    "6": {
+     "model_mae": 5.384,
+     "simple_mae": 6.231,
+     "skill_pct": 13.6,
+     "tests": 24
+    }
+   },
+   "beats_simple_rule": false,
+   "filled_months": []
+  },
+  {
+   "id": "inr_usd",
+   "title": "Rupee per US dollar",
+   "unit": "₹ per US$",
+   "kind": "rate",
+   "model": "ARIMA(0, 1, 0)",
+   "fit_from": "2017-10",
+   "fit_to": "2026-10",
+   "n": 109,
+   "history": [
+    {
+     "month": "2023-11",
+     "value": 83.35
+    },
+    {
+     "month": "2023-12",
+     "value": 83.116
+    },
+    {
+     "month": "2024-01",
+     "value": 83.081
+    },
+    {
+     "month": "2024-02",
+     "value": 82.925
+    },
+    {
+     "month": "2024-03",
+     "value": 83.374
+    },
+    {
+     "month": "2024-04",
+     "value": 83.519
+    },
+    {
+     "month": "2024-05",
+     "value": 83.299
+    },
+    {
+     "month": "2024-06",
+     "value": 83.453
+    },
+    {
+     "month": "2024-07",
+     "value": 83.744
+    },
+    {
+     "month": "2024-08",
+     "value": 83.871
+    },
+    {
+     "month": "2024-09",
+     "value": 83.789
+    },
+    {
+     "month": "2024-10",
+     "value": 84.089
+    },
+    {
+     "month": "2024-11",
+     "value": 84.497
+    },
+    {
+     "month": "2024-12",
+     "value": 85.623
+    },
+    {
+     "month": "2025-01",
+     "value": 86.641
+    },
+    {
+     "month": "2025-02",
+     "value": 87.401
+    },
+    {
+     "month": "2025-03",
+     "value": 85.581
+    },
+    {
+     "month": "2025-04",
+     "value": 85.053
+    },
+    {
+     "month": "2025-05",
+     "value": 85.478
+    },
+    {
+     "month": "2025-06",
+     "value": 85.544
+    },
+    {
+     "month": "2025-07",
+     "value": 87.554
+    },
+    {
+     "month": "2025-08",
+     "value": 87.851
+    },
+    {
+     "month": "2025-09",
+     "value": 88.792
+    },
+    {
+     "month": "2025-10",
+     "value": 88.724
+    },
+    {
+     "month": "2025-11",
+     "value": 89.456
+    },
+    {
+     "month": "2025-12",
+     "value": 89.92
+    },
+    {
+     "month": "2026-01",
+     "value": 91.898
+    },
+    {
+     "month": "2026-02",
+     "value": 90.954
+    },
+    {
+     "month": "2026-03",
+     "value": 94.654
+    },
+    {
+     "month": "2026-04",
+     "value": 95.242
+    },
+    {
+     "month": "2026-05",
+     "value": 95.385
+    },
+    {
+     "month": "2026-06",
+     "value": 94.597
+    },
+    {
+     "month": "2026-07",
+     "value": 95.371
+    },
+    {
+     "month": "2026-08",
+     "value": 95.451
+    },
+    {
+     "month": "2026-09",
+     "value": 95.983
+    },
+    {
+     "month": "2026-10",
+     "value": 95.249
+    }
+   ],
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 95.249,
+     "low": 93.865,
+     "high": 96.634
+    },
+    {
+     "month": "2026-12",
+     "value": 95.249,
+     "low": 93.291,
+     "high": 97.207
+    },
+    {
+     "month": "2027-01",
+     "value": 95.249,
+     "low": 92.851,
+     "high": 97.647
+    },
+    {
+     "month": "2027-02",
+     "value": 95.249,
+     "low": 92.481,
+     "high": 98.018
+    },
+    {
+     "month": "2027-03",
+     "value": 95.249,
+     "low": 92.154,
+     "high": 98.345
+    },
+    {
+     "month": "2027-04",
+     "value": 95.249,
+     "low": 91.858,
+     "high": 98.64
+    }
+   ],
+   "backtest": {
+    "1": {
+     "model_mae": 0.754,
+     "simple_mae": 0.754,
+     "skill_pct": 0.0,
+     "tests": 29
+    },
+    "3": {
+     "model_mae": 1.619,
+     "simple_mae": 1.619,
+     "skill_pct": 0.0,
+     "tests": 27
+    },
+    "6": {
+     "model_mae": 2.915,
+     "simple_mae": 2.915,
+     "skill_pct": 0.0,
+     "tests": 24
+    }
+   },
+   "beats_simple_rule": false,
+   "filled_months": []
+  },
+  {
+   "id": "gsec10",
+   "title": "10-year G-sec yield",
+   "unit": "%",
+   "kind": "rate",
+   "model": "ARIMA(0, 1, 0)",
+   "fit_from": "2017-10",
+   "fit_to": "2026-10",
+   "n": 109,
+   "history": [
+    {
+     "month": "2023-11",
+     "value": 7.26
+    },
+    {
+     "month": "2023-12",
+     "value": 7.2
+    },
+    {
+     "month": "2024-01",
+     "value": 7.18
+    },
+    {
+     "month": "2024-02",
+     "value": 7.09
+    },
+    {
+     "month": "2024-03",
+     "value": 7.07
+    },
+    {
+     "month": "2024-04",
+     "value": 7.16
+    },
+    {
+     "month": "2024-05",
+     "value": 7.01
+    },
+    {
+     "month": "2024-06",
+     "value": 7.04
+    },
+    {
+     "month": "2024-07",
+     "value": 6.98
+    },
+    {
+     "month": "2024-08",
+     "value": 6.9
+    },
+    {
+     "month": "2024-09",
+     "value": 6.78
+    },
+    {
+     "month": "2024-10",
+     "value": 6.81
+    },
+    {
+     "month": "2024-11",
+     "value": 6.79
+    },
+    {
+     "month": "2024-12",
+     "value": 6.79
+    },
+    {
+     "month": "2025-01",
+     "value": 6.71
+    },
+    {
+     "month": "2025-02",
+     "value": 6.73
+    },
+    {
+     "month": "2025-03",
+     "value": 6.62
+    },
+    {
+     "month": "2025-04",
+     "value": 6.4
+    },
+    {
+     "month": "2025-05",
+     "value": 6.23
+    },
+    {
+     "month": "2025-06",
+     "value": 6.33
+    },
+    {
+     "month": "2025-07",
+     "value": 6.43
+    },
+    {
+     "month": "2025-08",
+     "value": 6.67
+    },
+    {
+     "month": "2025-09",
+     "value": 6.6
+    },
+    {
+     "month": "2025-10",
+     "value": 6.5
+    },
+    {
+     "month": "2025-11",
+     "value": 6.55
+    },
+    {
+     "month": "2025-12",
+     "value": 6.65
+    },
+    {
+     "month": "2026-01",
+     "value": 6.77
+    },
+    {
+     "month": "2026-02",
+     "value": 6.71
+    },
+    {
+     "month": "2026-03",
+     "value": 7.02
+    },
+    {
+     "month": "2026-04",
+     "value": 7.02
+    },
+    {
+     "month": "2026-05",
+     "value": 6.99
+    },
+    {
+     "month": "2026-06",
+     "value": 6.79
+    },
+    {
+     "month": "2026-07",
+     "value": 6.84
+    },
+    {
+     "month": "2026-08",
+     "value": 6.92
+    },
+    {
+     "month": "2026-09",
+     "value": 7.14
+    },
+    {
+     "month": "2026-10",
+     "value": 7.45
+    }
+   ],
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 7.45,
+     "low": 7.226,
+     "high": 7.674
+    },
+    {
+     "month": "2026-12",
+     "value": 7.45,
+     "low": 7.133,
+     "high": 7.767
+    },
+    {
+     "month": "2027-01",
+     "value": 7.45,
+     "low": 7.061,
+     "high": 7.839
+    },
+    {
+     "month": "2027-02",
+     "value": 7.45,
+     "low": 7.001,
+     "high": 7.899
+    },
+    {
+     "month": "2027-03",
+     "value": 7.45,
+     "low": 6.948,
+     "high": 7.952
+    },
+    {
+     "month": "2027-04",
+     "value": 7.45,
+     "low": 6.9,
+     "high": 8.0
+    }
+   ],
+   "backtest": {
+    "1": {
+     "model_mae": 0.106,
+     "simple_mae": 0.106,
+     "skill_pct": 0.0,
+     "tests": 29
+    },
+    "3": {
+     "model_mae": 0.216,
+     "simple_mae": 0.216,
+     "skill_pct": 0.0,
+     "tests": 27
+    },
+    "6": {
+     "model_mae": 0.264,
+     "simple_mae": 0.264,
+     "skill_pct": 0.0,
+     "tests": 24
+    }
+   },
+   "beats_simple_rule": false,
+   "filled_months": []
+  }
+ ],
+ "relationships": [
+  {
+   "x": "crude_yoy",
+   "y": "cpi",
+   "x_label": "Crude oil price, US$ (% change on a year)",
+   "y_label": "CPI inflation (% a year)",
+   "why": "Oil feeds into fuel, transport and input costs.",
+   "caution": "PPAC publishes no monthly crude prices for 2022-23, so this rests on the months since then only.",
+   "expected": 1,
+   "unexpected": false,
+   "same_month": {
+    "lag": 0,
+    "r": 0.391,
+    "n": 31
+   },
+   "best_lead": {
+    "lag": 5,
+    "r": 0.621,
+    "n": 26
+   },
+   "band95": 0.352,
+   "lags": [
+    {
+     "lag": -8,
+     "r": -0.523,
+     "n": 24
+    },
+    {
+     "lag": -7,
+     "r": -0.514,
+     "n": 25
+    },
+    {
+     "lag": -6,
+     "r": -0.511,
+     "n": 26
+    },
+    {
+     "lag": -5,
+     "r": -0.406,
+     "n": 27
+    },
+    {
+     "lag": -4,
+     "r": -0.161,
+     "n": 28
+    },
+    {
+     "lag": -3,
+     "r": 0.08,
+     "n": 29
+    },
+    {
+     "lag": -2,
+     "r": 0.269,
+     "n": 30
+    },
+    {
+     "lag": -1,
+     "r": 0.377,
+     "n": 31
+    },
+    {
+     "lag": 0,
+     "r": 0.391,
+     "n": 31
+    },
+    {
+     "lag": 1,
+     "r": 0.37,
+     "n": 30
+    },
+    {
+     "lag": 2,
+     "r": 0.385,
+     "n": 29
+    },
+    {
+     "lag": 3,
+     "r": 0.447,
+     "n": 28
+    },
+    {
+     "lag": 4,
+     "r": 0.538,
+     "n": 27
+    },
+    {
+     "lag": 5,
+     "r": 0.621,
+     "n": 26
+    },
+    {
+     "lag": 6,
+     "r": 0.618,
+     "n": 25
+    },
+    {
+     "lag": 7,
+     "r": 0.514,
+     "n": 24
+    }
+   ],
+   "window": "Apr 2024 to Oct 2026"
+  },
+  {
+   "x": "inr_yoy",
+   "y": "cpi",
+   "x_label": "Rupee depreciation against the US$ (% on a year)",
+   "y_label": "CPI inflation (% a year)",
+   "why": "A weaker rupee makes imports, including oil, dearer in rupees.",
+   "caution": "",
+   "expected": 1,
+   "unexpected": false,
+   "same_month": {
+    "lag": 0,
+    "r": -0.065,
+    "n": 97
+   },
+   "best_lead": {
+    "lag": 9,
+    "r": -0.146,
+    "n": 88
+   },
+   "band95": 0.199,
+   "lags": [
+    {
+     "lag": -12,
+     "r": -0.38,
+     "n": 85
+    },
+    {
+     "lag": -11,
+     "r": -0.335,
+     "n": 86
+    },
+    {
+     "lag": -10,
+     "r": -0.296,
+     "n": 87
+    },
+    {
+     "lag": -9,
+     "r": -0.241,
+     "n": 88
+    },
+    {
+     "lag": -8,
+     "r": -0.191,
+     "n": 89
+    },
+    {
+     "lag": -7,
+     "r": -0.15,
+     "n": 90
+    },
+    {
+     "lag": -6,
+     "r": -0.087,
+     "n": 91
+    },
+    {
+     "lag": -5,
+     "r": -0.019,
+     "n": 92
+    },
+    {
+     "lag": -4,
+     "r": 0.028,
+     "n": 93
+    },
+    {
+     "lag": -3,
+     "r": 0.045,
+     "n": 94
+    },
+    {
+     "lag": -2,
+     "r": 0.024,
+     "n": 95
+    },
+    {
+     "lag": -1,
+     "r": -0.016,
+     "n": 96
+    },
+    {
+     "lag": 0,
+     "r": -0.065,
+     "n": 97
+    },
+    {
+     "lag": 1,
+     "r": -0.075,
+     "n": 96
+    },
+    {
+     "lag": 2,
+     "r": -0.103,
+     "n": 95
+    },
+    {
+     "lag": 3,
+     "r": -0.102,
+     "n": 94
+    },
+    {
+     "lag": 4,
+     "r": -0.062,
+     "n": 93
+    },
+    {
+     "lag": 5,
+     "r": -0.055,
+     "n": 92
+    },
+    {
+     "lag": 6,
+     "r": -0.098,
+     "n": 91
+    },
+    {
+     "lag": 7,
+     "r": -0.12,
+     "n": 90
+    },
+    {
+     "lag": 8,
+     "r": -0.132,
+     "n": 89
+    },
+    {
+     "lag": 9,
+     "r": -0.146,
+     "n": 88
+    },
+    {
+     "lag": 10,
+     "r": -0.09,
+     "n": 87
+    },
+    {
+     "lag": 11,
+     "r": -0.002,
+     "n": 86
+    },
+    {
+     "lag": 12,
+     "r": 0.024,
+     "n": 85
+    }
+   ],
+   "window": "Oct 2018 to Oct 2026"
+  },
+  {
+   "x": "repo_chg",
+   "y": "credit",
+   "x_label": "Repo rate (change on a year, points)",
+   "y_label": "Non-food bank credit growth (% a year)",
+   "why": "Higher policy rates should, with a delay, slow bank lending.",
+   "caution": "The link here is positive: RBI raised rates in 2022-24 just as lending recovered strongly after COVID. Both followed the same cycle; this does not mean that rate rises increase lending.",
+   "expected": -1,
+   "unexpected": true,
+   "same_month": {
+    "lag": 0,
+    "r": 0.562,
+    "n": 97
+   },
+   "best_lead": {
+    "lag": 10,
+    "r": 0.66,
+    "n": 87
+   },
+   "band95": 0.199,
+   "lags": [
+    {
+     "lag": -12,
+     "r": -0.163,
+     "n": 85
+    },
+    {
+     "lag": -11,
+     "r": -0.081,
+     "n": 86
+    },
+    {
+     "lag": -10,
+     "r": 0.002,
+     "n": 87
+    },
+    {
+     "lag": -9,
+     "r": 0.089,
+     "n": 88
+    },
+    {
+     "lag": -8,
+     "r": 0.168,
+     "n": 89
+    },
+    {
+     "lag": -7,
+     "r": 0.249,
+     "n": 90
+    },
+    {
+     "lag": -6,
+     "r": 0.321,
+     "n": 91
+    },
+    {
+     "lag": -5,
+     "r": 0.381,
+     "n": 92
+    },
+    {
+     "lag": -4,
+     "r": 0.438,
+     "n": 93
+    },
+    {
+     "lag": -3,
+     "r": 0.481,
+     "n": 94
+    },
+    {
+     "lag": -2,
+     "r": 0.513,
+     "n": 95
+    },
+    {
+     "lag": -1,
+     "r": 0.541,
+     "n": 96
+    },
+    {
+     "lag": 0,
+     "r": 0.562,
+     "n": 97
+    },
+    {
+     "lag": 1,
+     "r": 0.582,
+     "n": 96
+    },
+    {
+     "lag": 2,
+     "r": 0.6,
+     "n": 95
+    },
+    {
+     "lag": 3,
+     "r": 0.613,
+     "n": 94
+    },
+    {
+     "lag": 4,
+     "r": 0.624,
+     "n": 93
+    },
+    {
+     "lag": 5,
+     "r": 0.625,
+     "n": 92
+    },
+    {
+     "lag": 6,
+     "r": 0.632,
+     "n": 91
+    },
+    {
+     "lag": 7,
+     "r": 0.641,
+     "n": 90
+    },
+    {
+     "lag": 8,
+     "r": 0.645,
+     "n": 89
+    },
+    {
+     "lag": 9,
+     "r": 0.652,
+     "n": 88
+    },
+    {
+     "lag": 10,
+     "r": 0.66,
+     "n": 87
+    },
+    {
+     "lag": 11,
+     "r": 0.657,
+     "n": 86
+    },
+    {
+     "lag": 12,
+     "r": 0.642,
+     "n": 85
+    }
+   ],
+   "window": "Oct 2018 to Oct 2026"
+  },
+  {
+   "x": "repo_chg",
+   "y": "cpi",
+   "x_label": "Repo rate (change on a year, points)",
+   "y_label": "CPI inflation (% a year)",
+   "why": "Monetary policy is meant to act on inflation with a delay.",
+   "caution": "RBI also sets the repo rate in response to inflation, so the two move in both directions at once; a simple correlation cannot separate them.",
+   "expected": -1,
+   "unexpected": false,
+   "same_month": {
+    "lag": 0,
+    "r": 0.194,
+    "n": 97
+   },
+   "best_lead": {
+    "lag": 0,
+    "r": 0.194,
+    "n": 97
+   },
+   "band95": 0.199,
+   "lags": [
+    {
+     "lag": -12,
+     "r": 0.465,
+     "n": 85
+    },
+    {
+     "lag": -11,
+     "r": 0.474,
+     "n": 86
+    },
+    {
+     "lag": -10,
+     "r": 0.473,
+     "n": 87
+    },
+    {
+     "lag": -9,
+     "r": 0.469,
+     "n": 88
+    },
+    {
+     "lag": -8,
+     "r": 0.458,
+     "n": 89
+    },
+    {
+     "lag": -7,
+     "r": 0.442,
+     "n": 90
+    },
+    {
+     "lag": -6,
+     "r": 0.421,
+     "n": 91
+    },
+    {
+     "lag": -5,
+     "r": 0.389,
+     "n": 92
+    },
+    {
+     "lag": -4,
+     "r": 0.354,
+     "n": 93
+    },
+    {
+     "lag": -3,
+     "r": 0.316,
+     "n": 94
+    },
+    {
+     "lag": -2,
+     "r": 0.279,
+     "n": 95
+    },
+    {
+     "lag": -1,
+     "r": 0.238,
+     "n": 96
+    },
+    {
+     "lag": 0,
+     "r": 0.194,
+     "n": 97
+    },
+    {
+     "lag": 1,
+     "r": 0.135,
+     "n": 96
+    },
+    {
+     "lag": 2,
+     "r": 0.1,
+     "n": 95
+    },
+    {
+     "lag": 3,
+     "r": 0.071,
+     "n": 94
+    },
+    {
+     "lag": 4,
+     "r": 0.044,
+     "n": 93
+    },
+    {
+     "lag": 5,
+     "r": 0.019,
+     "n": 92
+    },
+    {
+     "lag": 6,
+     "r": -0.002,
+     "n": 91
+    },
+    {
+     "lag": 7,
+     "r": -0.006,
+     "n": 90
+    },
+    {
+     "lag": 8,
+     "r": -0.018,
+     "n": 89
+    },
+    {
+     "lag": 9,
+     "r": -0.024,
+     "n": 88
+    },
+    {
+     "lag": 10,
+     "r": -0.034,
+     "n": 87
+    },
+    {
+     "lag": 11,
+     "r": -0.045,
+     "n": 86
+    },
+    {
+     "lag": 12,
+     "r": -0.071,
+     "n": 85
+    }
+   ],
+   "window": "Oct 2018 to Oct 2026"
+  },
+  {
+   "x": "cpi",
+   "y": "infl_exp_1y",
+   "x_label": "CPI inflation (% a year)",
+   "y_label": "Households' expected inflation, a year ahead (%)",
+   "why": "Do households' expectations follow the inflation they have seen?",
+   "caution": "Expectations are surveyed every two months, so this uses those months only.",
+   "expected": 1,
+   "unexpected": false,
+   "same_month": {
+    "lag": 0,
+    "r": 0.652,
+    "n": 47
+   },
+   "best_lead": {
+    "lag": 4,
+    "r": 0.702,
+    "n": 46
+   },
+   "band95": 0.286,
+   "lags": [
+    {
+     "lag": -12,
+     "r": -0.056,
+     "n": 41
+    },
+    {
+     "lag": -11,
+     "r": 0.013,
+     "n": 42
+    },
+    {
+     "lag": -10,
+     "r": 0.103,
+     "n": 42
+    },
+    {
+     "lag": -9,
+     "r": 0.055,
+     "n": 43
+    },
+    {
+     "lag": -8,
+     "r": 0.133,
+     "n": 43
+    },
+    {
+     "lag": -7,
+     "r": 0.12,
+     "n": 44
+    },
+    {
+     "lag": -6,
+     "r": 0.243,
+     "n": 44
+    },
+    {
+     "lag": -5,
+     "r": 0.324,
+     "n": 45
+    },
+    {
+     "lag": -4,
+     "r": 0.391,
+     "n": 45
+    },
+    {
+     "lag": -3,
+     "r": 0.423,
+     "n": 46
+    },
+    {
+     "lag": -2,
+     "r": 0.544,
+     "n": 46
+    },
+    {
+     "lag": -1,
+     "r": 0.606,
+     "n": 47
+    },
+    {
+     "lag": 0,
+     "r": 0.652,
+     "n": 47
+    },
+    {
+     "lag": 1,
+     "r": 0.651,
+     "n": 47
+    },
+    {
+     "lag": 2,
+     "r": 0.656,
+     "n": 47
+    },
+    {
+     "lag": 3,
+     "r": 0.645,
+     "n": 46
+    },
+    {
+     "lag": 4,
+     "r": 0.702,
+     "n": 46
+    },
+    {
+     "lag": 5,
+     "r": 0.671,
+     "n": 46
+    },
+    {
+     "lag": 6,
+     "r": 0.665,
+     "n": 45
+    },
+    {
+     "lag": 7,
+     "r": 0.56,
+     "n": 45
+    },
+    {
+     "lag": 8,
+     "r": 0.606,
+     "n": 44
+    },
+    {
+     "lag": 9,
+     "r": 0.515,
+     "n": 44
+    },
+    {
+     "lag": 10,
+     "r": 0.45,
+     "n": 43
+    },
+    {
+     "lag": 11,
+     "r": 0.368,
+     "n": 43
+    },
+    {
+     "lag": 12,
+     "r": 0.432,
+     "n": 42
+    }
+   ],
+   "window": "Dec 2018 to Sep 2026"
+  },
+  {
+   "x": "cpi",
+   "y": "gsec10",
+   "x_label": "CPI inflation (% a year)",
+   "y_label": "10-year G-sec yield (%)",
+   "why": "Bond investors ask for higher yields when inflation rises.",
+   "caution": "",
+   "expected": 1,
+   "unexpected": false,
+   "same_month": {
+    "lag": 0,
+    "r": -0.03,
+    "n": 97
+   },
+   "best_lead": {
+    "lag": 6,
+    "r": -0.107,
+    "n": 91
+   },
+   "band95": 0.199,
+   "lags": [
+    {
+     "lag": -12,
+     "r": -0.114,
+     "n": 85
+    },
+    {
+     "lag": -11,
+     "r": -0.096,
+     "n": 86
+    },
+    {
+     "lag": -10,
+     "r": -0.075,
+     "n": 87
+    },
+    {
+     "lag": -9,
+     "r": -0.058,
+     "n": 88
+    },
+    {
+     "lag": -8,
+     "r": -0.046,
+     "n": 89
+    },
+    {
+     "lag": -7,
+     "r": -0.037,
+     "n": 90
+    },
+    {
+     "lag": -6,
+     "r": -0.039,
+     "n": 91
+    },
+    {
+     "lag": -5,
+     "r": -0.044,
+     "n": 92
+    },
+    {
+     "lag": -4,
+     "r": -0.059,
+     "n": 93
+    },
+    {
+     "lag": -3,
+     "r": -0.064,
+     "n": 94
+    },
+    {
+     "lag": -2,
+     "r": -0.071,
+     "n": 95
+    },
+    {
+     "lag": -1,
+     "r": -0.054,
+     "n": 96
+    },
+    {
+     "lag": 0,
+     "r": -0.03,
+     "n": 97
+    },
+    {
+     "lag": 1,
+     "r": -0.037,
+     "n": 96
+    },
+    {
+     "lag": 2,
+     "r": -0.043,
+     "n": 95
+    },
+    {
+     "lag": 3,
+     "r": -0.061,
+     "n": 94
+    },
+    {
+     "lag": 4,
+     "r": -0.083,
+     "n": 93
+    },
+    {
+     "lag": 5,
+     "r": -0.104,
+     "n": 92
+    },
+    {
+     "lag": 6,
+     "r": -0.107,
+     "n": 91
+    },
+    {
+     "lag": 7,
+     "r": -0.081,
+     "n": 90
+    },
+    {
+     "lag": 8,
+     "r": -0.044,
+     "n": 89
+    },
+    {
+     "lag": 9,
+     "r": -0.025,
+     "n": 88
+    },
+    {
+     "lag": 10,
+     "r": -0.013,
+     "n": 87
+    },
+    {
+     "lag": 11,
+     "r": 0.008,
+     "n": 86
+    },
+    {
+     "lag": 12,
+     "r": 0.026,
+     "n": 85
+    }
+   ],
+   "window": "Oct 2018 to Oct 2026"
+  },
+  {
+   "x": "imports_yoy",
+   "y": "exports_yoy",
+   "x_label": "Merchandise imports, 3 months (% on a year)",
+   "y_label": "Merchandise exports, 3 months (% on a year)",
+   "why": "Much of what India exports uses imported inputs.",
+   "caution": "Both also rise and fall with world prices, especially of oil, which India imports, refines and re-exports.",
+   "expected": 1,
+   "unexpected": false,
+   "same_month": {
+    "lag": 0,
+    "r": 0.93,
+    "n": 94
+   },
+   "best_lead": {
+    "lag": 0,
+    "r": 0.93,
+    "n": 94
+   },
+   "band95": 0.202,
+   "lags": [
+    {
+     "lag": -12,
+     "r": -0.074,
+     "n": 82
+    },
+    {
+     "lag": -11,
+     "r": 0.008,
+     "n": 83
+    },
+    {
+     "lag": -10,
+     "r": 0.102,
+     "n": 84
+    },
+    {
+     "lag": -9,
+     "r": 0.201,
+     "n": 85
+    },
+    {
+     "lag": -8,
+     "r": 0.3,
+     "n": 86
+    },
+    {
+     "lag": -7,
+     "r": 0.407,
+     "n": 87
+    },
+    {
+     "lag": -6,
+     "r": 0.501,
+     "n": 88
+    },
+    {
+     "lag": -5,
+     "r": 0.579,
+     "n": 89
+    },
+    {
+     "lag": -4,
+     "r": 0.648,
+     "n": 90
+    },
+    {
+     "lag": -3,
+     "r": 0.741,
+     "n": 91
+    },
+    {
+     "lag": -2,
+     "r": 0.851,
+     "n": 92
+    },
+    {
+     "lag": -1,
+     "r": 0.935,
+     "n": 93
+    },
+    {
+     "lag": 0,
+     "r": 0.93,
+     "n": 94
+    },
+    {
+     "lag": 1,
+     "r": 0.83,
+     "n": 93
+    },
+    {
+     "lag": 2,
+     "r": 0.694,
+     "n": 92
+    },
+    {
+     "lag": 3,
+     "r": 0.568,
+     "n": 91
+    },
+    {
+     "lag": 4,
+     "r": 0.475,
+     "n": 90
+    },
+    {
+     "lag": 5,
+     "r": 0.399,
+     "n": 89
+    },
+    {
+     "lag": 6,
+     "r": 0.335,
+     "n": 88
+    },
+    {
+     "lag": 7,
+     "r": 0.257,
+     "n": 87
+    },
+    {
+     "lag": 8,
+     "r": 0.158,
+     "n": 86
+    },
+    {
+     "lag": 9,
+     "r": 0.031,
+     "n": 85
+    },
+    {
+     "lag": 10,
+     "r": -0.1,
+     "n": 84
+    },
+    {
+     "lag": 11,
+     "r": -0.212,
+     "n": 83
+    },
+    {
+     "lag": 12,
+     "r": -0.271,
+     "n": 82
+    }
+   ],
+   "window": "Dec 2018 to Sep 2026"
+  },
+  {
+   "x": "fpi",
+   "y": "inr_3m",
+   "x_label": "Net portfolio inflows, 3 months (US$ bn)",
+   "y_label": "Rupee depreciation over 3 months (%)",
+   "why": "Portfolio outflows tend to weaken the rupee.",
+   "caution": "",
+   "expected": -1,
+   "unexpected": false,
+   "same_month": {
+    "lag": 0,
+    "r": -0.557,
+    "n": 104
+   },
+   "best_lead": {
+    "lag": 0,
+    "r": -0.557,
+    "n": 104
+   },
+   "band95": 0.192,
+   "lags": [
+    {
+     "lag": -12,
+     "r": 0.279,
+     "n": 92
+    },
+    {
+     "lag": -11,
+     "r": 0.299,
+     "n": 93
+    },
+    {
+     "lag": -10,
+     "r": 0.289,
+     "n": 94
+    },
+    {
+     "lag": -9,
+     "r": 0.217,
+     "n": 95
+    },
+    {
+     "lag": -8,
+     "r": 0.058,
+     "n": 96
+    },
+    {
+     "lag": -7,
+     "r": -0.034,
+     "n": 97
+    },
+    {
+     "lag": -6,
+     "r": -0.122,
+     "n": 98
+    },
+    {
+     "lag": -5,
+     "r": -0.119,
+     "n": 99
+    },
+    {
+     "lag": -4,
+     "r": -0.206,
+     "n": 100
+    },
+    {
+     "lag": -3,
+     "r": -0.197,
+     "n": 101
+    },
+    {
+     "lag": -2,
+     "r": -0.376,
+     "n": 102
+    },
+    {
+     "lag": -1,
+     "r": -0.469,
+     "n": 103
+    },
+    {
+     "lag": 0,
+     "r": -0.557,
+     "n": 104
+    },
+    {
+     "lag": 1,
+     "r": -0.359,
+     "n": 104
+    },
+    {
+     "lag": 2,
+     "r": -0.218,
+     "n": 103
+    },
+    {
+     "lag": 3,
+     "r": -0.058,
+     "n": 102
+    },
+    {
+     "lag": 4,
+     "r": -0.029,
+     "n": 101
+    },
+    {
+     "lag": 5,
+     "r": 0.035,
+     "n": 100
+    },
+    {
+     "lag": 6,
+     "r": -0.037,
+     "n": 99
+    },
+    {
+     "lag": 7,
+     "r": -0.093,
+     "n": 98
+    },
+    {
+     "lag": 8,
+     "r": -0.115,
+     "n": 97
+    },
+    {
+     "lag": 9,
+     "r": -0.029,
+     "n": 96
+    },
+    {
+     "lag": 10,
+     "r": 0.072,
+     "n": 95
+    },
+    {
+     "lag": 11,
+     "r": 0.113,
+     "n": 94
+    },
+    {
+     "lag": 12,
+     "r": 0.119,
+     "n": 93
+    }
+   ],
+   "window": "Jan 2018 to Aug 2026"
+  },
+  {
+   "x": "credit",
+   "y": "gst_yoy",
+   "x_label": "Non-food bank credit growth (% a year)",
+   "y_label": "Gross GST, 3 months (% on a year)",
+   "why": "Faster lending and faster spending tend to go together.",
+   "caution": "",
+   "expected": 1,
+   "unexpected": true,
+   "same_month": {
+    "lag": 0,
+    "r": -0.054,
+    "n": 56
+   },
+   "best_lead": {
+    "lag": 12,
+    "r": -0.354,
+    "n": 56
+   },
+   "band95": 0.262,
+   "lags": [
+    {
+     "lag": -12,
+     "r": 0.377,
+     "n": 44
+    },
+    {
+     "lag": -11,
+     "r": 0.263,
+     "n": 45
+    },
+    {
+     "lag": -10,
+     "r": 0.161,
+     "n": 46
+    },
+    {
+     "lag": -9,
+     "r": 0.078,
+     "n": 47
+    },
+    {
+     "lag": -8,
+     "r": 0.023,
+     "n": 48
+    },
+    {
+     "lag": -7,
+     "r": 0.003,
+     "n": 49
+    },
+    {
+     "lag": -6,
+     "r": -0.001,
+     "n": 50
+    },
+    {
+     "lag": -5,
+     "r": 0.003,
+     "n": 51
+    },
+    {
+     "lag": -4,
+     "r": 0.009,
+     "n": 52
+    },
+    {
+     "lag": -3,
+     "r": 0.012,
+     "n": 53
+    },
+    {
+     "lag": -2,
+     "r": -0.001,
+     "n": 54
+    },
+    {
+     "lag": -1,
+     "r": -0.027,
+     "n": 55
+    },
+    {
+     "lag": 0,
+     "r": -0.054,
+     "n": 56
+    },
+    {
+     "lag": 1,
+     "r": -0.085,
+     "n": 56
+    },
+    {
+     "lag": 2,
+     "r": -0.12,
+     "n": 56
+    },
+    {
+     "lag": 3,
+     "r": -0.16,
+     "n": 56
+    },
+    {
+     "lag": 4,
+     "r": -0.206,
+     "n": 56
+    },
+    {
+     "lag": 5,
+     "r": -0.246,
+     "n": 56
+    },
+    {
+     "lag": 6,
+     "r": -0.27,
+     "n": 56
+    },
+    {
+     "lag": 7,
+     "r": -0.283,
+     "n": 56
+    },
+    {
+     "lag": 8,
+     "r": -0.295,
+     "n": 56
+    },
+    {
+     "lag": 9,
+     "r": -0.311,
+     "n": 56
+    },
+    {
+     "lag": 10,
+     "r": -0.326,
+     "n": 56
+    },
+    {
+     "lag": 11,
+     "r": -0.342,
+     "n": 56
+    },
+    {
+     "lag": 12,
+     "r": -0.354,
+     "n": 56
+    }
+   ],
+   "window": "Mar 2022 to Oct 2026"
+  }
+ ],
+ "correlation_table": {
+  "keys": [
+   "cpi",
+   "cpi_core",
+   "inr_yoy",
+   "repo_chg",
+   "gsec10",
+   "credit",
+   "deposit",
+   "m3",
+   "exports_yoy",
+   "imports_yoy",
+   "gst_yoy"
+  ],
+  "labels": [
+   "CPI inflation (% a year)",
+   "Core CPI inflation (% a year)",
+   "Rupee depreciation against the US$ (% on a year)",
+   "Repo rate (change on a year, points)",
+   "10-year G-sec yield (%)",
+   "Non-food bank credit growth (% a year)",
+   "Bank deposit growth (% a year)",
+   "Broad money growth (% a year)",
+   "Merchandise exports, 3 months (% on a year)",
+   "Merchandise imports, 3 months (% on a year)",
+   "Gross GST, 3 months (% on a year)"
+  ],
+  "r": [
+   [
+    1.0,
+    0.54,
+    0.08,
+    0.69,
+    0.78,
+    0.35,
+    -0.03,
+    -0.11,
+    0.3,
+    0.28,
+    0.61
+   ],
+   [
+    0.54,
+    1.0,
+    0.46,
+    0.64,
+    0.47,
+    -0.14,
+    -0.45,
+    -0.4,
+    0.32,
+    0.37,
+    0.62
+   ],
+   [
+    0.08,
+    0.46,
+    1.0,
+    0.27,
+    0.28,
+    0.06,
+    -0.07,
+    0.09,
+    0.19,
+    0.31,
+    0.07
+   ],
+   [
+    0.69,
+    0.64,
+    0.27,
+    1.0,
+    0.73,
+    0.33,
+    -0.24,
+    -0.32,
+    -0.18,
+    -0.1,
+    0.54
+   ],
+   [
+    0.78,
+    0.47,
+    0.28,
+    0.73,
+    1.0,
+    0.61,
+    0.05,
+    -0.02,
+    0.19,
+    0.12,
+    0.52
+   ],
+   [
+    0.35,
+    -0.14,
+    0.06,
+    0.33,
+    0.61,
+    1.0,
+    0.69,
+    0.59,
+    -0.08,
+    -0.29,
+    -0.05
+   ],
+   [
+    -0.03,
+    -0.45,
+    -0.07,
+    -0.24,
+    0.05,
+    0.69,
+    1.0,
+    0.97,
+    0.01,
+    -0.27,
+    -0.49
+   ],
+   [
+    -0.11,
+    -0.4,
+    0.09,
+    -0.32,
+    -0.02,
+    0.59,
+    0.97,
+    1.0,
+    0.1,
+    -0.16,
+    -0.54
+   ],
+   [
+    0.3,
+    0.32,
+    0.19,
+    -0.18,
+    0.19,
+    -0.08,
+    0.01,
+    0.1,
+    1.0,
+    0.79,
+    0.35
+   ],
+   [
+    0.28,
+    0.37,
+    0.31,
+    -0.1,
+    0.12,
+    -0.29,
+    -0.27,
+    -0.16,
+    0.79,
+    1.0,
+    0.54
+   ],
+   [
+    0.61,
+    0.62,
+    0.07,
+    0.54,
+    0.52,
+    -0.05,
+    -0.49,
+    -0.54,
+    0.35,
+    0.54,
+    1.0
+   ]
+  ],
+  "n": 55,
+  "window": "2022-03 to 2026-09",
+  "band95": 0.26
+ },
+ "tax_elasticity": [
+  {
+   "series": "net",
+   "label": "Net direct taxes",
+   "period": "2000-01 to 2024-25",
+   "elasticity": 1.2,
+   "low": 1.13,
+   "high": 1.27,
+   "n": 25,
+   "r2": 0.983
+  },
+  {
+   "series": "net",
+   "label": "Net direct taxes",
+   "period": "2014-15 to 2024-25",
+   "elasticity": 1.2,
+   "low": 1.02,
+   "high": 1.38,
+   "n": 11,
+   "r2": 0.961
+  },
+  {
+   "series": "corporate",
+   "label": "Corporate tax",
+   "period": "2000-01 to 2024-25",
+   "elasticity": 1.14,
+   "low": 1.03,
+   "high": 1.25,
+   "n": 25,
+   "r2": 0.953
+  },
+  {
+   "series": "corporate",
+   "label": "Corporate tax",
+   "period": "2014-15 to 2024-25",
+   "elasticity": 0.87,
+   "low": 0.61,
+   "high": 1.13,
+   "n": 11,
+   "r2": 0.862
+  },
+  {
+   "series": "non_corporate",
+   "label": "Non-corporate tax (mainly personal income tax)",
+   "period": "2000-01 to 2024-25",
+   "elasticity": 1.27,
+   "low": 1.22,
+   "high": 1.33,
+   "n": 25,
+   "r2": 0.991
+  },
+  {
+   "series": "non_corporate",
+   "label": "Non-corporate tax (mainly personal income tax)",
+   "period": "2014-15 to 2024-25",
+   "elasticity": 1.59,
+   "low": 1.49,
+   "high": 1.69,
+   "n": 11,
+   "r2": 0.993
+  }
+ ],
+ "settings": {
+  "backtest_origins": 24,
+  "horizon": 6,
+  "interval": "80%"
+ }
+}

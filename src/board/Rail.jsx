@@ -31,6 +31,10 @@ export default function Rail({ route, groups, data, error, onReload, skins = [],
         <div role="group" aria-labelledby="eb-dtax">
           <NavLink href="#/direct-taxes" current={route.name === 'direct-taxes' || (route.name === 'theme' && route.arg === 'direct-taxes') || active === 'Direct taxes'}>Collections, taxpayers and states</NavLink>
         </div>
+        <p className="eb-navhead" id="eb-analysis">Analysis</p>
+        <div role="group" aria-labelledby="eb-analysis">
+          <NavLink href="#/analysis" current={route.name === 'analysis'}>Forecasts and relationships</NavLink>
+        </div>
         <p className="eb-navhead" id="eb-trade">Merchandise trade</p>
         <div role="group" aria-labelledby="eb-trade">
           <NavLink href="#/exports" current={route.name === 'exports'}>Merchandise exports: partners and products</NavLink>

@@ -83,6 +83,16 @@ The script checks the PDF against itself before using it: the three parts of col
 
 Things to know: the latest year is provisional; states are assigned by the taxpayer's address on record, so states with large head offices dominate; "non-corporate" tax is mainly personal income tax but also includes firms, trusts and securities transaction tax; taxpayers are counted by assessment year.
 
+## Forecasts and relationships (Analysis page)
+
+`scripts/build_models.py` runs daily after the data refresh and writes `public/data/models.json`, shown on the **Forecasts and relationships** page (`#/analysis`, `src/board/pages/AnalysisPage.jsx`).
+
+- **Short-term outlook.** Small ARIMA models (seasonal ARIMA on logs for monthly values with a calendar pattern) for CPI and core inflation, credit, deposit and money growth, exports, imports, GST, the rupee and the 10-year yield. Each is tested first: re-fitted at each of the last 24 months and compared with a simple rule (no change for rates; the same month last year scaled by recent growth for seasonal values). A forecast is shown only if the model beats the rule one and three months ahead; every test result is shown either way. At present only GST collections pass.
+- **Relationships.** Correlations at leads and lags of up to 12 months for pairs with an economic reason to be linked, on annual growth or change, with the 95% chance band, a plain-language verdict, and a flag when the clearest link runs opposite to what economics expects (a shared cycle, not cause and effect). Plus a correlation table of the main monthly series.
+- **Tax elasticity.** Log-log regressions of CBDT's net, corporate and non-corporate collections on nominal GDP, 2000-01 onwards and 2014-15 onwards, with 95% ranges.
+
+Data: the board's series plus RBI DBIE's full monthly history from 2017-18; CPI joins the 2012 and 2024 bases (two single missing months in RBI's 2012-base file are filled by interpolation for fitting). These are statistical summaries, not official projections. Requires `statsmodels`.
+
 ## The division's indicators workbook
 
 `data/uploads/india-economic-indicators.xlsx` holds history compiled from official releases, each value cited on its Sources sheet: bank credit by sector, gross GST, the Centre's fiscal deficit and capital expenditure (% of budget estimate), IIP on the 2022-23 base, HSBC PMIs and the current account (% of GDP). `scripts/econ_workbook.py` reads it on every build. To update, replace the file with a newer version of the same layout and push; a reading typed into `data/manual-indicators.csv` that is newer than the workbook takes over the latest point.
