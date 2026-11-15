@@ -42,6 +42,10 @@ export default function Rail({ route, groups, data, error, onReload, skins = [],
           <NavLink href="#/balance" current={route.name === 'balance'}>Merchandise trade balance by partner</NavLink>
           <NavLink href="#/states" current={route.name === 'states'}>Merchandise exports by state</NavLink>
         </div>
+        <p className="eb-navhead" id="eb-boards">Other boards</p>
+        <div role="group" aria-labelledby="eb-boards">
+          <a href="psu.html" className="eb-navlink">PSU Performance Board</a>
+        </div>
         <NavLink href="#/sources" current={route.name === 'sources'}>Sources and notes</NavLink>
       </nav>
       <div className="eb-railstatus" role="status">

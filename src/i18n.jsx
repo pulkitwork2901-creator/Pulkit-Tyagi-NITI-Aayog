@@ -13,6 +13,8 @@ const EXACT = {
   'Merchandise trade balance by partner': 'साझेदार के अनुसार वस्तु व्यापार संतुलन',
   'Merchandise exports by state': 'राज्यवार वस्तु निर्यात',
   Analysis: 'विश्लेषण',
+  'Other boards': 'अन्य बोर्ड',
+  'PSU Performance Board': 'सार्वजनिक उपक्रम प्रदर्शन बोर्ड',
   'Forecasts and relationships': 'पूर्वानुमान और संबंध',
   'Short-term outlook': 'अल्पकालिक परिदृश्य',
   'How the indicators move together': 'संकेतक एक साथ कैसे बदलते हैं',

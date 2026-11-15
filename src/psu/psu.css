@@ -1,0 +1,82 @@
+/* PSU Performance Board. Builds on board.css and reform.css (page frame,
+   tiles, chart cards, tabs, caveats). Only what this board adds lives here. */
+
+.ps-say { margin: 0 2px; max-width: 120ch; font-size: 15px; line-height: 1.6; color: var(--eb-ink); }
+.ps-say b { color: var(--eb-navy); font-variant-numeric: tabular-nums; }
+.ps .rb-grid-3.ps-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ps-gap { font: 600 11.5px var(--eb-font); fill: var(--eb-muted); }
+
+/* Ranked bars: labels may wrap; negative bars grow left from a centre line */
+.ps-bars { margin-top: 8px; }
+.ps .ps-bar-row { grid-template-columns: minmax(0, 1fr) 92px; padding: 7px 2px; }
+.ps .ps-bar-row .eb-bar-label { white-space: normal; }
+.ps-track-split { position: relative; }
+.ps-track-split::before { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: var(--eb-muted); opacity: 0.5; }
+.ps .eb-bar-track i.ps-neg { background: var(--eb-s2); }
+
+/* Tables */
+.ps-tablecard { padding: 4px 0 0; }
+.ps-caption { caption-side: top; text-align: left; padding: 10px 14px 8px; font-size: 13px; color: var(--eb-muted); }
+.ps .ps-table thead th { font-size: 13px; padding: 9px 12px; white-space: nowrap; }
+.ps .ps-table tbody th, .ps .ps-table td, .ps .ps-table tfoot th, .ps .ps-table tfoot td { padding: 9px 12px; font-size: 14px; }
+.ps .ps-table tbody th { font-weight: 600; }
+.ps .ps-table tfoot th, .ps .ps-table tfoot td { font-weight: 700; border-top: 2px solid var(--eb-card-line); text-align: left; }
+.ps .ps-table .ps-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ps-sector { display: block; font-weight: 400; font-size: 12px; color: var(--eb-muted); }
+.ps .ps-table tbody tr:hover { background: var(--eb-panel-soft); }
+
+/* Company explorer */
+.ps-explorer { padding: 14px 16px 16px; }
+.ps-controls { display: flex; flex-wrap: wrap; gap: 8px 12px; margin-bottom: 10px; }
+.ps-search { flex: 1 1 260px; }
+.ps-search input, .ps-select select {
+  width: 100%; min-height: 38px; padding: 7px 12px; font: 15px var(--eb-font); color: var(--eb-ink);
+  background: var(--eb-paper); border: 1px solid var(--eb-card-line); border-radius: 8px;
+}
+.ps-select { flex: 0 1 300px; }
+.ps-filters { margin-bottom: 8px; }
+.ps-count { font-weight: 500; opacity: 0.75; margin-left: 2px; }
+.ps-result { margin: 4px 2px 6px; font-size: 13px; color: var(--eb-muted); }
+.ps-sort { all: unset; cursor: pointer; font: inherit; color: inherit; }
+.ps-sort:focus-visible { outline: 3px solid var(--eb-saffron); outline-offset: 2px; }
+.ps-firms th[scope="row"] { min-width: 220px; }
+
+/* Stake sales */
+.ps-deals .eb-tablewrap { margin-top: 6px; }
+.ps .ps-dealtable th[scope="row"] { min-width: 170px; }
+
+/* Employment and value added */
+.ps-emp { margin-top: 10px; }
+.ps-emp-head { margin: 0 0 6px; font-size: 13.5px; color: var(--eb-muted); }
+.ps-emp-head b { color: var(--eb-ink); margin-right: 6px; }
+.ps-share { margin-top: 8px; }
+
+/* Headline table and reading notes */
+.ps-details { padding: 0; }
+.ps-details summary { cursor: pointer; padding: 14px 18px; font-weight: 700; color: var(--eb-navy); }
+.ps-details[open] summary { border-bottom: 1px solid var(--eb-card-line); }
+.ps .ps-headlines sup { font-size: 10px; color: var(--eb-muted); margin-left: 2px; }
+.ps-sources { margin: 10px 18px 6px; padding-left: 20px; font-size: 13px; }
+.ps-details .rb-caveat { margin: 0 18px 14px; }
+.ps-read ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+.ps-read li { max-width: 115ch; }
+
+@media (max-width: 1280px) {
+  .ps .rb-grid-3.ps-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .ps .rb-grid-3.ps-grid-3 { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .ps-say { font-size: 14.5px; }
+  .ps-hide-sm { display: none; }
+  .ps .ps-bar-row { grid-template-columns: minmax(0, 1fr) 80px; }
+  .ps-explorer { padding: 12px; }
+  .ps-firms th[scope="row"] { min-width: 0; }
+  .ps .ps-firms td, .ps .ps-firms thead th { padding-left: 6px; padding-right: 6px; }
+  .ps .ps-dealtable th[scope="row"] { min-width: 0; }
+  .ps .ps-table tbody th, .ps .ps-table td { padding: 8px; font-size: 13.5px; }
+}
+@media print {
+  .ps-controls, .ps-filters, .rb-more { display: none; }
+}

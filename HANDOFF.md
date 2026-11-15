@@ -1,6 +1,6 @@
 # E&F-II Economic Monitor (formerly "E&F-II Dashboard"): handoff for a new Claude session
 
-Last updated: 14 November 2026. Read this first, then README.md.
+Last updated: 15 November 2026. Read this first, then README.md.
 
 ## The person and how to work with them
 
@@ -70,6 +70,8 @@ Last updated: 14 November 2026. Read this first, then README.md.
 - Not yet added: EPFO payroll, food prices, rainfall, FRED global data, CGA automation (need new hosts); bank NPAs (RBI FSR PDF blocked; manual).
 
 ## Recent fixes worth knowing
+
+- 15 Nov 2026: PSU Performance Board (psu.html, src/psu/, scripts/build_psu.py -> public/data/psu/psu.json; workflow step after the Reform board; linked from the main sidebar under "Other boards"). Sources: PIB PRID 2237538 (LSUQ 2941, 10 Mar 2026: company-wise net profit 2022-23 to 2024-25 of 226 profit-making and 63 loss-making CPSEs, PE Survey 2024-25), DPE Statement J PDF (exchequer total), DIPAM (receipts, dividends JSON DividendByFnclYearCPSEWise?fy=YYYY-YYYY, current-year deals, viewAllCPSE?enty=C|B market value), hand-kept data/psu/pe-survey-headlines.csv and pe-survey-tables.json. Findings: 2024-25 overall net profit Rs 2.91 lakh crore (-9.9%); refining group 89,453 to 35,434 crore, ex-refiners +9.5%; top 10 = 55% of profit; 63 loss-makers, 38 in all three years; CCE 4.94 lakh crore; Centre's dividend 2025-26 Rs 78,438 crore (record); 2026-27 stake sales 55,757 crore to 4 Nov (LIC OFS 31,515); Government's listed CPSE shares Rs 21.74 lakh crore, banks and insurers 18.26. Hosts added this session: dpe.gov.in, www.dpe.gov.in, dipam.gov.in, www.dipam.gov.in, www.indiabudget.gov.in, reports-pesurvey.dpe.gov.in, crt.sectigo.com (the last two are not usable from the cloud container: portal chain incomplete and Sectigo's issuer link is plain HTTP). DPE's main site refuses headless browsers.
 
 - 14 Nov 2026 (later): Analysis page checked live at 1440 and 390 px (models.json 200, no console errors, no page overflow). Phone fixes: forecast chart date labels thin to every 12 or 24 months when crowded; the technical "Model" column of the test table is hidden under 640 px. This session's work branch is claude/sharp-cori-iz54zq (earlier sessions used claude/tender-bohr-gjkocq); publishing is still a push to main.
 - 14 Nov 2026: Analysis page (#/analysis, AnalysisPage.jsx; sidebar heading "Analysis"), built by scripts/build_models.py into public/data/models.json (workflow step after build_indicators, 10-minute limit; statsmodels in requirements). Rule: a forecast is published only if it beats a simple rule at 1 and 3 months in a 24-origin backtest; now only GST passes (CPI, credit, trade, rupee, G-sec do not). Findings: oil leads CPI by about 5 months (r 0.62, n 31 because of the PPAC 2022-23 gap); household expectations follow CPI (r 0.70, 4 months); FPI flows and the rupee r -0.56; repo and credit r +0.66 is flagged as opposite to theory (shared cycle); tax elasticity net 1.20 (1.13-1.27), non-corporate 1.59 and corporate 0.87 since 2014-15.

@@ -8,7 +8,7 @@ on:
     - cron: "30 12 * * *"   # 18:00 IST daily, after most releases
   push:
     branches: [main]
-    paths: ["data/**", "public/data/trade/**", "src/**", "scripts/**", "index.html", "reform.html", "package.json", "vite.config.js", ".github/workflows/**"]
+    paths: ["data/**", "public/data/trade/**", "src/**", "scripts/**", "index.html", "reform.html", "psu.html", "package.json", "vite.config.js", ".github/workflows/**"]
   workflow_dispatch:
     inputs:
       trade_release:
@@ -71,6 +71,11 @@ jobs:
         continue-on-error: true   # keeps the last good copy of any source that fails
         timeout-minutes: 10       # a source that hangs must not hold up the rest of the board (normally under a minute)
 
+      - name: Pull data for the PSU Performance Board (DIPAM receipts, dividends, stake sales, market value; DPE survey via PIB)
+        run: python scripts/build_psu.py
+        continue-on-error: true   # keeps the last good copy of any source that fails
+        timeout-minutes: 10
+
       - name: Validate and build DGCI&S trade data
         env:
           TRADE_RELEASE: ${{ inputs.trade_release }}
@@ -92,7 +97,7 @@ jobs:
         run: |
           git config user.name "board-bot"
           git config user.email "board-bot@users.noreply.github.com"
-          git add public/data/indicators.json public/data/indicators.csv data/rbi_releases.json data/ppac_crude.json data/gst_reports.json data/direct_taxes.json public/data/direct-taxes.json public/data/models.json public/data/reform/evidence.json data/reform/njdg-snapshots.csv data/reform/msme-snapshots.csv public/data/trade
+          git add public/data/indicators.json public/data/indicators.csv data/rbi_releases.json data/ppac_crude.json data/gst_reports.json data/direct_taxes.json public/data/direct-taxes.json public/data/models.json public/data/reform/evidence.json data/reform/njdg-snapshots.csv data/reform/msme-snapshots.csv public/data/psu/psu.json data/psu/mcap-snapshots.csv data/psu/disinvestment-deals.csv public/data/trade
           git diff --cached --quiet || git commit -m "Refresh indicators $(date -u +%F)"
           git push
 
