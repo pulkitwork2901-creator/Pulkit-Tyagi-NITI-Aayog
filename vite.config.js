@@ -4,8 +4,7 @@ import react from '@vitejs/plugin-react';
 
 // BASE_PATH=./ (set by the deploy workflow) makes every asset path relative,
 // so the built site works at any URL, including after a repository rename.
-// Three pages: index.html (E&F-II Economic Monitor), reform.html (Reform Evidence Board)
-// and psu.html (PSU Performance Board).
+// Two pages: index.html (E&F-II Economic Monitor) and reform.html (Reform Evidence Board).
 export default defineConfig({
   plugins: [react()],
   base: process.env.BASE_PATH || '/',
@@ -14,7 +13,6 @@ export default defineConfig({
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
         reform: resolve(import.meta.dirname, 'reform.html'),
-        psu: resolve(import.meta.dirname, 'psu.html'),
       },
     },
   },
