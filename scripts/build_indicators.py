@@ -364,6 +364,11 @@ def fetch_core_cpi(session) -> list[dict]:
                              "group_code": gc, "year": str(yr), "limit": "200", "Format": "JSON"})
     sub = lambda name: idx(rows, lambda r: r.get("subgroup") == name)
     c12 = core(sub("General-Overall"), sub("Food and Beverages-Overall"), sub("Fuel and Light-Overall"), CORE_WEIGHTS_2012)
+    _save_cpi_components({
+        "2012": {"weights": CORE_WEIGHTS_2012, "general": sub("General-Overall"),
+                 "food": sub("Food and Beverages-Overall"), "fuel": sub("Fuel and Light-Overall")},
+        "2024": {"weights": CORE_WEIGHTS_2024, "general": g, "food": f, "fuel": u},
+    })
     yoy = {}
     for c in (c12, c24):  # the 2024 base overrides from January 2026
         for (y, m), v in c.items():
@@ -376,6 +381,55 @@ def fetch_core_cpi(session) -> list[dict]:
                          "2012 base: food 45.86%, fuel and light 6.84%). Petrol and diesel for vehicles stay in, as in the usual Indian measure. "
                          "Not an official MoSPI series.")
     return [item] if item else []
+
+
+CPI_COMPONENTS = ROOT / "data" / "cpi_components.json"
+
+
+def _save_cpi_components(bases: dict, divisions: dict | None = None) -> None:
+    """Keep the CPI indices behind core inflation (headline, food, fuel; both
+    bases) for scripts/build_models.py, which splits headline inflation into
+    the contributions of food, household fuel and everything else. Written only
+    after a successful fetch, so a MoSPI failure keeps the last good copy."""
+    try:
+        cur = json.loads(CPI_COMPONENTS.read_text()) if CPI_COMPONENTS.exists() else {}
+    except ValueError:
+        cur = {}
+    key = lambda ym: f"{ym[0]}-{ym[1]:02d}"
+    if bases:
+        cur["bases"] = {b: {"weights": v["weights"], **{k: {key(ym): x for ym, x in sorted(v[k].items())}
+                                                        for k in ("general", "food", "fuel")}}
+                        for b, v in bases.items()}
+    if divisions:
+        cur["divisions"] = divisions
+    cur["source"] = "MoSPI CPI API (api.mospi.gov.in), All India combined"
+    cur["fetched_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    CPI_COMPONENTS.write_text(json.dumps(cur, indent=1))
+
+
+def fetch_cpi_divisions(session) -> dict:
+    """Annual inflation in each of the 2024-base CPI's spending divisions, for
+    the latest month and the month before (All India combined)."""
+    this_year = date.today().year
+    rows = _get_all(session, "/api/cpi/getCPIData", {
+        "base_year": "2024", "series": "Current", "state_code": "1", "sector_code": "3",
+        "division_code": "0", "year": f"{this_year - 1},{this_year}", "limit": "100", "Format": "JSON"})
+    months = sorted({(int(r["year"]), MONTHS.index(r["month"]) + 1) for r in rows
+                     if r.get("month") in MONTHS and _num(r.get("inflation")) is not None})
+    if not months:
+        raise RuntimeError("no CPI months")
+    out = {}
+    for (y, m) in months[-2:]:
+        snap = _get_all(session, "/api/cpi/getCPIData", {
+            "base_year": "2024", "series": "Current", "state_code": "1", "sector_code": "3",
+            "year": str(y), "month_code": str(m), "limit": "100", "Format": "JSON"})
+        divs = [{"code": r.get("code"), "name": r.get("division"), "index": _num(r.get("index")),
+                 "inflation": _num(r.get("inflation"))}
+                for r in snap if not r.get("group") and r.get("code") and _num(r.get("inflation")) is not None]
+        if len(divs) < 8:
+            raise RuntimeError(f"only {len(divs)} CPI divisions for {y}-{m:02d}")
+        out[f"{y}-{m:02d}"] = sorted(divs, key=lambda d: d["code"])
+    return out
 
 
 def shape_gdp_extra(rows: list[dict]) -> list[dict]:
@@ -994,6 +1048,11 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
                     live[i["id"]] = i
             except Exception as exc:
                 extra_failed.append(f"{name}: {exc}")
+        if s is not None:
+            try:  # spending divisions for the Analysis page; on failure the last good copy stays
+                _save_cpi_components({}, fetch_cpi_divisions(s))
+            except Exception as exc:
+                extra_failed.append(f"CPI divisions: {exc}")
     for k in ("wpi", "wpi_food", "unemployment", "cpi_rural", "cpi_urban", "cpi_core", "gdp_nominal", "gdp_deflator"):
         if k not in live and k in previous:
             live[k] = {**previous[k], "stale": bool(extra_failed)}

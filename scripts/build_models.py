@@ -20,7 +20,14 @@ Writes public/data/models.json with three parts:
    the main monthly series.
 
 3. Tax elasticity. How much net direct taxes rise for a 1% rise in nominal
-   GDP, from 25 years of CBDT data (log-log regression with a 95% interval).
+   GDP, from 25 years of CBDT data (log-log regression with a 95% interval),
+   and a check of this year's CBDT in-year collections against what the
+   elasticity and the latest nominal GDP growth would imply.
+
+4. What drives CPI inflation: headline inflation split into the contributions
+   of food and beverages, household fuel and everything else (core), from
+   MoSPI's indices and basket weights (data/cpi_components.json, written by
+   build_indicators.py), plus the latest inflation in each spending division.
 
 These are statistical summaries, not official forecasts: they assume the
 future behaves like the past few years, and correlation does not show cause.
@@ -47,6 +54,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 INDICATORS = ROOT / "public" / "data" / "indicators.json"
 RBI = ROOT / "data" / "rbi" / "macro-indicators.xlsx"
 DIRECT = ROOT / "data" / "direct_taxes.json"
+CPI_COMPONENTS = ROOT / "data" / "cpi_components.json"
 OUT = ROOT / "public" / "data" / "models.json"
 
 BACKTEST_ORIGINS = 24
@@ -182,6 +190,7 @@ def backtest(y: pd.Series, kind: str, order, h: int = HORIZON):
     """Re-fit at each of the last BACKTEST_ORIGINS months and forecast ahead."""
     err_m = {k: [] for k in range(1, h + 1)}
     err_n = {k: [] for k in range(1, h + 1)}
+    track = []  # what the model and the rule said, against what happened (1 and 3 months ahead)
     n = len(y)
     for cut in range(n - BACKTEST_ORIGINS - h, n - 1):
         train = y.iloc[:cut + 1]
@@ -197,13 +206,17 @@ def backtest(y: pd.Series, kind: str, order, h: int = HORIZON):
                 actual = y.iloc[cut + k]
                 err_m[k].append(abs(m[k - 1] - actual))
                 err_n[k].append(abs(b[k - 1] - actual))
+                if k in (1, 3):
+                    track.append({"h": k, "made": str(y.index[cut]), "month": str(y.index[cut + k]),
+                                  "model": round(float(m[k - 1]), 3), "simple": round(float(b[k - 1]), 3),
+                                  "actual": round(float(actual), 3)})
     out = {}
     for k in (1, 3, 6):
         if err_m[k]:
             mm, nn = float(np.mean(err_m[k])), float(np.mean(err_n[k]))
             out[str(k)] = {"model_mae": round(mm, 3), "simple_mae": round(nn, 3),
                            "skill_pct": round((1 - mm / nn) * 100, 1) if nn else None, "tests": len(err_m[k])}
-    return out
+    return out, track
 
 
 def run_forecasts(monthly: dict[str, pd.Series]) -> tuple[list, list]:
@@ -214,7 +227,7 @@ def run_forecasts(monthly: dict[str, pd.Series]) -> tuple[list, list]:
             tested.append({"id": sid, "title": title, "reason": f"only {len(y)} consecutive months; at least 60 needed"})
             continue
         order = choose_order(y, kind)
-        bt = backtest(y, kind, order)
+        bt, track = backtest(y, kind, order)
         mean, lo, hi = forecast(y, kind, order, HORIZON)
         months = [str(y.index[-1] + k) for k in range(1, HORIZON + 1)]
         beats = all((bt.get(k, {}).get("skill_pct") or -1) > 0 for k in ("1", "3"))
@@ -225,7 +238,7 @@ def run_forecasts(monthly: dict[str, pd.Series]) -> tuple[list, list]:
             "history": [{"month": str(p), "value": round(float(v), 3)} for p, v in y.iloc[-36:].items()],
             "forecast": [{"month": mo, "value": round(float(a), 3), "low": round(float(b), 3), "high": round(float(c), 3)}
                          for mo, a, b, c in zip(months, mean, lo, hi)],
-            "backtest": bt, "beats_simple_rule": beats, "filled_months": FILLED.get(sid, []),
+            "backtest": bt, "track": track, "beats_simple_rule": beats, "filled_months": FILLED.get(sid, []),
         }
         (published if beats else tested).append(entry)
         print(f"  {sid}: {entry['model']}, n={len(y)}, skill h1/h3/h6 = "
@@ -316,7 +329,11 @@ def run_relationships(monthly):
         # direction the pair is about (x first or same month), is flagged: it most
         # likely reflects a shared cycle, not the mechanism.
         unexpected = abs(best["r"]) >= band and (best["r"] > 0) != (expected > 0)
-        pairs.append({"x": xk, "y": yk, "x_label": t[xk][1], "y_label": t[yk][1], "why": why, "caution": caution, "expected": expected, "unexpected": unexpected,
+        both = pd.concat([x.rename("x"), y.rename("y")], axis=1)
+        both = both[(both.index >= max(x.index[0], y.index[0]) - pd.DateOffset(months=12)) & (both.index <= max(x.index[-1], y.index[-1]))]
+        series = [{"m": f"{i:%Y-%m}", "x": None if pd.isna(r.x) else round(float(r.x), 2), "y": None if pd.isna(r.y) else round(float(r.y), 2)}
+                  for i, r in both.iterrows()]
+        pairs.append({"x": xk, "y": yk, "x_label": t[xk][1], "y_label": t[yk][1], "why": why, "caution": caution, "expected": expected, "unexpected": unexpected, "series": series,
                       "same_month": same, "best_lead": best, "band95": band, "lags": cc,
                       "window": f"{max(x.index[0], y.index[0]):%b %Y} to {min(x.index[-1], y.index[-1]):%b %Y}"})
     # Correlation table on a common window.
@@ -344,9 +361,107 @@ def run_elasticity():
             xv = sm.add_constant(np.log([r[1]["gdp_current"] for r in sel]))
             res = sm.OLS(yv, xv).fit()
             b, (lo, hi) = res.params[1], res.conf_int(0.05)[1]
-            out.append({"series": key, "label": label, "period": span, "elasticity": round(float(b), 2),
+            out.append({"series": key, "label": label, "period": span, "elasticity": round(float(b), 2), "intercept": round(float(res.params[0]), 4),
                         "low": round(float(lo), 2), "high": round(float(hi), 2), "n": len(sel), "r2": round(float(res.rsquared), 3)})
     return out
+
+
+def tax_history():
+    """Collections and nominal GDP by financial year (₹ crore), for the chart."""
+    fy = json.loads(DIRECT.read_text())["fy"]
+    return [{"fy": y, "gdp": v["gdp_current"], "net": v["net"], "corporate": v["corporate"], "non_corporate": v["non_corporate"],
+             "provisional": bool(v.get("provisional"))}
+            for y, v in sorted(fy.items()) if v.get("gdp_current") and v.get("net")]
+
+
+def run_tax_check(elasticity, monthly_board):
+    """This year's CBDT in-year collections against what growth would imply.
+
+    CBDT's annual 'non-corporate tax' includes Securities Transaction Tax, so
+    the in-year non-corporate figure is taken with STT to match."""
+    d = json.loads(DIRECT.read_text())
+    snaps = d.get("in_year") or []
+    if not snaps:
+        return None
+    sn = snaps[-1]
+    cur, prev = sn["cur"], sn["prev"]
+    def g(a, b):
+        return round((a / b - 1) * 100, 1) if b else None
+    parts = {
+        "net": ("Net direct taxes", cur["net"]["total"], prev["net"]["total"]),
+        "corporate": ("Corporate tax (net)", cur["net"]["ct"], prev["net"]["ct"]),
+        "non_corporate": ("Non-corporate tax incl. STT (net)", cur["net"]["nct"] + cur["net"]["stt"], prev["net"]["nct"] + prev["net"]["stt"]),
+    }
+    gross_nc = g(cur["gross"]["nct"] + cur["gross"]["stt"], prev["gross"]["nct"] + prev["gross"]["stt"])
+    # Nominal GDP growth so far in the same financial year (average of its quarters).
+    gdp = monthly_board.get("gdp_nominal") or {}
+    fy = sn["fy"]
+    qs = [p for p in gdp.get("history", []) if p.get("label", "").endswith(fy)]
+    if not qs:
+        qs = gdp.get("history", [])[-1:]
+    g_gdp = round(sum(p["value"] for p in qs) / len(qs), 1) if qs else None
+    el = {(e["series"], e["period"][:7]): e for e in elasticity}
+    rows = []
+    for key, (label, a, b) in parts.items():
+        e_long, e_recent = el.get((key, "2000-01")), el.get((key, "2014-15"))
+        rows.append({"series": key, "label": label, "actual_growth": g(a, b), "cur": round(a), "prev": round(b),
+                     "elasticity_long": e_long and {k: e_long[k] for k in ("elasticity", "low", "high", "period")},
+                     "elasticity_recent": e_recent and {k: e_recent[k] for k in ("elasticity", "low", "high", "period")}})
+    refunds = {"nct_cur": round(cur["refunds"]["nct"]), "nct_prev": round(prev["refunds"]["nct"]),
+               "total_growth": g(cur["refunds"]["total"], prev["refunds"]["total"])}
+    return {"as_on": sn["as_on"], "fy": fy, "prev_as_on": prev["as_on"], "source": sn.get("source"),
+            "gdp_growth": g_gdp, "gdp_quarters": [p["label"] for p in qs], "rows": rows,
+            "gross_non_corporate_growth": gross_nc, "refunds": refunds}
+
+
+def run_cpi_contrib(monthly):
+    """Headline CPI inflation split into the contributions (percentage points)
+    of food and beverages, household fuel and everything else.
+
+    For a fixed-weight index, general = sum of weight x component index, so
+    contribution of a component = weight x (its index now - a year ago) /
+    general index a year ago x 100, and the three contributions add up to
+    headline inflation. Within one base only: the 2012 base to December 2025,
+    the 2024 base from January 2026 (its 2025 indices give the year-ago values)."""
+    if not CPI_COMPONENTS.exists():
+        return None
+    d = json.loads(CPI_COMPONENTS.read_text())
+    out = {}
+    for base in ("2012", "2024"):
+        b = d.get("bases", {}).get(base)
+        if not b:
+            continue
+        w = b["weights"]
+        G, F, U = b["general"], b["food"], b["fuel"]
+        for m in sorted(G):
+            y0 = f"{int(m[:4]) - 1}{m[4:]}"
+            if base == "2012" and m >= "2026-01":
+                continue
+            if not all(k in X for X in (G, F, U) for k in (m, y0)):
+                continue
+            head = (G[m] / G[y0] - 1) * 100
+            food = w["food"] * (F[m] - F[y0]) / G[y0] * 100
+            fuel = w["fuel"] * (U[m] - U[y0]) / G[y0] * 100
+            out[m] = {"month": m, "base": base, "headline": round(head, 2), "food": round(food, 2), "fuel": round(fuel, 2),
+                      "core": round(head - food - fuel, 2),
+                      "food_infl": round((F[m] / F[y0] - 1) * 100, 2), "fuel_infl": round((U[m] / U[y0] - 1) * 100, 2)}
+    rows = [out[k] for k in sorted(out)]
+    if not rows:
+        return None
+    # Check against the published headline inflation (rounded indices make small gaps).
+    pub = monthly.get("cpi", pd.Series(dtype=float))
+    gaps = [abs(r["headline"] - float(pub[pd.Period(r["month"], "M")])) for r in rows if pd.Period(r["month"], "M") in pub.index]
+    weights = {b: d["bases"][b]["weights"] for b in d.get("bases", {})}
+    divs = d.get("divisions") or {}
+    months = sorted(divs)
+    divisions = None
+    if months:
+        latest = divs[months[-1]]
+        before = {x["code"]: x["inflation"] for x in divs[months[-2]]} if len(months) > 1 else {}
+        divisions = {"month": months[-1], "previous": months[-2] if len(months) > 1 else None,
+                     "rows": [{**x, "prev": before.get(x["code"])} for x in latest]}
+    return {"rows": rows, "weights": weights, "max_gap_vs_published": round(max(gaps), 2) if gaps else None,
+            "divisions": divisions, "source": d.get("source"), "fetched_at": d.get("fetched_at")}
 
 
 def main() -> int:
@@ -360,10 +475,21 @@ def main() -> int:
     elasticity = run_elasticity()
     for e in elasticity:
         print(f"  elasticity {e['series']} {e['period']}: {e['elasticity']} ({e['low']} to {e['high']})")
+    board = {i["id"]: i for i in json.loads(INDICATORS.read_text())["indicators"]}
+    tax_check = run_tax_check(elasticity, board)
+    if tax_check:
+        print(f"  in-year taxes to {tax_check['as_on']}: GDP growth {tax_check['gdp_growth']}%, "
+              + ", ".join(f"{r['series']} {r['actual_growth']}%" for r in tax_check["rows"]))
+    cpi_contrib = run_cpi_contrib(monthly)
+    if cpi_contrib:
+        last = cpi_contrib["rows"][-1]
+        print(f"  CPI {last['month']}: headline {last['headline']} = food {last['food']} + fuel {last['fuel']} + core {last['core']}; "
+              f"largest gap vs published {cpi_contrib['max_gap_vs_published']}")
     OUT.write_text(json.dumps({
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "forecasts": published, "tested_not_published": tested,
         "relationships": pairs, "correlation_table": table, "tax_elasticity": elasticity,
+        "tax_history": tax_history(), "tax_check": tax_check, "cpi_contributions": cpi_contrib,
         "settings": {"backtest_origins": BACKTEST_ORIGINS, "horizon": HORIZON, "interval": "80%"},
     }, ensure_ascii=False, indent=1))
     print(f"Wrote {OUT.relative_to(ROOT)}: {len(published)} forecasts published, {len(tested)} tested only")

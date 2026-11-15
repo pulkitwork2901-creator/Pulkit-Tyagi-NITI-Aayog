@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import useWidth from '../useWidth.js';
 import { formatValue, niceScale, signed } from '../format.js';
 import { useTradeFile } from '../trade/tradeKit.jsx';
+import { HeadlineStrip, PairLines, TrackRecord, TaxScatter, TaxCheck, CpiContrib, CpiDivisions } from './analysisCharts.jsx';
 
 // Forecasts, relationships and tax elasticity, from public/data/models.json
 // (written by scripts/build_models.py). Every number here is a statistical
@@ -8,6 +10,7 @@ import { useTradeFile } from '../trade/tradeKit.jsx';
 
 const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const monthLabel = (m) => `${MON[Number(m.slice(5, 7)) - 1]} ${m.slice(0, 4)}`;
+const fx1 = (v) => (v == null ? 'n.a.' : `${v > 0 ? '+' : ''}${signed(formatValue(v, 1))}`);
 const pctSigned = (v) => (v == null ? 'n.a.' : `${v > 0 ? '+' : ''}${signed(formatValue(v, 0))}%`);
 
 const SHORT = {
@@ -164,6 +167,7 @@ function PairCard({ p }) {
   const ys = SHORT[p.y] || p.y;
   const dir = (r) => (r > 0 ? 'move together' : 'move in opposite directions');
   const better = b.lag > 0 && Math.abs(b.r) > Math.abs(s.r) + 0.05 && Math.abs(b.r) >= p.band95;
+  const [shift, setShift] = useState(better);
   return (
     <section className="eb-mc eb-an-card">
       <h3 className="eb-mc-title">{xs[0].toUpperCase() + xs.slice(1)} and {ys}</h3>
@@ -174,9 +178,23 @@ function PairCard({ p }) {
       {p.unexpected && (
         <p className="eb-an-warn"><b>Opposite to what economics expects.</b> Theory says {xs} and {ys} should {p.expected > 0 ? 'move together' : 'move in opposite directions'}; here the clearest link runs the other way, so read it as a shared cycle, not cause and effect.</p>
       )}
-      <LagChart p={p} />
+      {p.series?.length ? (
+        <>
+          {better && (
+            <div className="eb-range eb-an-shift" role="group" aria-label="Line up the two series">
+              <button type="button" aria-pressed={!shift} onClick={() => setShift(false)}>Same month</button>
+              <button type="button" aria-pressed={shift} onClick={() => setShift(true)}>{xs[0].toUpperCase() + xs.slice(1)} {b.lag} month{b.lag > 1 ? 's' : ''} earlier</button>
+            </div>
+          )}
+          <PairLines p={p} lag={shift ? b.lag : 0} short={SHORT} />
+        </>
+      ) : null}
+      <details className="eb-an-more">
+        <summary>Correlation at each lead and lag</summary>
+        <LagChart p={p} />
+      </details>
       <p className="eb-mc-note"><b>Why look:</b> {p.why} {p.caution ? <><b>Caution:</b> {p.caution}</> : null}</p>
-      <p className="eb-mc-note eb-muted">{p.x_label} against {p.y_label}. {p.window}, {s.n} months. Bars beyond the dotted lines are unlikely to be chance (95%).</p>
+      <p className="eb-mc-note eb-muted">{p.x_label} against {p.y_label}. {p.window}, {s.n} months. In the lead and lag chart, bars beyond the dotted lines are unlikely to be chance (95%).</p>
     </section>
   );
 }
@@ -211,15 +229,9 @@ function Heatmap({ t }) {
 }
 
 function Elasticity({ rows }) {
-  const net = rows.find((r) => r.series === 'net' && r.period.startsWith('2000'));
   return (
-    <>
-      {net && (
-        <p className="eb-ru-lead">
-          Over {net.period}, net direct taxes rose about <strong>{net.elasticity}%</strong> for every 1% rise in nominal GDP (95% range {net.low} to {net.high}).
-          In practice: if nominal GDP grows 10% in a year, direct taxes would be expected to grow about <strong>{formatValue(net.elasticity * 10, 0)}%</strong>, before any change in tax rates.
-        </p>
-      )}
+    <details className="eb-an-more">
+      <summary>All elasticity estimates</summary>
       <div className="eb-tablewrap">
         <table className="eb-table">
           <caption className="eb-sr">Elasticity of direct taxes to nominal GDP</caption>
@@ -235,7 +247,7 @@ function Elasticity({ rows }) {
         </table>
       </div>
       <p className="eb-mc-note">Log of collections regressed on log of nominal GDP (CBDT Time Series Data). Above 1: taxes grow faster than the economy. The values include the effect of past changes in tax rates and administration (for example the September 2019 corporate tax cut), so they describe the past rather than predict the effect of a new rate change.</p>
-    </>
+    </details>
   );
 }
 
@@ -246,11 +258,15 @@ export default function AnalysisPage({ base }) {
   const tested = [...d.forecasts, ...d.tested_not_published];
   const strong = d.relationships.filter((p) => !p.unexpected && Math.abs(p.best_lead.r) >= 0.5 && Math.abs(p.best_lead.r) >= p.band95);
   const odd = d.relationships.filter((p) => p.unexpected);
+  const cpi = d.cpi_contributions?.rows?.at(-1);
+  const cpiYearAgo = cpi && d.cpi_contributions.rows.find((r) => r.month === `${Number(cpi.month.slice(0, 4)) - 1}${cpi.month.slice(4)}`);
+  const net = d.tax_elasticity.find((r) => r.series === 'net' && r.period.startsWith('2000'));
   return (
     <>
       <nav className="eb-crumbs" aria-label="Breadcrumb"><a href="#/">Dashboard</a><span aria-hidden="true">/</span><span>Forecasts and relationships</span></nav>
       <header className="eb-pagehead">
         <h1>Forecasts and relationships</h1>
+        <HeadlineStrip d={d} short={SHORT} />
         <div className="eb-themebrief">
           <p className="eb-themebrief-kicker">What the models say</p>
           <p>
@@ -276,6 +292,8 @@ export default function AnalysisPage({ base }) {
               <h3 className="eb-mc-title">{f.title}</h3>
               <p className="eb-mc-note">{f.unit}. {f.model}, fitted on {monthLabel(f.fit_from)} to {monthLabel(f.fit_to)}. In testing, its errors were {formatValue(f.backtest['1'].skill_pct, 0)}% smaller than the simple rule's one month ahead and {formatValue(f.backtest['3'].skill_pct, 0)}% smaller three months ahead.</p>
               <ForecastChart f={f} />
+              <h4 className="eb-an-sub4">How it did in testing</h4>
+              <TrackRecord f={f} />
             </section>
           ))}
         </div>
@@ -284,11 +302,35 @@ export default function AnalysisPage({ base }) {
         <SkillTable rows={tested} />
       </section>
 
+      {cpi && (
+        <section className="eb-section" aria-labelledby="an-cpi-h">
+          <h2 id="an-cpi-h">What is driving inflation</h2>
+          <p className="eb-ru-lead">
+            In {monthLabel(cpi.month)}, CPI inflation was <strong>{formatValue(cpi.headline, 2)}%</strong>. Food and beverages added <strong>{formatValue(cpi.food, 1)} points</strong>
+            {cpi.headline > 0 ? ` (${formatValue((cpi.food / cpi.headline) * 100, 0)}% of the total)` : ''}, household fuel {formatValue(cpi.fuel, 1)} and everything else {formatValue(cpi.core, 1)}.
+            {cpiYearAgo ? <> A year earlier, in {monthLabel(cpiYearAgo.month)}, food {cpiYearAgo.food < 0 ? <>was pulling inflation <strong>down</strong> by {formatValue(-cpiYearAgo.food, 1)} points</> : <>added {formatValue(cpiYearAgo.food, 1)} points</>} and everything else added {formatValue(cpiYearAgo.core, 1)}.</> : null}
+            {' '}Food prices themselves were {formatValue(cpi.food_infl, 1)}% higher than a year earlier.
+          </p>
+          <section className="eb-mc eb-an-card">
+            <h3 className="eb-mc-title">Contributions to CPI inflation</h3>
+            <p className="eb-mc-note">Percentage points of headline inflation, All India combined. Each bar adds up to the month's inflation; below zero means that part was pulling inflation down.</p>
+            <CpiContrib c={d.cpi_contributions} />
+          </section>
+          {d.cpi_contributions.divisions && (
+            <section className="eb-mc eb-an-card eb-an-gap">
+              <h3 className="eb-mc-title">Where prices are rising fastest, {monthLabel(d.cpi_contributions.divisions.month)}</h3>
+              <p className="eb-mc-note">Annual inflation in each of the 12 spending divisions of the 2024-base CPI. This shows how fast prices are rising in each part of the basket, not how much each part weighs in the total.</p>
+              <CpiDivisions c={d.cpi_contributions} headline={cpi.headline} />
+            </section>
+          )}
+        </section>
+      )}
+
       <section className="eb-section" aria-labelledby="an-rel-h">
         <h2 id="an-rel-h">How the indicators move together</h2>
         <p className="eb-ru-lead">
-          For pairs with an economic reason to be linked: the correlation (r, from −1 to +1) in the same month and when one leads the other by up to 12 months.
-          Series are compared as annual growth or change, so trends and seasons do not create false links.
+          For pairs with an economic reason to be linked: the two series over time, and the correlation (r, from −1 to +1) in the same month and when one leads the other by up to 12 months.
+          Series are compared as annual growth or change, so trends and seasons do not create false links. Where one series tends to move first, the switch on the card slides it forward so you can see the lines line up.
         </p>
         <div className="eb-an-grid2">{d.relationships.map((p) => <PairCard key={p.x + p.y} p={p} />)}</div>
         <h3 className="eb-an-sub">Correlation table</h3>
@@ -298,6 +340,34 @@ export default function AnalysisPage({ base }) {
 
       <section className="eb-section" aria-labelledby="an-el-h">
         <h2 id="an-el-h">How direct taxes respond to growth</h2>
+        {net && (
+          <p className="eb-ru-lead">
+            Over {net.period}, net direct taxes rose about <strong>{net.elasticity}%</strong> for every 1% rise in nominal GDP (95% range {net.low} to {net.high}).
+            In practice: if nominal GDP grows 10% in a year, direct taxes would be expected to grow about <strong>{formatValue(net.elasticity * 10, 0)}%</strong>, before any change in tax rates.
+          </p>
+        )}
+        {d.tax_history?.length ? (
+          <section className="eb-mc eb-an-card">
+            <h3 className="eb-mc-title">Direct taxes and the size of the economy, {d.tax_history[0].fy} to {d.tax_history.at(-1).fy}</h3>
+            <TaxScatter hist={d.tax_history} el={d.tax_elasticity} />
+          </section>
+        ) : null}
+        {d.tax_check && (
+          <section className="eb-mc eb-an-card eb-an-gap">
+            <h3 className="eb-mc-title">Is {d.tax_check.fy} on track?</h3>
+            <p className="eb-mc-note">
+              Collections up to {new Date(`${d.tax_check.as_on}T00:00:00`).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })} against the same date a year earlier (CBDT),
+              compared with the growth the elasticities would imply for the nominal GDP growth you choose. It starts at the average for {d.tax_check.gdp_quarters.join(', ')} (MoSPI).
+            </p>
+            <TaxCheck check={d.tax_check} el={d.tax_elasticity} />
+            <p className="eb-mc-note">
+              <b>How to read it:</b> part-year figures move with the timing of advance tax (the December and March instalments are still to come) and of refunds, so a gap now can narrow by March.
+              Non-corporate refunds rose from ₹{formatValue(d.tax_check.refunds.nct_prev / 1e5, 2)} to ₹{formatValue(d.tax_check.refunds.nct_cur / 1e5, 2)} lakh crore;
+              before refunds, non-corporate tax including STT was up {fx1(d.tax_check.gross_non_corporate_growth)}%.
+              CBDT's annual non-corporate figure includes Securities Transaction Tax, so STT is added to the in-year figure to match.
+            </p>
+          </section>
+        )}
         <Elasticity rows={d.tax_elasticity} />
       </section>
 
@@ -306,6 +376,8 @@ export default function AnalysisPage({ base }) {
         <dl className="eb-facts">
           <div><dt>Data</dt><dd>The board's own series, with RBI DBIE's full monthly history from 2017-18 where the board shows only five years. CPI joins the 2012-base and 2024-base series{d.forecasts.concat(d.tested_not_published).some((f) => f.filled_months?.length) ? '; two missing months in RBI\'s file of 2012-base CPI (June 2019, June 2020) are filled half way between their neighbours for fitting' : ''}.</dd></div>
           <div><dt>Forecasts</dt><dd>ARIMA models chosen by the AIC from a small set; seasonal series modelled on logs with a yearly seasonal term. Univariate: each series is forecast from its own past only, so a shock such as an oil price jump or a policy change is not foreseen.</dd></div>
+          {d.cpi_contributions && <div><dt>Inflation split</dt><dd>Contribution of a part of the basket = its weight × (its index now − a year ago) ÷ the all-items index a year ago. MoSPI basket weights: 2024 base food and beverages 36.75%, electricity, gas and other fuels 5.49%; 2012 base food and beverages 45.86%, fuel and light 6.84%. 2012 base to December 2025, 2024 base from January 2026. Because MoSPI publishes indices to one or two decimals, the three parts add up to within {d.cpi_contributions.max_gap_vs_published} point of published inflation (within 0.1 point in the last five years). Petrol and diesel for vehicles sit in "everything else", as in the board's core CPI.</dd></div>}
+          {d.tax_check && <div><dt>Tax check</dt><dd>Expected growth = elasticity × nominal GDP growth, with the 95% range of the elasticity. Elasticities are long-run averages that include past rate changes; a single part year can sit outside the range for reasons of timing alone.</dd></div>}
           <div><dt>Relationships</dt><dd>Pearson correlations of annual growth or change. Short samples and shared cycles can produce strong correlations without any cause; see the cautions on each card.</dd></div>
           <div><dt>Updated</dt><dd>Daily, with the data ({d.generated_at.slice(0, 10)}). Script: scripts/build_models.py; full results in data/models.json.</dd></div>
         </dl>
