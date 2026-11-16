@@ -380,7 +380,7 @@
   }
  },
  "source": "MoSPI CPI API (api.mospi.gov.in), All India combined",
- "fetched_at": "2026-11-15T13:28:05+00:00",
+ "fetched_at": "2026-11-16T15:22:54+00:00",
  "divisions": {
   "2026-09": [
    {
@@ -530,5 +530,379 @@
     "inflation": 10.14
    }
   ]
+ },
+ "states": {
+  "2026-10": {
+   "All India": {
+    "combined": 6.09,
+    "rural": 6.63,
+    "urban": 5.41
+   },
+   "Andaman And Nicobar Islands": {
+    "combined": 3.46,
+    "rural": 3.86,
+    "urban": 3.03
+   },
+   "Andhra Pradesh": {
+    "combined": 7.25,
+    "rural": 7.81,
+    "urban": 6.37
+   },
+   "Arunachal Pradesh": {
+    "combined": 4.33,
+    "rural": 4.62,
+    "urban": 3.5
+   },
+   "Assam": {
+    "combined": 4.59,
+    "rural": 4.94,
+    "urban": 3.23
+   },
+   "Bihar": {
+    "combined": 5.71,
+    "rural": 5.79,
+    "urban": 5.18
+   },
+   "Chandigarh": {
+    "combined": 5.23,
+    "urban": 5.23
+   },
+   "Chhattisgarh": {
+    "combined": 5.99,
+    "rural": 6.72,
+    "urban": 4.59
+   },
+   "Goa": {
+    "combined": 4.58,
+    "rural": 4.33,
+    "urban": 4.72
+   },
+   "Gujarat": {
+    "combined": 5.71,
+    "rural": 6.06,
+    "urban": 5.46
+   },
+   "Haryana": {
+    "combined": 4.38,
+    "rural": 5.2,
+    "urban": 3.56
+   },
+   "Himachal Pradesh": {
+    "combined": 4.27,
+    "rural": 4.28,
+    "urban": 4.21
+   },
+   "Jammu And Kashmir": {
+    "combined": 4.88,
+    "rural": 4.87,
+    "urban": 4.91
+   },
+   "Jharkhand": {
+    "combined": 5.9,
+    "rural": 6.44,
+    "urban": 4.86
+   },
+   "Karnataka": {
+    "combined": 7.07,
+    "rural": 7.54,
+    "urban": 6.6
+   },
+   "Kerala": {
+    "combined": 6.22,
+    "rural": 7.01,
+    "urban": 5.58
+   },
+   "Ladakh": {
+    "combined": 6.34,
+    "rural": 6.8,
+    "urban": 4.95
+   },
+   "Lakshadweep": {
+    "combined": 5.13,
+    "rural": 5.68,
+    "urban": 4.92
+   },
+   "Madhya Pradesh": {
+    "combined": 7.19,
+    "rural": 7.66,
+    "urban": 6.46
+   },
+   "Maharashtra": {
+    "combined": 5.85,
+    "rural": 6.86,
+    "urban": 5.2
+   },
+   "Manipur": {
+    "combined": 4.91,
+    "rural": 5.51,
+    "urban": 3.66
+   },
+   "Meghalaya": {
+    "combined": 3.63,
+    "rural": 3.8,
+    "urban": 3.16
+   },
+   "Mizoram": {
+    "combined": 2.85,
+    "rural": 3.19,
+    "urban": 2.58
+   },
+   "Nagaland": {
+    "combined": 3.66,
+    "rural": 4.0,
+    "urban": 3.1
+   },
+   "NCT of Delhi": {
+    "combined": 3.8,
+    "rural": 5.24,
+    "urban": 3.77
+   },
+   "Odisha": {
+    "combined": 7.17,
+    "rural": 7.74,
+    "urban": 5.63
+   },
+   "Puducherry": {
+    "combined": 7.96,
+    "rural": 8.03,
+    "urban": 7.93
+   },
+   "Punjab": {
+    "combined": 5.6,
+    "rural": 5.75,
+    "urban": 5.42
+   },
+   "Rajasthan": {
+    "combined": 5.89,
+    "rural": 6.33,
+    "urban": 5.09
+   },
+   "Sikkim": {
+    "combined": 5.25,
+    "rural": 5.65,
+    "urban": 4.48
+   },
+   "Tamil Nadu": {
+    "combined": 7.29,
+    "rural": 7.86,
+    "urban": 6.84
+   },
+   "Telangana": {
+    "combined": 7.26,
+    "rural": 8.05,
+    "urban": 6.68
+   },
+   "The Dadra And Nagar Haveli And Daman And Diu": {
+    "combined": 7.59,
+    "rural": 6.61,
+    "urban": 7.92
+   },
+   "Tripura": {
+    "combined": 4.8,
+    "rural": 5.0,
+    "urban": 4.17
+   },
+   "Uttar Pradesh": {
+    "combined": 6.47,
+    "rural": 7.2,
+    "urban": 4.88
+   },
+   "Uttarakhand": {
+    "combined": 5.41,
+    "rural": 5.84,
+    "urban": 4.66
+   },
+   "West Bengal": {
+    "combined": 4.66,
+    "rural": 5.08,
+    "urban": 4.13
+   }
+  },
+  "2026-09": {
+   "All India": {
+    "combined": 5.54,
+    "rural": 6.08,
+    "urban": 4.88
+   },
+   "Andaman And Nicobar Islands": {
+    "combined": 4.3,
+    "rural": 5.01,
+    "urban": 3.56
+   },
+   "Andhra Pradesh": {
+    "combined": 6.29,
+    "rural": 6.63,
+    "urban": 5.74
+   },
+   "Arunachal Pradesh": {
+    "combined": 3.7,
+    "rural": 3.85,
+    "urban": 3.29
+   },
+   "Assam": {
+    "combined": 4.62,
+    "rural": 5.03,
+    "urban": 3.06
+   },
+   "Bihar": {
+    "combined": 5.48,
+    "rural": 5.58,
+    "urban": 4.88
+   },
+   "Chandigarh": {
+    "combined": 4.39,
+    "urban": 4.39
+   },
+   "Chhattisgarh": {
+    "combined": 5.02,
+    "rural": 5.59,
+    "urban": 3.92
+   },
+   "Goa": {
+    "combined": 3.92,
+    "rural": 3.67,
+    "urban": 4.07
+   },
+   "Gujarat": {
+    "combined": 5.11,
+    "rural": 5.76,
+    "urban": 4.67
+   },
+   "Haryana": {
+    "combined": 4.36,
+    "rural": 5.08,
+    "urban": 3.65
+   },
+   "Himachal Pradesh": {
+    "combined": 4.02,
+    "rural": 3.93,
+    "urban": 4.5
+   },
+   "Jammu And Kashmir": {
+    "combined": 4.27,
+    "rural": 4.12,
+    "urban": 4.65
+   },
+   "Jharkhand": {
+    "combined": 5.02,
+    "rural": 5.58,
+    "urban": 3.94
+   },
+   "Karnataka": {
+    "combined": 5.86,
+    "rural": 6.45,
+    "urban": 5.28
+   },
+   "Kerala": {
+    "combined": 5.26,
+    "rural": 5.61,
+    "urban": 4.98
+   },
+   "Ladakh": {
+    "combined": 5.9,
+    "rural": 6.37,
+    "urban": 4.46
+   },
+   "Lakshadweep": {
+    "combined": 3.95,
+    "rural": 4.4,
+    "urban": 3.78
+   },
+   "Madhya Pradesh": {
+    "combined": 6.68,
+    "rural": 7.31,
+    "urban": 5.72
+   },
+   "Maharashtra": {
+    "combined": 5.17,
+    "rural": 6.12,
+    "urban": 4.56
+   },
+   "Manipur": {
+    "combined": 5.1,
+    "rural": 5.74,
+    "urban": 3.78
+   },
+   "Meghalaya": {
+    "combined": 3.6,
+    "rural": 3.72,
+    "urban": 3.23
+   },
+   "Mizoram": {
+    "combined": 2.85,
+    "rural": 3.14,
+    "urban": 2.63
+   },
+   "Nagaland": {
+    "combined": 3.22,
+    "rural": 3.28,
+    "urban": 3.12
+   },
+   "NCT of Delhi": {
+    "combined": 3.4,
+    "rural": 5.06,
+    "urban": 3.37
+   },
+   "Odisha": {
+    "combined": 6.71,
+    "rural": 7.25,
+    "urban": 5.24
+   },
+   "Puducherry": {
+    "combined": 6.86,
+    "rural": 7.07,
+    "urban": 6.77
+   },
+   "Punjab": {
+    "combined": 5.26,
+    "rural": 5.63,
+    "urban": 4.84
+   },
+   "Rajasthan": {
+    "combined": 5.72,
+    "rural": 6.25,
+    "urban": 4.74
+   },
+   "Sikkim": {
+    "combined": 4.83,
+    "rural": 5.18,
+    "urban": 4.15
+   },
+   "Tamil Nadu": {
+    "combined": 6.81,
+    "rural": 7.17,
+    "urban": 6.53
+   },
+   "Telangana": {
+    "combined": 6.64,
+    "rural": 7.22,
+    "urban": 6.21
+   },
+   "The Dadra And Nagar Haveli And Daman And Diu": {
+    "combined": 6.6,
+    "rural": 5.57,
+    "urban": 6.95
+   },
+   "Tripura": {
+    "combined": 3.96,
+    "rural": 3.85,
+    "urban": 4.33
+   },
+   "Uttar Pradesh": {
+    "combined": 6.08,
+    "rural": 6.71,
+    "urban": 4.72
+   },
+   "Uttarakhand": {
+    "combined": 5.48,
+    "rural": 5.95,
+    "urban": 4.64
+   },
+   "West Bengal": {
+    "combined": 4.04,
+    "rural": 4.44,
+    "urban": 3.53
+   }
+  }
  }
 }

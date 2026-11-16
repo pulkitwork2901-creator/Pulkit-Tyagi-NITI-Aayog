@@ -1,0 +1,545 @@
+{
+ "note": "One entry per forecast as first made: series, the last month of data used, the model's forecast with its 80% range, and the simple rule's forecast made at the same time. Written by scripts/build_models.py; never edited afterwards.",
+ "entries": [
+  {
+   "series": "cpi",
+   "title": "CPI inflation",
+   "unit": "% year on year",
+   "kind": "rate",
+   "model": "ARIMA(2, 1, 0)",
+   "made_on": "2026-11-16",
+   "data_to": "2026-10",
+   "published": false,
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 5.984,
+     "low": 5.033,
+     "high": 6.935,
+     "simple": 6.09
+    },
+    {
+     "month": "2026-12",
+     "value": 5.791,
+     "low": 4.3,
+     "high": 7.282,
+     "simple": 6.09
+    },
+    {
+     "month": "2027-01",
+     "value": 5.784,
+     "low": 4.044,
+     "high": 7.523,
+     "simple": 6.09
+    },
+    {
+     "month": "2027-02",
+     "value": 5.842,
+     "low": 3.936,
+     "high": 7.748,
+     "simple": 6.09
+    },
+    {
+     "month": "2027-03",
+     "value": 5.857,
+     "low": 3.775,
+     "high": 7.938,
+     "simple": 6.09
+    },
+    {
+     "month": "2027-04",
+     "value": 5.841,
+     "low": 3.581,
+     "high": 8.102,
+     "simple": 6.09
+    }
+   ]
+  },
+  {
+   "series": "cpi_core",
+   "title": "Core CPI inflation",
+   "unit": "% year on year",
+   "kind": "rate",
+   "model": "ARIMA(0, 1, 0)",
+   "made_on": "2026-11-16",
+   "data_to": "2026-10",
+   "published": false,
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 4.76,
+     "low": 4.298,
+     "high": 5.222,
+     "simple": 4.76
+    },
+    {
+     "month": "2026-12",
+     "value": 4.76,
+     "low": 4.107,
+     "high": 5.413,
+     "simple": 4.76
+    },
+    {
+     "month": "2027-01",
+     "value": 4.76,
+     "low": 3.96,
+     "high": 5.56,
+     "simple": 4.76
+    },
+    {
+     "month": "2027-02",
+     "value": 4.76,
+     "low": 3.836,
+     "high": 5.684,
+     "simple": 4.76
+    },
+    {
+     "month": "2027-03",
+     "value": 4.76,
+     "low": 3.727,
+     "high": 5.793,
+     "simple": 4.76
+    },
+    {
+     "month": "2027-04",
+     "value": 4.76,
+     "low": 3.628,
+     "high": 5.892,
+     "simple": 4.76
+    }
+   ]
+  },
+  {
+   "series": "credit_nonfood",
+   "title": "Non-food bank credit growth",
+   "unit": "% year on year",
+   "kind": "rate",
+   "model": "ARIMA(1, 1, 1)",
+   "made_on": "2026-11-16",
+   "data_to": "2026-10",
+   "published": false,
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 18.381,
+     "low": 17.188,
+     "high": 19.574,
+     "simple": 18.357
+    },
+    {
+     "month": "2026-12",
+     "value": 18.401,
+     "low": 16.554,
+     "high": 20.249,
+     "simple": 18.357
+    },
+    {
+     "month": "2027-01",
+     "value": 18.419,
+     "low": 15.978,
+     "high": 20.859,
+     "simple": 18.357
+    },
+    {
+     "month": "2027-02",
+     "value": 18.433,
+     "low": 15.428,
+     "high": 21.438,
+     "simple": 18.357
+    },
+    {
+     "month": "2027-03",
+     "value": 18.446,
+     "low": 14.898,
+     "high": 21.993,
+     "simple": 18.357
+    },
+    {
+     "month": "2027-04",
+     "value": 18.456,
+     "low": 14.384,
+     "high": 22.529,
+     "simple": 18.357
+    }
+   ]
+  },
+  {
+   "series": "deposit_growth",
+   "title": "Bank deposit growth",
+   "unit": "% year on year",
+   "kind": "rate",
+   "model": "ARIMA(0, 1, 1)",
+   "made_on": "2026-11-16",
+   "data_to": "2026-10",
+   "published": false,
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 16.539,
+     "low": 15.55,
+     "high": 17.527,
+     "simple": 16.718
+    },
+    {
+     "month": "2026-12",
+     "value": 16.539,
+     "low": 15.019,
+     "high": 18.058,
+     "simple": 16.718
+    },
+    {
+     "month": "2027-01",
+     "value": 16.539,
+     "low": 14.63,
+     "high": 18.447,
+     "simple": 16.718
+    },
+    {
+     "month": "2027-02",
+     "value": 16.539,
+     "low": 14.308,
+     "high": 18.769,
+     "simple": 16.718
+    },
+    {
+     "month": "2027-03",
+     "value": 16.539,
+     "low": 14.027,
+     "high": 19.05,
+     "simple": 16.718
+    },
+    {
+     "month": "2027-04",
+     "value": 16.539,
+     "low": 13.775,
+     "high": 19.303,
+     "simple": 16.718
+    }
+   ]
+  },
+  {
+   "series": "m3_growth",
+   "title": "Broad money (M3) growth",
+   "unit": "% year on year",
+   "kind": "rate",
+   "model": "ARIMA(0, 1, 0)",
+   "made_on": "2026-11-16",
+   "data_to": "2026-10",
+   "published": false,
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 15.971,
+     "low": 15.094,
+     "high": 16.848,
+     "simple": 15.971
+    },
+    {
+     "month": "2026-12",
+     "value": 15.971,
+     "low": 14.73,
+     "high": 17.211,
+     "simple": 15.971
+    },
+    {
+     "month": "2027-01",
+     "value": 15.971,
+     "low": 14.451,
+     "high": 17.49,
+     "simple": 15.971
+    },
+    {
+     "month": "2027-02",
+     "value": 15.971,
+     "low": 14.216,
+     "high": 17.725,
+     "simple": 15.971
+    },
+    {
+     "month": "2027-03",
+     "value": 15.971,
+     "low": 14.009,
+     "high": 17.932,
+     "simple": 15.971
+    },
+    {
+     "month": "2027-04",
+     "value": 15.971,
+     "low": 13.822,
+     "high": 18.12,
+     "simple": 15.971
+    }
+   ]
+  },
+  {
+   "series": "exports",
+   "title": "Merchandise exports",
+   "unit": "US$ bn a month",
+   "kind": "seasonal",
+   "model": "Seasonal ARIMA(1, 1, 1)(0,1,1)[12] on logs",
+   "made_on": "2026-11-16",
+   "data_to": "2026-09",
+   "published": false,
+   "forecast": [
+    {
+     "month": "2026-10",
+     "value": 42.646,
+     "low": 36.619,
+     "high": 49.665,
+     "simple": 37.084
+    },
+    {
+     "month": "2026-11",
+     "value": 41.988,
+     "low": 34.916,
+     "high": 50.492,
+     "simple": 41.15
+    },
+    {
+     "month": "2026-12",
+     "value": 46.328,
+     "low": 37.866,
+     "high": 56.681,
+     "simple": 41.542
+    },
+    {
+     "month": "2027-01",
+     "value": 43.924,
+     "low": 35.465,
+     "high": 54.401,
+     "simple": 39.659
+    },
+    {
+     "month": "2027-02",
+     "value": 45.491,
+     "low": 36.363,
+     "high": 56.912,
+     "simple": 39.788
+    },
+    {
+     "month": "2027-03",
+     "value": 49.731,
+     "low": 39.396,
+     "high": 62.777,
+     "simple": 42.335
+    }
+   ]
+  },
+  {
+   "series": "imports",
+   "title": "Merchandise imports",
+   "unit": "US$ bn a month",
+   "kind": "seasonal",
+   "model": "Seasonal ARIMA(0, 1, 1)(0,1,1)[12] on logs",
+   "made_on": "2026-11-16",
+   "data_to": "2026-09",
+   "published": false,
+   "forecast": [
+    {
+     "month": "2026-10",
+     "value": 77.211,
+     "low": 66.263,
+     "high": 89.967,
+     "simple": 86.932
+    },
+    {
+     "month": "2026-11",
+     "value": 74.65,
+     "low": 61.803,
+     "high": 90.167,
+     "simple": 71.381
+    },
+    {
+     "month": "2026-12",
+     "value": 78.243,
+     "low": 62.856,
+     "high": 97.398,
+     "simple": 72.99
+    },
+    {
+     "month": "2027-01",
+     "value": 76.112,
+     "low": 59.547,
+     "high": 97.285,
+     "simple": 81.287
+    },
+    {
+     "month": "2027-02",
+     "value": 72.849,
+     "low": 55.65,
+     "high": 95.364,
+     "simple": 72.417
+    },
+    {
+     "month": "2027-03",
+     "value": 78.239,
+     "low": 58.471,
+     "high": 104.689,
+     "simple": 67.899
+    }
+   ]
+  },
+  {
+   "series": "gst_gross",
+   "title": "Gross GST collections",
+   "unit": "₹ lakh crore a month",
+   "kind": "seasonal",
+   "model": "Seasonal ARIMA(0, 1, 0)(0,1,1)[12] on logs",
+   "made_on": "2026-11-16",
+   "data_to": "2026-10",
+   "published": true,
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 2.14,
+     "low": 2.011,
+     "high": 2.277,
+     "simple": 1.755
+    },
+    {
+     "month": "2026-12",
+     "value": 2.151,
+     "low": 1.97,
+     "high": 2.348,
+     "simple": 1.806
+    },
+    {
+     "month": "2027-01",
+     "value": 2.342,
+     "low": 2.104,
+     "high": 2.607,
+     "simple": 1.992
+    },
+    {
+     "month": "2027-02",
+     "value": 2.23,
+     "low": 1.97,
+     "high": 2.524,
+     "simple": 1.899
+    },
+    {
+     "month": "2027-03",
+     "value": 2.398,
+     "low": 2.088,
+     "high": 2.754,
+     "simple": 2.064
+    },
+    {
+     "month": "2027-04",
+     "value": 2.88,
+     "low": 2.474,
+     "high": 3.351,
+     "simple": 2.508
+    }
+   ]
+  },
+  {
+   "series": "inr_usd",
+   "title": "Rupee per US dollar",
+   "unit": "₹ per US$",
+   "kind": "rate",
+   "model": "ARIMA(0, 1, 0)",
+   "made_on": "2026-11-16",
+   "data_to": "2026-10",
+   "published": false,
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 95.249,
+     "low": 93.865,
+     "high": 96.634,
+     "simple": 95.249
+    },
+    {
+     "month": "2026-12",
+     "value": 95.249,
+     "low": 93.291,
+     "high": 97.207,
+     "simple": 95.249
+    },
+    {
+     "month": "2027-01",
+     "value": 95.249,
+     "low": 92.851,
+     "high": 97.647,
+     "simple": 95.249
+    },
+    {
+     "month": "2027-02",
+     "value": 95.249,
+     "low": 92.481,
+     "high": 98.018,
+     "simple": 95.249
+    },
+    {
+     "month": "2027-03",
+     "value": 95.249,
+     "low": 92.154,
+     "high": 98.345,
+     "simple": 95.249
+    },
+    {
+     "month": "2027-04",
+     "value": 95.249,
+     "low": 91.858,
+     "high": 98.64,
+     "simple": 95.249
+    }
+   ]
+  },
+  {
+   "series": "gsec10",
+   "title": "10-year G-sec yield",
+   "unit": "%",
+   "kind": "rate",
+   "model": "ARIMA(0, 1, 0)",
+   "made_on": "2026-11-16",
+   "data_to": "2026-10",
+   "published": false,
+   "forecast": [
+    {
+     "month": "2026-11",
+     "value": 7.45,
+     "low": 7.226,
+     "high": 7.674,
+     "simple": 7.45
+    },
+    {
+     "month": "2026-12",
+     "value": 7.45,
+     "low": 7.133,
+     "high": 7.767,
+     "simple": 7.45
+    },
+    {
+     "month": "2027-01",
+     "value": 7.45,
+     "low": 7.061,
+     "high": 7.839,
+     "simple": 7.45
+    },
+    {
+     "month": "2027-02",
+     "value": 7.45,
+     "low": 7.001,
+     "high": 7.899,
+     "simple": 7.45
+    },
+    {
+     "month": "2027-03",
+     "value": 7.45,
+     "low": 6.948,
+     "high": 7.952,
+     "simple": 7.45
+    },
+    {
+     "month": "2027-04",
+     "value": 7.45,
+     "low": 6.9,
+     "high": 8.0,
+     "simple": 7.45
+    }
+   ]
+  }
+ ]
+}

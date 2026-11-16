@@ -386,7 +386,7 @@ def fetch_core_cpi(session) -> list[dict]:
 CPI_COMPONENTS = ROOT / "data" / "cpi_components.json"
 
 
-def _save_cpi_components(bases: dict, divisions: dict | None = None) -> None:
+def _save_cpi_components(bases: dict, divisions: dict | None = None, states: dict | None = None) -> None:
     """Keep the CPI indices behind core inflation (headline, food, fuel; both
     bases) for scripts/build_models.py, which splits headline inflation into
     the contributions of food, household fuel and everything else. Written only
@@ -402,6 +402,8 @@ def _save_cpi_components(bases: dict, divisions: dict | None = None) -> None:
                         for b, v in bases.items()}
     if divisions:
         cur["divisions"] = divisions
+    if states:
+        cur["states"] = states
     cur["source"] = "MoSPI CPI API (api.mospi.gov.in), All India combined"
     cur["fetched_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     CPI_COMPONENTS.write_text(json.dumps(cur, indent=1))
@@ -429,6 +431,30 @@ def fetch_cpi_divisions(session) -> dict:
         if len(divs) < 8:
             raise RuntimeError(f"only {len(divs)} CPI divisions for {y}-{m:02d}")
         out[f"{y}-{m:02d}"] = sorted(divs, key=lambda d: d["code"])
+    return out
+
+
+def fetch_cpi_states(session, months: list[str]) -> dict:
+    """CPI inflation in every state and union territory (2024 base, all items)
+    for the given months ("YYYY-MM"), combined, rural and urban. Food by state
+    is not fetched: MoSPI returns every food item with it, about 100 slow pages."""
+    years = sorted({m[:4] for m in months})
+    out = {}
+    for code, name in (("3", "combined"), ("1", "rural"), ("2", "urban")):
+        rows = []
+        for y in years:
+            mc = ",".join(str(int(m[5:])) for m in months if m[:4] == y)
+            rows += _get_all(session, "/api/cpi/getCPIData", {
+                "base_year": "2024", "series": "Current", "state_code": ",".join(str(i) for i in range(1, 38)),
+                "sector_code": code, "division_code": "0", "year": y, "month_code": mc, "limit": "100", "Format": "JSON"})
+        for r in rows:
+            v = _num(r.get("inflation"))
+            if v is None or r.get("month") not in MONTHS or r.get("group"):
+                continue
+            m = f"{int(r['year'])}-{MONTHS.index(r['month']) + 1:02d}"
+            out.setdefault(m, {}).setdefault(r.get("state"), {})[name] = v
+    if not out or max(len(v) for v in out.values()) < 25:
+        raise RuntimeError("too few states in MoSPI's reply")
     return out
 
 
@@ -1050,9 +1076,16 @@ def build(manual_path: Path, out_path: Path, offline_dir: Path | None = None, rb
                 extra_failed.append(f"{name}: {exc}")
         if s is not None:
             try:  # spending divisions for the Analysis page; on failure the last good copy stays
-                _save_cpi_components({}, fetch_cpi_divisions(s))
+                divs = fetch_cpi_divisions(s)
+                _save_cpi_components({}, divs)
             except Exception as exc:
+                divs = None
                 extra_failed.append(f"CPI divisions: {exc}")
+            if divs:
+                try:  # inflation by state for the Analysis page's map
+                    _save_cpi_components({}, None, fetch_cpi_states(s, sorted(divs)))
+                except Exception as exc:
+                    extra_failed.append(f"CPI by state: {exc}")
     for k in ("wpi", "wpi_food", "unemployment", "cpi_rural", "cpi_urban", "cpi_core", "gdp_nominal", "gdp_deflator"):
         if k not in live and k in previous:
             live[k] = {**previous[k], "stale": bool(extra_failed)}

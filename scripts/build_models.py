@@ -24,6 +24,16 @@ Writes public/data/models.json with three parts:
    and a check of this year's CBDT in-year collections against what the
    elasticity and the latest nominal GDP growth would imply.
 
+5. The economy at a glance: where each indicator's latest reading sits
+   among its own past readings on the board (a percentile), for a heat map.
+   Series that grow with the economy (money values, counts, prices) are
+   compared as growth on a year earlier, so a tile is not "high" only
+   because the economy is bigger.
+
+6. A live forecast record: every forecast is saved once in
+   data/forecast_log.json, with the simple rule's forecast made at the
+   same time, and scored against the actual figure when it is published.
+
 4. What drives CPI inflation: headline inflation split into the contributions
    of food and beverages, household fuel and everything else (core), from
    MoSPI's indices and basket weights (data/cpi_components.json, written by
@@ -55,6 +65,7 @@ INDICATORS = ROOT / "public" / "data" / "indicators.json"
 RBI = ROOT / "data" / "rbi" / "macro-indicators.xlsx"
 DIRECT = ROOT / "data" / "direct_taxes.json"
 CPI_COMPONENTS = ROOT / "data" / "cpi_components.json"
+FORECAST_LOG = ROOT / "data" / "forecast_log.json"
 OUT = ROOT / "public" / "data" / "models.json"
 
 BACKTEST_ORIGINS = 24
@@ -219,6 +230,9 @@ def backtest(y: pd.Series, kind: str, order, h: int = HORIZON):
     return out, track
 
 
+RUNS: list[dict] = []  # this run's forecasts, for the forecast log
+
+
 def run_forecasts(monthly: dict[str, pd.Series]) -> tuple[list, list]:
     published, tested = [], []
     for sid, title, unit, kind in FORECASTS:
@@ -241,6 +255,11 @@ def run_forecasts(monthly: dict[str, pd.Series]) -> tuple[list, list]:
             "backtest": bt, "track": track, "beats_simple_rule": beats, "filled_months": FILLED.get(sid, []),
         }
         (published if beats else tested).append(entry)
+        rule = naive(y, kind, HORIZON)
+        RUNS.append({"series": sid, "title": title, "unit": unit, "kind": kind, "model": entry["model"], "data_to": str(y.index[-1]),
+                     "published": beats, "y": y,
+                     "forecast": [{"month": mo, "value": round(float(a), 3), "low": round(float(b), 3), "high": round(float(c), 3),
+                                   "simple": round(float(r), 3)} for mo, a, b, c, r in zip(months, mean, lo, hi, rule)]})
         print(f"  {sid}: {entry['model']}, n={len(y)}, skill h1/h3/h6 = "
               f"{[bt.get(k, {}).get('skill_pct') for k in ('1', '3', '6')]} -> {'published' if beats else 'not published'}")
     return published, tested
@@ -460,8 +479,86 @@ def run_cpi_contrib(monthly):
         before = {x["code"]: x["inflation"] for x in divs[months[-2]]} if len(months) > 1 else {}
         divisions = {"month": months[-1], "previous": months[-2] if len(months) > 1 else None,
                      "rows": [{**x, "prev": before.get(x["code"])} for x in latest]}
+    st = d.get("states") or {}
+    states = None
+    if st:
+        sm = sorted(st)
+        cur, prev = st[sm[-1]], (st[sm[-2]] if len(sm) > 1 else {})
+        states = {"month": sm[-1], "previous": sm[-2] if len(sm) > 1 else None,
+                  "rows": [{"state": k, **v, **{f"prev_{a}": b for a, b in prev.get(k, {}).items()}} for k, v in sorted(cur.items())]}
     return {"rows": rows, "weights": weights, "max_gap_vs_published": round(max(gaps), 2) if gaps else None,
-            "divisions": divisions, "source": d.get("source"), "fetched_at": d.get("fetched_at")}
+            "divisions": divisions, "states": states, "source": d.get("source"), "fetched_at": d.get("fetched_at")}
+
+
+def update_forecast_log(monthly) -> dict:
+    """Save each forecast once (by series and the last month of data it used)
+    and score saved forecasts against actual figures as they are published."""
+    try:
+        log = json.loads(FORECAST_LOG.read_text()) if FORECAST_LOG.exists() else {}
+    except ValueError:
+        log = {}
+    entries = log.get("entries", [])
+    have = {(e["series"], e["data_to"]) for e in entries}
+    today = datetime.now(timezone.utc).date().isoformat()
+    for r in RUNS:
+        if (r["series"], r["data_to"]) not in have:
+            entries.append({"series": r["series"], "title": r["title"], "unit": r["unit"], "kind": r["kind"], "model": r["model"],
+                            "made_on": today, "data_to": r["data_to"], "published": r["published"], "forecast": r["forecast"]})
+    FORECAST_LOG.write_text(json.dumps({
+        "note": "One entry per forecast as first made: series, the last month of data used, the model's forecast with its 80% range, "
+                "and the simple rule's forecast made at the same time. Written by scripts/build_models.py; never edited afterwards.",
+        "entries": entries}, ensure_ascii=False, indent=1))
+    # Score against the latest actual figures (later revisions are used if a figure is revised).
+    actual = {r["series"]: r["y"] for r in RUNS}
+    out = []
+    for e in entries:
+        y = actual.get(e["series"])
+        pts = []
+        for f in e["forecast"]:
+            a = None
+            if y is not None and pd.Period(f["month"], "M") in y.index:
+                a = round(float(y[pd.Period(f["month"], "M")]), 3)
+            pts.append({**f, "actual": a, "inside": None if a is None else bool(f["low"] <= a <= f["high"]),
+                        "model_closer": None if a is None else abs(f["value"] - a) < abs(f["simple"] - a)})
+        out.append({**{k: e[k] for k in ("series", "title", "unit", "kind", "model", "made_on", "data_to", "published")}, "forecast": pts})
+    scored = [p for e in out if e["published"] for p in e["forecast"] if p["actual"] is not None]
+    return {"entries": out, "scored": len(scored), "inside": sum(p["inside"] for p in scored),
+            "model_closer": sum(p["model_closer"] for p in scored), "first_made": min((e["made_on"] for e in entries), default=None)}
+
+
+# Series that grow with the economy are compared as growth on a year earlier.
+HEAT_GROWTH = {"digital_payments", "gst_gross", "dt_net", "dt_corporate", "dt_noncorporate", "dt_gross", "itr_filers", "itr_filed",
+               "taxpayers", "exports", "imports", "services_exports", "services_imports", "remittances", "fx_reserves",
+               "crude_basket", "crude_basket_inr", "inr_usd", "ext_debt", "sdl_borrowing"}
+HEAT_MIN_PAST = 11
+
+
+def run_heat(board: dict) -> list:
+    rows = []
+    for k, it in board.items():
+        h = [p for p in it.get("history", []) if p.get("value") is not None]
+        if k in HEAT_GROWTH:
+            by_month = {p["date"][:7]: p for p in h}
+            g = []
+            for p in h:
+                prev = by_month.get(f"{int(p['date'][:4]) - 1}{p['date'][4:7]}")
+                if prev and prev["value"]:
+                    g.append({"label": p["label"], "date": p["date"], "value": (p["value"] / prev["value"] - 1) * 100})
+            h, measure = g, "growth"
+        else:
+            measure = "level"
+        if len(h) < HEAT_MIN_PAST + 1:
+            continue
+        past = [p["value"] for p in h[:-1]]
+        v = h[-1]["value"]
+        pct = (sum(x < v for x in past) + 0.5 * sum(x == v for x in past)) / len(past) * 100
+        rows.append({"id": k, "group": it.get("group"), "label": it.get("label"), "measure": measure,
+                     "unit": "% on a year" if measure == "growth" else it.get("unit"),
+                     "decimals": 1 if measure == "growth" else it.get("decimals", 1),
+                     "value": round(v, 3), "period": h[-1]["label"], "since": h[0]["label"], "n": len(past),
+                     "pct": round(pct, 1), "up_is_good": it.get("up_is_good"),
+                     "spark": [round(p["value"], 3) for p in h[-60:]]})
+    return rows
 
 
 def main() -> int:
@@ -480,6 +577,10 @@ def main() -> int:
     if tax_check:
         print(f"  in-year taxes to {tax_check['as_on']}: GDP growth {tax_check['gdp_growth']}%, "
               + ", ".join(f"{r['series']} {r['actual_growth']}%" for r in tax_check["rows"]))
+    record = update_forecast_log(monthly)
+    print(f"  forecast log: {len(record['entries'])} forecasts saved, {record['scored']} published points scored")
+    heat = run_heat(board)
+    print(f"  heat map: {len(heat)} indicators")
     cpi_contrib = run_cpi_contrib(monthly)
     if cpi_contrib:
         last = cpi_contrib["rows"][-1]
@@ -490,6 +591,7 @@ def main() -> int:
         "forecasts": published, "tested_not_published": tested,
         "relationships": pairs, "correlation_table": table, "tax_elasticity": elasticity,
         "tax_history": tax_history(), "tax_check": tax_check, "cpi_contributions": cpi_contrib,
+        "forecast_record": record, "heat": heat,
         "settings": {"backtest_origins": BACKTEST_ORIGINS, "horizon": HORIZON, "interval": "80%"},
     }, ensure_ascii=False, indent=1))
     print(f"Wrote {OUT.relative_to(ROOT)}: {len(published)} forecasts published, {len(tested)} tested only")
