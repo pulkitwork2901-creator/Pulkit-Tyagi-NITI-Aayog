@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-15T13:27:32+00:00",
+ "generated_at": "2026-11-16T16:30:02+00:00",
  "sources": {
   "mospi": {
    "status": "ok",
-   "fetched_at": "2026-11-15T13:27:32+00:00",
+   "fetched_at": "2026-11-16T16:30:02+00:00",
    "message": null
   },
   "rbi": {
@@ -12,7 +12,7 @@
    "message": null,
    "skipped": [],
    "latest_reading": "2026-10-31",
-   "age_days": 15
+   "age_days": 16
   }
  },
  "indicators": [
@@ -826,12 +826,12 @@
    "change_unit": "pts",
    "id": "unemployment",
    "mode": "live",
-   "value": 5.0,
+   "value": 4.9,
    "unit": "%",
-   "period": "Sep 2026",
+   "period": "Oct 2026",
    "compare_value": 5.0,
-   "compare_period": "Aug 2026",
-   "change": 0.0,
+   "compare_period": "Sep 2026",
+   "change": -0.1,
    "source": "MoSPI Periodic Labour Force Survey, monthly",
    "source_url": "https://esankhyiki.mospi.gov.in",
    "released": null,
@@ -937,10 +937,16 @@
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 5.0
+    },
+    {
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": 4.9
     }
    ],
    "note": "Current weekly status, persons aged 15 and above, rural and urban combined. Monthly estimates start in April 2025; March 2026 was not published.",
-   "updated_at": null
+   "updated_at": "2026-11-16T16:29:33+00:00"
   },
   {
    "label": "CPI inflation",
@@ -3066,12 +3072,12 @@
    "change_unit": "pts",
    "id": "wpi",
    "mode": "live",
-   "value": 11.39,
+   "value": 12.29,
    "unit": "% YoY",
-   "period": "Sep 2026",
-   "compare_value": 9.92,
-   "compare_period": "Aug 2026",
-   "change": 1.47,
+   "period": "Oct 2026",
+   "compare_value": 11.39,
+   "compare_period": "Sep 2026",
+   "change": 0.9,
    "source": "MoSPI (Office of the Economic Adviser data), WPI base 2022-23",
    "source_url": "https://esankhyiki.mospi.gov.in",
    "released": null,
@@ -3255,10 +3261,16 @@
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 11.39
+    },
+    {
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": 12.29
     }
    ],
    "note": "Year-on-year change in the WPI headline index, 2022-23 base; the series starts in 2023, so inflation is available from 2024.",
-   "updated_at": null
+   "updated_at": "2026-11-16T16:29:33+00:00"
   },
   {
    "label": "WPI food inflation",
@@ -3268,12 +3280,12 @@
    "change_unit": "pts",
    "id": "wpi_food",
    "mode": "live",
-   "value": 8.66,
+   "value": 8.58,
    "unit": "% YoY",
-   "period": "Sep 2026",
-   "compare_value": 7.05,
-   "compare_period": "Aug 2026",
-   "change": 1.61,
+   "period": "Oct 2026",
+   "compare_value": 8.66,
+   "compare_period": "Sep 2026",
+   "change": -0.08,
    "source": "MoSPI (Office of the Economic Adviser data), WPI base 2022-23",
    "source_url": "https://esankhyiki.mospi.gov.in",
    "released": null,
@@ -3450,17 +3462,23 @@
      "date": "2026-08-31",
      "label": "Aug 2026",
      "short": "Aug 26",
-     "value": 7.05
+     "value": 6.41
     },
     {
      "date": "2026-09-30",
      "label": "Sep 2026",
      "short": "Sep 26",
      "value": 8.66
+    },
+    {
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": 8.58
     }
    ],
    "note": "Year-on-year change in the WPI food index, 2022-23 base; the series starts in 2023, so inflation is available from 2024.",
-   "updated_at": null
+   "updated_at": "2026-11-16T16:29:33+00:00"
   },
   {
    "label": "GDP deflator inflation",

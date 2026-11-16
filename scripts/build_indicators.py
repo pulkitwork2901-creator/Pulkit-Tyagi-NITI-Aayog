@@ -308,10 +308,18 @@ def fetch_cpi_sectors(session) -> list[dict]:
         new = _get_all(session, "/api/cpi/getCPIData", {
             "base_year": "2024", "series": "Current", "state_code": "1", "sector_code": code,
             "division_code": "0", "year": f"{this_year - 1},{this_year}", "limit": "100", "Format": "JSON"})
-        old = _get_all(session, "/api/cpi/getCPIIndex", {
-            "base_year": "2012", "series": "Current", "state_code": "99", "sector_code": code, "group_code": "0",
-            "year": ",".join(str(y) for y in range(2019, 2026)), "limit": "200", "Format": "JSON"})
-        old = [r for r in old if r.get("subgroup") == "General-Overall"]
+        hist = _cache_get("sectors_2012", {}).get(name) or {}
+        if len(hist) >= 80 and max(hist) == "2025-12":  # 2012 base, final since December 2025
+            old = [{"year": k[:4], "month": MONTHS[int(k[5:7]) - 1], "inflation": v} for k, v in hist.items()]
+        else:
+            old = _get_all(session, "/api/cpi/getCPIIndex", {
+                "base_year": "2012", "series": "Current", "state_code": "99", "sector_code": code, "group_code": "0",
+                "year": ",".join(str(y) for y in range(2019, 2026)), "limit": "200", "Format": "JSON"})
+            old = [r for r in old if r.get("subgroup") == "General-Overall"]
+            keep = {f"{int(r['year'])}-{MONTHS.index(r['month']) + 1:02d}": _num(r.get("inflation"))
+                    for r in old if r.get("month") in MONTHS and _num(r.get("inflation")) is not None}
+            if keep and max(keep) == "2025-12":
+                _cache_put("sectors_2012", {**_cache_get("sectors_2012", {}), name: dict(sorted(keep.items()))})
         pts = {}
         for r in old + new:  # the 2024 base overrides where both exist
             v = _num(r.get("inflation"))
@@ -355,18 +363,25 @@ def fetch_core_cpi(session) -> list[dict]:
     f = idx(_get_all(session, "/api/cpi/getCPIData", {**p24, "division_code": "1"}), lambda r: not r.get("group"))
     u = idx(_get_all(session, "/api/cpi/getCPIData", {**p24, "division_code": "4", "group_code": "11"}), lambda r: not r.get("class"))
     c24 = core(g, f, u, CORE_WEIGHTS_2024)
-    rows = []
-    # One year per request: MoSPI's paging is not stable across pages, so a
-    # multi-page reply can drop rows. A single year fits on one page.
-    for gc in ("0", "1", "5"):
-        for yr in range(2018, 2026):
-            rows += _get_all(session, "/api/cpi/getCPIIndex", {"base_year": "2012", "series": "Current", "state_code": "99", "sector_code": "3",
-                             "group_code": gc, "year": str(yr), "limit": "200", "Format": "JSON"})
-    sub = lambda name: idx(rows, lambda r: r.get("subgroup") == name)
-    c12 = core(sub("General-Overall"), sub("Food and Beverages-Overall"), sub("Fuel and Light-Overall"), CORE_WEIGHTS_2012)
+    # The 2012 base ended in December 2025, so its indices never change: they are
+    # downloaded once (24 slow requests) and then read from data/cpi_components.json.
+    cached = _cache_get("bases", {}).get("2012") or {}
+    ym = lambda d: {(int(k[:4]), int(k[5:7])): v for k, v in d.items()}
+    if all(len(cached.get(k) or {}) >= 90 and max(cached[k]) == "2025-12" for k in ("general", "food", "fuel")):
+        G12, F12, U12 = ym(cached["general"]), ym(cached["food"]), ym(cached["fuel"])
+    else:
+        rows = []
+        # One year per request: MoSPI's paging is not stable across pages, so a
+        # multi-page reply can drop rows. A single year fits on one page.
+        for gc in ("0", "1", "5"):
+            for yr in range(2018, 2026):
+                rows += _get_all(session, "/api/cpi/getCPIIndex", {"base_year": "2012", "series": "Current", "state_code": "99", "sector_code": "3",
+                                 "group_code": gc, "year": str(yr), "limit": "200", "Format": "JSON"})
+        sub = lambda name: idx(rows, lambda r: r.get("subgroup") == name)
+        G12, F12, U12 = sub("General-Overall"), sub("Food and Beverages-Overall"), sub("Fuel and Light-Overall")
+    c12 = core(G12, F12, U12, CORE_WEIGHTS_2012)
     _save_cpi_components({
-        "2012": {"weights": CORE_WEIGHTS_2012, "general": sub("General-Overall"),
-                 "food": sub("Food and Beverages-Overall"), "fuel": sub("Fuel and Light-Overall")},
+        "2012": {"weights": CORE_WEIGHTS_2012, "general": G12, "food": F12, "fuel": U12},
         "2024": {"weights": CORE_WEIGHTS_2024, "general": g, "food": f, "fuel": u},
     })
     yoy = {}
@@ -384,6 +399,22 @@ def fetch_core_cpi(session) -> list[dict]:
 
 
 CPI_COMPONENTS = ROOT / "data" / "cpi_components.json"
+
+
+def _cache_get(key: str, default=None):
+    try:
+        return json.loads(CPI_COMPONENTS.read_text()).get(key, default) if CPI_COMPONENTS.exists() else default
+    except ValueError:
+        return default
+
+
+def _cache_put(key: str, value) -> None:
+    try:
+        cur = json.loads(CPI_COMPONENTS.read_text()) if CPI_COMPONENTS.exists() else {}
+    except ValueError:
+        cur = {}
+    cur[key] = value
+    CPI_COMPONENTS.write_text(json.dumps(cur, indent=1))
 
 
 def _save_cpi_components(bases: dict, divisions: dict | None = None, states: dict | None = None) -> None:

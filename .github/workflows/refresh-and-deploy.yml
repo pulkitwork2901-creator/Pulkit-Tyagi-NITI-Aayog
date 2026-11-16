@@ -60,6 +60,7 @@ jobs:
       - name: Pull MoSPI data and merge the manual sheet
         run: python scripts/build_indicators.py
         continue-on-error: true   # keeps last good GDP/CPI if MoSPI is down
+        timeout-minutes: 20       # normally 1 to 3 minutes; a slow MoSPI day must not hold up the deploy
 
       - name: Forecasts and relationships (Analysis page)
         run: python scripts/build_models.py

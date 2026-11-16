@@ -124,6 +124,7 @@ unemployment,Unemployment rate,Growth and jobs,Jun 2026,2026-06-30,5.5,%,"MoSPI 
 unemployment,Unemployment rate,Growth and jobs,Jul 2026,2026-07-31,5.1,%,"MoSPI Periodic Labour Force Survey, monthly"
 unemployment,Unemployment rate,Growth and jobs,Aug 2026,2026-08-31,5.0,%,"MoSPI Periodic Labour Force Survey, monthly"
 unemployment,Unemployment rate,Growth and jobs,Sep 2026,2026-09-30,5.0,%,"MoSPI Periodic Labour Force Survey, monthly"
+unemployment,Unemployment rate,Growth and jobs,Oct 2026,2026-10-31,4.9,%,"MoSPI Periodic Labour Force Survey, monthly"
 cpi,CPI inflation,Prices and inflation,Nov 2021,2021-11-30,4.91,% YoY,"MoSPI CPI, base 2024, All India combined"
 cpi,CPI inflation,Prices and inflation,Dec 2021,2021-12-31,5.66,% YoY,"MoSPI CPI, base 2024, All India combined"
 cpi,CPI inflation,Prices and inflation,Jan 2022,2022-01-31,6.01,% YoY,"MoSPI CPI, base 2024, All India combined"
@@ -492,6 +493,7 @@ wpi,WPI inflation,Prices and inflation,Jun 2026,2026-06-30,9.97,% YoY,"MoSPI (Of
 wpi,WPI inflation,Prices and inflation,Jul 2026,2026-07-31,9.78,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
 wpi,WPI inflation,Prices and inflation,Aug 2026,2026-08-31,9.92,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
 wpi,WPI inflation,Prices and inflation,Sep 2026,2026-09-30,11.39,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
+wpi,WPI inflation,Prices and inflation,Oct 2026,2026-10-31,12.29,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
 wpi_food,WPI food inflation,Prices and inflation,Apr 2024,2024-04-30,6.53,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
 wpi_food,WPI food inflation,Prices and inflation,May 2024,2024-05-31,7.28,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
 wpi_food,WPI food inflation,Prices and inflation,Jun 2024,2024-06-30,7.77,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
@@ -520,8 +522,9 @@ wpi_food,WPI food inflation,Prices and inflation,Apr 2026,2026-04-30,3.29,% YoY,
 wpi_food,WPI food inflation,Prices and inflation,May 2026,2026-05-31,4.58,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
 wpi_food,WPI food inflation,Prices and inflation,Jun 2026,2026-06-30,6.23,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
 wpi_food,WPI food inflation,Prices and inflation,Jul 2026,2026-07-31,6.56,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
-wpi_food,WPI food inflation,Prices and inflation,Aug 2026,2026-08-31,7.05,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
+wpi_food,WPI food inflation,Prices and inflation,Aug 2026,2026-08-31,6.41,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
 wpi_food,WPI food inflation,Prices and inflation,Sep 2026,2026-09-30,8.66,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
+wpi_food,WPI food inflation,Prices and inflation,Oct 2026,2026-10-31,8.58,% YoY,"MoSPI (Office of the Economic Adviser data), WPI base 2022-23"
 gdp_deflator,GDP deflator inflation,Prices and inflation,Q1 2023-24,2023-06-30,3.7,% YoY,Derived from MoSPI National Accounts (current and constant prices)
 gdp_deflator,GDP deflator inflation,Prices and inflation,Q2 2023-24,2023-09-30,3.5,% YoY,Derived from MoSPI National Accounts (current and constant prices)
 gdp_deflator,GDP deflator inflation,Prices and inflation,Q3 2023-24,2023-12-31,3.2,% YoY,Derived from MoSPI National Accounts (current and constant prices)
