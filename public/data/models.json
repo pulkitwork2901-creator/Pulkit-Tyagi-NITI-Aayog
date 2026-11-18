@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T13:45:51+00:00",
+ "generated_at": "2026-11-18T06:02:25+00:00",
  "forecasts": [
   {
    "id": "gst_gross",
@@ -13936,7 +13936,7 @@
    ]
   },
   "source": "MoSPI CPI API (api.mospi.gov.in), All India combined",
-  "fetched_at": "2026-11-17T13:45:29+00:00"
+  "fetched_at": "2026-11-18T06:02:07+00:00"
  },
  "forecast_record": {
   "entries": [
