@@ -83,6 +83,19 @@ The script checks the PDF against itself before using it: the three parts of col
 
 Things to know: the latest year is provisional; states are assigned by the taxpayer's address on record, so states with large head offices dominate; "non-corporate" tax is mainly personal income tax but also includes firms, trusts and securities transaction tax; taxpayers are counted by assessment year.
 
+## How the board is arranged
+
+The sidebar (`src/board/Rail.jsx`, labels in English and Hindi) has six groups:
+
+- **Overview:** Dashboard (`#/`), with an "In depth" row of cards that lead to the pages below, each with one current figure (`src/board/DeepDives.jsx`); The economy at a glance (`#/glance`, the heat map).
+- **Economy by theme:** the seven theme pages (`#/theme/<slug>`), with Direct taxes (`#/direct-taxes`) under Government finances. The Prices and inflation page also carries "What is driving inflation" (the CPI split and spending divisions).
+- **Trade:** Exports, Imports, Trade balance, Import dependence.
+- **States:** State profiles (`#/states`): a card for every state and union territory with CPI inflation, exports and direct taxes, the state inflation map, and links to exports by state (`#/states/exports`) and direct taxes by state. Each state's page (`#/states/<slug>`) opens with its inflation, rural and urban inflation, direct taxes and export rank, then its exports in detail. State names from MoSPI, CBDT and DGCI&S are matched with `src/board/stateKey.js`.
+- **Analysis and outlook:** a hub (`#/analysis`) and three pages: Forecasts and track record (`#/forecasts`), How indicators move together (`#/relationships`), Taxes and growth (`#/tax-growth`). They are views of one component (`AnalysisPage.jsx`, prop `view`), which also renders the inflation section embedded on the Prices page and the state map on the States hub.
+- **Reports and data:** Sources and notes.
+
+Every page ends with "Related pages" links (`src/board/Related.jsx`). On phones the sidebar becomes one row that scrolls sideways.
+
 ## Import dependence (#/dependence)
 
 `scripts/build_dependence.py` writes `public/data/trade/dependence.json`, shown on the **Import dependence** page (`src/board/pages/DependencePage.jsx`, sidebar under Merchandise trade). For every imported HS 8-digit product and year it works out the main supplier country's share, the Herfindahl index of concentration and the number of supplier countries, and summarises the imports of products where one country supplies more than half (by year, by main supplier and by sector). It also compares three chains of imported inputs and exported products (phone parts and smartphones; solar cells and modules; drug ingredients and medicines), lists products where the main supplier's share has risen by 10 points or more since 2022 (at least US$ 0.5 bn of imports, no code change in between, chapter 98 project imports left out), and has a filterable product explorer with each product's supplier mix by year. English and Hindi (country and sector names in `src/board/pages/dependenceText.js`; product descriptions stay in DGCI&S's English); CSV on every chart.

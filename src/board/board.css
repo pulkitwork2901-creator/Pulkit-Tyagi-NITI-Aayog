@@ -85,7 +85,11 @@
 .eb-hero .eb-language-switch { margin: 0; border-color: rgb(255 255 255 / 0.35); }
 .eb-hero .eb-language-switch button[aria-pressed="true"] { color: var(--eb-hero-pressed); }
 .eb-rail nav { display: flex; flex-direction: column; gap: 2px; }
-.eb-navhead { margin: 18px 0 4px; padding: 0 12px; color: var(--eb-rail-muted); font-size: 14px; }
+.eb-navhead { margin: 20px 0 6px; padding: 0 12px; color: var(--eb-rail-muted); font-size: 11.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; }
+.eb-rail nav > .eb-navhead:first-child { margin-top: 0; }
+.eb-navitem { display: contents; }
+.eb-navsub { display: block; padding-left: 14px; font-size: 14.5px; position: relative; }
+.eb-navsub::before { content: ''; position: absolute; left: 2px; top: 50%; width: 7px; border-top: 1px solid var(--eb-rail-muted); }
 .eb-navlink {
   display: block;
   padding: 9px 12px;
@@ -222,7 +226,9 @@
 @media (max-width: 860px) {
   .eb { grid-template-columns: minmax(0, 1fr); }
   .eb-rail { grid-row: 2; position: static; height: auto; padding: 16px 16px 12px; gap: 12px; overflow: visible; }
-  .eb-rail nav { flex-direction: row; flex-wrap: wrap; gap: 4px; padding-bottom: 4px; align-items: stretch; }
+  .eb-rail nav { flex-direction: row; flex-wrap: nowrap; gap: 4px; padding-bottom: 6px; align-items: stretch; overflow-x: auto; scrollbar-width: thin; margin: 0 -16px; padding-left: 16px; padding-right: 16px; }
+  .eb-navsub { padding-left: 0; font-size: inherit; }
+  .eb-navsub::before { display: none; }
   .eb-rail nav > div { display: contents; }
   .eb-navhead { display: none; }
   .eb-navlink { white-space: nowrap; border-left: 0; border-bottom: 3px solid transparent; }
@@ -1015,3 +1021,45 @@ a.eb-bar-row:hover .eb-bar-label { text-decoration: underline; }
 .dp-c4 { background: color-mix(in srgb, var(--eb-s2) 45%, var(--eb-paper)); }
 .dp-cx { background: color-mix(in srgb, var(--eb-muted) 40%, var(--eb-paper)); }
 .dp-more { margin-top: 10px; }
+
+
+/* Restructure: in-depth cards, state profiles hub, related pages */
+.eb-dd-wrap { margin: 8px 0 26px; }
+.eb-dd { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.eb-dd-card a { position: relative; display: flex; flex-direction: column; gap: 4px; height: 100%; box-sizing: border-box; padding: 14px 16px 16px; border: 1px solid var(--eb-rule); border-radius: 10px; background: var(--eb-paper); color: var(--eb-ink); text-decoration: none; transition: border-color .15s, box-shadow .15s, transform .15s; }
+.eb-dd-card a:hover { border-color: var(--eb-navy); box-shadow: 0 6px 18px -10px rgb(15 33 71 / 0.35); }
+@media (prefers-reduced-motion: no-preference) { .eb-dd-card a:hover { transform: translateY(-2px); } }
+.eb-dd-kicker { font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--eb-muted); }
+.eb-dd-title { font: 700 16.5px var(--eb-serif); color: var(--eb-navy); line-height: 1.3; padding-right: 22px; }
+.eb-dd-figure { margin-top: 6px; font: 700 24px var(--eb-serif); color: var(--eb-ink); font-variant-numeric: tabular-nums; line-height: 1.15; }
+.eb-dd-wait { display: block; width: 46%; height: 24px; border-radius: 4px; background: var(--eb-panel); }
+.eb-dd-note { font-size: 13px; line-height: 1.4; color: var(--eb-muted); }
+.eb-dd-go { position: absolute; top: 14px; right: 14px; color: var(--eb-muted); font-size: 17px; }
+.eb-dd-card a:hover .eb-dd-go { color: var(--eb-saffron); }
+.eb-pagehead .eb-dd { margin: 14px 0 16px; }
+@media (max-width: 640px) { .eb-dd { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .eb-dd-card a { padding: 11px 12px 12px; } .eb-dd-figure { font-size: 20px; } .eb-dd-title { font-size: 15px; } }
+
+.eb-sh-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; }
+.eb-sh-card { display: flex; flex-direction: column; gap: 8px; height: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid var(--eb-rule); border-radius: 10px; background: var(--eb-paper); color: var(--eb-ink); text-decoration: none; }
+.eb-sh-card:hover { border-color: var(--eb-navy); background: var(--eb-panel); }
+.eb-sh-name { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-weight: 700; font-size: 15px; color: var(--eb-navy); }
+.eb-sh-ut { font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; color: var(--eb-muted); border: 1px solid var(--eb-rule); border-radius: 4px; padding: 1px 5px; }
+.eb-sh-facts { display: flex; flex-direction: column; gap: 3px; border-top: 1px solid var(--eb-rule); padding-top: 7px; }
+.eb-sh-facts span { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; min-width: 0; }
+.eb-sh-facts small { font-size: 12px; color: var(--eb-muted); white-space: nowrap; }
+.eb-sh-facts b { font-size: 13.5px; font-weight: 600; color: var(--eb-ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.eb-sh-hot { color: var(--eb-saffron); }
+@media (max-width: 640px) { .eb-sh-grid { grid-template-columns: minmax(0, 1fr); } }
+.eb-sh-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.eb-sh-link { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; text-decoration: none; color: var(--eb-ink); }
+.eb-sh-link b { font: 700 16px var(--eb-serif); color: var(--eb-navy); }
+.eb-sh-link span { font-size: 13.5px; color: var(--eb-muted); line-height: 1.45; }
+.eb-sh-link:hover { border-color: var(--eb-navy); }
+.eb-an-embednote { margin-top: 10px; }
+
+.eb-related { margin: 36px 0 8px; padding-top: 16px; border-top: 1px solid var(--eb-rule); }
+.eb-related-h { margin: 0 0 8px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--eb-muted); }
+.eb-related ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.eb-related a { display: inline-block; padding: 8px 14px; border: 1px solid var(--eb-rule); border-radius: 999px; color: var(--eb-navy); text-decoration: none; font-weight: 600; font-size: 14px; background: var(--eb-paper); }
+.eb-related a:hover { border-color: var(--eb-navy); background: var(--eb-panel); }
+@media print { .eb-related { display: none; } }

@@ -102,30 +102,30 @@ export function HeadlineStrip({ d }) {
   const names = d.forecasts.map((x) => seriesTitle(x, hi)).join(', ');
   const tiles = [
     {
-      id: 'an-fc-h', label: hi ? 'सरल अनुमान से बेहतर रहीं शृंखलाएँ' : 'Series that beat a simple guess',
+      id: 'an-fc-h', href: '#/forecasts', label: hi ? 'सरल अनुमान से बेहतर रहीं शृंखलाएँ' : 'Series that beat a simple guess',
       value: hi ? `${tested} में से ${d.forecasts.length}` : `${d.forecasts.length} of ${tested}`,
       sub: d.forecasts.length ? (hi ? `केवल ${names} परीक्षण में सफल रहा` : `Only ${names} passed the test`) : (hi ? 'इस बार कोई सफल नहीं रहा' : 'None passed the test this time'),
     },
     f && {
-      id: 'an-fc-h', label: hi ? `GST पूर्वानुमान, ${monthLabel(f.forecast[0].month, hi)}` : `GST forecast, ${monthLabel(f.forecast[0].month)}`,
+      id: 'an-fc-h', href: '#/forecasts', label: hi ? `GST पूर्वानुमान, ${monthLabel(f.forecast[0].month, hi)}` : `GST forecast, ${monthLabel(f.forecast[0].month)}`,
       value: formatValue(f.forecast[0].value, 2), unit: hi ? '₹ लाख करोड़' : '₹ lakh cr',
       sub: hi
         ? `80% दायरा ${formatValue(f.forecast[0].low, 2)} से ${formatValue(f.forecast[0].high, 2)}; ${monthLabel(f.fit_to, hi)} में ${formatValue(f.history.at(-1).value, 2)}`
         : `80% range ${formatValue(f.forecast[0].low, 2)} to ${formatValue(f.forecast[0].high, 2)}; ${monthLabel(f.fit_to)} was ${formatValue(f.history.at(-1).value, 2)}`,
     },
     cpi && {
-      id: 'an-cpi-h', label: hi ? `CPI मुद्रास्फीति में खाद्य का हिस्सा, ${monthLabel(cpi.month, hi)}` : `Food's share of CPI inflation, ${monthLabel(cpi.month)}`,
+      id: 'an-cpi-h', href: '#/theme/prices-and-inflation', label: hi ? `CPI मुद्रास्फीति में खाद्य का हिस्सा, ${monthLabel(cpi.month, hi)}` : `Food's share of CPI inflation, ${monthLabel(cpi.month)}`,
       value: hi ? `${formatValue(cpi.headline, 1)} में से ${formatValue(cpi.food, 1)}` : `${formatValue(cpi.food, 1)} of ${formatValue(cpi.headline, 1)}`,
       unit: hi ? 'अंक' : 'points',
       sub: hi ? `खाद्य और घरेलू ईंधन के अलावा बाकी सब ने ${formatValue(cpi.core, 1)} अंक जोड़े` : `Everything except food and household fuel added ${formatValue(cpi.core, 1)} points`,
     },
     oil && oil.best_lead.lag > 0 && Math.abs(oil.best_lead.r) >= oil.band95 && {
-      id: 'an-rel-h', label: hi ? 'तेल की कीमतें CPI मुद्रास्फीति से कितना पहले चलती हैं' : 'How far oil prices lead CPI inflation',
+      id: 'an-rel-h', href: '#/relationships', label: hi ? 'तेल की कीमतें CPI मुद्रास्फीति से कितना पहले चलती हैं' : 'How far oil prices lead CPI inflation',
       value: hi ? `${oil.best_lead.lag} महीने` : `${oil.best_lead.lag} months`,
       sub: hi ? `उस अग्रता पर सहसंबंध ${oil.best_lead.r}, उसी महीने में ${oil.same_month.r}` : `Correlation ${oil.best_lead.r} at that lead, ${oil.same_month.r} in the same month`,
     },
     net && {
-      id: 'an-el-h', label: hi ? 'सांकेतिक GDP में हर 1% वृद्धि पर प्रत्यक्ष कर में वृद्धि' : 'Direct tax growth for each 1% of nominal GDP growth',
+      id: 'an-el-h', href: '#/tax-growth', label: hi ? 'सांकेतिक GDP में हर 1% वृद्धि पर प्रत्यक्ष कर में वृद्धि' : 'Direct tax growth for each 1% of nominal GDP growth',
       value: `${formatValue(net.elasticity, 2)}%`,
       sub: hi ? `${net.period}, 95% दायरा ${net.low} से ${net.high}` : `${net.period}, 95% range ${net.low} to ${net.high}`,
     },
@@ -134,7 +134,7 @@ export function HeadlineStrip({ d }) {
     <ul className="eb-an-strip" aria-label={hi ? 'मुख्य निष्कर्ष' : 'Main findings'}>
       {tiles.map((t) => (
         <li key={t.label} className="eb-an-kpi">
-          <a href={`#${t.id}`} onClick={(e) => scrollToId(e, t.id)}>
+          <a href={t.href || `#${t.id}`} onClick={t.href ? undefined : (e) => scrollToId(e, t.id)}>
             <span className="eb-an-kpi-label">{t.label}</span>
             <span className="eb-an-kpi-value">{t.value}{t.unit ? <span className="eb-an-kpi-unit">{t.unit}</span> : null}</span>
             <span className="eb-an-kpi-sub">{t.sub}</span>

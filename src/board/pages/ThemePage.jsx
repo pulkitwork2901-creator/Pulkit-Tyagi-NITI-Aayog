@@ -2,8 +2,9 @@ import Ledger from '../Ledger.jsx';
 import ThemeBrief from '../ThemeBrief.jsx';
 import TrendChart from '../TrendChart.jsx';
 import { formatValue, signed, tipFor } from '../format.js';
+import AnalysisPage from './AnalysisPage.jsx';
 
-export default function ThemePage({ group, items, byId }) {
+export default function ThemePage({ group, items, byId, base }) {
   if (!group) {
     return (
       <div className="eb-notfound">
@@ -26,6 +27,8 @@ export default function ThemePage({ group, items, byId }) {
         <h2 id="eb-th-table">Latest releases</h2>
         <Ledger caption={group} items={items} />
       </section>
+
+      {group === 'Prices and inflation' && base && <AnalysisPage base={base} view="inflation" embedded />}
 
       {charted.length > 0 && (
         <section className="eb-section" aria-labelledby="eb-th-trends">

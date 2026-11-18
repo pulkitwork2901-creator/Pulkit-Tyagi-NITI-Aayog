@@ -14,6 +14,7 @@ import DirectTaxPage from './pages/DirectTaxPage.jsx';
 import StatePage from './pages/StatePage.jsx';
 import AnalysisPage from './pages/AnalysisPage.jsx';
 import DependencePage from './pages/DependencePage.jsx';
+import Related from './Related.jsx';
 
 // Colour schemes a viewer can pick; the choice is remembered in their browser.
 export const SKINS = [
@@ -83,20 +84,21 @@ export default function EconomicBoard({ source = '/data/indicators.json', title 
   let page;
   if (route.name === 'direct-taxes' || (route.name === 'theme' && route.arg === slug(DT))) page = <DirectTaxPage base={dataBase} items={indicators.filter((i) => i.group === DT)} />;
   else if (route.name === 'indicator') page = <IndicatorPage item={item} byId={byId} />;
-  else if (route.name === 'theme') page = <ThemePage group={group} items={indicators.filter((i) => i.group === group)} byId={byId} />;
+  else if (route.name === 'theme') page = <ThemePage group={group} items={indicators.filter((i) => i.group === group)} byId={byId} base={dataBase} />;
   else if (route.name === 'sources') page = <SourcesPage indicators={indicators} />;
   else if (route.name === 'exports' || route.name === 'imports') page = <TradePage base={tradeBase} flow={route.name} view={route.arg} arg={route.arg2} />;
   else if (route.name === 'balance') page = <BalancePage base={tradeBase} />;
   else if (route.name === 'states') page = <StatePage base={tradeBase} id={route.arg} />;
-  else if (route.name === 'analysis') page = <AnalysisPage base={dataBase} />;
+  else if (route.name === 'analysis') page = <AnalysisPage base={dataBase} view="landing" />;
+  else if (['glance', 'forecasts', 'relationships', 'tax-growth'].includes(route.name)) page = <AnalysisPage key={route.name} base={dataBase} view={route.name} />;
   else if (route.name === 'dependence') page = <DependencePage base={tradeBase} />;
-  else page = <Dashboard data={data} title={title} byId={byId} groups={groups} csvUrl={source.replace(/\.json$/, '.csv')} tradeBase={tradeBase} />;
+  else page = <Dashboard data={data} title={title} byId={byId} groups={groups} csvUrl={source.replace(/\.json$/, '.csv')} tradeBase={tradeBase} dataBase={dataBase} />;
 
   return (
     <div className="eb" data-skin={skin}>
       <div className="eb-flag" aria-hidden="true" />
       <Rail route={railRoute} groups={groups} data={data} error={error} onReload={reload} skins={SKINS} skin={skin} onSkin={chooseSkin} />
-      <main className="eb-main" id="eb-main">{page}</main>
+      <main className="eb-main" id="eb-main">{page}<Related route={route} /></main>
     </div>
   );
 }

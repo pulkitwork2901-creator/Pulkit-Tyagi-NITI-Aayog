@@ -8,6 +8,8 @@ import Icon from '../dashboard/Icon.jsx';
 import { useCountUp } from '../dashboard/motion.js';
 import { money, useTradeFile } from '../trade/tradeKit.jsx';
 import { formatDateTime, formatValue, signed, tipFor } from '../format.js';
+import DeepDives from '../DeepDives.jsx';
+import { useLanguage } from '../../i18n.jsx';
 
 // The one-screen dashboard: headline tiles, six themed panels on a shared time
 // range, and every indicator in a signal table underneath. Theme and indicator
@@ -162,7 +164,8 @@ function Tile({ item, start }) {
   );
 }
 
-export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase }) {
+export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase, dataBase }) {
+  const hi = useLanguage().language === 'hi';
   const [years, setYears] = useState(readRange);
   const choose = (n) => {
     setYears(n);
@@ -202,6 +205,13 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
       </ul>
 
       <WhatsNew indicators={data.indicators || []} now={Date.parse(data.generated_at)} />
+
+      {dataBase && (
+        <section className="eb-dd-wrap" aria-labelledby="eb-dd-h">
+          <h2 className="eb-eyebrow" id="eb-dd-h">{hi ? 'गहराई से देखें' : 'In depth'}</h2>
+          <DeepDives base={dataBase} tradeBase={tradeBase} />
+        </section>
+      )}
 
       <h2 className="eb-eyebrow" id="eb-panels-h">By category</h2>
       <CategoryNav />

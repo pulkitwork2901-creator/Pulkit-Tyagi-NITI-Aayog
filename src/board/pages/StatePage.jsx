@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import Icon from '../dashboard/Icon.jsx';
 import { BarList, GrowthPill, PeriodSwitch, YearColumns, growth, money, useTradeFile } from '../trade/tradeKit.jsx';
+import { formatValue } from '../format.js';
+import { stateKey, taxByState } from '../stateKey.js';
+import { useLanguage } from '../../i18n.jsx';
+import { STATES as STATE_TILES } from './analysisText.js';
+import AnalysisPage from './AnalysisPage.jsx';
 
 // Merchandise exports by state of origin (DGCI&S), built by
 // scripts/build_state_trade.py into public/data/trade/states.json and
@@ -199,7 +204,7 @@ function Overview({ d }) {
 
   return (
     <div className="eb-dash">
-      <Hero kicker="Trade · DGCI&S state of origin" title="Merchandise exports by state"
+      <Hero kicker={<><a href="#/states">State profiles</a> / Exports by state · DGCI&S state of origin</>} title="Merchandise exports by state"
         sub={`Exports by the state where goods were produced, US$, HS 8-digit by country. Calendar years ${full[0]} to ${full[full.length - 1]}${d.partial.length ? ` and ${d.partial.map(nice).join(', ')}` : ''}.`}
         periods={d.periods} period={period} onPeriod={setPeriod}>
         In <strong>{nice(period)}</strong>, <strong>{top.name}</strong> was the largest exporting state with <strong>{money(top.v[i])}</strong>,
@@ -264,6 +269,8 @@ function Overview({ d }) {
 
 function StateView({ d, base, id }) {
   const { data: s, error } = useTradeFile(`${base}state/${id}.json`);
+  const facts = useStateFacts(base);
+  const hiLang = useLanguage().language === 'hi';
   const [period, setPeriod] = usePeriod(d);
   if (!s) return <Waiting error={error} />;
   const i = s.periods.indexOf(period);
@@ -286,7 +293,7 @@ function StateView({ d, base, id }) {
 
   return (
     <div className="eb-dash">
-      <Hero kicker={<><a href="#/states">Merchandise exports by state</a> / {s.name}</>} title={`${s.name}: exports`}
+      <Hero kicker={<><a href="#/states">{hiLang ? 'राज्य प्रोफ़ाइल' : 'State profiles'}</a> / {hiLang ? HINDI[stateKey(s.name)] || s.name : s.name}</>} title={hiLang ? HINDI[stateKey(s.name)] || s.name : s.name}
         sub={`${s.ut ? 'Union territory. ' : ''}Exports with ${s.name} as the state of origin, US$, by product and destination.`}
         periods={s.periods} period={period} onPeriod={setPeriod}>
         In <strong>{nice(period)}</strong>, {s.name} exported <strong>{money(total)}</strong> of goods, {pct(total, all).toFixed(1)}% of exports by state
@@ -299,7 +306,9 @@ function StateView({ d, base, id }) {
         {u && <span className="eb-tr-flag"> Understated in {listAnd(Object.keys(s.understated))}: see the note below.</span>}
       </Hero>
 
-      <h2 className="eb-eyebrow" id="eb-sv-kpi">At a glance, {nice(period)}</h2>
+      <ProfileFacts s={s} facts={facts} rank={rank} of={ranked.length} />
+
+      <h2 className="eb-eyebrow" id="eb-sv-kpi">Exports, {nice(period)}</h2>
       <ul className="eb-tiles" aria-labelledby="eb-sv-kpi">
         <Stat icon="trade" label="Exports" value={money(total)} extra={<GrowthPill value={g} />} sub={partial ? 'Part year' : `vs ${s.periods[i - 1] || 'n/a'}`} />
         <Stat icon="growth" label="Rank among states" value={rank || '–'} sub={`${pct(total, all).toFixed(1)}% of exports by state`} />
@@ -336,8 +345,116 @@ function StateView({ d, base, id }) {
   );
 }
 
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const MON_HI = ['जनवरी', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'];
+const monthLabel = (m, hi) => (m ? `${(hi ? MON_HI : MON)[Number(m.slice(5, 7)) - 1]} ${m.slice(0, 4)}` : '');
+const HINDI = Object.fromEntries(Object.entries(STATE_TILES).map(([k, v]) => [stateKey(k), v[3]]));
+const crore = (v) => (v == null ? '–' : `₹${formatValue(Math.max(0, v), 0)} cr`);
+
+// CPI inflation by state (models.json) and CBDT collections by state (direct-taxes.json), keyed by stateKey.
+function useStateFacts(base) {
+  const dataBase = base.replace(/trade\/$/, '');
+  const { data: m } = useTradeFile(`${dataBase}models.json`);
+  const { data: dt } = useTradeFile(`${dataBase}direct-taxes.json`);
+  const st = m?.cpi_contributions?.states;
+  const cpi = Object.fromEntries((st?.rows || []).map((r) => [stateKey(r.state), r]));
+  const tax = taxByState(dt);
+  const taxYear = dt?.by_state?.years?.at(-1);
+  const taxTotal = taxYear ? Object.values(tax).reduce((a, y) => a + (y[taxYear] || 0), 0) : null;
+  const taxRank = taxYear ? Object.entries(tax).sort((a, b) => (b[1][taxYear] || 0) - (a[1][taxYear] || 0)).map(([k]) => k) : [];
+  return { dataBase, cpi, india: cpi[stateKey('All India')], cpiMonth: st?.month, tax, taxYear, taxTotal, taxRank, ready: !!m && !!dt };
+}
+
+function ProfileFacts({ s, facts, rank, of }) {
+  const hi = useLanguage().language === 'hi';
+  const k = stateKey(s.name);
+  const c = facts.cpi[k];
+  const t = facts.tax[k]?.[facts.taxYear];
+  const tRank = facts.taxRank.indexOf(k) + 1;
+  const vsIndia = c && facts.india ? c.combined - facts.india.combined : null;
+  return (
+    <>
+      <h2 className="eb-eyebrow" id="eb-sp-kpi">{hi ? 'एक नज़र में' : 'Profile at a glance'}</h2>
+      <ul className="eb-tiles" aria-labelledby="eb-sp-kpi">
+        <Stat icon="prices" label={hi ? `CPI, ${monthLabel(facts.cpiMonth, hi)}` : `CPI, ${monthLabel(facts.cpiMonth)}`}
+          value={c ? `${formatValue(c.combined, 2)}%` : '–'}
+          sub={vsIndia != null ? (hi ? `भारत से ${vsIndia >= 0 ? '+' : '−'}${formatValue(Math.abs(vsIndia), 2)} अंक` : `${vsIndia >= 0 ? '+' : '−'}${formatValue(Math.abs(vsIndia), 2)} pts vs India`) : monthLabel(facts.cpiMonth, hi)} />
+        <Stat icon="prices" label={hi ? 'ग्रामीण / शहरी' : 'Rural / urban'}
+          value={c ? `${c.rural != null ? formatValue(c.rural, 1) : '–'} / ${c.urban != null ? formatValue(c.urban, 1) : '–'}%` : '–'}
+          sub={hi ? 'CPI मुद्रास्फीति, MoSPI' : 'CPI inflation, MoSPI'} />
+        <Stat icon="money" label={hi ? 'प्रत्यक्ष कर' : 'Direct taxes'}
+          value={crore(t)} sub={t && facts.taxTotal ? (hi ? `${facts.taxYear} · ${formatValue(t / facts.taxTotal * 100, 1)}% · स्थान ${tRank}` : `${facts.taxYear} · ${formatValue(t / facts.taxTotal * 100, 1)}% · rank ${tRank}`) : 'CBDT'} />
+        <Stat icon="trade" label={hi ? 'निर्यात में स्थान' : 'Export rank'} value={rank || '–'} sub={hi ? `${of} में से` : `of ${of} states and UTs`} />
+      </ul>
+    </>
+  );
+}
+
+function StatesHub({ d, base }) {
+  const hi = useLanguage().language === 'hi';
+  const facts = useStateFacts(base);
+  const i = d.periods.indexOf(d.latest_full);
+  const ranked = [...d.states].filter((x) => !x.unspecified).sort((a, b) => (b.v[i] || 0) - (a.v[i] || 0));
+  const cards = [...ranked].sort((a, b) => a.name.localeCompare(b.name));
+  const india = facts.india;
+  const above = india ? Object.values(facts.cpi).filter((r) => r.state !== 'All India' && r.combined > india.combined).length : null;
+  const top = ranked[0];
+  const taxTop = facts.taxRank[0];
+  const taxTopName = taxTop ? (ranked.find((x) => stateKey(x.name) === taxTop)?.name || taxTop) : null;
+  return (
+    <>
+      <nav className="eb-crumbs" aria-label={hi ? 'मार्ग' : 'Breadcrumb'}><a href="#/">{hi ? 'डैशबोर्ड' : 'Dashboard'}</a><span aria-hidden="true">/</span><span>{hi ? 'राज्य प्रोफ़ाइल' : 'State profiles'}</span></nav>
+      <header className="eb-pagehead">
+        <h1>{hi ? 'राज्य प्रोफ़ाइल' : 'State profiles'}</h1>
+        <p className="eb-ru-lead">{hi
+          ? <>हर राज्य और केंद्र शासित प्रदेश के लिए मुद्रास्फीति, निर्यात और प्रत्यक्ष कर एक जगह। {above != null && <><strong>{above}</strong> राज्य और केंद्र शासित प्रदेश राष्ट्रीय मुद्रास्फीति ({formatValue(india.combined, 2)}%, {monthLabel(facts.cpiMonth, hi)}) से ऊपर हैं। </>}{top && <>{d.latest_full} में सबसे बड़ा निर्यातक <strong>{HINDI[stateKey(top.name)] || top.name}</strong> रहा{taxTopName ? <>, और {facts.taxYear} में सबसे अधिक प्रत्यक्ष कर <strong>{HINDI[taxTop] || taxTopName}</strong> से आया</> : null}।</>} किसी राज्य पर क्लिक करें।</>
+          : <>Inflation, exports and direct taxes for every state and union territory in one place. {above != null && <><strong>{above}</strong> states and UTs are above national inflation ({formatValue(india.combined, 2)}%, {monthLabel(facts.cpiMonth)}). </>}{top && <><strong>{top.name}</strong> was the largest exporter in {d.latest_full}{taxTopName ? <>, and <strong>{taxTopName}</strong> paid the most direct tax in {facts.taxYear}</> : null}.</>} Choose a state for its profile.</>}</p>
+      </header>
+
+      <section className="eb-section" aria-labelledby="eb-sh-pick">
+        <h2 id="eb-sh-pick">{hi ? 'राज्य चुनें' : 'Choose a state'}</h2>
+        <ul className="eb-sh-grid">
+          {cards.map((s) => {
+            const k = stateKey(s.name);
+            const c = facts.cpi[k];
+            const t = facts.tax[k]?.[facts.taxYear];
+            const hot = c && india && c.combined > india.combined;
+            return (
+              <li key={s.slug}>
+                <a href={`#/states/${s.slug}`} className="eb-sh-card">
+                  <span className="eb-sh-name">{hi ? HINDI[k] || s.name : s.name}{s.ut ? <span className="eb-sh-ut">{hi ? 'के.शा.प्र.' : 'UT'}</span> : null}</span>
+                  <span className="eb-sh-facts">
+                    <span><small>{hi ? 'CPI मुद्रास्फीति' : 'CPI inflation'}</small><b className={hot ? 'eb-sh-hot' : undefined}>{c ? `${formatValue(c.combined, 1)}%` : '–'}</b></span>
+                    <span><small>{hi ? `निर्यात, ${d.latest_full}` : `Exports, ${d.latest_full}`}</small><b>{money(s.v[i])}</b></span>
+                    <span><small>{hi ? `प्रत्यक्ष कर, ${facts.taxYear || ''}` : `Direct taxes, ${facts.taxYear || ''}`}</small><b>{crore(t)}</b></span>
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+        <p className="eb-mc-note">{hi
+          ? `CPI मुद्रास्फीति: ${monthLabel(facts.cpiMonth, hi)}, MoSPI (राष्ट्रीय दर से ऊपर होने पर नारंगी)। निर्यात: उत्पादन वाले राज्य के अनुसार, DGCI&S। प्रत्यक्ष कर: करदाता के पते के अनुसार, CBDT; बड़ी कंपनियों के मुख्यालय वाले राज्यों का हिस्सा अधिक दिखता है।`
+          : `CPI inflation: ${monthLabel(facts.cpiMonth)}, MoSPI (orange when above the national rate). Exports: by state of origin, DGCI&S. Direct taxes: by the taxpayer's address, CBDT, so states with large head offices show more.`}</p>
+      </section>
+
+      <AnalysisPage base={facts.dataBase} view="state-inflation" embedded />
+
+      <section className="eb-section" aria-labelledby="eb-sh-more">
+        <h2 id="eb-sh-more">{hi ? 'और विस्तार से' : 'In more detail'}</h2>
+        <div className="eb-sh-links">
+          <a className="eb-mc eb-sh-link" href="#/states/exports"><b>{hi ? 'राज्यवार निर्यात' : 'Exports by state'}</b><span>{hi ? 'हर राज्य के उत्पाद, बाज़ार और वर्षवार रुझान, और राज्यों के आंकड़े भारत के कुल से क्यों नहीं मिलते।' : "Products, markets and trends for every state, and why state figures do not add up to India's total."}</span></a>
+          <a className="eb-mc eb-sh-link" href="#/direct-taxes"><b>{hi ? 'राज्यवार प्रत्यक्ष कर' : 'Direct taxes by state'}</b><span>{hi ? '2018-19 से हर राज्य का संग्रह, प्रत्यक्ष कर पृष्ठ पर।' : 'Collections by state since 2018-19, on the Direct taxes page.'}</span></a>
+        </div>
+      </section>
+    </>
+  );
+}
+
 export default function StatePage({ base, id }) {
   const { data: d, error } = useTradeFile(`${base}states.json`);
   if (!d) return <Waiting error={error} />;
-  return id ? <StateView d={d} base={base} id={id} /> : <Overview d={d} />;
+  if (!id) return <StatesHub d={d} base={base} />;
+  if (id === 'exports') return <Overview d={d} />;
+  return <StateView d={d} base={base} id={id} />;
 }

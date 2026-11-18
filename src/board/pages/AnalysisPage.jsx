@@ -7,6 +7,7 @@ import {
   CsvButton, useHi, monthLabel, seriesTitle, unitText, stateEn, 
 } from './analysisCharts.jsx';
 import { SHORT, SHORT_HI, LABEL_HI, PAIR_HI, TAX_HI, STATES, HEAT_HI } from './analysisText.js';
+import DeepDives from '../DeepDives.jsx';
 
 // Forecasts, relationships and tax elasticity, from public/data/models.json
 // (written by scripts/build_models.py). Every number here is a statistical
@@ -292,7 +293,20 @@ function Elasticity({ rows }) {
   );
 }
 
-export default function AnalysisPage({ base }) {
+const TITLES = {
+  landing: ['Analysis and outlook', 'विश्लेषण और परिदृश्य'],
+  glance: ['The economy at a glance', 'एक नज़र में अर्थव्यवस्था'],
+  forecasts: ['Forecasts and track record', 'पूर्वानुमान और उनका रिकॉर्ड'],
+  relationships: ['How indicators move together', 'संकेतक साथ कैसे चलते हैं'],
+  'tax-growth': ['Taxes and growth', 'कर और वृद्धि'],
+};
+// Which notes under "Method and limits" each page shows.
+const NOTES = {
+  glance: ['glance', 'updated'], forecasts: ['data', 'forecasts', 'record', 'updated'], relationships: ['data', 'relationships', 'updated'],
+  'tax-growth': ['tax', 'updated'], inflation: ['split'], 'state-inflation': ['split'], landing: ['updated'],
+};
+
+export default function AnalysisPage({ base, view = 'landing', embedded = false }) {
   const hi = useHi();
   const { data: d, error } = useTradeFile(`${base}models.json`);
   if (error) return <div className="eb-dash"><p className="eb-empty">{hi ? `विश्लेषण लोड नहीं हो सका (${error})।` : `The analysis could not be loaded (${error}).`}</p></div>;
@@ -317,12 +331,32 @@ export default function AnalysisPage({ base }) {
   const nextRelease = recFirst && recFirst.forecast.find((p) => p.actual == null);
   const nextText = nextRelease ? nextRelease.month : null;
   const dateLong = (iso) => new Date(`${iso}T00:00:00`).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+  const show = (v) => view === v;
+  const note = (k) => (NOTES[view] || []).includes(k);
+  const [tEn, tHi] = TITLES[view] || TITLES.landing;
+  const hubCrumb = view !== 'landing' && view !== 'glance';
   return (
     <>
-      <nav className="eb-crumbs" aria-label={hi ? 'मार्ग' : 'Breadcrumb'}><a href="#/">{hi ? 'डैशबोर्ड' : 'Dashboard'}</a><span aria-hidden="true">/</span><span>{hi ? 'पूर्वानुमान और संबंध' : 'Forecasts and relationships'}</span></nav>
+      {!embedded && (
+        <nav className="eb-crumbs" aria-label={hi ? 'मार्ग' : 'Breadcrumb'}>
+          <a href="#/">{hi ? 'डैशबोर्ड' : 'Dashboard'}</a><span aria-hidden="true">/</span>
+          {hubCrumb && <><a href="#/analysis">{hi ? 'विश्लेषण और परिदृश्य' : 'Analysis and outlook'}</a><span aria-hidden="true">/</span></>}
+          <span>{hi ? tHi : tEn}</span>
+        </nav>
+      )}
+      {!embedded && (
       <header className="eb-pagehead">
-        <h1>{hi ? 'पूर्वानुमान और संबंध' : 'Forecasts and relationships'}</h1>
-        <HeadlineStrip d={d} />
+        <h1>{hi ? tHi : tEn}</h1>
+        {show('landing') && <HeadlineStrip d={d} />}
+        {show('landing') && <DeepDives base={base} tradeBase={`${base}trade/`} only={['glance', 'forecasts', 'relationships', 'tax-growth', 'inflation', 'states']} />}
+        {show('glance') && (
+          <p className="eb-ru-lead">
+            {hi
+              ? <>हर खाना एक संकेतक है, जिसका रंग बताता है कि उसकी नवीनतम रीडिंग उसके अपने हाल के इतिहास में कहाँ है। {heat.length} में से <strong>{badX.length}</strong> अपने सबसे बुरे 10% स्तर पर हैं{badX.length ? ` (${badX.slice(0, 6).map((r) => HEAT_HI[r.id] || r.label).join(', ')}${badX.length > 6 ? ' और अन्य' : ''})` : ''}, और <strong>{goodX.length}</strong> सबसे अच्छे 10% पर। जो शृंखलाएँ अर्थव्यवस्था के साथ बढ़ती हैं (रुपये या डॉलर में मूल्य, संख्याएँ, कीमतें), उनकी तुलना एक वर्ष पहले की तुलना में वृद्धि से की गई है।</>
+              : <>Each tile is one indicator, coloured by where its latest reading sits in its own recent history. Of {heat.length}, <strong>{badX.length}</strong> are in the worst 10% of their own readings{badX.length ? ` (${badX.slice(0, 6).map((r) => r.label).join(', ')}${badX.length > 6 ? ' and others' : ''})` : ''}, and <strong>{goodX.length}</strong> in the best 10%. Series that grow with the economy (rupee or dollar values, counts, prices) are compared as growth on a year earlier.</>}
+          </p>
+        )}
+        {(show('landing') || show('forecasts') || show('relationships')) && (
         <div className="eb-themebrief">
           <p className="eb-themebrief-kicker">{hi ? 'मॉडल क्या कहते हैं' : 'What the models say'}</p>
           {hi ? (
@@ -344,16 +378,12 @@ export default function AnalysisPage({ base }) {
             ? 'ये पिछले कुछ वर्षों के आंकड़ों के सांख्यिकीय सारांश हैं, जो आंकड़ों के साथ रोज़ अपडेट होते हैं। ये आधिकारिक अनुमान नहीं हैं, और सहसंबंध यह नहीं दिखाता कि एक चीज़ दूसरी का कारण है।'
             : 'These are statistical summaries of the last few years, refreshed daily with the data. They are not official projections, and a correlation does not show that one thing causes another.'}</p>
         </div>
+        )}
       </header>
+      )}
 
-      {heat.length ? (
-        <section className="eb-section" aria-labelledby="an-heat-h">
-          <h2 id="an-heat-h">{hi ? 'एक नज़र में अर्थव्यवस्था' : 'The economy at a glance'}</h2>
-          <p className="eb-ru-lead">
-            {hi
-              ? <>हर खाना एक संकेतक है, जिसका रंग बताता है कि उसकी नवीनतम रीडिंग उसके अपने हाल के इतिहास में कहाँ है। {heat.length} में से <strong>{badX.length}</strong> अपने सबसे बुरे 10% स्तर पर हैं{badX.length ? ` (${badX.slice(0, 6).map((r) => HEAT_HI[r.id] || r.label).join(', ')}${badX.length > 6 ? ' और अन्य' : ''})` : ''}, और <strong>{goodX.length}</strong> सबसे अच्छे 10% पर। जो शृंखलाएँ अर्थव्यवस्था के साथ बढ़ती हैं (रुपये या डॉलर में मूल्य, संख्याएँ, कीमतें), उनकी तुलना एक वर्ष पहले की तुलना में वृद्धि से की गई है।</>
-              : <>Each tile is one indicator, coloured by where its latest reading sits in its own recent history. Of {heat.length}, <strong>{badX.length}</strong> are in the worst 10% of their own readings{badX.length ? ` (${badX.slice(0, 6).map((r) => r.label).join(', ')}${badX.length > 6 ? ' and others' : ''})` : ''}, and <strong>{goodX.length}</strong> in the best 10%. Series that grow with the economy (rupee or dollar values, counts, prices) are compared as growth on a year earlier.</>}
-          </p>
+      {show('glance') && heat.length ? (
+        <section className="eb-section" aria-label={hi ? 'हर संकेतक' : 'Every indicator'}>
           <section className="eb-mc eb-an-card">
             <h3 className="eb-mc-title">{hi ? 'हर संकेतक, उसके अपने अतीत की तुलना में' : 'Every indicator against its own past'}</h3>
             <EconomyHeat rows={heat} groups={CATEGORIES} />
@@ -361,7 +391,7 @@ export default function AnalysisPage({ base }) {
         </section>
       ) : null}
 
-      <section className="eb-section" aria-labelledby="an-fc-h">
+      {show('forecasts') && <section className="eb-section" aria-labelledby="an-fc-h">
         <h2 id="an-fc-h">{hi ? 'अल्पकालिक परिदृश्य' : 'Short-term outlook'}</h2>
         <p className="eb-ru-lead">
           {hi
@@ -397,9 +427,9 @@ export default function AnalysisPage({ base }) {
           ? 'सरल नियम की तुलना में मॉडल की औसत चूक कितनी कम रही (धनात्मक बेहतर है; शून्य का अर्थ है कोई सुधार नहीं)। औसत चूक देखने के लिए किसी आंकड़े पर कर्सर रखें।'
           : "How much smaller the model's average error was than the simple rule's (positive is better; zero means it did no better). Hover a figure for the average errors."}</p>
         <SkillTable rows={tested} />
-      </section>
+      </section>}
 
-      {cpi && (
+      {show('inflation') && cpi && (
         <section className="eb-section" aria-labelledby="an-cpi-h">
           <h2 id="an-cpi-h">{hi ? 'मुद्रास्फीति को क्या चला रहा है' : 'What is driving inflation'}</h2>
           <p className="eb-ru-lead">
@@ -429,19 +459,23 @@ export default function AnalysisPage({ base }) {
               <CpiDivisions c={d.cpi_contributions} headline={cpi.headline} />
             </section>
           )}
-          {states && stRows.length ? (
-            <section className="eb-mc eb-an-card eb-an-gap">
+        </section>
+      )}
+
+      {show('state-inflation') && states && stRows.length ? (
+        <section className="eb-section" aria-labelledby="an-st-h">
+            <h2 id="an-st-h">{hi ? 'राज्यवार मुद्रास्फीति' : 'Inflation by state'}</h2>
+            <section className="eb-mc eb-an-card">
               <h3 className="eb-mc-title">{hi ? `राज्यवार मुद्रास्फीति, ${monthLabel(states.month, hi)}` : `Inflation by state, ${monthLabel(states.month)}`}</h3>
               <p className="eb-mc-note">{hi
                 ? `CPI (2024 आधार, सभी वस्तुएँ), MoSPI। ${stRows.length} में से ${above} राज्य और केंद्र शासित प्रदेश राष्ट्रीय दर से ऊपर हैं; सबसे ऊँची दर ${STATE_NAME(stHigh[0]?.state, hi)} (${formatValue(stHigh[0]?.combined, 2)}%) और सबसे कम ${STATE_NAME(stHigh.at(-1)?.state, hi)} (${formatValue(stHigh.at(-1)?.combined, 2)}%) में है। हर खाना एक राज्य है, जो मोटे तौर पर नक्शे पर अपनी जगह रखा गया है; छोटे राज्यों और केंद्र शासित प्रदेशों के आंकड़े छोटे नमूनों पर आधारित होते हैं और अधिक उतार-चढ़ाव दिखाते हैं।`
                 : `CPI (2024 base, all items), MoSPI. ${above} of ${stRows.length} states and union territories are above the national rate; the highest is ${stateEn(stHigh[0]?.state)} (${formatValue(stHigh[0]?.combined, 2)}%) and the lowest ${stateEn(stHigh.at(-1)?.state)} (${formatValue(stHigh.at(-1)?.combined, 2)}%). Each tile is a state, placed roughly where it sits on the map; figures for small states and union territories rest on small samples and move around more.`}</p>
               <StateMap st={states} />
             </section>
-          ) : null}
         </section>
-      )}
+      ) : null}
 
-      <section className="eb-section" aria-labelledby="an-rel-h">
+      {show('relationships') && <section className="eb-section" aria-labelledby="an-rel-h">
         <h2 id="an-rel-h">{hi ? 'संकेतक एक साथ कैसे बदलते हैं' : 'How the indicators move together'}</h2>
         <p className="eb-ru-lead">
           {hi
@@ -454,9 +488,9 @@ export default function AnalysisPage({ base }) {
           ? `उसी महीने के सहसंबंध, ${d.correlation_table.window} (${d.correlation_table.n} महीने)। हरा: साथ चलते हैं; नारंगी: विपरीत। धूसर आंकड़े ±${d.correlation_table.band95} के भीतर हैं, जो केवल संयोग से भी आ सकते हैं।`
           : `Same-month correlations, ${d.correlation_table.window} (${d.correlation_table.n} months). Green: move together; orange: opposite. Grey figures are within ±${d.correlation_table.band95}, which chance alone could produce.`}</p>
         <CorrTable t={d.correlation_table} />
-      </section>
+      </section>}
 
-      <section className="eb-section" aria-labelledby="an-el-h">
+      {show('tax-growth') && <section className="eb-section" aria-labelledby="an-el-h">
         <h2 id="an-el-h">{hi ? 'प्रत्यक्ष कर वृद्धि पर कैसे प्रतिक्रिया देते हैं' : 'How direct taxes respond to growth'}</h2>
         {net && (
           <p className="eb-ru-lead">
@@ -486,39 +520,52 @@ export default function AnalysisPage({ base }) {
           </section>
         )}
         <Elasticity rows={d.tax_elasticity} />
-      </section>
+      </section>}
 
+      {embedded ? (
+        <details className="eb-an-more eb-an-embednote">
+          <summary>{hi ? 'यह कैसे निकाला गया' : 'How this is worked out'}</summary>
+          <dl className="eb-facts">{methodNotes()}</dl>
+        </details>
+      ) : (
       <section className="eb-section" aria-labelledby="an-m-h">
         <h2 id="an-m-h">{hi ? 'पद्धति और सीमाएँ' : 'Method and limits'}</h2>
-        <dl className="eb-facts">
-          <div><dt>{hi ? 'आंकड़े' : 'Data'}</dt><dd>{hi
-            ? `बोर्ड की अपनी शृंखलाएँ, और जहाँ बोर्ड केवल पाँच वर्ष दिखाता है वहाँ 2017-18 से RBI DBIE का पूरा मासिक इतिहास। CPI में 2012-आधार और 2024-आधार शृंखलाएँ जोड़ी गई हैं${tested.some((f) => f.filled_months?.length) ? '; RBI की 2012-आधार CPI फ़ाइल में दो छूटे महीने (जून 2019, जून 2020) मॉडल के लिए पड़ोसी महीनों के बीच के मान से भरे गए हैं' : ''}।`
-            : `The board's own series, with RBI DBIE's full monthly history from 2017-18 where the board shows only five years. CPI joins the 2012-base and 2024-base series${tested.some((f) => f.filled_months?.length) ? "; two missing months in RBI's file of 2012-base CPI (June 2019, June 2020) are filled half way between their neighbours for fitting" : ''}.`}</dd></div>
-          <div><dt>{hi ? 'पूर्वानुमान' : 'Forecasts'}</dt><dd>{hi
-            ? 'छोटे समूह में से AIC के आधार पर चुने गए ARIMA मॉडल; मौसमी शृंखलाएँ लघुगणक पर, वार्षिक मौसमी पद के साथ। एक-चर मॉडल: हर शृंखला का पूर्वानुमान केवल उसके अपने अतीत से होता है, इसलिए तेल की कीमतों में उछाल या नीतिगत बदलाव जैसे झटके पहले से नहीं दिखते।'
-            : 'ARIMA models chosen by the AIC from a small set; seasonal series modelled on logs with a yearly seasonal term. Univariate: each series is forecast from its own past only, so a shock such as an oil price jump or a policy change is not foreseen.'}</dd></div>
-          {rec && <div><dt>{hi ? 'पूर्वानुमान रिकॉर्ड' : 'Forecast record'}</dt><dd>{hi
-            ? 'हर शृंखला का पूर्वानुमान, उसी समय के सरल नियम के पूर्वानुमान के साथ, पहली बार बनने पर data/forecast_log.json में सहेजा जाता है (शृंखला और उपयोग किए गए अंतिम महीने के अनुसार एक बार)। आधिकारिक आंकड़ा आने पर उसका मिलान होता है; यदि आंकड़ा बाद में संशोधित होता है तो नवीनतम संशोधित आंकड़ा उपयोग होता है।'
-            : "Each series' forecast is saved in data/forecast_log.json when first made (once per series and last month of data used), together with the simple rule's forecast made at the same time. It is scored when the official figure comes out; if a figure is later revised, the latest revision is used."}</dd></div>}
-          {heat.length ? <div><dt>{hi ? 'एक नज़र में' : 'At a glance'}</dt><dd>{hi
-            ? `हर संकेतक की नवीनतम रीडिंग का शतमक (percentile), बोर्ड पर दिखाई गई उसकी अपनी पिछली रीडिंग के मुकाबले (मासिक शृंखलाओं में लगभग पाँच वर्ष; वार्षिक कर आंकड़ों में 2000-01 से)। जिन संकेतकों की कोई अच्छी या बुरी दिशा नहीं है (जैसे नीतिगत दरें, ऋण वृद्धि), उन्हें केवल इस आधार पर रंगा गया है कि स्तर कितना असामान्य है। कम से कम ${12} रीडिंग वाले संकेतक ही शामिल हैं।`
-            : `The percentile of each indicator's latest reading among its own earlier readings on the board (about five years for monthly series; since 2000-01 for annual tax figures). Indicators with no good or bad direction (policy rates, credit growth and the like) are shaded only by how unusual the level is. Only indicators with at least 12 readings are included.`}</dd></div> : null}
-          {d.cpi_contributions && <div><dt>{hi ? 'मुद्रास्फीति का विभाजन' : 'Inflation split'}</dt><dd>{hi
-            ? `टोकरी के किसी हिस्से का योगदान = उसका भार × (उसका सूचकांक अभी − एक वर्ष पहले) ÷ एक वर्ष पहले का सर्व-वस्तु सूचकांक। MoSPI के भार: 2024 आधार में खाद्य और पेय पदार्थ 36.75%, बिजली, गैस और अन्य ईंधन 5.49%; 2012 आधार में खाद्य और पेय पदार्थ 45.86%, ईंधन और प्रकाश 6.84%। दिसंबर 2025 तक 2012 आधार, जनवरी 2026 से 2024 आधार। MoSPI सूचकांक एक या दो दशमलव तक प्रकाशित करता है, इसलिए तीनों हिस्सों का जोड़ प्रकाशित मुद्रास्फीति से ${d.cpi_contributions.max_gap_vs_published} अंक के भीतर रहता है (पिछले पाँच वर्षों में 0.1 अंक के भीतर)। वाहनों के लिए पेट्रोल और डीज़ल "बाकी सब" में हैं, जैसे बोर्ड की कोर CPI में। राज्यवार आंकड़े MoSPI के 2024-आधार राज्य सूचकांक हैं; राज्यवार खाद्य मुद्रास्फीति नहीं दिखाई गई, क्योंकि MoSPI का API उसके साथ हर खाद्य वस्तु लौटाता है और रोज़ लगभग एक घंटा लगेगा।`
-            : `Contribution of a part of the basket = its weight × (its index now − a year ago) ÷ the all-items index a year ago. MoSPI basket weights: 2024 base food and beverages 36.75%, electricity, gas and other fuels 5.49%; 2012 base food and beverages 45.86%, fuel and light 6.84%. 2012 base to December 2025, 2024 base from January 2026. Because MoSPI publishes indices to one or two decimals, the three parts add up to within ${d.cpi_contributions.max_gap_vs_published} point of published inflation (within 0.1 point in the last five years). Petrol and diesel for vehicles sit in "everything else", as in the board's core CPI. State figures are MoSPI's 2024-base state indices; food inflation by state is not shown because MoSPI's API returns every food item with it, which would take about an hour a day.`}</dd></div>}
-          {d.tax_check && <div><dt>{hi ? 'कर जाँच' : 'Tax check'}</dt><dd>{hi
-            ? 'अपेक्षित वृद्धि = लोच × सांकेतिक GDP वृद्धि, लोच के 95% दायरे के साथ। लोच दीर्घकालिक औसत हैं जिनमें पिछले दर बदलाव शामिल हैं; किसी एक अधूरे वर्ष का आंकड़ा केवल समय के कारण भी दायरे से बाहर हो सकता है।'
-            : 'Expected growth = elasticity × nominal GDP growth, with the 95% range of the elasticity. Elasticities are long-run averages that include past rate changes; a single part year can sit outside the range for reasons of timing alone.'}</dd></div>}
-          <div><dt>{hi ? 'संबंध' : 'Relationships'}</dt><dd>{hi
-            ? 'वार्षिक वृद्धि या परिवर्तन के पियर्सन सहसंबंध। छोटे नमूने और साझा चक्र बिना किसी कारण के भी मज़बूत सहसंबंध दिखा सकते हैं; हर कार्ड पर दी गई सावधानियाँ देखें।'
-            : 'Pearson correlations of annual growth or change. Short samples and shared cycles can produce strong correlations without any cause; see the cautions on each card.'}</dd></div>
-          <div><dt>{hi ? 'अपडेट' : 'Updated'}</dt><dd>{hi
-            ? `रोज़, आंकड़ों के साथ (${d.generated_at.slice(0, 10)})। स्क्रिप्ट: scripts/build_models.py; पूरे परिणाम data/models.json में। हर चार्ट के आंकड़े उसके CSV बटन से डाउनलोड किए जा सकते हैं।`
-            : `Daily, with the data (${d.generated_at.slice(0, 10)}). Script: scripts/build_models.py; full results in data/models.json. Every chart's numbers can be downloaded with its CSV button.`}</dd></div>
-        </dl>
+        <dl className="eb-facts">{methodNotes()}</dl>
       </section>
+      )}
     </>
   );
+
+  function methodNotes() {
+    return (
+      <>
+          {note('data') && <div><dt>{hi ? 'आंकड़े' : 'Data'}</dt><dd>{hi
+            ? `बोर्ड की अपनी शृंखलाएँ, और जहाँ बोर्ड केवल पाँच वर्ष दिखाता है वहाँ 2017-18 से RBI DBIE का पूरा मासिक इतिहास। CPI में 2012-आधार और 2024-आधार शृंखलाएँ जोड़ी गई हैं${tested.some((f) => f.filled_months?.length) ? '; RBI की 2012-आधार CPI फ़ाइल में दो छूटे महीने (जून 2019, जून 2020) मॉडल के लिए पड़ोसी महीनों के बीच के मान से भरे गए हैं' : ''}।`
+            : `The board's own series, with RBI DBIE's full monthly history from 2017-18 where the board shows only five years. CPI joins the 2012-base and 2024-base series${tested.some((f) => f.filled_months?.length) ? "; two missing months in RBI's file of 2012-base CPI (June 2019, June 2020) are filled half way between their neighbours for fitting" : ''}.`}</dd></div>}
+          {note('forecasts') && <div><dt>{hi ? 'पूर्वानुमान' : 'Forecasts'}</dt><dd>{hi
+            ? 'छोटे समूह में से AIC के आधार पर चुने गए ARIMA मॉडल; मौसमी शृंखलाएँ लघुगणक पर, वार्षिक मौसमी पद के साथ। एक-चर मॉडल: हर शृंखला का पूर्वानुमान केवल उसके अपने अतीत से होता है, इसलिए तेल की कीमतों में उछाल या नीतिगत बदलाव जैसे झटके पहले से नहीं दिखते।'
+            : 'ARIMA models chosen by the AIC from a small set; seasonal series modelled on logs with a yearly seasonal term. Univariate: each series is forecast from its own past only, so a shock such as an oil price jump or a policy change is not foreseen.'}</dd></div>}
+          {note('record') && rec && <div><dt>{hi ? 'पूर्वानुमान रिकॉर्ड' : 'Forecast record'}</dt><dd>{hi
+            ? 'हर शृंखला का पूर्वानुमान, उसी समय के सरल नियम के पूर्वानुमान के साथ, पहली बार बनने पर data/forecast_log.json में सहेजा जाता है (शृंखला और उपयोग किए गए अंतिम महीने के अनुसार एक बार)। आधिकारिक आंकड़ा आने पर उसका मिलान होता है; यदि आंकड़ा बाद में संशोधित होता है तो नवीनतम संशोधित आंकड़ा उपयोग होता है।'
+            : "Each series' forecast is saved in data/forecast_log.json when first made (once per series and last month of data used), together with the simple rule's forecast made at the same time. It is scored when the official figure comes out; if a figure is later revised, the latest revision is used."}</dd></div>}
+          {note('glance') && heat.length ? <div><dt>{hi ? 'एक नज़र में' : 'At a glance'}</dt><dd>{hi
+            ? `हर संकेतक की नवीनतम रीडिंग का शतमक (percentile), बोर्ड पर दिखाई गई उसकी अपनी पिछली रीडिंग के मुकाबले (मासिक शृंखलाओं में लगभग पाँच वर्ष; वार्षिक कर आंकड़ों में 2000-01 से)। जिन संकेतकों की कोई अच्छी या बुरी दिशा नहीं है (जैसे नीतिगत दरें, ऋण वृद्धि), उन्हें केवल इस आधार पर रंगा गया है कि स्तर कितना असामान्य है। कम से कम ${12} रीडिंग वाले संकेतक ही शामिल हैं।`
+            : `The percentile of each indicator's latest reading among its own earlier readings on the board (about five years for monthly series; since 2000-01 for annual tax figures). Indicators with no good or bad direction (policy rates, credit growth and the like) are shaded only by how unusual the level is. Only indicators with at least 12 readings are included.`}</dd></div> : null}
+          {note('split') && d.cpi_contributions && <div><dt>{hi ? 'मुद्रास्फीति का विभाजन' : 'Inflation split'}</dt><dd>{hi
+            ? `टोकरी के किसी हिस्से का योगदान = उसका भार × (उसका सूचकांक अभी − एक वर्ष पहले) ÷ एक वर्ष पहले का सर्व-वस्तु सूचकांक। MoSPI के भार: 2024 आधार में खाद्य और पेय पदार्थ 36.75%, बिजली, गैस और अन्य ईंधन 5.49%; 2012 आधार में खाद्य और पेय पदार्थ 45.86%, ईंधन और प्रकाश 6.84%। दिसंबर 2025 तक 2012 आधार, जनवरी 2026 से 2024 आधार। MoSPI सूचकांक एक या दो दशमलव तक प्रकाशित करता है, इसलिए तीनों हिस्सों का जोड़ प्रकाशित मुद्रास्फीति से ${d.cpi_contributions.max_gap_vs_published} अंक के भीतर रहता है (पिछले पाँच वर्षों में 0.1 अंक के भीतर)। वाहनों के लिए पेट्रोल और डीज़ल "बाकी सब" में हैं, जैसे बोर्ड की कोर CPI में। राज्यवार आंकड़े MoSPI के 2024-आधार राज्य सूचकांक हैं; राज्यवार खाद्य मुद्रास्फीति नहीं दिखाई गई, क्योंकि MoSPI का API उसके साथ हर खाद्य वस्तु लौटाता है और रोज़ लगभग एक घंटा लगेगा।`
+            : `Contribution of a part of the basket = its weight × (its index now − a year ago) ÷ the all-items index a year ago. MoSPI basket weights: 2024 base food and beverages 36.75%, electricity, gas and other fuels 5.49%; 2012 base food and beverages 45.86%, fuel and light 6.84%. 2012 base to December 2025, 2024 base from January 2026. Because MoSPI publishes indices to one or two decimals, the three parts add up to within ${d.cpi_contributions.max_gap_vs_published} point of published inflation (within 0.1 point in the last five years). Petrol and diesel for vehicles sit in "everything else", as in the board's core CPI. State figures are MoSPI's 2024-base state indices; food inflation by state is not shown because MoSPI's API returns every food item with it, which would take about an hour a day.`}</dd></div>}
+          {note('tax') && d.tax_check && <div><dt>{hi ? 'कर जाँच' : 'Tax check'}</dt><dd>{hi
+            ? 'अपेक्षित वृद्धि = लोच × सांकेतिक GDP वृद्धि, लोच के 95% दायरे के साथ। लोच दीर्घकालिक औसत हैं जिनमें पिछले दर बदलाव शामिल हैं; किसी एक अधूरे वर्ष का आंकड़ा केवल समय के कारण भी दायरे से बाहर हो सकता है।'
+            : 'Expected growth = elasticity × nominal GDP growth, with the 95% range of the elasticity. Elasticities are long-run averages that include past rate changes; a single part year can sit outside the range for reasons of timing alone.'}</dd></div>}
+          {note('relationships') && <div><dt>{hi ? 'संबंध' : 'Relationships'}</dt><dd>{hi
+            ? 'वार्षिक वृद्धि या परिवर्तन के पियर्सन सहसंबंध। छोटे नमूने और साझा चक्र बिना किसी कारण के भी मज़बूत सहसंबंध दिखा सकते हैं; हर कार्ड पर दी गई सावधानियाँ देखें।'
+            : 'Pearson correlations of annual growth or change. Short samples and shared cycles can produce strong correlations without any cause; see the cautions on each card.'}</dd></div>}
+          {note('updated') && <div><dt>{hi ? 'अपडेट' : 'Updated'}</dt><dd>{hi
+            ? `रोज़, आंकड़ों के साथ (${d.generated_at.slice(0, 10)})। स्क्रिप्ट: scripts/build_models.py; पूरे परिणाम data/models.json में। हर चार्ट के आंकड़े उसके CSV बटन से डाउनलोड किए जा सकते हैं।`
+            : `Daily, with the data (${d.generated_at.slice(0, 10)}). Script: scripts/build_models.py; full results in data/models.json. Every chart's numbers can be downloaded with its CSV button.`}</dd></div>}
+      </>
+    );
+  }
 }
 
 function STATE_NAME(s, hi) {
