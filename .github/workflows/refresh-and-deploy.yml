@@ -89,6 +89,10 @@ jobs:
             echo "No committed DGCI&S release snapshot; keeping existing trade JSON."
           fi
 
+      - name: Import dependence (from the trade product files; kept as is if built from every product)
+        run: python scripts/build_dependence.py
+        continue-on-error: true
+
       - name: Save refreshed data back to the repo
         run: |
           git config user.name "board-bot"

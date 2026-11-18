@@ -12,6 +12,7 @@ const EXACT = {
   'Merchandise imports: partners and products': 'वस्तु आयात: साझेदार और उत्पाद',
   'Merchandise trade balance by partner': 'साझेदार के अनुसार वस्तु व्यापार संतुलन',
   'Merchandise exports by state': 'राज्यवार वस्तु निर्यात',
+  'Import dependence': 'आयात निर्भरता',
   Analysis: 'विश्लेषण',
   'Forecasts and relationships': 'पूर्वानुमान और संबंध',
   'Short-term outlook': 'अल्पकालिक परिदृश्य',

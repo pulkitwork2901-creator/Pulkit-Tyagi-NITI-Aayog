@@ -83,6 +83,12 @@ The script checks the PDF against itself before using it: the three parts of col
 
 Things to know: the latest year is provisional; states are assigned by the taxpayer's address on record, so states with large head offices dominate; "non-corporate" tax is mainly personal income tax but also includes firms, trusts and securities transaction tax; taxpayers are counted by assessment year.
 
+## Import dependence (#/dependence)
+
+`scripts/build_dependence.py` writes `public/data/trade/dependence.json`, shown on the **Import dependence** page (`src/board/pages/DependencePage.jsx`, sidebar under Merchandise trade). For every imported HS 8-digit product and year it works out the main supplier country's share, the Herfindahl index of concentration and the number of supplier countries, and summarises the imports of products where one country supplies more than half (by year, by main supplier and by sector). It also compares three chains of imported inputs and exported products (phone parts and smartphones; solar cells and modules; drug ingredients and medicines), lists products where the main supplier's share has risen by 10 points or more since 2022 (at least US$ 0.5 bn of imports, no code change in between, chapter 98 project imports left out), and has a filterable product explorer with each product's supplier mix by year. English and Hindi (country and sector names in `src/board/pages/dependenceText.js`; product descriptions stay in DGCI&S's English); CSV on every chart.
+
+Coverage: run on its own (and in the daily workflow) it uses the 300 product files the trade pages publish, about three quarters of the import bill. When the full DGCI&S import files are processed (`trade_pipeline.py` or `build_trade.py imports.csv.gz imports`), `build_trade.py` rebuilds it from every product, and the smaller version never overwrites that (unless `--force`). Country is the country of consignment, not always where goods were made.
+
 ## Forecasts and relationships (Analysis page)
 
 `scripts/build_models.py` runs daily after the data refresh and writes `public/data/models.json`, shown on the **Forecasts and relationships** page (`#/analysis`, `src/board/pages/AnalysisPage.jsx`, charts in `src/board/pages/analysisCharts.jsx`). The page opens with a strip of the main findings, each linking to its section.

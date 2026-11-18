@@ -350,6 +350,18 @@ def main(src: str, flow: str, out_root: Path = OUT) -> None:
         w.writerow(["country", "dgcis_name", *[f"{p} (US$ mn)" for p in order]])
         for c in countries:
             w.writerow([pretty(c), c, *vec(by_cty[c])])
+    if flow == "imports" and out_root == OUT:
+        # Import dependence (#/dependence) from every product, not only the 300 with files.
+        import build_dependence
+        every = [{"hs8": h, "desc": desc.get(h, ""), "chapter": CHAPTERS.get(h[:2], ""), "v": vec(by_prod[h]), "breaks": breaks.get(h, []),
+                  "countries": [{"id": cid[c], "name": pretty(c), "v": vec(prod_cty[h][c])} for c in prod_cty[h]]} for h in by_prod]
+        try:
+            exp = json.loads((out_root / "exports.json").read_text())
+            exp_products = exp["products"] if exp["periods"] == order else []
+        except (OSError, ValueError):
+            exp_products = []
+        build_dependence.write(build_dependence.build(every, order, missing, summary["partial"], summary["total"], SOURCES[flow],
+                                                      "all", exp_products, every))
     print(f"periods {order}; {len(countries)} countries, {len(by_ch)} chapters, {len(products)} product files")
     print(f"{flow} totals US$ bn:", {p: round(total[p] / 1e9, 2) if p not in missing else "missing" for p in order})
 
