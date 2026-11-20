@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-20T13:45:26+00:00",
+ "generated_at": "2026-11-20T19:10:30+00:00",
  "sources": {
   "mospi": {
    "status": "ok",
-   "fetched_at": "2026-11-20T13:45:26+00:00",
+   "fetched_at": "2026-11-20T19:10:30+00:00",
    "message": null
   },
   "rbi": {
@@ -11,8 +11,8 @@
    "file": "macro-indicators.xlsx",
    "message": null,
    "skipped": [],
-   "latest_reading": "2026-10-31",
-   "age_days": 20
+   "latest_reading": "2026-11-06",
+   "age_days": 14
   }
  },
  "indicators": [
@@ -5242,7 +5242,7 @@
    "mode": "rbi",
    "value": 5.5,
    "unit": "%",
-   "period": "Week to 30 Oct 2026",
+   "period": "Week to 6 Nov 2026",
    "compare_value": 5.25,
    "compare_period": "Before week to 9 Oct 2026",
    "change": 0.25,
@@ -5250,12 +5250,6 @@
    "source_url": "https://data.rbi.org.in",
    "released": null,
    "history": [
-    {
-     "date": "2021-11-26",
-     "label": "Nov 2021",
-     "short": "Nov 21",
-     "value": 4.0
-    },
     {
      "date": "2021-12-31",
      "label": "Dec 2021",
@@ -5606,12 +5600,18 @@
     },
     {
      "date": "2026-10-30",
-     "label": "Week to 30 Oct 2026",
+     "label": "Oct 2026",
      "short": "Oct 26",
+     "value": 5.5
+    },
+    {
+     "date": "2026-11-06",
+     "label": "Week to 6 Nov 2026",
+     "short": "Nov 26",
      "value": 5.5
     }
    ],
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "Standing deposit facility rate",
@@ -5623,7 +5623,7 @@
    "mode": "rbi",
    "value": 5.25,
    "unit": "%",
-   "period": "Week to 30 Oct 2026",
+   "period": "Week to 6 Nov 2026",
    "compare_value": 5.0,
    "compare_period": "Before week to 9 Oct 2026",
    "change": 0.25,
@@ -5957,12 +5957,18 @@
     },
     {
      "date": "2026-10-30",
-     "label": "Week to 30 Oct 2026",
+     "label": "Oct 2026",
      "short": "Oct 26",
+     "value": 5.25
+    },
+    {
+     "date": "2026-11-06",
+     "label": "Week to 6 Nov 2026",
+     "short": "Nov 26",
      "value": 5.25
     }
    ],
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "Marginal standing facility rate",
@@ -5974,7 +5980,7 @@
    "mode": "rbi",
    "value": 5.75,
    "unit": "%",
-   "period": "Week to 30 Oct 2026",
+   "period": "Week to 6 Nov 2026",
    "compare_value": 5.5,
    "compare_period": "Before week to 9 Oct 2026",
    "change": 0.25,
@@ -5982,12 +5988,6 @@
    "source_url": "https://data.rbi.org.in",
    "released": null,
    "history": [
-    {
-     "date": "2021-11-26",
-     "label": "Nov 2021",
-     "short": "Nov 21",
-     "value": 4.25
-    },
     {
      "date": "2021-12-31",
      "label": "Dec 2021",
@@ -6338,12 +6338,18 @@
     },
     {
      "date": "2026-10-30",
-     "label": "Week to 30 Oct 2026",
+     "label": "Oct 2026",
      "short": "Oct 26",
+     "value": 5.75
+    },
+    {
+     "date": "2026-11-06",
+     "label": "Week to 6 Nov 2026",
+     "short": "Nov 26",
      "value": 5.75
     }
    ],
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "Cash reserve ratio",
@@ -6355,7 +6361,7 @@
    "mode": "rbi",
    "value": 3.0,
    "unit": "% of deposits",
-   "period": "Week to 30 Oct 2026",
+   "period": "Week to 6 Nov 2026",
    "compare_value": 3.25,
    "compare_period": "Before week to 5 Dec 2025",
    "change": -0.25,
@@ -6363,12 +6369,6 @@
    "source_url": "https://data.rbi.org.in",
    "released": null,
    "history": [
-    {
-     "date": "2021-11-26",
-     "label": "Nov 2021",
-     "short": "Nov 21",
-     "value": 4.0
-    },
     {
      "date": "2021-12-31",
      "label": "Dec 2021",
@@ -6719,12 +6719,18 @@
     },
     {
      "date": "2026-10-30",
-     "label": "Week to 30 Oct 2026",
+     "label": "Oct 2026",
      "short": "Oct 26",
+     "value": 3.0
+    },
+    {
+     "date": "2026-11-06",
+     "label": "Week to 6 Nov 2026",
+     "short": "Nov 26",
      "value": 3.0
     }
    ],
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "91-day T-bill yield",
@@ -6734,22 +6740,16 @@
    "change_unit": "pts",
    "id": "tbill_91",
    "mode": "rbi",
-   "value": 5.9337,
+   "value": 5.897,
    "unit": "%",
-   "period": "Week to 30 Oct 2026",
-   "compare_value": 5.7281,
-   "compare_period": "Week to 16 Oct 2026",
-   "change": 0.2056,
+   "period": "Week to 6 Nov 2026",
+   "compare_value": 5.9337,
+   "compare_period": "Week to 30 Oct 2026",
+   "change": -0.0367,
    "source": "RBI Database on Indian Economy (DBIE), Macro-economic Indicators",
    "source_url": "https://data.rbi.org.in",
    "released": null,
    "history": [
-    {
-     "date": "2021-11-26",
-     "label": "Nov 2021",
-     "short": "Nov 21",
-     "value": 3.53
-    },
     {
      "date": "2021-12-31",
      "label": "Dec 2021",
@@ -7100,12 +7100,18 @@
     },
     {
      "date": "2026-10-30",
-     "label": "Week to 30 Oct 2026",
+     "label": "Oct 2026",
      "short": "Oct 26",
      "value": 5.9337
+    },
+    {
+     "date": "2026-11-06",
+     "label": "Week to 6 Nov 2026",
+     "short": "Nov 26",
+     "value": 5.897
     }
    ],
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "10-year G-sec yield",
@@ -7115,22 +7121,16 @@
    "change_unit": "pts",
    "id": "gsec10",
    "mode": "rbi",
-   "value": 7.45,
+   "value": 7.21,
    "unit": "% (FBIL)",
-   "period": "Week to 30 Oct 2026",
-   "compare_value": 7.52,
-   "compare_period": "Week to 23 Oct 2026",
-   "change": -0.07,
+   "period": "Week to 6 Nov 2026",
+   "compare_value": 7.45,
+   "compare_period": "Week to 30 Oct 2026",
+   "change": -0.24,
    "source": "RBI Database on Indian Economy (DBIE), Macro-economic Indicators",
    "source_url": "https://data.rbi.org.in",
    "released": null,
    "history": [
-    {
-     "date": "2021-11-26",
-     "label": "Nov 2021",
-     "short": "Nov 21",
-     "value": 6.336
-    },
     {
      "date": "2021-12-31",
      "label": "Dec 2021",
@@ -7481,13 +7481,19 @@
     },
     {
      "date": "2026-10-30",
-     "label": "Week to 30 Oct 2026",
+     "label": "Oct 2026",
      "short": "Oct 26",
      "value": 7.45
+    },
+    {
+     "date": "2026-11-06",
+     "label": "Week to 6 Nov 2026",
+     "short": "Nov 26",
+     "value": 7.21
     }
    ],
    "note": "FBIL benchmark 10-year yield, last reading of the week.",
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "Real policy rate (repo minus CPI inflation)",
@@ -7507,12 +7513,6 @@
    "source_url": "https://esankhyiki.mospi.gov.in",
    "released": null,
    "history": [
-    {
-     "date": "2021-11-30",
-     "label": "Nov 2021",
-     "short": "Nov 21",
-     "value": -0.91
-    },
     {
      "date": "2021-12-31",
      "label": "Dec 2021",
@@ -7890,12 +7890,6 @@
    "released": null,
    "history": [
     {
-     "date": "2021-11-30",
-     "label": "Nov 2021",
-     "short": "Nov 21",
-     "value": 1.43
-    },
-    {
      "date": "2021-12-31",
      "label": "Dec 2021",
      "short": "Dec 21",
@@ -8261,12 +8255,12 @@
    "change_unit": "pts",
    "id": "m3_growth",
    "mode": "rbi",
-   "value": 15.9709,
+   "value": 16.4528,
    "unit": "% YoY",
-   "period": "Fortnight to 15 Oct 2026",
+   "period": "Oct 2026",
    "compare_value": 16.8702,
    "compare_period": "Sep 2026",
-   "change": -0.8993,
+   "change": -0.4174,
    "source": "RBI Database on Indian Economy (DBIE), Macro-economic Indicators",
    "source_url": "https://data.rbi.org.in",
    "released": null,
@@ -8626,14 +8620,14 @@
      "value": 16.8702
     },
     {
-     "date": "2026-10-15",
-     "label": "Fortnight to 15 Oct 2026",
-     "short": "15 Oct",
-     "value": 15.9709
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": 16.4528
     }
    ],
    "note": "Growth computed from fortnightly M3 outstanding.",
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "Non-food bank credit growth",
@@ -8643,12 +8637,12 @@
    "change_unit": "pts",
    "id": "credit_nonfood",
    "mode": "rbi",
-   "value": 18.3574,
+   "value": 19.7701,
    "unit": "% YoY",
-   "period": "Fortnight to 15 Oct 2026",
+   "period": "Oct 2026",
    "compare_value": 19.15,
    "compare_period": "Sep 2026",
-   "change": -0.7926,
+   "change": 0.6201,
    "source": "RBI Database on Indian Economy (DBIE), Macro-economic Indicators",
    "source_url": "https://data.rbi.org.in",
    "released": null,
@@ -8999,7 +8993,7 @@
      "date": "2026-08-31",
      "label": "Aug 2026",
      "short": "Aug 26",
-     "value": 19.0576
+     "value": 18.4587
     },
     {
      "date": "2026-09-30",
@@ -9008,14 +9002,14 @@
      "value": 19.15
     },
     {
-     "date": "2026-10-15",
-     "label": "Fortnight to 15 Oct 2026",
-     "short": "15 Oct",
-     "value": 18.3574
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": 19.7701
     }
    ],
    "note": "Growth computed from fortnightly outstanding credit. From Dec 2025 RBI reports month-end figures instead of the last reporting Friday, so growth around that change compares dates up to two weeks apart. The latest month uses RBI's published figure where entered.",
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "Credit to agriculture and allied activities",
@@ -10766,12 +10760,12 @@
    "change_unit": "pts",
    "id": "deposit_growth",
    "mode": "rbi",
-   "value": 16.7176,
+   "value": 16.8571,
    "unit": "% YoY",
-   "period": "Fortnight to 15 Oct 2026",
+   "period": "Oct 2026",
    "compare_value": 17.8288,
    "compare_period": "Sep 2026",
-   "change": -1.1112,
+   "change": -0.9717,
    "source": "RBI Database on Indian Economy (DBIE), Macro-economic Indicators",
    "source_url": "https://data.rbi.org.in",
    "released": null,
@@ -11131,14 +11125,14 @@
      "value": 17.8288
     },
     {
-     "date": "2026-10-15",
-     "label": "Fortnight to 15 Oct 2026",
-     "short": "15 Oct",
-     "value": 16.7176
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": 16.8571
     }
    ],
    "note": "Growth computed from fortnightly outstanding deposits; see the note on reporting dates under bank credit.",
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "Credit-deposit ratio",
@@ -11148,12 +11142,12 @@
    "change_unit": "pts",
    "id": "cd_ratio",
    "mode": "rbi",
-   "value": 81.5858,
+   "value": 82.0588,
    "unit": "%",
-   "period": "Fortnight to 15 Oct 2026",
+   "period": "Oct 2026",
    "compare_value": 80.9818,
    "compare_period": "Sep 2026",
-   "change": 0.604,
+   "change": 1.077,
    "source": "RBI Database on Indian Economy (DBIE), Macro-economic Indicators",
    "source_url": "https://data.rbi.org.in",
    "released": null,
@@ -11513,14 +11507,14 @@
      "value": 80.9818
     },
     {
-     "date": "2026-10-15",
-     "label": "Fortnight to 15 Oct 2026",
-     "short": "15 Oct",
-     "value": 81.5858
+     "date": "2026-10-31",
+     "label": "Oct 2026",
+     "short": "Oct 26",
+     "value": 82.0588
     }
    ],
    "note": "Bank credit as a share of aggregate deposits, computed from RBI's fortnightly levels.",
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "Digital payments, value",
@@ -19454,19 +19448,19 @@
      "date": "2025-06-30",
      "label": "Jun 2025",
      "short": "Jun 25",
-     "value": 2.5801
+     "value": 2.5825
     },
     {
      "date": "2025-07-31",
      "label": "Jul 2025",
      "short": "Jul 25",
-     "value": 4.4786
+     "value": 4.4787
     },
     {
      "date": "2025-08-31",
      "label": "Aug 2025",
      "short": "Aug 25",
-     "value": -0.1032
+     "value": -0.104
     },
     {
      "date": "2025-09-30",
@@ -19484,49 +19478,49 @@
      "date": "2025-11-30",
      "label": "Nov 2025",
      "short": "Nov 25",
-     "value": -0.7494
+     "value": -0.736
     },
     {
      "date": "2025-12-31",
      "label": "Dec 2025",
      "short": "Dec 25",
-     "value": -2.1146
+     "value": -2.1143
     },
     {
      "date": "2026-01-31",
      "label": "Jan 2026",
      "short": "Jan 26",
-     "value": 0.7418
+     "value": 0.7444
     },
     {
      "date": "2026-02-28",
      "label": "Feb 2026",
      "short": "Feb 26",
-     "value": 3.3752
+     "value": 3.3871
     },
     {
      "date": "2026-03-31",
      "label": "Mar 2026",
      "short": "Mar 26",
-     "value": 0.3749
+     "value": 1.1231
     },
     {
      "date": "2026-04-30",
      "label": "Apr 2026",
      "short": "Apr 26",
-     "value": 5.4118
+     "value": 5.416
     },
     {
      "date": "2026-05-31",
      "label": "May 2026",
      "short": "May 26",
-     "value": -1.4126
+     "value": -1.4109
     },
     {
      "date": "2026-06-30",
      "label": "Jun 2026",
      "short": "Jun 26",
-     "value": -0.8768
+     "value": -0.8771
     },
     {
      "date": "2026-07-31",
@@ -19552,12 +19546,12 @@
    "change_unit": "bn",
    "id": "fdi_gross",
    "mode": "rbi",
-   "value": 5.2393,
+   "value": 5.2371,
    "unit": "US$ bn",
    "period": "Aug 2026",
-   "compare_value": 10.74,
+   "compare_value": 10.7326,
    "compare_period": "Jul 2026",
-   "change": -5.5007,
+   "change": -5.4955,
    "source": "RBI Database on Indian Economy (DBIE), Macro-economic Indicators",
    "source_url": "https://data.rbi.org.in",
    "released": null,
@@ -19836,19 +19830,19 @@
      "date": "2025-06-30",
      "label": "Jun 2025",
      "short": "Jun 25",
-     "value": 5.6342
+     "value": 5.6366
     },
     {
      "date": "2025-07-31",
      "label": "Jul 2025",
      "short": "Jul 25",
-     "value": 7.1732
+     "value": 7.1733
     },
     {
      "date": "2025-08-31",
      "label": "Aug 2025",
      "short": "Aug 25",
-     "value": 2.0475
+     "value": 2.0468
     },
     {
      "date": "2025-09-30",
@@ -19866,43 +19860,43 @@
      "date": "2025-11-30",
      "label": "Nov 2025",
      "short": "Nov 25",
-     "value": 0.7269
+     "value": 0.7403
     },
     {
      "date": "2025-12-31",
      "label": "Dec 2025",
      "short": "Dec 25",
-     "value": 3.0319
+     "value": 3.0322
     },
     {
      "date": "2026-01-31",
      "label": "Jan 2026",
      "short": "Jan 26",
-     "value": 3.0021
+     "value": 3.0047
     },
     {
      "date": "2026-02-28",
      "label": "Feb 2026",
      "short": "Feb 26",
-     "value": 5.9741
+     "value": 5.9859
     },
     {
      "date": "2026-03-31",
      "label": "Mar 2026",
      "short": "Mar 26",
-     "value": 3.1992
+     "value": 3.9474
     },
     {
      "date": "2026-04-30",
      "label": "Apr 2026",
      "short": "Apr 26",
-     "value": 10.2893
+     "value": 10.2939
     },
     {
      "date": "2026-05-31",
      "label": "May 2026",
      "short": "May 26",
-     "value": 1.0103
+     "value": 1.0161
     },
     {
      "date": "2026-06-30",
@@ -19914,16 +19908,16 @@
      "date": "2026-07-31",
      "label": "Jul 2026",
      "short": "Jul 26",
-     "value": 10.74
+     "value": 10.7326
     },
     {
      "date": "2026-08-31",
      "label": "Aug 2026",
      "short": "Aug 26",
-     "value": 5.2393
+     "value": 5.2371
     }
    ],
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "Net portfolio investment",
@@ -20778,22 +20772,16 @@
    "change_unit": "bn",
    "id": "fx_reserves",
    "mode": "rbi",
-   "value": 717.0564,
+   "value": 719.5465,
    "unit": "US$ bn",
-   "period": "Week to 30 Oct 2026",
-   "compare_value": 719.7476,
-   "compare_period": "Week to 23 Oct 2026",
-   "change": -2.6912,
+   "period": "Week to 6 Nov 2026",
+   "compare_value": 717.0564,
+   "compare_period": "Week to 30 Oct 2026",
+   "change": 2.4901,
    "source": "RBI Database on Indian Economy (DBIE), Macro-economic Indicators",
    "source_url": "https://data.rbi.org.in",
    "released": null,
    "history": [
-    {
-     "date": "2021-11-26",
-     "label": "Nov 2021",
-     "short": "Nov 21",
-     "value": 637.6874
-    },
     {
      "date": "2021-12-31",
      "label": "Dec 2021",
@@ -21144,12 +21132,18 @@
     },
     {
      "date": "2026-10-30",
-     "label": "Week to 30 Oct 2026",
+     "label": "Oct 2026",
      "short": "Oct 26",
      "value": 717.0564
+    },
+    {
+     "date": "2026-11-06",
+     "label": "Week to 6 Nov 2026",
+     "short": "Nov 26",
+     "value": 719.5465
     }
    ],
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "Rupee per US dollar",
@@ -21541,22 +21535,16 @@
    "change_unit": "pts",
    "id": "fwd_premia_3m",
    "mode": "rbi",
-   "value": 5.3504,
+   "value": 4.7177,
    "unit": "% a year",
-   "period": "Week to 30 Oct 2026",
-   "compare_value": 5.2434,
-   "compare_period": "Week to 23 Oct 2026",
-   "change": 0.107,
+   "period": "Week to 6 Nov 2026",
+   "compare_value": 5.3504,
+   "compare_period": "Week to 30 Oct 2026",
+   "change": -0.6327,
    "source": "RBI Database on Indian Economy (DBIE), Macro-economic Indicators",
    "source_url": "https://data.rbi.org.in",
    "released": null,
    "history": [
-    {
-     "date": "2021-11-26",
-     "label": "Nov 2021",
-     "short": "Nov 21",
-     "value": 3.8011
-    },
     {
      "date": "2021-12-31",
      "label": "Dec 2021",
@@ -21907,12 +21895,18 @@
     },
     {
      "date": "2026-10-30",
-     "label": "Week to 30 Oct 2026",
+     "label": "Oct 2026",
      "short": "Oct 26",
      "value": 5.3504
+    },
+    {
+     "date": "2026-11-06",
+     "label": "Week to 6 Nov 2026",
+     "short": "Nov 26",
+     "value": 4.7177
     }
    ],
-   "updated_at": null
+   "updated_at": "2026-11-20T19:10:30+00:00"
   },
   {
    "label": "External debt, gross",
