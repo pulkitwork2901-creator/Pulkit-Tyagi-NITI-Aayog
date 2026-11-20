@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T19:11:33+00:00",
+ "generated_at": "2026-11-20T19:13:25+00:00",
  "forecasts": [
   {
    "id": "credit_nonfood",
@@ -13951,7 +13951,7 @@
    ]
   },
   "source": "MoSPI CPI API (api.mospi.gov.in), All India combined",
-  "fetched_at": "2026-11-20T19:10:58+00:00"
+  "fetched_at": "2026-11-20T19:13:03+00:00"
  },
  "forecast_record": {
   "entries": [
