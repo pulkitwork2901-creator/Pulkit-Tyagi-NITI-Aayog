@@ -1,6 +1,6 @@
 # E&F-II Economic Monitor (formerly "E&F-II Dashboard"): handoff for a new Claude session
 
-Last updated: 15 November 2026. Read this first, then README.md.
+Last updated: 23 November 2026. Read this first, then README.md.
 
 ## The person and how to work with them
 
@@ -44,6 +44,12 @@ Last updated: 15 November 2026. Read this first, then README.md.
 - PPAC endpoint: POST AjaxController/getInternationalPricesCrudeOil (financialYear, reportBy=4, pageId=30); no 2022-23 monthly data.
 - GST: GST portal JSON feed www.gst.gov.in/fomessage/newsupdates links GSTN's monthly PDF (new file name each month); parsed with pypdf.
 - Commit messages end with the Co-Authored-By and Claude-Session lines given by the system; never put model names in commits.
+
+## Discoveries page (added 23 Nov 2026)
+
+- `#/discoveries`, built daily by scripts/build_insights.py into public/data/insights.json (workflow step after build_dependence; committed with the data). Sentences in src/board/pages/discoveriesText.js (EN/HI templates per `kind`), page in DiscoveriesPage.jsx, dashboard band in Spotlight.jsx, a card in DeepDives.jsx. `hiLabel()` exported from src/i18n.jsx gives whole-label Hindi; extra indicator labels are in LBL_HI in discoveriesText.js.
+- To add a detector: emit `{kind, theme, score, href, series|series2, p}` in the script and add a template for `kind` in discoveriesText.js (and KIND label). Themes: prices, money, growth, external, trade, states, taxes.
+- First run (23 Nov 2026): 46 findings. Top: CPI up 12 months in a row (0.25% Oct 2025 to 6.09% Oct 2026) and above the 6% limit; credit to services 28.3%, highest since the series starts (Jan 2021); Russia replaced Iraq as main crude supplier; deficit with Russia nearly doubled (US$ 31.1 bn to 54.7 bn, 2022 to 2025); gold compounds imports up 144-fold to US$ 5.3 bn in 2025 then US$ 45 mn in Jan-Aug 2026 (worth checking the cause); computer processing units and memory chips in Jan-Aug 2026 already above all of 2025; India a net importer of aluminium since 2024 and net exporter of ships in Jan-Aug 2026; Tamil Nadu's export share 8.3% to 13.3%, Gujarat's 32.0% to 24.5%.
 
 ## Key findings (as of Nov 2026, used in the analysis)
 

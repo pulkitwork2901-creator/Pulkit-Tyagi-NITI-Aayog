@@ -546,6 +546,11 @@ const DATA_LABELS = {
   'Digital payments, value': 'डिजिटल भुगतान, मूल्य',
 };
 
+// Hindi for a whole label (indicator names and the like), or null if none.
+export function hiLabel(value) {
+  return EXACT[value] || DATA_LABELS[value] || null;
+}
+
 function translate(value) {
   if (!value || typeof value !== 'string') return value;
   if (EXACT[value]) return EXACT[value];

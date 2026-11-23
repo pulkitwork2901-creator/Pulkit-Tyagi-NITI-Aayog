@@ -14,6 +14,7 @@ import DirectTaxPage from './pages/DirectTaxPage.jsx';
 import StatePage from './pages/StatePage.jsx';
 import AnalysisPage from './pages/AnalysisPage.jsx';
 import DependencePage from './pages/DependencePage.jsx';
+import DiscoveriesPage from './pages/DiscoveriesPage.jsx';
 import Related from './Related.jsx';
 
 // Colour schemes a viewer can pick; the choice is remembered in their browser.
@@ -92,6 +93,7 @@ export default function EconomicBoard({ source = '/data/indicators.json', title 
   else if (route.name === 'analysis') page = <AnalysisPage base={dataBase} view="landing" />;
   else if (['glance', 'forecasts', 'relationships', 'tax-growth'].includes(route.name)) page = <AnalysisPage key={route.name} base={dataBase} view={route.name} />;
   else if (route.name === 'dependence') page = <DependencePage base={tradeBase} />;
+  else if (route.name === 'discoveries') page = <DiscoveriesPage base={dataBase} />;
   else page = <Dashboard data={data} title={title} byId={byId} groups={groups} csvUrl={source.replace(/\.json$/, '.csv')} tradeBase={tradeBase} dataBase={dataBase} />;
 
   return (

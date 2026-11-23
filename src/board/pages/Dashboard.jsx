@@ -9,6 +9,7 @@ import { useCountUp } from '../dashboard/motion.js';
 import { money, useTradeFile } from '../trade/tradeKit.jsx';
 import { formatDateTime, formatValue, signed, tipFor } from '../format.js';
 import DeepDives from '../DeepDives.jsx';
+import Spotlight from '../Spotlight.jsx';
 import { useLanguage } from '../../i18n.jsx';
 
 // The one-screen dashboard: headline tiles, six themed panels on a shared time
@@ -205,6 +206,8 @@ export default function Dashboard({ data, title, byId, groups, csvUrl, tradeBase
       </ul>
 
       <WhatsNew indicators={data.indicators || []} now={Date.parse(data.generated_at)} />
+
+      {dataBase && <Spotlight base={dataBase} />}
 
       {dataBase && (
         <section className="eb-dd-wrap" aria-labelledby="eb-dd-h">

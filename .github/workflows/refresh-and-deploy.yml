@@ -93,11 +93,16 @@ jobs:
         run: python scripts/build_dependence.py
         continue-on-error: true
 
+      - name: Discoveries (findings mined from all the data above)
+        run: python scripts/build_insights.py
+        continue-on-error: true   # keeps the last good public/data/insights.json
+        timeout-minutes: 5
+
       - name: Save refreshed data back to the repo
         run: |
           git config user.name "board-bot"
           git config user.email "board-bot@users.noreply.github.com"
-          git add public/data/indicators.json public/data/indicators.csv data/rbi_releases.json data/ppac_crude.json data/gst_reports.json data/direct_taxes.json data/cpi_components.json data/forecast_log.json public/data/direct-taxes.json public/data/models.json public/data/reform/evidence.json data/reform/njdg-snapshots.csv data/reform/msme-snapshots.csv public/data/trade
+          git add public/data/indicators.json public/data/indicators.csv data/rbi_releases.json data/ppac_crude.json data/gst_reports.json data/direct_taxes.json data/cpi_components.json data/forecast_log.json public/data/direct-taxes.json public/data/models.json public/data/insights.json public/data/reform/evidence.json data/reform/njdg-snapshots.csv data/reform/msme-snapshots.csv public/data/trade
           git diff --cached --quiet || git commit -m "Refresh indicators $(date -u +%F)"
           git push
 

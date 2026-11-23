@@ -19,12 +19,14 @@ const P = {
   forecasts: ['#/forecasts', 'Forecasts and track record', 'पूर्वानुमान और उनका रिकॉर्ड'],
   relationships: ['#/relationships', 'How indicators move together', 'संकेतक साथ कैसे चलते हैं'],
   taxGrowth: ['#/tax-growth', 'Taxes and growth', 'कर और वृद्धि'],
+  discoveries: ['#/discoveries', 'Discoveries', 'खोजें'],
   sources: ['#/sources', 'Sources and notes', 'स्रोत और टिप्पणियाँ'],
 };
 
 function linksFor(route) {
   const { name, arg } = route;
-  if (name === 'glance') return ['forecasts', 'prices', 'states'];
+  if (name === 'glance') return ['discoveries', 'forecasts', 'prices'];
+  if (name === 'discoveries') return ['glance', 'dependence', 'states'];
   if (name === 'forecasts' || name === 'analysis') return ['relationships', 'taxGrowth', 'glance'];
   if (name === 'relationships') return ['forecasts', 'prices', 'glance'];
   if (name === 'tax-growth') return ['dtax', 'govt', 'forecasts'];

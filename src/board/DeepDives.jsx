@@ -27,6 +27,7 @@ export default function DeepDives({ base, tradeBase, only }) {
   const hi = useLanguage().language === 'hi';
   const { data: m } = useTradeFile(`${base}models.json`);
   const { data: dep } = useTradeFile(`${tradeBase}dependence.json`);
+  const { data: ins } = useTradeFile(`${base}insights.json`);
   const L = (en, h) => (hi ? h : en);
 
   const heat = m?.heat || [];
@@ -44,6 +45,9 @@ export default function DeepDives({ base, tradeBase, only }) {
   const china = dep?.suppliers?.find((s) => s.name === 'China');
 
   const cards = [
+    { id: 'discoveries', href: '#/discoveries', kicker: L('Analysis and outlook', 'विश्लेषण और परिदृश्य'), title: L('Discoveries', 'खोजें'),
+      figure: ins ? L(`${ins.count} findings`, `${ins.count} खोजें`) : null,
+      note: L('records, streaks, switches and surprises found in the data today', 'आज आंकड़ों में मिले रिकॉर्ड, रुझान, बदलाव और चौंकाने वाली बातें') },
     { id: 'glance', href: '#/glance', kicker: L('Overview', 'अवलोकन'), title: L('The economy at a glance', 'एक नज़र में अर्थव्यवस्था'),
       figure: heat.length ? L(`${extremes} of ${heat.length}`, `${heat.length} में से ${extremes}`) : null,
       note: L('indicators at an extreme of their recent range', 'संकेतक अपने हाल के दायरे के चरम पर') },

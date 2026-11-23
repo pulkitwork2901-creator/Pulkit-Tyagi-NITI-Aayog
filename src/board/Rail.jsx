@@ -69,6 +69,7 @@ export default function Rail({ route, groups, data, error, onReload, skins = [],
           <NavLink href="#/states" current={route.name === 'states'}>{L('State profiles', 'राज्य प्रोफ़ाइल')}</NavLink>
         </Group>
         <Group id="eb-nav-analysis" title={L('Analysis and outlook', 'विश्लेषण और परिदृश्य')}>
+          <NavLink href="#/discoveries" current={route.name === 'discoveries'}>{L('Discoveries', 'खोजें')}</NavLink>
           <NavLink href="#/forecasts" current={route.name === 'forecasts' || route.name === 'analysis'}>{L('Forecasts and track record', 'पूर्वानुमान और उनका रिकॉर्ड')}</NavLink>
           <NavLink href="#/relationships" current={route.name === 'relationships'}>{L('How indicators move together', 'संकेतक साथ कैसे चलते हैं')}</NavLink>
           <NavLink href="#/tax-growth" current={route.name === 'tax-growth'}>{L('Taxes and growth', 'कर और वृद्धि')}</NavLink>
