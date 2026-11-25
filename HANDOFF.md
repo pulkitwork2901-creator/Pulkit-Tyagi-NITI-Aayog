@@ -45,6 +45,11 @@ Last updated: 23 November 2026. Read this first, then README.md.
 - GST: GST portal JSON feed www.gst.gov.in/fomessage/newsupdates links GSTN's monthly PDF (new file name each month); parsed with pypdf.
 - Commit messages end with the Co-Authored-By and Claude-Session lines given by the system; never put model names in commits.
 
+## Product group pages (added 25 Nov 2026)
+
+- `#/<flow>/chapter` and `#/<flow>/chapter/<hs2>`, from scripts/build_chapters.py (workflow step before Discoveries). ChapterView and AllChapters are in TradePage.jsx. Heading names: scripts/hs4_names.py (254 headings that appear in the published products).
+- Gems and jewellery (HS 71), 2022 to 2025: exports US$ 39.3 bn to 29.8 bn (6.7% of exports, was 8.7%); cut diamonds 23.0 to 12.5; rough diamond imports 18.2 to 10.8; jewellery exports 12.2 to 12.9 (now as large as diamonds); imports 78.1 to 93.9 (gold 36.6 to 58.7, silver 6.3 to 9.1); deficit 38.7 to 64.2 bn, the largest worsening of any chapter; exports to the US 13.7 to 6.8 bn, UAE 5.6 to 9.3 bn (top market).
+
 ## Discoveries page (added 23 Nov 2026)
 
 - `#/discoveries`, built daily by scripts/build_insights.py into public/data/insights.json (workflow step after build_dependence; committed with the data). Sentences in src/board/pages/discoveriesText.js (EN/HI templates per `kind`), page in DiscoveriesPage.jsx, dashboard band in Spotlight.jsx, a card in DeepDives.jsx. `hiLabel()` exported from src/i18n.jsx gives whole-label Hindi; extra indicator labels are in LBL_HI in discoveriesText.js.

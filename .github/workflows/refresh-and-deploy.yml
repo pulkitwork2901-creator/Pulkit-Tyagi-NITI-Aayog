@@ -93,6 +93,10 @@ jobs:
         run: python scripts/build_dependence.py
         continue-on-error: true
 
+      - name: Product groups (HS 2-digit chapter pages)
+        run: python scripts/build_chapters.py
+        continue-on-error: true
+
       - name: Discoveries (findings mined from all the data above)
         run: python scripts/build_insights.py
         continue-on-error: true   # keeps the last good public/data/insights.json

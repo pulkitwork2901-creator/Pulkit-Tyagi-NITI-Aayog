@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import Icon from '../dashboard/Icon.jsx';
-import { BarList, FyTotals, GrowthPill, PeriodSwitch, YearBasis, YearColumns, growth, money, useBasis, useTradeFile } from '../trade/tradeKit.jsx';
+import { BarList, FyTotals, GrowthPill, PairColumns, PeriodSwitch, YearBasis, YearColumns, growth, money, useBasis, useTradeFile } from '../trade/tradeKit.jsx';
 
 // Exports or imports by partner and product from DGCI&S HS 8-digit country
 // data. Three views share one period switch: overview, one country, one
@@ -179,7 +179,7 @@ function Overview({ d, base, F }) {
 
   const cRows = countries.map((c) => ({ key: c.id, label: c.name, v: c.v, href: `#/${F.key}/country/${c.id}`, share: ((c.v[i] || 0) / total) * 100 }));
   const pRows = products.map((p) => ({ key: p.hs8, breaks: p.breaks, label: p.desc, sub: `HS ${p.hs8} · ${p.chapter}`, v: p.v, href: `#/${F.key}/product/${p.hs8}`, share: ((p.v[i] || 0) / total) * 100 }));
-  const hRows = chapters.map((c) => ({ key: c.hs2, label: c.name, sub: `HS chapter ${c.hs2}`, v: c.v, share: ((c.v[i] || 0) / total) * 100 }));
+  const hRows = chapters.map((c) => ({ key: c.hs2, label: c.name, sub: `HS chapter ${c.hs2}`, v: c.v, href: `#/${F.key}/chapter/${c.hs2}`, share: ((c.v[i] || 0) / total) * 100 }));
   const first = full[0];
   const fi = d.periods.indexOf(first);
 
@@ -214,7 +214,8 @@ function Overview({ d, base, F }) {
         <Card title={`${F.Noun} by ${d.basis === 'financial' ? 'financial year' : 'calendar year'}`} icon="trade" note={`US$.${d.partial.length ? ` Hatched: ${d.partial.map(nice).join(', ')}, part year.` : ''}${missing.length ? ` Outline: ${missing.join(', ')}, not yet uploaded.` : ''}`}>
           <YearColumns periods={d.periods} v={d.total} partial={d.partial} missing={missing} height={190} />
         </Card>
-        <Card title="By product group" icon="wholesale" note={`HS 2-digit chapters, ${nice(period)}. Top 10 of ${d.chapters.length}.`}>
+        <Card title="By product group" icon="wholesale" note={`HS 2-digit chapters, ${nice(period)}. Top 10 of ${d.chapters.length}. Each group has its own page.`}
+          aside={<a className="eb-more" href={`#/${F.key}/chapter`}>All {d.chapters.length} groups</a>}>
           <BarList rows={hRows.slice(0, 10)} periods={d.periods} index={i} fullYears={full} caption={`${F.Noun} by HS chapter`} neutral={F.neutral} />
         </Card>
       </div>
@@ -291,7 +292,7 @@ function CountryView({ d, base, id, F }) {
   const top = [...c.products].sort((a, b) => (b.v[i] || 0) - (a.v[i] || 0));
   const chapters = [...c.chapters].sort((a, b) => (b.v[i] || 0) - (a.v[i] || 0));
   const pRows = top.map((p) => ({ key: p.hs8, breaks: p.breaks, label: p.desc, sub: `HS ${p.hs8} · ${p.chapter}`, v: p.v, href: p.linked ? `#/${F.key}/product/${p.hs8}` : null, share: v ? ((p.v[i] || 0) / v) * 100 : null }));
-  const hRows = chapters.map((x) => ({ key: x.hs2, label: x.name, sub: `HS chapter ${x.hs2}`, v: x.v, share: v ? ((x.v[i] || 0) / v) * 100 : null }));
+  const hRows = chapters.map((x) => ({ key: x.hs2, label: x.name, sub: `HS chapter ${x.hs2}`, v: x.v, href: `#/${F.key}/chapter/${x.hs2}`, share: v ? ((x.v[i] || 0) / v) * 100 : null }));
   const lead = top[0];
 
   return (
@@ -347,7 +348,7 @@ function ProductView({ d, base, hs8, F }) {
     <div className="eb-dash">
       <Hero title={p.desc} periods={p.periods} period={period} onPeriod={setPeriod} missing={missingOf(d)}
         crumbs={<><a href={`#/${F.key}`}>{F.Noun}</a> <span aria-hidden="true">›</span> Product</>}
-        sub={`HS ${p.hs8} · ${p.chapter}`}>
+        sub={<>HS {p.hs8} · <a href={`#/${F.key}/chapter/${p.hs8.slice(0, 2)}`}>{p.chapter}</a></>}>
         In <strong>{nice(period)}</strong> India {F.verb} <strong>{money(v)}</strong> of this product, {((v / d.total[i]) * 100).toFixed(2)}% of all {F.noun}
         {g != null && !Number.isNaN(g) && <>, {g >= 0 ? 'up' : 'down'} {Math.abs(g).toFixed(1)}% on {p.periods[i - 1]}</>}.
         {lead && v > 0 && <> The largest {F.buyer} was <strong>{lead.name}</strong> with {(((lead.v[i] || 0) / v) * 100).toFixed(1)}%.</>}
@@ -377,6 +378,120 @@ function ProductView({ d, base, hs8, F }) {
   );
 }
 
+// Every product group (HS chapter), ranked, each linking to its own page.
+function AllChapters({ d, F }) {
+  const [period, setPeriod] = usePeriod(d);
+  const i = d.periods.indexOf(period);
+  const full = fullOf(d);
+  const rows = [...d.chapters].sort((a, b) => (b.v[i] || 0) - (a.v[i] || 0))
+    .map((c) => ({ key: c.hs2, label: c.name, sub: `HS chapter ${c.hs2}`, v: c.v, href: `#/${F.key}/chapter/${c.hs2}`, share: ((c.v[i] || 0) / d.total[i]) * 100 }));
+  return (
+    <div className="eb-dash">
+      <Hero title={`${F.Noun} by product group`} periods={d.periods} period={period} onPeriod={setPeriod} missing={missingOf(d)}
+        crumbs={<><a href={`#/${F.key}`}>{F.Noun}</a> <span aria-hidden="true">›</span> Product groups</>}
+        sub={`All ${d.chapters.length} HS 2-digit chapters, ${nice(period)}, covering every product.`}>
+        The five largest groups made up <strong>{rows.slice(0, 5).reduce((s, r) => s + (r.share || 0), 0).toFixed(1)}%</strong> of India's {F.noun} in {nice(period)}. Open any group for its partners, states, headings and products.
+      </Hero>
+      <Card title={`All product groups, ${nice(period)}`} icon="wholesale" wide note="Share of all India's merchandise trade in this direction; change on the year before; trend across full years.">
+        <BarList rows={rows} periods={d.periods} index={i} fullYears={full} caption="Product groups" neutral={F.neutral} />
+      </Card>
+      <p className="eb-tr-source">Source: {d.source}.</p>
+    </div>
+  );
+}
+
+// One product group (HS 2-digit chapter): value by year, the balance with the
+// other direction, partners, states (exports), 4-digit headings and products.
+function ChapterView({ d, base, hs2, F }) {
+  const { data: c, error } = useTradeFile(`${base}${F.key}/chapter/${hs2}.json`);
+  const [period, setPeriod] = usePeriod(d);
+  if (!c) return <Waiting error={error} what="this product group" />;
+  const i = c.periods.indexOf(period);
+  const full = fullOf(d);
+  const v = c.v[i] || 0;
+  const g = growth(c.v, i, c.periods);
+  const share = (v / c.total[i]) * 100;
+  const rank = [...d.chapters].sort((a, b) => (b.v[i] || 0) - (a.v[i] || 0)).findIndex((x) => x.hs2 === hs2) + 1;
+  const byI = (list) => [...list].sort((a, b) => (a.id === null) - (b.id === null) || (b.v[i] || 0) - (a.v[i] || 0));
+  const partners = byI(c.partners);
+  const lead = partners.find((p) => p.id);
+  const pRows = partners.map((p) => ({ key: p.id || p.name, label: p.name, v: p.v, href: p.id ? `#/${F.key}/country/${p.id}` : null, share: v ? ((p.v[i] || 0) / v) * 100 : null }));
+  const hRows = c.headings.filter((h) => (h.v[i] || 0) > 0).sort((a, b) => (b.v[i] || 0) - (a.v[i] || 0))
+    .map((h) => ({ key: h.hs4, label: h.name || `Heading ${h.hs4}`, sub: `HS ${h.hs4} · ${h.lines} line${h.lines > 1 ? 's' : ''}${h.name ? '' : ` · e.g. ${h.example}`}`, v: h.v, share: v ? ((h.v[i] || 0) / v) * 100 : null }));
+  const lRows = c.products.filter((p) => (p.v[i] || 0) > 0).sort((a, b) => (b.v[i] || 0) - (a.v[i] || 0))
+    .map((p) => ({ key: p.hs8, breaks: p.breaks, label: p.desc, sub: `HS ${p.hs8}`, v: p.v, href: `#/${F.key}/product/${p.hs8}`, share: v ? ((p.v[i] || 0) / v) * 100 : null }));
+  const sRows = (c.states || []).filter((s) => !s.name.startsWith('State not')).sort((a, b) => (b.v[i] || 0) - (a.v[i] || 0))
+    .map((s) => ({ key: s.slug, label: s.name, v: s.v, href: `#/states/${s.slug}`, share: v ? ((s.v[i] || 0) / v) * 100 : null }));
+  const cov = v ? ((c.covered[i] || 0) / v) * 100 : 0;
+  const x = F.key === 'exports' ? c.v : c.other;
+  const m = F.key === 'imports' ? c.v : c.other;
+  const bal = x && m ? (x[i] || 0) - (m[i] || 0) : null;
+  const fi = c.periods.indexOf(full[0]);
+  const partial = c.partial.includes(period);
+  return (
+    <div className="eb-dash">
+      <Hero title={c.name} periods={c.periods} period={period} onPeriod={setPeriod} missing={missingOf(d)}
+        crumbs={<><a href={`#/${F.key}`}>{F.Noun}</a> <span aria-hidden="true">›</span> <a href={`#/${F.key}/chapter`}>Product groups</a></>}
+        sub={`HS chapter ${c.hs2}. Totals and partners cover every product in the chapter.`}>
+        In <strong>{nice(period)}</strong> India {F.verb} <strong>{money(v)}</strong> of {c.name.toLowerCase()}, {share.toFixed(1)}% of all {F.noun}{rank ? <> (no. {rank} of {d.chapters.length} groups)</> : null}
+        {g != null && !partial && <>, {g >= 0 ? 'up' : 'down'} {Math.abs(g).toFixed(1)}% on {c.periods[i - 1]}</>}.
+        {lead && v > 0 && <> The largest {F.partner} was <strong>{lead.name}</strong> with {(((lead.v[i] || 0) / v) * 100).toFixed(1)}%.</>}
+        {bal != null && <> India {bal >= 0 ? 'ran a surplus' : 'ran a deficit'} of <strong>{money(Math.abs(bal))}</strong> in this group.</>}
+        {!partial && fi >= 0 && i > fi && c.v[fi] > 0 && <> Since {full[0]} it has {v >= c.v[fi] ? 'grown' : 'shrunk'} {Math.abs(((v / c.v[fi]) ** (1 / (i - fi)) - 1) * 100).toFixed(1)}% a year on average.</>}
+        {partial && <span className="eb-tr-flag"> Part year only.</span>}
+      </Hero>
+
+      <ul className="eb-tiles eb-tiles-4">
+        <Stat icon="trade" label={F.Noun} value={money(v)} extra={<GrowthPill value={partial ? null : g} neutral={F.neutral} />} sub={nice(period)} />
+        <Stat icon="reserves" label={`Share of India's ${F.noun}`} value={`${share.toFixed(1)}%`} sub={rank ? `Rank ${rank} of ${d.chapters.length}` : nice(period)} />
+        <Stat icon="flows" label="Trade balance" value={bal == null ? '–' : `${bal >= 0 ? '+' : '−'}${money(Math.abs(bal))}`} sub={bal == null ? 'other direction not available' : bal >= 0 ? 'surplus in this group' : 'deficit in this group'} />
+        <Stat icon="growth" label={F.Buyer} value={lead?.name} sub={lead && `${money(lead.v[i])} · ${c.partner_count[i]} ${F.partners}`} />
+      </ul>
+
+      <div className="eb-tr-grid">
+        <Card title={`${F.Noun} by year`} icon="trade" note="US$. Hatched: part year.">
+          <YearColumns periods={c.periods} v={c.v} partial={c.partial} missing={missingOf(d)} height={190} />
+        </Card>
+        {x && m ? (
+          <Card title="Exports, imports and balance" icon="flows" note="Left bar exports, right bar imports; the figure above each pair is the balance. Hatched: part year.">
+            <PairColumns periods={c.periods} x={x} m={m} partial={c.partial} missing={missingOf(d)} height={190} />
+          </Card>
+        ) : null}
+      </div>
+
+      <div className="eb-tr-grid">
+        <Card title={F.whereTitle} icon="flows" note={`${F.whereNote}, ${nice(period)}. Share of this group's ${F.noun}.`}>
+          <BarList rows={pRows.slice(0, 20)} periods={c.periods} index={i} fullYears={full} caption={F.whereNote} neutral={F.neutral} />
+        </Card>
+        {sRows.length ? (
+          <Card title="By state of origin" icon="wholesale" note={`${nice(period)}. Share of this group's exports, by the state where the goods were produced or sourced.`}>
+            <BarList rows={sRows.slice(0, 15)} periods={c.periods} index={i} fullYears={full} caption="States" neutral={F.neutral} />
+          </Card>
+        ) : (
+          <Card title="By 4-digit heading" icon="wholesale" note={`${nice(period)}. Headings of the largest products; together ${cov.toFixed(0)}% of the group.`}>
+            <BarList rows={hRows} periods={c.periods} index={i} fullYears={full} caption="Headings" neutral={F.neutral} />
+          </Card>
+        )}
+      </div>
+
+      {sRows.length ? (
+        <Card title="By 4-digit heading" icon="wholesale" wide note={`${nice(period)}. Headings of the largest products; together ${cov.toFixed(0)}% of the group.`}>
+          <BarList rows={hRows} periods={c.periods} index={i} fullYears={full} caption="Headings" neutral={F.neutral} />
+        </Card>
+      ) : null}
+
+      <Card title={`Products in this group (HS 8-digit)`} icon="wholesale" wide note={`${nice(period)}. The ${lRows.length} lines with trade in ${nice(period)} among India's ${d.products.length} largest ${F.noun}; together ${cov.toFixed(0)}% of the group. Smaller lines are in the totals but not listed.`}>
+        {lRows.length ? <BarList rows={lRows.slice(0, 30)} periods={c.periods} index={i} fullYears={full} caption="Products" neutral={F.neutral} />
+          : <p className="eb-empty">No product in this group is among the {d.products.length} largest, so only the totals and partners are shown.</p>}
+      </Card>
+      {c.headings.some((h) => h.breaks.length) && (
+        <p className="eb-tr-warn">India revised some 8-digit codes in this group (in {[...new Set(c.headings.flatMap((h) => h.breaks))].sort().join(', ').replace(/, ([^,]*)$/, ' and $1')}). Group totals are unaffected; heading and product lines either side of a revision are not fully like for like.</p>
+      )}
+      <p className="eb-tr-source">Source: {c.source}. Partner and state figures are summed from DGCI&S data for every product in the chapter; headings and product lines cover the largest products only.</p>
+    </div>
+  );
+}
+
 export default function TradePage({ base, flow = 'exports', view, arg }) {
   const F = FLOWS[flow] || FLOWS.exports;
   const [basis, choose] = useBasis();
@@ -395,6 +510,8 @@ export default function TradePage({ base, flow = 'exports', view, arg }) {
   let page;
   if (view === 'country' && arg) page = <CountryView key={`${flow}-${basis}-${arg}`} d={d} base={src} id={arg} F={F} />;
   else if (view === 'product' && arg) page = <ProductView key={`${flow}-${basis}-${arg}`} d={d} base={src} hs8={arg} F={F} />;
+  else if (view === 'chapter' && arg) page = <ChapterView key={`${flow}-${basis}-${arg}`} d={d} base={src} hs2={arg} F={F} />;
+  else if (view === 'chapter') page = <AllChapters key={`${flow}-${basis}-all`} d={d} F={F} />;
   else page = <Overview key={`${flow}-${basis}`} d={d} base={src} F={F} />;
   return <>{switcher}{page}</>;
 }

@@ -318,11 +318,11 @@ def trade_insights() -> list:
             continue
         b = [(x or 0) - (y or 0) for x, y in zip(c["v"], m["v"])]
         if (b[BI] > 0) != (b[LI] > 0) and min(abs(b[BI]), abs(b[LI])) >= 300:
-            out.append({"kind": "flip", "theme": "trade", "score": 76, "href": "#/balance", "series": bars(b),
+            out.append({"kind": "flip", "theme": "trade", "score": 76, "href": f"#/exports/chapter/{c['hs2']}", "series": bars(b),
                         "p": {"chapter": c["name"], "hs2": c["hs2"], "from": base, "to": latest, "then": r1(b[BI]), "now": r1(b[LI]),
                               "ytd": r1(b[PI]) if PI is not None else None, "part": part}})
         elif PI is not None and (b[LI] > 0) != (b[PI] > 0) and min(abs(b[LI]), abs(b[PI])) >= 300:
-            out.append({"kind": "flip", "theme": "trade", "score": 74, "href": "#/balance", "series": bars(b),
+            out.append({"kind": "flip", "theme": "trade", "score": 74, "href": f"#/exports/chapter/{c['hs2']}", "series": bars(b),
                         "p": {"chapter": c["name"], "hs2": c["hs2"], "from": latest, "to": part, "then": r1(b[LI]), "now": r1(b[PI]),
                               "ytd": None, "part": part}})
 

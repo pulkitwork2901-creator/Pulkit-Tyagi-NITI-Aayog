@@ -58,6 +58,10 @@ export function GrowthPill({ value, neutral = false }) {
     return <span className="eb-tr-code" title="India revised this 8-digit tariff code this year, so the change on the year before is not like for like.">code revised</span>;
   }
   const tone = neutral ? 'eb-neutral' : value > 0.05 ? 'eb-good' : value < -0.05 ? 'eb-bad' : 'eb-neutral';
+  // From a tiny base a percentage says nothing; show it as a multiple instead.
+  if (value >= 900) {
+    return <span className={`eb-chip ${tone}`}><span aria-hidden="true">▲</span> {value >= 99900 ? 'from near zero' : `${Math.round(value / 100 + 1)}×`}</span>;
+  }
   return (
     <span className={`eb-chip ${tone}`}>
       <span aria-hidden="true">{value > 0.05 ? '▲' : value < -0.05 ? '▼' : '▬'}</span> {signed(`${value > 0 ? '+' : ''}${value.toFixed(1)}%`)}
