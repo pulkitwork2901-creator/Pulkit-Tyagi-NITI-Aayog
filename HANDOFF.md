@@ -45,6 +45,12 @@ Last updated: 23 November 2026. Read this first, then README.md.
 - GST: GST portal JSON feed www.gst.gov.in/fomessage/newsupdates links GSTN's monthly PDF (new file name each month); parsed with pypdf.
 - Commit messages end with the Co-Authored-By and Claude-Session lines given by the system; never put model names in commits.
 
+## Visual upgrades (26 Nov 2026)
+
+- IndicatorPage.jsx: range buttons, CPI band, Context gauge, MonthGrid, 12-row history with show-all. TrendChart props `band` ({lo, hi, label}) and `controls`.
+- trade/TradeVisuals.jsx: Treemap (top 40 chapters plus "other groups") and RankChart (top 10 partners' rank per full year). Both on the trade overview. Styles at the end of board.css use color-mix() with the skin tokens.
+- Deliberately not added: a world or India choropleth. Open map geometries (Natural Earth and similar) do not show India's boundaries as officially depicted, which is not acceptable on a NITI Aayog page; use Survey of India boundaries if a map is ever needed.
+
 ## Product group pages (added 25 Nov 2026)
 
 - `#/<flow>/chapter` and `#/<flow>/chapter/<hs2>`, from scripts/build_chapters.py (workflow step before Discoveries). ChapterView and AllChapters are in TradePage.jsx. Heading names: scripts/hs4_names.py (254 headings that appear in the published products).

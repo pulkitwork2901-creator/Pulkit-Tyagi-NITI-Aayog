@@ -96,6 +96,11 @@ The sidebar (`src/board/Rail.jsx`, labels in English and Hindi) has six groups:
 
 Every page ends with "Related pages" links (`src/board/Related.jsx`). On phones the sidebar becomes one row that scrolls sideways.
 
+## Visual features added in November 2026
+
+- **Indicator pages** (`#/indicator/<id>`): time-range buttons (1Y, 3Y, 5Y, All) on the trend chart; the RBI's 2 to 6% tolerance band on the CPI charts (`TrendChart` takes `band` and `controls`); a "where today sits" gauge with the highest, lowest, average and year-ago readings; a year-by-month heat grid for monthly series; the release table shows the latest 12 with a button for the rest.
+- **Trade overview** (`#/exports`, `#/imports`): a treemap of all product groups, sized by value and coloured by change on the year before, each box linking to its group page; and a rank chart of the ten largest partners across the full years, with places gained or lost (`src/board/trade/TradeVisuals.jsx`, squarified layout written in the file, no chart library).
+
 ## Product groups (HS 2-digit chapters)
 
 `scripts/build_chapters.py` (daily, after the trade files) writes `public/data/trade/{exports,imports}/chapter/<hs2>.json`, and the same under `fy/` for financial years. Each file has the chapter's value by year, India's total, the other direction's value (for the balance), every partner country (top 40 plus "All other", summed from the per-country files, so it covers every product), each state's exports in the chapter (calendar-year exports only), and the HS 4-digit headings and HS 8-digit lines that are among the 300 published products, with the share of the chapter they cover. Heading names are in `scripts/hs4_names.py`.

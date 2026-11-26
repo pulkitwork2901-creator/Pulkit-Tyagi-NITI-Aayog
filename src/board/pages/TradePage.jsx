@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import Icon from '../dashboard/Icon.jsx';
+import { RankChart, Treemap } from '../trade/TradeVisuals.jsx';
 import { BarList, FyTotals, GrowthPill, PairColumns, PeriodSwitch, YearBasis, YearColumns, growth, money, useBasis, useTradeFile } from '../trade/tradeKit.jsx';
 
 // Exports or imports by partner and product from DGCI&S HS 8-digit country
@@ -210,6 +211,12 @@ function Overview({ d, base, F }) {
         <Stat icon="money" label="Top 10 products" value={`${d.top10_product_share[i].toFixed(1)}%`} sub="share, HS 8-digit lines" />
       </ul>
 
+      <Card title={F.key === 'exports' ? `What India sells, ${nice(period)}` : `What India buys, ${nice(period)}`} icon="wholesale" wide
+        note={`Every product group (HS chapter) as a box sized by value and coloured by change on the year before. Click a box for the group's page.`}
+        aside={<a className="eb-more" href={`#/${F.key}/chapter`}>All {d.chapters.length} groups</a>}>
+        <Treemap d={d} i={i} flow={F.key} neutral={F.neutral} />
+      </Card>
+
       <div className="eb-tr-grid">
         <Card title={`${F.Noun} by ${d.basis === 'financial' ? 'financial year' : 'calendar year'}`} icon="trade" note={`US$.${d.partial.length ? ` Hatched: ${d.partial.map(nice).join(', ')}, part year.` : ''}${missing.length ? ` Outline: ${missing.join(', ')}, not yet uploaded.` : ''}`}>
           <YearColumns periods={d.periods} v={d.total} partial={d.partial} missing={missing} height={190} />
@@ -228,6 +235,11 @@ function Overview({ d, base, F }) {
           <BarList rows={pRows.slice(0, TOP)} periods={d.periods} index={i} fullYears={full} caption="Top products" neutral={F.neutral} />
         </Card>
       </div>
+
+      <Card title={`Who climbed and who slipped: India's top 10 ${F.key === 'exports' ? 'markets' : 'suppliers'}`} icon="flows" wide
+        note={`Rank among all ${F.partners} in each full year, for the ten largest in ${full[full.length - 1]}. Arrows: places gained or lost since ${full[0]}. Point at a line to pick it out.`}>
+        <RankChart d={d} flow={F.key} />
+      </Card>
 
       {d.basis !== 'financial' && <FyTotals base={base} />}
 

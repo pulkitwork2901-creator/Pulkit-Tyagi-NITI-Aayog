@@ -6,7 +6,7 @@ const H = 260;
 const M = { top: 26, right: 28, bottom: 32, left: 48 };
 const INSET = 14; // keeps line end points and labels inside the frame
 
-export default function TrendChart({ title, note, points, kind = 'line', formatAxis, formatTip, formatEnd, headingLevel = 3 }) {
+export default function TrendChart({ title, note, points, kind = 'line', formatAxis, formatTip, formatEnd, headingLevel = 3, band: refBand = null, controls = null }) {
   const [ref, W] = useWidth(480);
   const [hover, setHover] = useState(null);
   const gradId = useId();
@@ -19,6 +19,7 @@ export default function TrendChart({ title, note, points, kind = 'line', formatA
     let lo = Math.min(...vals);
     let hi = Math.max(...vals);
     if (kind === 'bar') { lo = Math.min(0, lo); hi = Math.max(0, hi); } else { const pad = (hi - lo) * 0.2 || 1; lo -= pad; hi += pad; }
+    if (refBand) { lo = Math.min(lo, refBand.lo - 0.5); hi = Math.max(hi, refBand.hi + 0.5); }
     const [yMin, yMax, step] = niceScale(lo, hi, 4);
     const ticks = [];
     for (let t = yMin; t <= yMax + step / 2; t += step) ticks.push(Number(t.toFixed(6)));
@@ -48,6 +49,12 @@ export default function TrendChart({ title, note, points, kind = 'line', formatA
       <>
         <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={title}
           onPointerMove={onMove} onPointerLeave={() => setHover(null)}>
+          {refBand ? (
+            <g className="eb-band">
+              <rect x={M.left} width={plotW} y={y(refBand.hi)} height={Math.max(0, y(refBand.lo) - y(refBand.hi))} className="eb-band-fill" />
+              <text x={W - M.right - 6} y={y(refBand.lo) - 6} textAnchor="end" className="eb-band-label">{refBand.label}</text>
+            </g>
+          ) : null}
           {ticks.map((t) => (
             <g key={t}>
               <line x1={M.left} x2={W - M.right} y1={y(t)} y2={y(t)} className={t === 0 ? 'eb-axis' : 'eb-grid'} />
@@ -97,7 +104,10 @@ export default function TrendChart({ title, note, points, kind = 'line', formatA
   return (
     <figure className="eb-chartcard">
       <figcaption>
-        <Heading className="eb-chart-title">{title}</Heading>
+        <div className="eb-chart-headrow">
+          <Heading className="eb-chart-title">{title}</Heading>
+          {controls}
+        </div>
         {note && <p className="eb-chartnote">{note}</p>}
       </figcaption>
       <div ref={ref} className="eb-chart">{body()}</div>
