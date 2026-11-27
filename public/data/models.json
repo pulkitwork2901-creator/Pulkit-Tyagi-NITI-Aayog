@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T13:51:52+00:00",
+ "generated_at": "2026-11-27T13:49:44+00:00",
  "forecasts": [
   {
    "id": "credit_nonfood",
@@ -6895,7 +6895,7 @@
     },
     {
      "m": "2026-11",
-     "x": 44.94,
+     "x": 44.89,
      "y": null
     }
    ],
@@ -6923,7 +6923,7 @@
     },
     {
      "lag": -6,
-     "r": -0.516,
+     "r": -0.517,
      "n": 26
     },
     {
@@ -13951,7 +13951,7 @@
    ]
   },
   "source": "MoSPI CPI API (api.mospi.gov.in), All India combined",
-  "fetched_at": "2026-11-26T13:51:18+00:00"
+  "fetched_at": "2026-11-27T13:49:08+00:00"
  },
  "forecast_record": {
   "entries": [
@@ -15595,7 +15595,7 @@
    "measure": "growth",
    "unit": "% on a year",
    "decimals": 1,
-   "value": 44.939,
+   "value": 44.892,
    "period": "Nov 2026 (to date)",
    "since": "Apr 2021",
    "n": 43,
@@ -15645,7 +15645,7 @@
     30.502,
     66.772,
     84.25,
-    44.939
+    44.892
    ]
   },
   {
